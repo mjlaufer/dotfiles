@@ -1,0 +1,60 @@
+{
+    "window.nativeTabs": false,
+    "window.restoreFullscreen": true,
+    "window.restoreWindows": "all",
+    "workbench.editor.wrapTabs": true,
+    "workbench.activityBar.visible": false,
+    "workbench.statusBar.visible": false,
+    "workbench.settings.editor": "json",
+    "workbench.sideBar.location": "right",
+    "workbench.tree.renderIndentGuides": "none",
+    "workbench.colorTheme": "MJL Gruvbox Dark Contrast",
+    "workbench.iconTheme": "material-icon-theme",
+    "breadcrumbs.enabled": false,
+    "editor.bracketPairColorization.enabled": true,
+    "workbench.colorCustomizations": {
+        "editorBracketHighlight.foreground1": "#fabd2f",
+        "editorBracketHighlight.foreground2": "#d3869b",
+        "editorBracketHighlight.foreground3": "#83a598"
+    },
+    "editor.detectIndentation": false,
+    "editor.folding": false,
+    "editor.fontFamily": "fira code",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 15,
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.lineHeight": 24,
+    "editor.minimap.enabled": false,
+    "editor.overviewRulerBorder": false,
+    "editor.renderIndentGuides": false,
+    "editor.renderLineHighlight": "none",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "explorer.openEditors.visible": 0,
+    "explorer.confirmDragAndDrop": false,
+    "files.associations": {
+        "*.js": "javascript",
+        "*.jsx": "javascriptreact"
+    },
+    "html.format.wrapLineLength": 60,
+    "js/ts.implicitProjectConfig.checkJs": true,
+    "js/ts.implicitProjectConfig.strictNullChecks": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "go.useLanguageServer": true,
+    "[markdown]": {
+        "editor.wordWrap": "wordWrapColumn",
+        "editor.wordWrapColumn": 100,
+        "editor.quickSuggestions": false
+    },
+    "extensions.ignoreRecommendations": false,
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ],
+    "prettier.configPath": ".prettierrc.json",
+    "prettier.tabWidth": 4,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+}
