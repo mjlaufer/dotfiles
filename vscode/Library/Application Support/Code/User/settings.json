@@ -8,7 +8,6 @@
     "workbench.settings.editor": "json",
     "workbench.sideBar.location": "right",
     "workbench.tree.renderIndentGuides": "none",
-    "workbench.colorTheme": "MJL Gruvbox Dark Contrast",
     "workbench.iconTheme": "material-icon-theme",
     "breadcrumbs.enabled": false,
     "editor.bracketPairColorization.enabled": true,
@@ -56,5 +55,6 @@
     ],
     "prettier.configPath": ".prettierrc.json",
     "prettier.tabWidth": 4,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "workbench.colorTheme": "MJL Gruvbox Dark Contrast"
 }

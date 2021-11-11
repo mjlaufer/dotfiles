@@ -91,7 +91,7 @@ After executing the command, restart the terminal for the new $PATH value to tak
 - [DotENV](https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv)
 - [Highlight Matching Tag](https://marketplace.visualstudio.com/items?itemName=vincaslt.highlight-matching-tag)
 - [Quokka](https://marketplace.visualstudio.com/items?itemName=WallabyJs.quokka-vscode)
-- [Themes](https://github.com/mjlaufer/vscode-themes)
+- [Themes](https://marketplace.visualstudio.com/items?itemName=mjlaufer.vscode-themes)
 - [Thunder Client](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client)
 
 ### Install [Node Version Manager](https://github.com/nvm-sh/nvm) and Node.js
