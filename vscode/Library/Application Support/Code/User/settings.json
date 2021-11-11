@@ -3,7 +3,7 @@
     "window.restoreFullscreen": true,
     "window.restoreWindows": "all",
     "workbench.editor.wrapTabs": true,
-    "workbench.activityBar.visible": false,
+    "workbench.activityBar.visible": true,
     "workbench.statusBar.visible": false,
     "workbench.settings.editor": "json",
     "workbench.sideBar.location": "right",

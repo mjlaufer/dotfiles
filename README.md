@@ -16,16 +16,10 @@ Clone this repository into your `$HOME` directory.
 $ git clone https://github.com/mjlaufer/dotfiles.git
 ```
 
-Install [Homebrew Bundle](https://github.com/Homebrew/homebrew-bundle).
+Install the command line utilities, fonts, and GUI macOS apps listed in `./homebrew/.Brewfile`.
 
 ```
 $ brew bundle --file=~/dotfiles/homebrew/.Brewfile
-```
-
-After the `.Brewfile` is symlinked into `~/.Brewfile`, install the command line utilities and GUI macOS apps listed in `./homebrew/.Brewfile`.
-
-```
-$ brew bundle --global
 ```
 
 Now GNU stow should be installed. Run `stow` in simulation mode to see warnings about possible errors.
@@ -49,22 +43,31 @@ Then stow the remaining packages.
 $ stow PACKAGE_NAME
 ```
 
-Install
+Start `yabai` and `skhd`.
+
+```
+$ brew services start yabai
+$ brew services start skhd
+```
 
 ## Manual Setup
 
-### macOS System Preferences
+### iTerm2 Preferences
 
-- Mission Control:
-    - Disable "Automatically rearrange Spaces based on most recent use".
-    - Enable "Displays have separate Spaces".
+Open iTerm2 and navigate to Preferences -> General -> Preferences. Check "Load preferences from a custom folder or URL". Then click "Browse", and find `dotfiles`.
+### Install limelight
 
-### Install [iTerm2 color theme](https://github.com/mjlaufer/iterm-themes)
+```
+cd ~
+git clone https://github.com/koekeishiya/limelight.git
+cd limelight
+make
+ln -s ~/limelight/bin/limelight /usr/local/bin/limelight
+```
 
-### Install fonts
-
-- [Fira Code](https://github.com/tonsky/FiraCode)
-- [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
+Update macOS System Preferences > Mission Control:
+- Disable "Automatically rearrange Spaces based on most recent use".
+- Enable "Displays have separate Spaces".
 
 ### Install the `code` command
 

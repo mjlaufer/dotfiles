@@ -1,15 +1,18 @@
-brew 'fzf'
-brew 'jq'
-brew 'koekeishiya/formulae/limelight'
-brew 'koekeishiya/formulae/skhd'
-brew 'koekeishiya/formulae/yabai'
-brew 'less'
-brew 'stow'
-brew 'tmux'
-
 tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "koekeishiya/formulae"
 
+brew "fzf"
+brew "jq"
+brew "less"
+brew "stow"
+brew "tmux"
+
+# From koekeishiya/formulae tap
+brew "skhd"
+brew "yabai"
+
+cask "font-fira-code"
 cask "iterm2"
-cask "google-chrome"
-cask "firefox-developer-edition"
 cask "visual-studio-code"
+cask "google-chrome"
