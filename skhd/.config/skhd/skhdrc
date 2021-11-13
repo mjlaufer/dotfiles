@@ -12,9 +12,9 @@ ctrl + alt + cmd - backspace : yabai -m window --close
 ctrl + alt + cmd - y : yabai -m window --toggle float
 
 ## Swap window
-ctrl + alt + cmd - j : yabai -m window --swap west
-ctrl + alt + cmd - k : yabai -m window --swap south
-ctrl + alt + cmd - i : yabai -m window --swap north
+ctrl + alt + cmd - h : yabai -m window --swap west
+ctrl + alt + cmd - j : yabai -m window --swap south
+ctrl + alt + cmd - k : yabai -m window --swap north
 ctrl + alt + cmd - l : yabai -m window --swap east
 
 # Rotate tree 90

@@ -7,6 +7,7 @@ brew "jq"
 brew "less"
 brew "stow"
 brew "tmux"
+brew "ranger"
 
 # From koekeishiya/formulae tap
 brew "skhd"
