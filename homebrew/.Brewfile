@@ -10,6 +10,7 @@ brew "ripgrep"
 brew "stow"
 brew "tmux"
 brew "ranger"
+brew "trash"
 
 # From koekeishiya/formulae tap
 brew "skhd"

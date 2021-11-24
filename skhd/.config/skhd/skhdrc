@@ -3,25 +3,50 @@
 ## yabai commands
 
 # Restart the yabai launch agent
-ctrl + alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+ctrl + alt - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
 
 # Close active application
-ctrl + alt + cmd - backspace : yabai -m window --close
+ctrl + alt - backspace : yabai -m window --close
 
-## Toggle window behavior
-ctrl + alt + cmd - y : yabai -m window --toggle float
+# Toggle window behavior
+ctrl + alt - y : yabai -m window --toggle float
 
-## Swap window
-ctrl + alt + cmd - h : yabai -m window --swap west
-ctrl + alt + cmd - j : yabai -m window --swap south
-ctrl + alt + cmd - k : yabai -m window --swap north
-ctrl + alt + cmd - l : yabai -m window --swap east
+# Float and center window
+ctrl + alt - c : yabai -m window --toggle float;\
+                 yabai -m window --grid 4:4:1:1:2:2
 
-# Rotate tree 90
-ctrl + alt + cmd - p : yabai -m space --rotate 90
+# Focus window
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
 
-# Mirror left/right
-ctrl + alt + cmd - o : yabai -m space --mirror y-axis
+# Move window
+ctrl + alt - h : yabai -m window --swap west
+ctrl + alt - j : yabai -m window --swap south
+ctrl + alt - k : yabai -m window --swap north
+ctrl + alt - l : yabai -m window --swap east
+
+# Rotate
+ctrl + alt - o : yabai -m space --rotate 90
+ctrl + alt - p : yabai -m space --rotate 270
+
+# Mirror
+ctrl + alt - i : yabai -m space --mirror y-axis
+ctrl + alt - u : yabai -m space --mirror x-axis
+
+# Resize windows
+shift + alt - h : yabai -m window --resize left:-50:0; \
+                  yabai -m window --resize right:-50:0
+shift + alt - j : yabai -m window --resize bottom:0:50; \
+                  yabai -m window --resize top:0:50
+shift + alt - k : yabai -m window --resize top:0:-50; \
+                  yabai -m window --resize bottom:0:-50
+shift + alt - l : yabai -m window --resize right:50:0; \
+                  yabai -m window --resize left:50:0
+
+# Equalize size of windows
+shift + alt - e : yabai -m space --balance
 
 # ################################################################ #
 # THE FOLLOWING IS AN EXPLANATION OF THE GRAMMAR THAT SKHD PARSES. #
