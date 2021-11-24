@@ -1,6 +1,5 @@
-# Set default editor to VS Code.
 [user]
 	email = matthew.j.laufer@gmail.com
     name = Matthew Laufer
 [core]
-	editor = code --wait
+	editor = nvim

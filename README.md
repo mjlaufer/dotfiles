@@ -52,6 +52,11 @@ $ brew services start skhd
 
 ## Manual Setup
 
+### Neovim Plugins
+
+- Install [vim-plug](https://github.com/junegunn/vim-plug).
+- Open Neovim and run `:PlugInstall`.
+
 ### iTerm2 Preferences
 
 Open iTerm2 and navigate to Preferences -> General -> Preferences. Check "Load preferences from a custom folder or URL". Then click "Browse", and find `dotfiles`.
