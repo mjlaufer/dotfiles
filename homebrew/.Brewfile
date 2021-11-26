@@ -11,6 +11,7 @@ brew "stow"
 brew "tmux"
 brew "ranger"
 brew "trash"
+brew "tree-sitter"
 
 # From koekeishiya/formulae tap
 brew "skhd"

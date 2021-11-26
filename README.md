@@ -52,6 +52,14 @@ $ brew services start skhd
 
 ## Manual Setup
 
+### Install [Node Version Manager](https://github.com/nvm-sh/nvm), Node.js, and TypeScript
+
+```
+$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+$ nvm install node
+$ npm install -g typescript typescript-language-server
+```
+
 ### Neovim Plugins
 
 - Install [vim-plug](https://github.com/junegunn/vim-plug).
@@ -98,13 +106,6 @@ After executing the command, restart the terminal for the new $PATH value to tak
 - [Quokka](https://marketplace.visualstudio.com/items?itemName=WallabyJs.quokka-vscode)
 - [Themes](https://marketplace.visualstudio.com/items?itemName=mjlaufer.vscode-themes)
 - [Thunder Client](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client)
-
-### Install [Node Version Manager](https://github.com/nvm-sh/nvm) and Node.js
-
-```
-$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
-$ nvm install node
-```
 
 ### Add Chrome extensions
 
