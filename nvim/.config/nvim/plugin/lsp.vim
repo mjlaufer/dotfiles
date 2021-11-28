@@ -26,13 +26,13 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-    buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+    buf_set_keymap('n', '<space>d', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
     buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
     buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
     buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
     buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
-    -- efm formatting
+    -- Format on save (using efm)
     if client.resolved_capabilities.document_formatting then
         vim.api.nvim_command [[augroup Format]]
         vim.api.nvim_command [[autocmd! * <buffer>]]
@@ -68,7 +68,7 @@ local eslint = {
 
 -- efm prettier config
 local prettier = {
-    formatCommand = [[$([ -n "$(command -v node_modules/.bin/prettier)" ] && echo "node_modules/.bin/prettier" || echo "prettier") --stdin-filepath ${INPUT} ${--config-precedence:configPrecedence} ${--tab-width:tabWidth} ${--single-quote:singleQuote} ${--trailing-comma:trailingComma}]],
+    formatCommand = "./node_modules/.bin/prettier --stdin-filepath ${INPUT}",
     formatStdin = true,
 }
 
@@ -144,18 +144,11 @@ local saga = require 'lspsaga'
 saga.init_lsp_saga {
     code_action_prompt = {
         enable = false
-    }
+    },
 }
 EOF
 
 " LSP provider to find the cursor word definition and references
-nnoremap <silent> gf <Cmd>Lspsaga lsp_finder<cr>
-" Show hover doc
-nnoremap <silent>K :Lspsaga hover_doc<cr>
-" Show signature help
-nnoremap <silent> gs :Lspsaga signature_help<cr>
+nnoremap <silent> gf <Cmd>Lspsaga lsp_finder<CR>
 " Preview definition
 nnoremap <silent> gp :Lspsaga preview_definition<CR>
-" Code action
-nnoremap <silent><leader>ca :Lspsaga code_action<CR>
-vnoremap <silent><leader>ca :<C-U>Lspsaga range_code_action<CR>
