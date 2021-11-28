@@ -2,6 +2,7 @@ tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "koekeishiya/formulae"
 
+brew "efm-langserver"
 brew "fzf"
 brew "jq"
 brew "less"

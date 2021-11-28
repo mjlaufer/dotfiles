@@ -52,12 +52,17 @@ $ brew services start skhd
 
 ## Manual Setup
 
-### Install [Node Version Manager](https://github.com/nvm-sh/nvm), Node.js, and TypeScript
+### Install [Node Version Manager](https://github.com/nvm-sh/nvm) and Node.js
 
 ```
 $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 $ nvm install node
-$ npm install -g typescript typescript-language-server
+```
+
+### Install Neovim LSP dependencies
+
+```
+$ npm install -g typescript typescript-language-server eslint_d prettier
 ```
 
 ### Neovim Plugins
