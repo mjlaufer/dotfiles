@@ -1,4 +1,9 @@
 lua << EOF
+require'nvim-web-devicons'.setup {
+    override = {};
+    default = true;
+}
+
 require'lualine'.setup {
     options = {
         icons_enabled = true,

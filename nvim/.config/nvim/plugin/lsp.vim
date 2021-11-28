@@ -1,7 +1,3 @@
-" Completion menu options
-set completeopt=menu,menuone,noselect
-let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-
 lua << EOF
 local nvim_lsp = require('lspconfig')
 
@@ -45,31 +41,6 @@ local on_attach = function(client, bufnr)
     end
 end
 
--- Completion
-local cmp = require('cmp')
-local lspkind = require("lspkind")
-
-cmp.setup({
-    snippet = {
-        expand = function(args)
-            require('luasnip').lsp_expand(args.body)
-        end,
-    },
-    mapping = {
-        ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-        ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-        ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' })
-    },
-    sources = {
-        { name = 'nvim_lsp' },
-        { name = 'buffer' },
-        { name = 'luasnip' }
-    },
-    formatting = {
-        format = lspkind.cmp_format({ with_text = false, maxwidth = 50 })
-    }
-})
-
 -- Set up completion using nvim-cmp with Neovim's built-in LSP client.
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
@@ -101,6 +72,7 @@ local prettier = {
     formatStdin = true,
 }
 
+-- Call in efm.setup to determine whether to run eslint_d.
 local has_eslintrc = function() 
     local eslintrc = vim.fn.glob(".eslintrc*", 0, 1)
 
@@ -173,11 +145,6 @@ saga.init_lsp_saga {
     code_action_prompt = {
         enable = false
     }
-}
-
-require'nvim-web-devicons'.setup {
-    override = {};
-    default = true;
 }
 EOF
 
