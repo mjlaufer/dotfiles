@@ -2,17 +2,21 @@ tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "koekeishiya/formulae"
 
-brew "efm-langserver"
 brew "fzf"
 brew "jq"
 brew "less"
-brew "neovim"
-brew "ripgrep"
 brew "stow"
 brew "tmux"
+
+# Ranger
 brew "ranger"
 brew "trash"
+
+# Neovim
+brew "neovim"
+brew "ripgrep"
 brew "tree-sitter"
+brew "efm-langserver"
 
 # From koekeishiya/formulae tap
 brew "skhd"
