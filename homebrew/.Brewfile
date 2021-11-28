@@ -19,6 +19,7 @@ brew "skhd"
 brew "yabai"
 
 cask "font-fira-code"
+cask "font-fira-code-nerd-font"
 cask "iterm2"
 cask "visual-studio-code"
 cask "google-chrome"

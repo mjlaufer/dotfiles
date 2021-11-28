@@ -36,7 +36,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
     buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
-    -- Formatting
+    -- efm formatting
     if client.resolved_capabilities.document_formatting then
         vim.api.nvim_command [[augroup Format]]
         vim.api.nvim_command [[autocmd! * <buffer>]]
@@ -156,6 +156,17 @@ nvim_lsp.efm.setup {
         "typescript.tsx"
     }
 }
+
+-- Diagnostic icons
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+        underline = true,
+        virtual_text = {
+            spacing = 4,
+            prefix = ' '
+        }
+    }
+)
 
 local saga = require 'lspsaga'
 saga.init_lsp_saga {

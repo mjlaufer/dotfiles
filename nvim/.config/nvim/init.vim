@@ -22,6 +22,9 @@ Plug 'L3MON4D3/LuaSnip'
 " Icons
 Plug 'kyazdani42/nvim-web-devicons'
 
+" Status line
+Plug 'nvim-lualine/lualine.nvim'
+
 call plug#end()
 
 let mapleader = " "
