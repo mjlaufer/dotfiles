@@ -1,7 +1,11 @@
-colorscheme gruvbox
+" Enable True Color support.
+set termguicolors
+
 set background=dark
+
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_bold = 0
+colorscheme gruvbox
 
 lua << EOF
 require'nvim-treesitter.configs'.setup {

@@ -24,6 +24,3 @@ set nobackup
 " Remove highlight from search term when search is complete.
 set nohlsearch
 set incsearch
-
-" Enable True Color support.
-set termguicolors
