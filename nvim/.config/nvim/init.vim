@@ -2,6 +2,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-vinegar'
 Plug 'gruvbox-community/gruvbox'
 Plug 'nvim-treesitter/nvim-treesitter', {'branch': '0.5-compat', 'do': ':TSUpdate'}
 
@@ -36,11 +37,20 @@ call plug#end()
 let mapleader = " "
 
 " Source vimrc
-nnoremap <leader><cr> :so ~/dotfiles/nvim/.config/nvim/init.vim<cr>
+nnoremap <leader><cr> :so ~/dotfiles/nvim/.config/nvim/init.vim<CR>
+
+" Git diff (Fugitive)
+nnoremap <leader>gd :Gvdiffsplit<CR>
 
 " Netrw
-let g:netrw_winsize = 40
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 0
 let g:netrw_banner = 0
-nnoremap <leader>e :Vex<cr>
+let g:netrw_liststyle = 3
+let g:netrw_winsize = 25
+let g:netrw_browse_split = 4
+
+augroup ProjectDrawer
+    autocmd!
+    autocmd VimEnter * :Lex!
+augroup END
+
+nnoremap <leader>e :Lex!<CR>

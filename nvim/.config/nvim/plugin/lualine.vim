@@ -10,7 +10,7 @@ require'lualine'.setup {
         theme = 'gruvbox',
         section_separators = {left = '', right = ''},
         component_separators = {left = '', right = ''},
-        disabled_filetypes = {}
+        disabled_filetypes = {},
     },
     sections = {
         lualine_a = {'mode'},
@@ -18,11 +18,10 @@ require'lualine'.setup {
         lualine_c = {'filename'},
         lualine_x = {
             { 'diagnostics', sources = { "nvim_lsp" }, symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' } },
-            'encoding',
             'filetype'
         },
-        lualine_y = {'progress'},
-        lualine_z = {'location'}
+        lualine_y = {},
+        lualine_z = {},
     },
     inactive_sections = {
         lualine_a = {},
@@ -30,9 +29,9 @@ require'lualine'.setup {
         lualine_c = {'filename'},
         lualine_x = {'location'},
         lualine_y = {},
-        lualine_z = {}
+        lualine_z = {},
     },
     tabline = {},
-    extensions = {'fugitive'}
+    extensions = {'fugitive'},
 }
 EOF
