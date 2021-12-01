@@ -6,6 +6,9 @@ Plug 'tpope/vim-vinegar'
 Plug 'gruvbox-community/gruvbox'
 Plug 'nvim-treesitter/nvim-treesitter', {'branch': '0.5-compat', 'do': ':TSUpdate'}
 
+" Bracket pairing
+Plug 'jiangmiao/auto-pairs'
+
 " Telescope
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
