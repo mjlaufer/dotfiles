@@ -1,4 +1,3 @@
-lua << EOF
 local nvim_lsp = require('lspconfig')
 
 -- Use an on_attach function to only map the following keys
@@ -146,9 +145,8 @@ saga.init_lsp_saga {
         enable = false
     },
 }
-EOF
 
-" LSP provider to find the cursor word definition and references
-nnoremap <silent> gf <Cmd>Lspsaga lsp_finder<CR>
-" Preview definition
-nnoremap <silent> gp :Lspsaga preview_definition<CR>
+-- LSP provider to find the cursor word definition and references
+vim.api.nvim_set_keymap('n', 'gf', ':Lspsaga lsp_finder<CR>', { noremap=true, silent=true })
+-- Preview definition
+vim.api.nvim_set_keymap('n', 'gp', ':Lspsaga preview_definition<CR>', { noremap=true, silent=true })

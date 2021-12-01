@@ -1,4 +1,3 @@
-lua << EOF
 require'nvim-web-devicons'.setup {
     override = {};
     default = true;
@@ -34,4 +33,3 @@ require'lualine'.setup {
     tabline = {},
     extensions = {'fugitive'},
 }
-EOF
