@@ -3,11 +3,15 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-dispatch'
 Plug 'gruvbox-community/gruvbox'
 Plug 'nvim-treesitter/nvim-treesitter', {'branch': '0.5-compat', 'do': ':TSUpdate'}
 
 " Bracket pairing
 Plug 'jiangmiao/auto-pairs'
+
+" Terminal
+Plug 'akinsho/toggleterm.nvim'
 
 " Telescope
 Plug 'nvim-lua/plenary.nvim'
