@@ -2,17 +2,31 @@
 
 ## Prerequisites
 
-This repository is intended for use with macOS. It assumes that you have installed the following:
+This repository is intended for use with macOS.
 
--   [Homebrew](https://brew.sh/)
--   [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
+1. Install [Homebrew](https://brew.sh/).
 
-## Install dotfiles
-
-Clone this repository into your `$HOME` directory.
+2. Clone this repository into your `$HOME` directory.
 
 ```
-$ git clone https://github.com/mjlaufer/dotfiles.git
+$ git clone https://github.com/mjlaufer/dotfiles.git ~/dotfiles
+```
+
+## Installation
+
+Run the install script.
+
+```
+$ ~/dotfiles/install.sh
+```
+
+## Manual installation
+
+Install Zsh plugins.
+
+```
+$ cd ~/dotfiles
+$ git submodule update --recursive --init
 ```
 
 Install the command line utilities, fonts, and GUI macOS apps listed in `.Brewfile`.
@@ -26,32 +40,23 @@ Now GNU stow should be installed. Run `stow` in simulation mode to see warnings 
 Stow throws an error if the symlink destination already exists. Delete these existing files (or change their names) before stowing your custom versions.
 
 ```
-$ cd ~/dotfiles
 $ stow -n PACKAGE_NAME
 ```
 
-If there are no warnings, you may use `stow` to symlink your dotfiles. Start by installing the Zsh plugins.
-
-```
-$ git submodule update --recursive --init
-```
-
-Stow packages.
+If there are no warnings, you may use `stow` to symlink your dotfiles.
 
 ```
 $ stow PACKAGE_NAME
 ```
 
-## Install Node.js dependencies
-
-### Install [Node Version Manager](https://github.com/nvm-sh/nvm) and Node.js
+Install [Node Version Manager](https://github.com/nvm-sh/nvm) and Node.js.
 
 ```
 $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 $ nvm install node
 ```
 
-### Install Neovim LSP dependencies
+Install Neovim LSP dependencies.
 
 ```
 $ npm install -g typescript typescript-language-server eslint_d
