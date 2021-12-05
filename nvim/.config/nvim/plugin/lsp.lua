@@ -67,55 +67,35 @@ local eslint = {
 
 -- efm prettier config
 local prettier = {
-    formatCommand = "./node_modules/.bin/prettier --stdin-filepath ${INPUT}",
+    formatCommand = "prettier --stdin-filepath ${INPUT}",
     formatStdin = true,
 }
-
--- Call in efm.setup to determine whether to run eslint_d.
-local has_eslintrc = function() 
-    local eslintrc = vim.fn.glob(".eslintrc*", 0, 1)
-
-    if not vim.tbl_isempty(eslintrc) then
-        return true
-    end
-
-    if vim.fn.filereadable("package.json") then
-        if vim.fn.json_decode(vim.fn.readfile("package.json"))["eslintConfig"] then
-            return true
-        end
-    end
-
-    return false
-end
 
 nvim_lsp.efm.setup {
     on_attach = on_attach,
     capabilities = capabilities, 
     init_options = { documentFormatting = true },
-    root_dir = function(_)
-        if not has_eslintrc() then
-            return nil
-        end
+    root_dir = function()
         return vim.fn.getcwd()
     end,
     settings = {
-        rootMarkers = { ".eslintrc.json", ".git/" },
+        rootMarkers = { ".eslintrc.json", ".prettierrc.json", ".git/" },
         languages = {
-            lua = {
-                { formatCommand = "lua-format -i", formatStdin = true }
-            },
             javascript = { prettier, eslint },
             javascriptreact = { prettier, eslint },
             ["javascriptreact.jsx"] = { prettier, eslint },
             typescript = { prettier, eslint },
             typescriptreact = { prettier, eslint },
             ["typescriptreact.tsx"] = { prettier, eslint },
-            yaml = { prettier },
             json = { prettier },
             html = { prettier },
-            scss = { prettier },
             css = { prettier },
-            markdown = { prettier }
+            scss = { prettier },
+            markdown = { prettier },
+            yaml = { prettier },
+            lua = {
+                { formatCommand = "lua-format -i", formatStdin = true }
+            },
         }
     },
     filetypes = {
@@ -124,7 +104,9 @@ nvim_lsp.efm.setup {
         "javascript.jsx",
         "typescript",
         "typescriptreact",
-        "typescript.tsx"
+        "typescript.tsx",
+        "markdown",
+        "yaml",
     }
 }
 

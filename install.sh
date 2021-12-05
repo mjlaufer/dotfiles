@@ -15,9 +15,10 @@ cd ~/dotfiles
 # Zsh plugins
 git submodule update --init --recursive
 
+# Homebrew
 brew bundle --file=~/dotfiles/.Brewfile
 
-# Stow dotfiles
+# GNU Stow for dotfiles
 for source in ~/dotfiles/*; do
     if [ -d "$source" ]; then
         echo "Stowing $source..."
@@ -26,7 +27,7 @@ for source in ~/dotfiles/*; do
     fi
 done
 
-# Node.js
+# Node.js and Neovim LSP
 if [[ $("which" node) ]]; then
     echo "\nNode.js is installed."
 else
@@ -34,8 +35,8 @@ else
     bash -c "$(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh)"
     nvm install node
 
-    echo "Installing TypeScript language server dependencies..."
-    npm install -g typescript typescript-language-server eslint_d
+    echo "Installing Neovim LSP dependencies..."
+    npm install -g typescript typescript-language-server prettier eslint_d
 fi
 
 echo "\nSuccess."

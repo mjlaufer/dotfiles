@@ -35,7 +35,7 @@ Install the command line utilities, fonts, and GUI macOS apps listed in `.Brewfi
 $ brew bundle --file=~/dotfiles/.Brewfile
 ```
 
-Now GNU stow should be installed. Run `stow` in simulation mode to see warnings about possible errors.
+Now GNU Stow should be installed. Run `stow` in simulation mode to see warnings about possible errors.
 
 Stow throws an error if the symlink destination already exists. Delete these existing files (or change their names) before stowing your custom versions.
 
@@ -59,7 +59,7 @@ $ nvm install node
 Install Neovim LSP dependencies.
 
 ```
-$ npm install -g typescript typescript-language-server eslint_d
+$ npm install -g typescript typescript-language-server prettier eslint_d
 ```
 
 ## Customize iTerm2 and Neovim
@@ -108,29 +108,29 @@ After executing the command, restart the terminal for the new $PATH value to tak
 ### Install extensions
 
 -   [Debugger for Firefox](https://marketplace.visualstudio.com/items?itemName=firefox-devtools.vscode-firefox-debug)
+-   [DotENV](https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv)
 -   [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
 -   [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+-   [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
 -   [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
--   [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
--   [Version Lens](https://marketplace.visualstudio.com/items?itemName=pflannery.vscode-versionlens)
+-   [Highlight Matching Tag](https://marketplace.visualstudio.com/items?itemName=vincaslt.highlight-matching-tag)
 -   [Image Preview](https://marketplace.visualstudio.com/items?itemName=kisstkondoros.vscode-gutter-preview)
 -   [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
 -   [npm](https://marketplace.visualstudio.com/items?itemName=eg2.vscode-npm-script&ssr=false#review-details)
 -   [npm Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense)
 -   [Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)
--   [DotENV](https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv)
--   [Highlight Matching Tag](https://marketplace.visualstudio.com/items?itemName=vincaslt.highlight-matching-tag)
+-   [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 -   [Quokka](https://marketplace.visualstudio.com/items?itemName=WallabyJs.quokka-vscode)
 -   [Themes](https://marketplace.visualstudio.com/items?itemName=mjlaufer.vscode-themes)
--   [Thunder Client](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client)
+-   [Version Lens](https://marketplace.visualstudio.com/items?itemName=pflannery.vscode-versionlens)
 
 ## Add Browser extensions
 
 ### Chrome
 
+-   [axe - Web Accessibility Testing](https://chrome.google.com/webstore/detail/axe-web-accessibility-tes/lhdoppojpmngadmnindnejefpokejbdd?hl=en-US)
 -   [JSON Formatter](https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=en)
 -   [Web Vitals](https://chrome.google.com/webstore/detail/web-vitals/ahfhijdlegdabablpippeagghigmibma?hl=en)
--   [axe - Web Accessibility Testing](https://chrome.google.com/webstore/detail/axe-web-accessibility-tes/lhdoppojpmngadmnindnejefpokejbdd?hl=en-US)
 -   [Requestly](https://chrome.google.com/webstore/detail/requestly-redirect-url-mo/mdnleldcmiljblolnjhpnblkcekpdkpa?hl=en)
 -   [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
 -   [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
