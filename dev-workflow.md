@@ -26,6 +26,7 @@ A `target-session` may be identified by one of the following:
 -   Attach to a session: `tmux attach -t target-session`
 -   Detach from current session: `<prefix> d`
 -   Next/previous session: `<prefix> (`/`<prefix> )`
+-   Alternate session: `<prefix> L`
 -   Rename current session: `<prefix> $`
 -   Rename target session: `tmux rename [-t target-session] new-name`
 -   Kill session: `tmux kill-session -t target-session`

@@ -3,10 +3,13 @@ require'nvim-web-devicons'.setup {
     default = true;
 }
 
+local custom_gruvbox = require'lualine.themes.gruvbox'
+custom_gruvbox.normal.a.bg = '#b8bb26' -- gruvbox-dark light-green
+
 require'lualine'.setup {
     options = {
         icons_enabled = true,
-        theme = 'gruvbox',
+        theme = custom_gruvbox,
         section_separators = {left = '', right = ''},
         component_separators = {left = '', right = ''},
         disabled_filetypes = {},

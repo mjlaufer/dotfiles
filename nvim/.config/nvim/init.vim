@@ -46,6 +46,9 @@ let mapleader = " "
 " Source vimrc
 nnoremap <leader><cr> :so ~/dotfiles/nvim/.config/nvim/init.vim<CR>
 
+" tmux-sessionizer
+nnoremap <silent> <C-f> :silent !tmux neww tmux-sessionizer<CR>
+
 " Git diff (Fugitive)
 nnoremap <leader>gd :Gvdiffsplit<CR>
 

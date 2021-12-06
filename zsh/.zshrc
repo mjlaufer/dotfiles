@@ -57,7 +57,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$PATH
+export PATH=$HOME/.local/bin:$GOPATH/bin:$PATH
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -85,6 +85,9 @@ export PATH=$GOPATH/bin:$PATH
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# C-f to run tmux-sessionizer
+bindkey -s ^f "tmux-sessionizer\n"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
