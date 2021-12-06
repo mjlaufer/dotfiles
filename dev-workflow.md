@@ -45,7 +45,8 @@ A `target-window` may be identified by one of the following:
 
 -   List sessions and windows: `<prefix> w`
 -   List windows in a session: `tmux lsw -t target-session`
--   Create a new window: `tmux neww [-c start-dir] [-n window-name] [shell-cmd]`
+-   Create a new window: `<prefix> c`
+-   Create a new window (with args): `tmux neww [-c start-dir] [-n window-name] [shell-cmd]`
 -   Select window: `<prefix> window-index`
 -   Next/previous window: `<prefix> n`/`<prefix> p`
 -   Rename current window: `<prefix> ,`
