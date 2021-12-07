@@ -38,6 +38,9 @@ Plug 'kyazdani42/nvim-web-devicons'
 " Status line
 Plug 'nvim-lualine/lualine.nvim'
 
+" Smooth scrolling for C-d and C-u
+Plug 'psliwka/vim-smoothie'
+
 call plug#end()
 
 let mapleader = " "
