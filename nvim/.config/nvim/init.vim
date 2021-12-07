@@ -25,7 +25,6 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-nvim-lua'
-Plug 'glepnir/lspsaga.nvim'
 Plug 'onsails/lspkind-nvim'
 
 " Snippets
