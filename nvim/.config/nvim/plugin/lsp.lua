@@ -75,12 +75,12 @@ local prettier = {
 nvim_lsp.efm.setup {
     on_attach = on_attach,
     capabilities = capabilities, 
-    init_options = { documentFormatting = true },
-    root_dir = function()
-        return vim.fn.getcwd()
+    init_options = { documentFormatting = true, codeAction = true },
+    root_dir = function(fname)
+        return require('lspconfig/util').root_pattern(".git")(fname) or vim.fn.getcwd()
     end,
     settings = {
-        rootMarkers = { ".eslintrc.json", ".prettierrc.json", ".git/" },
+        rootMarkers = { ".eslintrc.json", ".eslintrc.js", ".prettierrc.json", ".prettierrc.js", ".git/" },
         languages = {
             javascript = { prettier, eslint },
             javascriptreact = { prettier, eslint },
