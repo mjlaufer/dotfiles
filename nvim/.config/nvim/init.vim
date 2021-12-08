@@ -32,6 +32,10 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'rafamadriz/friendly-snippets'
 Plug 'saadparwaiz1/cmp_luasnip'
 
+" Debugger
+Plug 'mfussenegger/nvim-dap'
+Plug 'Pocco81/DAPInstall.nvim'
+
 " Icons
 Plug 'kyazdani42/nvim-web-devicons'
 
