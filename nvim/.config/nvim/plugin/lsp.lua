@@ -75,7 +75,7 @@ local prettier = {
 nvim_lsp.efm.setup {
     on_attach = on_attach,
     capabilities = capabilities, 
-    init_options = { documentFormatting = true, codeAction = true },
+    init_options = { documentFormatting = true },
     root_dir = function(fname)
         return require('lspconfig/util').root_pattern(".git")(fname) or vim.fn.getcwd()
     end,
@@ -116,8 +116,12 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
         underline = true,
         virtual_text = {
-            spacing = 4,
-            prefix = ' '
+            spacing = 2,
         }
     }
 )
+
+vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "GruvboxRed" })
+vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "GruvboxYellow" })
+vim.fn.sign_define("DiagnosticSignInformation", { text = "", texthl = "GruvboxBlue" })
+vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "GruvboxAqua" })
