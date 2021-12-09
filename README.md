@@ -8,58 +8,58 @@ This repository is intended for use with macOS.
 
 2. Clone this repository into your `$HOME` directory.
 
-```
-$ git clone https://github.com/mjlaufer/dotfiles.git ~/dotfiles
+```sh
+git clone https://github.com/mjlaufer/dotfiles.git ~/dotfiles
 ```
 
 ## Installation
 
 Run the install script.
 
-```
-$ ~/dotfiles/install.sh
+```sh
+~/dotfiles/install.sh
 ```
 
 ## Manual installation
 
 Install Zsh plugins.
 
-```
-$ cd ~/dotfiles
-$ git submodule update --recursive --init
+```sh
+cd ~/dotfiles
+git submodule update --recursive --init
 ```
 
 Install the command line utilities, fonts, and GUI macOS apps listed in `.Brewfile`.
 
-```
-$ brew bundle --file=~/dotfiles/.Brewfile
+```sh
+brew bundle --file=~/dotfiles/.Brewfile
 ```
 
 Now GNU Stow should be installed. Run `stow` in simulation mode to see warnings about possible errors.
 
 Stow throws an error if the symlink destination already exists. Delete these existing files (or change their names) before stowing your custom versions.
 
-```
-$ stow -n PACKAGE_NAME
+```sh
+stow -n PACKAGE_NAME
 ```
 
 If there are no warnings, you may use `stow` to symlink your dotfiles.
 
-```
-$ stow PACKAGE_NAME
+```sh
+stow PACKAGE_NAME
 ```
 
 Install [Node Version Manager](https://github.com/nvm-sh/nvm) and Node.js.
 
-```
-$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
-$ nvm install node
+```sh
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+nvm install node
 ```
 
 Install Neovim LSP dependencies.
 
-```
-$ npm install -g typescript typescript-language-server prettier eslint_d
+```sh
+npm install -g typescript typescript-language-server prettier eslint_d
 ```
 
 ## Customize iTerm2 and Neovim
@@ -82,7 +82,7 @@ Update macOS System Preferences > Mission Control:
 
 ### Install limelight
 
-```
+```sh
 cd ~
 git clone https://github.com/koekeishiya/limelight.git
 cd limelight
@@ -92,9 +92,9 @@ ln -s ~/limelight/bin/limelight /usr/local/bin/limelight
 
 Start yabai and skhd.
 
-```
-$ brew services start yabai
-$ brew services start skhd
+```sh
+brew services start yabai
+brew services start skhd
 ```
 
 ## Customize VS Code
