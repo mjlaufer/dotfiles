@@ -35,6 +35,7 @@ Plug 'saadparwaiz1/cmp_luasnip'
 " Debugger
 Plug 'mfussenegger/nvim-dap'
 Plug 'Pocco81/DAPInstall.nvim'
+Plug 'nvim-telescope/telescope-dap.nvim'
 
 " Icons
 Plug 'kyazdani42/nvim-web-devicons'
