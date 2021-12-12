@@ -1,14 +1,16 @@
 # Dev Workflow
 
+## Window Tiling with Yabai
+
+Focus window: `Opt-h/j/k/l`
+Move window: `Ctrl-Opt-h/j/k/l`
+Rotate counter-clockwise: `Ctrl-Opt-o`
+Rotate clockwise: `Ctrl-Opt-p`
+Mirror y-axis: `Ctrl-Opt-i`
+Mirror x-axis: `Ctrl-Opt-u`
+Resize: `Shift-Opt-h/j/k/l`
+
 ## tmux
-
-### Getting Started
-
-Launch terminal: Cmd-\
-
-Start tmux: `tmux`
-
-Close terminal (EOF): `C-d`
 
 ### tmux Sessions
 
@@ -97,4 +99,6 @@ Run the Chrome debugger.
 
 ```sh
 chrome-debug
-````
+```
+
+-   `<leader>dc`: Start/continue.
