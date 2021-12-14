@@ -93,6 +93,13 @@ Use the Telescope plugin (a fuzzy finder) to find files.
 
 ### Debugging
 
+Open Vim, and install debuggers.
+
+```
+:DIList
+:DIInstall
+```
+
 #### JavaScript and TypeScript
 
 Run the Chrome debugger.

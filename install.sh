@@ -36,7 +36,7 @@ else
     nvm install node
 
     echo "Installing Neovim LSP dependencies..."
-    npm install -g typescript typescript-language-server prettier eslint_d
+    npm install -g typescript typescript-language-server eslint_d
 fi
 
 echo "\nSuccess."
