@@ -1,8 +1,9 @@
+vim.cmd([[
 " Completion menu options
 set completeopt=menu,menuone,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+]])
 
-lua << EOF
 local cmp = require('cmp')
 local lspkind = require('lspkind')
 
@@ -44,4 +45,3 @@ cmp.setup({
         }),
     }
 })
-EOF
