@@ -4,6 +4,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-surround'
+
+" Colors
 Plug 'gruvbox-community/gruvbox'
 Plug 'nvim-treesitter/nvim-treesitter', {'branch': '0.5-compat', 'do': ':TSUpdate'}
 
@@ -26,11 +29,11 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'onsails/lspkind-nvim'
+Plug 'saadparwaiz1/cmp_luasnip'
 
 " Snippets
 Plug 'L3MON4D3/LuaSnip'
 Plug 'rafamadriz/friendly-snippets'
-Plug 'saadparwaiz1/cmp_luasnip'
 
 " Debugger
 Plug 'mfussenegger/nvim-dap'
