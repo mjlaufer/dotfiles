@@ -1,25 +1,25 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
-Plug 'tpope/vim-vinegar'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-surround'
-
-" Colors
+" Colors and icons
 Plug 'gruvbox-community/gruvbox'
 Plug 'nvim-treesitter/nvim-treesitter', {'branch': '0.5-compat', 'do': ':TSUpdate'}
+Plug 'kyazdani42/nvim-web-devicons'
 
-" Bracket pairing
-Plug 'jiangmiao/auto-pairs'
-
-" Terminal
-Plug 'akinsho/toggleterm.nvim'
+" Editor
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-surround'
+Plug 'windwp/nvim-autopairs'
 
 " Telescope
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
+
+" Git
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'APZelos/blamer.nvim'
 
 " LSP and completion
 Plug 'neovim/nvim-lspconfig'
@@ -40,8 +40,8 @@ Plug 'mfussenegger/nvim-dap'
 Plug 'Pocco81/DAPInstall.nvim'
 Plug 'nvim-telescope/telescope-dap.nvim'
 
-" Icons
-Plug 'kyazdani42/nvim-web-devicons'
+" Integrated terminal
+Plug 'akinsho/toggleterm.nvim'
 
 " Status line
 Plug 'nvim-lualine/lualine.nvim'
