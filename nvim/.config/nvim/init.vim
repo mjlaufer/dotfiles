@@ -6,7 +6,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'branch': '0.5-compat', 'do': ':TSUpdat
 Plug 'kyazdani42/nvim-web-devicons'
 
 " Editor
-Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-surround'
 Plug 'windwp/nvim-autopairs'
 
@@ -39,6 +38,9 @@ Plug 'rafamadriz/friendly-snippets'
 Plug 'mfussenegger/nvim-dap'
 Plug 'Pocco81/DAPInstall.nvim'
 Plug 'nvim-telescope/telescope-dap.nvim'
+
+" File Explorer
+Plug 'kyazdani42/nvim-tree.lua'
 
 " Integrated terminal
 Plug 'akinsho/toggleterm.nvim'
@@ -73,11 +75,3 @@ vnoremap K :m '<-2<CR>gv=gv
 
 " Git diff (Fugitive)
 nnoremap <leader>gd :Gvdiffsplit<CR>
-
-" Netrw
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_winsize = 25
-let g:netrw_browse_split = 4
-
-nnoremap <leader>ex :Lex!<CR>

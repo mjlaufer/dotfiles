@@ -78,11 +78,7 @@ using a tmux split).
 -   `<leader>th`: Toggle terminal in a horizontal split below.
 -   `<leader>tu`: Toggle a floating terminal.
 
-We can also use Vim splits to display the Netrw file explorer.
-
--   `<leader>e`: Toggle Netrw in a vertical split to the right.
-
-Lastly, we can use Vim splits to display more than one buffer in a Vim instance.
+Use Vim splits to display more than one buffer in a Vim instance.
 
 -   `:vsp`: Display a vertical split.
 -   `:sp`: Display a horizontal split.
