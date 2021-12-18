@@ -19,6 +19,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'APZelos/blamer.nvim'
+Plug 'sindrets/diffview.nvim'
 
 " LSP and completion
 Plug 'neovim/nvim-lspconfig'
@@ -39,7 +40,7 @@ Plug 'mfussenegger/nvim-dap'
 Plug 'Pocco81/DAPInstall.nvim'
 Plug 'nvim-telescope/telescope-dap.nvim'
 
-" File Explorer
+" File explorer
 Plug 'kyazdani42/nvim-tree.lua'
 
 " Integrated terminal
@@ -72,6 +73,3 @@ nnoremap <leader>P "+P<CR>
 " Move selected lines up/down
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
-
-" Git diff (Fugitive)
-nnoremap <leader>gd :Gvdiffsplit<CR>

@@ -9,3 +9,12 @@ vim.cmd([[
 ]]) 
 
 require('gitsigns').setup()
+
+require('diffview').setup({
+    use_icons = true,
+})
+
+vim.cmd([[
+    nnoremap <leader>gd :DiffviewOpen<CR>
+    nnoremap <leader>gdc :DiffviewClose<CR>
+]])
