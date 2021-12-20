@@ -54,16 +54,10 @@ nvim_lsp.tsserver.setup {
     capabilities = capabilities
 }
 
--- efm eslint config
-local eslint = {
-    lintCommand = "eslint_d -f visualstudio --stdin --stdin-filename ${INPUT}",
-    lintIgnoreExitCode = true,
-    lintStdin = true,
-    lintFormats = {
-        "%f(%l,%c): %tarning %m",
-        "%f(%l,%c): %rror %m",
-    },
-    lintSource = "eslint",
+nvim_lsp.eslint.setup {
+    settings = {
+        format = false
+    }
 }
 
 -- efm prettier config
@@ -80,14 +74,14 @@ nvim_lsp.efm.setup {
         return require('lspconfig/util').root_pattern(".git")(fname) or vim.fn.getcwd()
     end,
     settings = {
-        rootMarkers = { ".eslintrc.json", ".eslintrc.js", ".prettierrc.json", ".prettierrc.js", ".git/" },
+        rootMarkers = { ".prettierrc.json", ".prettierrc.js", ".git/" },
         languages = {
-            javascript = { prettier, eslint },
-            javascriptreact = { prettier, eslint },
-            ["javascriptreact.jsx"] = { prettier, eslint },
-            typescript = { prettier, eslint },
-            typescriptreact = { prettier, eslint },
-            ["typescriptreact.tsx"] = { prettier, eslint },
+            javascript = { prettier },
+            javascriptreact = { prettier },
+            ["javascriptreact.jsx"] = { prettier },
+            typescript = { prettier  },
+            typescriptreact = { prettier },
+            ["typescriptreact.tsx"] = { prettier },
             json = { prettier },
             html = { prettier },
             css = { prettier },
