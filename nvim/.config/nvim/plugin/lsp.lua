@@ -62,7 +62,7 @@ nvim_lsp.eslint.setup {
 
 -- efm prettier config
 local prettier = {
-    formatCommand = "./node_modules/.bin/prettier --stdin-filepath ${INPUT}",
+    formatCommand = './node_modules/.bin/prettier --stdin-filepath ${INPUT}',
     formatStdin = true,
 }
 
@@ -71,17 +71,17 @@ nvim_lsp.efm.setup {
     capabilities = capabilities, 
     init_options = { documentFormatting = true },
     root_dir = function(fname)
-        return require('lspconfig/util').root_pattern(".git")(fname) or vim.fn.getcwd()
+        return require('lspconfig/util').root_pattern('.git')(fname) or vim.fn.getcwd()
     end,
     settings = {
-        rootMarkers = { ".prettierrc.json", ".prettierrc.js", ".git/" },
+        rootMarkers = { '.prettierrc.json', '.prettierrc.js', 'prettier.config.js', '.git/' },
         languages = {
             javascript = { prettier },
             javascriptreact = { prettier },
-            ["javascriptreact.jsx"] = { prettier },
+            ['javascriptreact.jsx'] = { prettier },
             typescript = { prettier  },
             typescriptreact = { prettier },
-            ["typescriptreact.tsx"] = { prettier },
+            ['typescriptreact.tsx'] = { prettier },
             json = { prettier },
             html = { prettier },
             css = { prettier },
@@ -89,24 +89,29 @@ nvim_lsp.efm.setup {
             markdown = { prettier },
             yaml = { prettier },
             lua = {
-                { formatCommand = "lua-format -i", formatStdin = true }
+                { formatCommand = 'lua-format -i', formatStdin = true }
             },
         }
     },
     filetypes = {
-        "javascript",
-        "javascriptreact",
-        "javascript.jsx",
-        "typescript",
-        "typescriptreact",
-        "typescript.tsx",
-        "markdown",
-        "yaml",
+        'javascript',
+        'javascriptreact',
+        'javascript.jsx',
+        'typescript',
+        'typescriptreact',
+        'typescript.tsx',
+        'json',
+        'html',
+        'css',
+        'scss',
+        'markdown',
+        'yaml',
+        'lua',
     }
 }
 
 -- Diagnostic icons
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
         underline = true,
         virtual_text = {
@@ -115,7 +120,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     }
 )
 
-vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "GruvboxRed" })
-vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "GruvboxYellow" })
-vim.fn.sign_define("DiagnosticSignInformation", { text = "", texthl = "GruvboxBlue" })
-vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "GruvboxAqua" })
+vim.fn.sign_define('DiagnosticSignError', { text = '', texthl = 'GruvboxRed' })
+vim.fn.sign_define('DiagnosticSignWarn', { text = '', texthl = 'GruvboxYellow' })
+vim.fn.sign_define('DiagnosticSignInformation', { text = '', texthl = 'GruvboxBlue' })
+vim.fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'GruvboxAqua' })
