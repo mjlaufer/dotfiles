@@ -52,6 +52,9 @@ Plug 'nvim-lualine/lualine.nvim'
 " Smooth scrolling for C-d and C-u
 Plug 'psliwka/vim-smoothie'
 
+" Misc
+Plug 'norcalli/nvim-colorizer.lua'
+
 call plug#end()
 
 let mapleader = " "
