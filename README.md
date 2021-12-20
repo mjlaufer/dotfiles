@@ -59,7 +59,7 @@ nvm install node
 Install Neovim LSP dependencies.
 
 ```sh
-npm install -g typescript typescript-language-server eslint_d
+npm install -g typescript typescript-language-server vscode-langservers-extracted
 ```
 
 ## Customize iTerm2 and Neovim

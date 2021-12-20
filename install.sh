@@ -27,7 +27,7 @@ for source in ~/dotfiles/*; do
     fi
 done
 
-# Node.js and Neovim LSP
+# NVM, Node.js, and Neovim LSP dependencies
 if [[ $("which" node) ]]; then
     echo "\nNode.js is installed."
 else
@@ -36,7 +36,7 @@ else
     nvm install node
 
     echo "Installing Neovim LSP dependencies..."
-    npm install -g typescript typescript-language-server eslint_d
+    npm install -g typescript typescript-language-server vscode-langservers-extracted
 fi
 
 echo "\nSuccess."
