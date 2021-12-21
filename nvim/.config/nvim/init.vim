@@ -8,6 +8,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 " Editor
 Plug 'tpope/vim-surround'
 Plug 'windwp/nvim-autopairs'
+Plug 'numToStr/Comment.nvim'
 
 " Telescope
 Plug 'nvim-lua/plenary.nvim'
