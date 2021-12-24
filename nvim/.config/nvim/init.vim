@@ -60,21 +60,3 @@ Plug 'norcalli/nvim-colorizer.lua'
 call plug#end()
 
 let mapleader = " "
-
-" Source vimrc
-nnoremap <leader><cr> :so ~/dotfiles/nvim/.config/nvim/init.vim<CR>
-
-" tmux-sessionizer
-nnoremap <silent> <C-f> :silent !tmux neww tmux-sessionizer<CR>
-
-" yank/delete to clipboard [normal/visual]; put from clipboard [normal]
-nnoremap <leader>y "*yy<CR>
-vnoremap <leader>y "*yy<CR>
-nnoremap <leader>d "*dd<CR>
-vnoremap <leader>d "*dd<CR>
-nnoremap <leader>p "+p<CR>
-nnoremap <leader>P "+P<CR>
-
-" Move selected lines up/down
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
