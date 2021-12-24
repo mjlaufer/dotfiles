@@ -9,6 +9,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'tpope/vim-surround'
 Plug 'windwp/nvim-autopairs'
 Plug 'numToStr/Comment.nvim'
+Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
 " Telescope
 Plug 'nvim-lua/plenary.nvim'

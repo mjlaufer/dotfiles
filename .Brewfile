@@ -18,6 +18,10 @@ brew "ripgrep"
 brew "tree-sitter"
 brew "efm-langserver"
 
+# Lua development 
+brew "cmake"
+brew "luarocks"
+
 # From koekeishiya/formulae tap
 brew "skhd"
 brew "yabai"

@@ -62,6 +62,12 @@ Install Neovim LSP dependencies.
 npm install -g typescript typescript-language-server vscode-langservers-extracted
 ```
 
+Install Lua Formatter
+
+```sh
+luarocks install --server=https://luarocks.org/dev luaformatter
+```
+
 ## Customize iTerm2 and Neovim
 
 ### Import iTerm2 Preferences

@@ -39,4 +39,12 @@ else
     npm install -g typescript typescript-language-server vscode-langservers-extracted
 fi
 
+# Lua development dependencies
+if [[ $("which" lua-format) ]]; then
+    echo "\nLua Formatter is installed."
+else
+    echo "\nInstalling Lua Formatter..."
+    luarocks install --server=https://luarocks.org/dev luaformatter
+fi
+
 echo "\nSuccess."
