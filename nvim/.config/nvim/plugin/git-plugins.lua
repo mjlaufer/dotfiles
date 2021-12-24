@@ -1,20 +1,19 @@
 vim.cmd([[
-    let g:blamer_enabled = 1
-    let g:blamer_delay = 500
-    let g:blamer_date_format = '%m/%d/%y'
+let g:blamer_enabled = 1
+let g:blamer_delay = 500
+let g:blamer_date_format = '%m/%d/%y'
 
-    highlight Blamer guifg=#595959
+" Color for git blamer text
+highlight Blamer guifg=#595959
 
-    nnoremap <leader>gb :BlamerToggle<CR>
-]]) 
+nnoremap <leader>gb :BlamerToggle<CR>
+]])
 
 require('gitsigns').setup()
 
-require('diffview').setup({
-    use_icons = true,
-})
+require('diffview').setup({use_icons = true})
 
 vim.cmd([[
-    nnoremap <leader>gd :DiffviewOpen<CR>
-    nnoremap <leader>gdc :DiffviewClose<CR>
+nnoremap <leader>gd :DiffviewOpen<CR>
+nnoremap <leader>gdc :DiffviewClose<CR>
 ]])
