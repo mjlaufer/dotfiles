@@ -8,7 +8,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Source vimrc
-keymap('n', '<leader><CR>', ':so ~/dotfiles/nvim/.config/nvim/init.vim<CR>',
+keymap('n', '<leader><CR>', ':so ~/dotfiles/nvim/.config/nvim/init.lua<CR>',
        {noremap = true})
 
 -- Move selected lines up/down

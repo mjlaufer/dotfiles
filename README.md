@@ -74,11 +74,6 @@ luarocks install --server=https://luarocks.org/dev luaformatter
 
 Open iTerm2 and navigate to Preferences -> General -> Preferences. Check "Load preferences from a custom folder or URL". Then click "Browse", and find `dotfiles`.
 
-### Install Neovim plugins
-
--   Install [vim-plug](https://github.com/junegunn/vim-plug).
--   Open Neovim and run `:PlugInstall`.
-
 ## Start yabai
 
 Update macOS System Preferences > Mission Control:
@@ -102,6 +97,20 @@ Start yabai and skhd.
 brew services start yabai
 brew services start skhd
 ```
+
+## Add Browser extensions
+
+### Brave
+
+-   [axe - Web Accessibility Testing](https://chrome.google.com/webstore/detail/axe-web-accessibility-tes/lhdoppojpmngadmnindnejefpokejbdd?hl=en-US)
+-   [JSON Formatter](https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=en)
+-   [Web Vitals](https://chrome.google.com/webstore/detail/web-vitals/ahfhijdlegdabablpippeagghigmibma?hl=en)
+-   [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
+
+### Firefox
+
+-   [axe - Web Accessibility Testing](https://addons.mozilla.org/en-US/firefox/addon/axe-devtools/)
+-   [React Developer Tools](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/)
 
 ## Customize VS Code
 
@@ -129,18 +138,3 @@ After executing the command, restart the terminal for the new $PATH value to tak
 -   [Quokka](https://marketplace.visualstudio.com/items?itemName=WallabyJs.quokka-vscode)
 -   [Themes](https://marketplace.visualstudio.com/items?itemName=mjlaufer.vscode-themes)
 -   [Version Lens](https://marketplace.visualstudio.com/items?itemName=pflannery.vscode-versionlens)
-
-## Add Browser extensions
-
-### Brave
-
--   [axe - Web Accessibility Testing](https://chrome.google.com/webstore/detail/axe-web-accessibility-tes/lhdoppojpmngadmnindnejefpokejbdd?hl=en-US)
--   [JSON Formatter](https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=en)
--   [Web Vitals](https://chrome.google.com/webstore/detail/web-vitals/ahfhijdlegdabablpippeagghigmibma?hl=en)
--   [Requestly](https://chrome.google.com/webstore/detail/requestly-redirect-url-mo/mdnleldcmiljblolnjhpnblkcekpdkpa?hl=en)
--   [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
-
-### Firefox
-
--   [axe - Web Accessibility Testing](https://addons.mozilla.org/en-US/firefox/addon/axe-devtools/)
--   [React Developer Tools](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/)
