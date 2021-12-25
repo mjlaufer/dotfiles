@@ -35,8 +35,8 @@ else
     bash -c "$(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh)"
     nvm install node
 
-    echo "Installing Neovim LSP dependencies..."
-    npm install -g typescript typescript-language-server vscode-langservers-extracted
+    echo "Installing TypeScript..."
+    npm install -g typescript
 fi
 
 # Lua development dependencies

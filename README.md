@@ -59,12 +59,7 @@ nvm install node
 Install Neovim LSP dependencies.
 
 ```sh
-npm install -g typescript typescript-language-server vscode-langservers-extracted
-```
-
-Install Lua Formatter
-
-```sh
+npm install -g typescript
 luarocks install --server=https://luarocks.org/dev luaformatter
 ```
 

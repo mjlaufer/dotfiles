@@ -5,7 +5,9 @@ let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 ]])
 
 require('luasnip/loaders/from_vscode').lazy_load()
-require('luasnip/loaders/from_vscode').lazy_load({ paths = { '~/.vim/plugged/friendly-snippets' } })
+require('luasnip/loaders/from_vscode').lazy_load({
+    paths = {'~/.vim/plugged/friendly-snippets'}
+})
 local cmp = require('cmp')
 local lspkind = require('lspkind')
 local luasnip = require('luasnip')
@@ -16,20 +18,16 @@ local check_backspace = function()
 end
 
 cmp.setup({
-    snippet = {
-        expand = function(args)
-            luasnip.lsp_expand(args.body)
-        end,
-    },
+    snippet = {expand = function(args) luasnip.lsp_expand(args.body) end},
     mapping = {
-        ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-        ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-        ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+        ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), {'i', 'c'}),
+        ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), {'i', 'c'}),
+        ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), {'i', 'c'}),
         ['<C-c>'] = cmp.mapping({
             i = cmp.mapping.abort(),
-            c = cmp.mapping.close(),
+            c = cmp.mapping.close()
         }),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        ['<CR>'] = cmp.mapping.confirm({select = true}),
         ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
@@ -42,7 +40,7 @@ cmp.setup({
             else
                 fallback()
             end
-        end, { 'i', 's' }),
+        end, {'i', 's'}),
         ['<S-Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
@@ -51,27 +49,23 @@ cmp.setup({
             else
                 fallback()
             end
-        end, { 'i', 's' }),
+        end, {'i', 's'})
     },
     sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
-        { name = 'luasnip' },
-        { name = 'path' },
-        { name = 'nvim_lua' },
-    }, {
-        { name = 'buffer', keyword_length = 5 },
-    }),
+        {name = 'nvim_lsp'}, {name = 'nvim_lua'}, {name = 'luasnip'},
+        {name = 'path'}
+    }, {{name = 'buffer', keyword_length = 5}}),
     formatting = {
         format = lspkind.cmp_format({
             with_text = true,
             menu = {
                 nvim_lsp = '[LSP]',
+                nvim_lua = '[VimApi]',
                 luasnip = '[Snip]',
                 path = '[Path]',
-                buffer = '[Buf]',
-                nvim_lua = '[VimApi]',
+                buffer = '[Buf]'
             },
-            maxwidth = 50,
-        }),
+            maxwidth = 50
+        })
     }
 })
