@@ -2,13 +2,13 @@
 
 ## Window Tiling with Yabai
 
-Focus window: `Opt-h/j/k/l`
-Move window: `Ctrl-Opt-h/j/k/l`
-Rotate counter-clockwise: `Ctrl-Opt-o`
-Rotate clockwise: `Ctrl-Opt-p`
-Mirror y-axis: `Ctrl-Opt-i`
-Mirror x-axis: `Ctrl-Opt-u`
-Resize: `Shift-Opt-h/j/k/l`
+-   Focus window: `Opt-h/j/k/l`
+-   Move window: `Ctrl-Opt-h/j/k/l`
+-   Rotate counter-clockwise: `Ctrl-Opt-o`
+-   Rotate clockwise: `Ctrl-Opt-p`
+-   Mirror y-axis: `Ctrl-Opt-i`
+-   Mirror x-axis: `Ctrl-Opt-u`
+-   Resize: `Shift-Opt-h/j/k/l`
 
 ## tmux
 

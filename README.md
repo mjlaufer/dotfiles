@@ -71,7 +71,7 @@ Open iTerm2 and navigate to Preferences -> General -> Preferences. Check "Load p
 
 ## Start yabai
 
-Update macOS System Preferences > Mission Control:
+### Update macOS System Preferences > Mission Control
 
 -   Disable "Automatically rearrange Spaces based on most recent use".
 -   Enable "Displays have separate Spaces".

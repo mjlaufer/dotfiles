@@ -74,6 +74,11 @@ return packer.startup(function(use)
 
     -- Misc
     use 'norcalli/nvim-colorizer.lua'
+    use {
+        'iamcco/markdown-preview.nvim',
+        run = 'cd app && yarn install',
+        ft = 'markdown'
+    }
 
     if PACKER_BOOTSTRAP then require('packer').sync() end
 end)

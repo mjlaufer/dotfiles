@@ -11,11 +11,25 @@ vim.g.maplocalleader = " "
 keymap('n', '<leader><CR>', ':so ~/dotfiles/nvim/.config/nvim/init.lua<CR>',
        {noremap = true})
 
--- Move selected lines up/down
+-- Better window navigation
+keymap("n", "<C-h>", "<C-w>h", opts)
+keymap("n", "<C-j>", "<C-w>j", opts)
+keymap("n", "<C-k>", "<C-w>k", opts)
+keymap("n", "<C-l>", "<C-w>l", opts)
+
+-- Navigate buffers
+keymap("n", "<S-l>", ":bnext<CR>", opts)
+keymap("n", "<S-h>", ":bprevious<CR>", opts)
+
+-- [Visual] Move selected lines up/down
 keymap('v', 'J', ":m '>+1<CR>gv=gv", opts)
 keymap('v', 'K', ":m '<-2<CR>gv=gv", opts)
 
--- yank/delete to clipboard [normal/visual]; put from clipboard [normal]
+-- [Visual] Stay in indent mode
+keymap("v", "<", "<gv", opts)
+keymap("v", ">", ">gv", opts)
+
+-- [Normal/Visual] yank/delete to clipboard; [Normal] put from clipboard
 keymap('n', '<leader>y', '"*yy<CR>', opts)
 keymap('v', '<leader>y', '"*yy<CR>', opts)
 keymap('n', '<leader>d', '"*dd<CR>', opts)
