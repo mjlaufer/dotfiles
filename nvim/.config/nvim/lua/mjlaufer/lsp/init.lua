@@ -18,30 +18,21 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
     buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
     buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-    buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>',
-                   opts)
-    buf_set_keymap('n', '<leader>wa',
-                   '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-    buf_set_keymap('n', '<leader>wr',
-                   '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+    buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+    buf_set_keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+    buf_set_keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
     buf_set_keymap('n', '<leader>wl',
-                   '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>',
-                   opts)
-    buf_set_keymap('n', '<leader>D',
-                   '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+        '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+    buf_set_keymap('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
     buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-    buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>',
-                   opts)
+    buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
     -- Diagnostics
-    buf_set_keymap('n', '<leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>',
-                   opts)
+    buf_set_keymap('n', '<leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
     buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
     buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-    buf_set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>',
-                   opts)
-    buf_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>',
-                   opts)
+    buf_set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+    buf_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
     -- Prevent tsserver from formatting; use efm instead
     if client.name == 'tsserver' then
@@ -69,7 +60,7 @@ local server_opts = {
     eslint = require('mjlaufer.lsp.eslint'),
     jsonls = require('mjlaufer.lsp.jsonls'),
     sumneko_lua = require('mjlaufer.lsp.sumneko-lua'),
-    tsserver = {}
+    tsserver = {},
 }
 local servers = {'eslint', 'jsonls', 'sumneko_lua', 'tsserver'}
 
@@ -83,7 +74,9 @@ for _, server in ipairs(servers) do
         requested_server:setup(opts)
     end
 
-    if not requested_server:is_installed() then requested_server:install() end
+    if not requested_server:is_installed() then
+        requested_server:install()
+    end
 end
 
 -- Set up efm separately (efm is installed with Homebrew)
@@ -95,10 +88,9 @@ nvim_lsp.efm.setup(efm_opts)
 -- Diagnostic icons
 vim.lsp.handlers['textDocument/publishDiagnostics'] =
     vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,
-                 {underline = true, virtual_text = {spacing = 2}})
-vim.fn.sign_define('DiagnosticSignError', {text = '', texthl = 'GruvboxRed'})
-vim.fn.sign_define('DiagnosticSignWarn',
-                   {text = '', texthl = 'GruvboxYellow'})
-vim.fn.sign_define('DiagnosticSignInformation',
-                   {text = '', texthl = 'GruvboxBlue'})
-vim.fn.sign_define('DiagnosticSignHint', {text = '', texthl = 'GruvboxAqua'})
+        {underline = true, virtual_text = {spacing = 2}})
+vim.fn.sign_define('DiagnosticSignError', {text = '', texthl = 'DiagnosticSignError'})
+vim.fn.sign_define('DiagnosticSignWarn', {text = '', texthl = 'DiagnosticSignWarn'})
+vim.fn
+    .sign_define('DiagnosticSignInformation', {text = '', texthl = 'DiagnosticSignInformation'})
+vim.fn.sign_define('DiagnosticSignHint', {text = '', texthl = 'DiagnosticSignHint'})

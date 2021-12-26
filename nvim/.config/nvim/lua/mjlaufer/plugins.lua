@@ -4,23 +4,31 @@ local fn = vim.fn
 local install_path = fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
     PACKER_BOOTSTRAP = fn.system {
-        'git', 'clone', '--depth', '1',
-        'https://github.com/wbthomason/packer.nvim', install_path
+        'git',
+        'clone',
+        '--depth',
+        '1',
+        'https://github.com/wbthomason/packer.nvim',
+        install_path,
     }
     print 'Installing packer close and reopen Neovim...'
     vim.cmd [[packadd packer.nvim]]
 end
 
 local status_ok, packer = pcall(require, 'packer')
-if not status_ok then return end
+if not status_ok then
+    return
+end
 
 return packer.startup(function(use)
     use 'wbthomason/packer.nvim'
 
     -- Colors and icons
-    use 'gruvbox-community/gruvbox'
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+    use {'nvim-treesitter/playground'}
     use 'kyazdani42/nvim-web-devicons'
+    use 'rktjmp/lush.nvim'
+    use 'mjlaufer/undercity.nvim'
 
     -- Editor
     use 'tpope/vim-surround'
@@ -74,11 +82,9 @@ return packer.startup(function(use)
 
     -- Misc
     use 'norcalli/nvim-colorizer.lua'
-    use {
-        'iamcco/markdown-preview.nvim',
-        run = 'cd app && yarn install',
-        ft = 'markdown'
-    }
+    use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', ft = 'markdown'}
 
-    if PACKER_BOOTSTRAP then require('packer').sync() end
+    if PACKER_BOOTSTRAP then
+        require('packer').sync()
+    end
 end)
