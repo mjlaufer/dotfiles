@@ -7,9 +7,6 @@ keymap('', '<Space>', '<Nop>', opts)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- Source vimrc
-keymap('n', '<leader><CR>', ':so ~/dotfiles/nvim/.config/nvim/init.lua<CR>', {noremap = true})
-
 -- Better window navigation
 keymap('n', '<C-h>', '<C-w>h', opts)
 keymap('n', '<C-j>', '<C-w>j', opts)
