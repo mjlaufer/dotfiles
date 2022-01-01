@@ -6,27 +6,28 @@ let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 require('luasnip/loaders/from_vscode').lazy_load()
 require('luasnip/loaders/from_vscode').lazy_load({
-    paths = {'~/.vim/plugged/friendly-snippets'}
+    paths = {'~/.local/share/nvim/site/pack/packer/start/friendly-snippets'},
 })
 local cmp = require('cmp')
 local lspkind = require('lspkind')
 local luasnip = require('luasnip')
 
 local check_backspace = function()
-    local col = vim.fn.col "." - 1
-    return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
+    local col = vim.fn.col '.' - 1
+    return col == 0 or vim.fn.getline('.'):sub(col, col):match '%s'
 end
 
 cmp.setup({
-    snippet = {expand = function(args) luasnip.lsp_expand(args.body) end},
+    snippet = {
+        expand = function(args)
+            luasnip.lsp_expand(args.body)
+        end,
+    },
     mapping = {
         ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), {'i', 'c'}),
         ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), {'i', 'c'}),
         ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), {'i', 'c'}),
-        ['<C-c>'] = cmp.mapping({
-            i = cmp.mapping.abort(),
-            c = cmp.mapping.close()
-        }),
+        ['<C-c>'] = cmp.mapping({i = cmp.mapping.abort(), c = cmp.mapping.close()}),
         ['<CR>'] = cmp.mapping.confirm({select = true}),
         ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
@@ -49,11 +50,13 @@ cmp.setup({
             else
                 fallback()
             end
-        end, {'i', 's'})
+        end, {'i', 's'}),
     },
     sources = cmp.config.sources({
-        {name = 'nvim_lsp'}, {name = 'nvim_lua'}, {name = 'luasnip'},
-        {name = 'path'}
+        {name = 'nvim_lsp'},
+        {name = 'nvim_lua'},
+        {name = 'luasnip'},
+        {name = 'path'},
     }, {{name = 'buffer', keyword_length = 5}}),
     formatting = {
         format = lspkind.cmp_format({
@@ -63,9 +66,9 @@ cmp.setup({
                 nvim_lua = '[VimApi]',
                 luasnip = '[Snip]',
                 path = '[Path]',
-                buffer = '[Buf]'
+                buffer = '[Buf]',
             },
-            maxwidth = 50
-        })
-    }
+            maxwidth = 50,
+        }),
+    },
 })

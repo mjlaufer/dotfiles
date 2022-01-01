@@ -30,6 +30,7 @@
     "editor.inlineSuggest.enabled": true,
     "explorer.openEditors.visible": 0,
     "explorer.confirmDragAndDrop": false,
+    "extensions.ignoreRecommendations": false,
     "files.associations": {
         "*.js": "javascript",
         "*.jsx": "javascriptreact"
@@ -39,13 +40,13 @@
     "js/ts.implicitProjectConfig.strictNullChecks": true,
     "javascript.updateImportsOnFileMove.enabled": "always",
     "typescript.updateImportsOnFileMove.enabled": "always",
-    "go.useLanguageServer": true,
     "[markdown]": {
         "editor.wordWrap": "wordWrapColumn",
         "editor.wordWrapColumn": 100,
         "editor.quickSuggestions": false
     },
-    "extensions.ignoreRecommendations": false,
+    "Lua.diagnostics.globals": ["vim"],
+    "go.useLanguageServer": true,
     "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
     "prettier.configPath": ".prettierrc.json",
     "editor.defaultFormatter": "esbenp.prettier-vscode",
