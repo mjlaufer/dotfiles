@@ -1,2 +1,1 @@
-
-return {settings = {Lua = {diagnostics = {globals = {'vim'}}}}}
+return {settings = {Lua = {runtime = {version = 'LuaJIT'}, diagnostics = {globals = {'vim'}}}}}
