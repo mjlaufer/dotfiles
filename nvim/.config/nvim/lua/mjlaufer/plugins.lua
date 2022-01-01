@@ -32,6 +32,7 @@ return packer.startup(function(use)
 
     -- Editor
     use 'tpope/vim-surround'
+    use {'tpope/vim-unimpaired', requires = {'tpope/vim-repeat'}}
     use 'windwp/nvim-autopairs'
     use 'numToStr/Comment.nvim'
     use 'JoosepAlviste/nvim-ts-context-commentstring'
