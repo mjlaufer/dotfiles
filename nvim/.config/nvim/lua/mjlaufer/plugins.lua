@@ -78,10 +78,14 @@ return packer.startup(function(use)
     -- Status line
     use 'nvim-lualine/lualine.nvim'
 
-    -- Smooth scrolling
-    use 'psliwka/vim-smoothie'
-
     -- Misc
+    use {
+        'folke/which-key.nvim',
+        config = function()
+            require('which-key').setup({ignore_missing = true})
+        end,
+    }
+    use 'psliwka/vim-smoothie'
     use 'norcalli/nvim-colorizer.lua'
     use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', ft = 'markdown'}
 

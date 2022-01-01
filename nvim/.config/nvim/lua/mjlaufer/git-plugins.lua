@@ -15,5 +15,10 @@ local keymap = vim.api.nvim_set_keymap
 local opts = {noremap = true, silent = true}
 
 keymap('n', '<leader>gb', ':BlamerToggle<CR>', opts)
-keymap('n', '<leader>gd', ':DiffviewOpen<CR>', opts)
+keymap('n', '<leader>gdo', ':DiffviewOpen<CR>', opts)
 keymap('n', '<leader>gdc', ':DiffviewClose<CR>', opts)
+
+require('which-key').register({
+    ['<leader>g'] = {name = 'Git', b = 'Toggle git blamer'},
+    ['<leader>gd'] = {name = 'Git diff view', o = 'Open diff view', c = 'Close diff view'},
+})

@@ -17,8 +17,8 @@ require('toggleterm').setup {
     float_opts = {
         border = 'single',
         winblend = 0,
-        highlights = {border = 'Normal', background = 'Normal'}
-    }
+        highlights = {border = 'Normal', background = 'Normal'},
+    },
 }
 
 local keymap = vim.api.nvim_set_keymap
@@ -40,3 +40,6 @@ end
 
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
+require('which-key').register({
+    ['<leader>t'] = {name = 'Terminal', l = 'Right split', j = 'Bottom split', u = 'Float'},
+})

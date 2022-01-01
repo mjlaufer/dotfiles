@@ -19,6 +19,7 @@ local options = {
     swapfile = false,
     backup = false,
     errorbells = false,
+    timeoutlen = 300,
 }
 
 for k, v in pairs(options) do
