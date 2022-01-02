@@ -1,7 +1,8 @@
 require'nvim-web-devicons'.setup {override = {}, default = true}
 
-require('lualine').setup {
+require('lualine').setup({
     options = {
+        theme = 'undercity',
         icons_enabled = true,
         section_separators = {left = '', right = ''},
         component_separators = {left = '', right = ''},
@@ -26,10 +27,10 @@ require('lualine').setup {
         lualine_a = {},
         lualine_b = {},
         lualine_c = {'filename'},
-        lualine_x = {'location'},
+        lualine_x = {},
         lualine_y = {},
         lualine_z = {},
     },
     tabline = {},
     extensions = {'fugitive'},
-}
+})
