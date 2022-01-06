@@ -58,34 +58,36 @@ A `target-window` may be identified by one of the following:
 
 ### tmux Panes
 
-Use tmux panes sparingly. A good use case may be launching a test runner in `watch` mode.
+Note: tmux split directions are the opposite of Vim split directions.
 
-#### Managing panes
-
--   Create a pane to the right: `<prefix> %`
+-   Split window horizontally: `<prefix> %`
+-   Split window vertically: `<prefix> "`
+-   Navigate panes: `<prefix> h/j/k/l`
 -   Next/previous pane: `<prefix> ;`/`<prefix> o`
--   Kill current pane: `<prefix> x`
+-   Close current pane: `<prefix> x`
 
 ## Vim
 
+[Vim cheatsheet](https://quickref.me/vim)
+
+### Vim Buffers
+
+-   Alternate file: `C-6`
+-   List open buffers: `:ls`
+-   Go to next buffer: `:bn`
+-   Go to previous buffer: `:bp`
+-   Remove file from buffer list: `:bd`
+
 ### Vim Splits
 
-Use the ToggleTerm plugin to display a Vim split with an integrated terminal. This is particularly
-useful for entering git commands (if not using vim-fugitive) or launching a test runner (if not
-using a tmux split).
+-   Close all but current split: `<C-w>o`
+-   Split window vertically: `<C-w>v` or `:vsp`
+-   Split window horizontally: `<C-w>s` or `:sp`
+-   Prefix for Neovim terminal keymaps: `<leader>t`
 
--   `<leader>tl`: Toggle terminal in a vertical split to the right.
--   `<leader>th`: Toggle terminal in a horizontal split below.
--   `<leader>tu`: Toggle a floating terminal.
+### Git
 
-Use Vim splits to display more than one buffer in a Vim instance.
-
--   `:vsp`: Display a vertical split.
--   `:sp`: Display a horizontal split.
-
-### Vim Navigation
-
-Use the Telescope plugin (a fuzzy finder) to find files.
+-   Prefix for Git keymaps: `<leader>g`
 
 ### Debugging
 
@@ -93,7 +95,7 @@ Open Vim, and install debuggers.
 
 ```
 :DIList
-:DIInstall
+:DIInstall chrome
 ```
 
 #### JavaScript and TypeScript
@@ -104,4 +106,4 @@ Run the Chrome debugger.
 chrome-debug
 ```
 
--   `<leader>dc`: Start/continue.
+Prefix for debugger keymaps: `<leader>i`
