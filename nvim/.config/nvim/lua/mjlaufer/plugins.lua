@@ -49,9 +49,12 @@ return packer.startup(function(use)
     use 'APZelos/blamer.nvim'
     use 'sindrets/diffview.nvim'
 
-    -- LSP and completion
+    -- LSP
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer'
+    use 'jose-elias-alvarez/nvim-lsp-ts-utils'
+
+    -- Completion
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
