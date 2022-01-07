@@ -46,6 +46,26 @@ return {
 
         -- required to fix code action ranges and filter diagnostics
         ts_utils.setup_client(client)
+
+        local function buf_set_keymap(...)
+            vim.api.nvim_buf_set_keymap(bufnr, ...)
+        end
+
+        local map_opts = {noremap = true, silent = true}
+        buf_set_keymap('n', '<leader>lto', ':TSLspOrganize<CR>', map_opts)
+        buf_set_keymap('n', '<leader>ltr', ':TSLspRenameFile<CR>', map_opts)
+        buf_set_keymap('n', '<leader>lti', ':TSLspImportAll<CR>', map_opts)
+        buf_set_keymap('n', '<leader>lth', ':TSLspToggleInlayHints<CR>', map_opts)
+
+        require('which-key').register({
+            ['<leader>lt'] = {
+                name = 'TS Utils',
+                o = 'Organize imports',
+                r = 'Rename file',
+                i = 'Import all',
+                h = 'Toggle inlay hints',
+            },
+        })
     end,
     capabilities = opts.capabilities,
 }
