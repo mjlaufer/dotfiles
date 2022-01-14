@@ -88,6 +88,12 @@ return packer.startup(function(use)
             require('which-key').setup({ignore_missing = true})
         end,
     }
+    use {
+        'windwp/nvim-ts-autotag',
+        config = function()
+            require('nvim-ts-autotag').setup()
+        end,
+    }
     use 'psliwka/vim-smoothie'
     use 'norcalli/nvim-colorizer.lua'
     use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', ft = 'markdown'}
