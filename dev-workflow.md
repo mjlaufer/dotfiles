@@ -89,6 +89,16 @@ Note: tmux split directions are the opposite of Vim split directions.
 
 -   Prefix for Git keymaps: `<leader>g`
 
+#### [Diff View](https://github.com/sindrets/diffview.nvim)
+
+-   Stage/unstage the selected entry: `-`
+-   Stage all entries: `S`
+-   Unstage all entries: `U`
+-   Restore entry: `X`
+-   Refresh file list: `R`
+
+#### [Vim Fugitive](https://github.com/tpope/vim-fugitive)
+
 ### Debugging
 
 Open Vim, and install debuggers.
