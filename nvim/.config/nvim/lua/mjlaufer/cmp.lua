@@ -1,7 +1,7 @@
 vim.cmd([[
-" Completion menu options
-set completeopt=menu,menuone,noselect
-let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+    " Completion menu options
+    set completeopt=menu,menuone,noselect
+    let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 ]])
 
 require('luasnip/loaders/from_vscode').lazy_load()

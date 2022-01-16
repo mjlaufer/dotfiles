@@ -34,6 +34,12 @@ return packer.startup(function(use)
     use 'tpope/vim-surround'
     use {'tpope/vim-unimpaired', requires = {'tpope/vim-repeat'}}
     use 'windwp/nvim-autopairs'
+    use {
+        'windwp/nvim-ts-autotag',
+        config = function()
+            require('nvim-ts-autotag').setup()
+        end,
+    }
     use 'numToStr/Comment.nvim'
     use 'JoosepAlviste/nvim-ts-context-commentstring'
 
@@ -86,12 +92,6 @@ return packer.startup(function(use)
         'folke/which-key.nvim',
         config = function()
             require('which-key').setup({ignore_missing = true})
-        end,
-    }
-    use {
-        'windwp/nvim-ts-autotag',
-        config = function()
-            require('nvim-ts-autotag').setup()
         end,
     }
     use 'psliwka/vim-smoothie'

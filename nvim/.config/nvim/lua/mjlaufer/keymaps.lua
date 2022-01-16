@@ -17,6 +17,11 @@ keymap('n', '<C-l>', '<C-w>l', opts)
 keymap('n', '<S-l>', ':bnext<CR>', opts)
 keymap('n', '<S-h>', ':bprevious<CR>', opts)
 
+-- Change sets
+keymap('n', '<leader>sh', ':nohlsearch<CR>', opts)
+keymap('n', '<leader>st2', ':set tabstop=2 softtabstop=2 shiftwidth=2<CR>', opts)
+keymap('n', '<leader>st4', ':set tabstop=4 softtabstop=4 shiftwidth=4<CR>', opts)
+
 -- [Visual] Move selected lines up/down
 keymap('v', 'J', ':m \'>+1<CR>gv=gv', opts)
 keymap('v', 'K', ':m \'<-2<CR>gv=gv', opts)

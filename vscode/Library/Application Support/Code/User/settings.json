@@ -6,6 +6,7 @@
     "workbench.activityBar.visible": true,
     "workbench.statusBar.visible": false,
     "workbench.settings.editor": "json",
+    "editor.guides.indentation": false,
     "workbench.tree.renderIndentGuides": "none",
     "breadcrumbs.enabled": false,
     "editor.bracketPairColorization.enabled": true,
@@ -45,9 +46,15 @@
         "editor.wordWrapColumn": 100,
         "editor.quickSuggestions": false
     },
-    "Lua.diagnostics.globals": ["vim"],
-    "go.useLanguageServer": true,
-    "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+    "Lua.diagnostics.globals": [
+        "vim"
+    ],
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ],
     "prettier.configPath": ".prettierrc.json",
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "workbench.colorTheme": "MJL Gruvbox Dark Contrast",
