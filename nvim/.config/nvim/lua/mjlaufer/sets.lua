@@ -1,5 +1,6 @@
 local options = {
     hidden = true, -- Keep edited buffers around in the background.
+    showmode = false, -- Do not show a message for mode; Lualine handles this.
     tabstop = 4,
     softtabstop = 4, -- Number of spaces inserted for a tab.
     shiftwidth = 4, -- Indentation width.
