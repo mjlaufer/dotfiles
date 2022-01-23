@@ -23,12 +23,20 @@ end
 return packer.startup(function(use)
     use {'wbthomason/packer.nvim', commit = '7182f0d'}
 
-    -- Colors and icons
+    -- Colors
     use {'nvim-treesitter/nvim-treesitter', commit = 'a7c0c17', run = ':TSUpdate'}
     use {'nvim-treesitter/playground', commit = '787a7a8'}
-    use {'kyazdani42/nvim-web-devicons', commit = '634e268'}
     use {'rktjmp/lush.nvim', commit = '57e9f31'}
     use 'mjlaufer/undercity.nvim'
+
+    -- Icons (used by lualine and nvim-tree)
+    use {
+        'kyazdani42/nvim-web-devicons',
+        commit = '634e268',
+        config = function()
+            require('nvim-web-devicons').setup({override = {}, default = true})
+        end,
+    }
 
     -- Editor
     use 'tpope/vim-surround'
