@@ -1,4 +1,8 @@
-local dap = require('dap')
+local status_ok, dap = pcall(require, 'dap')
+if not status_ok then
+    return
+end
+
 local dap_install = require('dap-install')
 
 dap_install.config('chrome', {})

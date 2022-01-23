@@ -1,5 +1,17 @@
 local opts = require('mjlaufer/lsp/server-options')
 
+local status_ok, ts_utils = pcall(require, 'nvim-lsp-ts-utils')
+if not status_ok then
+    return {
+        on_attach = function(client, bufnr)
+            -- Prevent tsserver from formatting; use efm instead
+            client.resolved_capabilities.document_formatting = false
+            opts.on_attach(client, bufnr)
+        end,
+        capabilities = opts.capabilities,
+    }
+end
+
 return {
     -- Needed for inlayHints
     init_options = require('nvim-lsp-ts-utils').init_options,
@@ -8,8 +20,6 @@ return {
         client.resolved_capabilities.document_formatting = false
 
         opts.on_attach(client, bufnr)
-
-        local ts_utils = require('nvim-lsp-ts-utils')
 
         -- defaults
         ts_utils.setup({

@@ -4,13 +4,22 @@ vim.cmd([[
     let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 ]])
 
+local cmp_status_ok, cmp = pcall(require, 'cmp')
+if not cmp_status_ok then
+    return
+end
+
+local luasnip_status_ok, luasnip = pcall(require, 'luasnip')
+if not luasnip_status_ok then
+    return
+end
+
 require('luasnip/loaders/from_vscode').lazy_load()
 require('luasnip/loaders/from_vscode').lazy_load({
     paths = {'~/.local/share/nvim/site/pack/packer/start/friendly-snippets'},
 })
-local cmp = require('cmp')
+
 local lspkind = require('lspkind')
-local luasnip = require('luasnip')
 
 local check_backspace = function()
     local col = vim.fn.col '.' - 1

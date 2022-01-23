@@ -1,4 +1,13 @@
-local lsp_installer = require('nvim-lsp-installer')
+local lsp_status_ok, nvim_lsp = pcall(require, 'lspconfig')
+if not lsp_status_ok then
+    return
+end
+
+local lsp_installer_status_ok, lsp_installer = pcall(require, 'nvim-lsp-installer')
+if not lsp_installer_status_ok then
+    return
+end
+
 local server_opts = {
     eslint = require('mjlaufer.lsp.eslint'),
     jsonls = require('mjlaufer.lsp.jsonls'),
@@ -21,7 +30,6 @@ for _, server in ipairs(servers) do
 end
 
 -- Set up efm separately (efm is installed with Homebrew)
-local nvim_lsp = require('lspconfig')
 local efm_opts = require('mjlaufer.lsp.efm')
 nvim_lsp.efm.setup(efm_opts)
 

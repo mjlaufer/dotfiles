@@ -1,6 +1,11 @@
-require'nvim-web-devicons'.setup {override = {}, default = true}
+require'nvim-web-devicons'.setup({override = {}, default = true})
 
-require('lualine').setup({
+local status_ok, lualine = pcall(require, 'lualine')
+if not status_ok then
+    return
+end
+
+lualine.setup({
     options = {
         theme = 'undercity',
         icons_enabled = true,
