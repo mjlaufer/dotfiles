@@ -3,6 +3,7 @@ tap "homebrew/cask-fonts"
 tap "koekeishiya/formulae"
 
 brew "fzf"
+brew "htop"
 brew "jq"
 brew "less"
 brew "stow"
