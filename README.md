@@ -49,6 +49,12 @@ If there are no warnings, you may use `stow` to symlink your dotfiles.
 stow PACKAGE_NAME
 ```
 
+Install [Kitty](https://sw.kovidgoyal.net/kitty).
+
+```sh
+curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+```
+
 Install [Node Version Manager](https://github.com/nvm-sh/nvm) and Node.js.
 
 ```sh
@@ -62,12 +68,6 @@ Install Neovim LSP dependencies.
 npm install -g typescript
 luarocks install --server=https://luarocks.org/dev luaformatter
 ```
-
-## Customize iTerm2 and Neovim
-
-### Import iTerm2 Preferences
-
-Open iTerm2 and navigate to Preferences -> General -> Preferences. Check "Load preferences from a custom folder or URL". Then click "Browse", and find `dotfiles`.
 
 ## Start yabai
 

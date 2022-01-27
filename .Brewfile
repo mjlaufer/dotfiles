@@ -29,7 +29,6 @@ brew "yabai"
 
 cask "font-fira-code"
 cask "font-fira-code-nerd-font"
-cask "iterm2"
 cask "visual-studio-code"
 cask "brave-browser"
 cask "google-chrome"

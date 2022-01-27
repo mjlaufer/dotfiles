@@ -27,12 +27,16 @@ for source in ~/dotfiles/*; do
     fi
 done
 
+# Kitty
+echo "\nInstalling/updating Kitty..."
+bash -c "$(curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin)"
+
 # NVM, Node.js, and Neovim LSP dependencies
 if [[ $("which" node) ]]; then
     echo "\nNode.js is installed."
 else
     echo "\nInstalling Node Version Manager and Node.js..."
-    bash -c "$(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh)"
+    bash -c "$(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash)"
     nvm install node
 
     echo "Installing TypeScript..."
