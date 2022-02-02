@@ -71,8 +71,8 @@ luarocks install --server=https://luarocks.org/dev luaformatter
 
 ## Install/update tmux plugins
 
-Install: `<prefix> I`
-Update: `<prefix> U`
+-   Install: `<prefix> I`
+-   Update: `<prefix> U`
 
 ## Start yabai
 
