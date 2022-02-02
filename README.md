@@ -69,6 +69,11 @@ npm install -g typescript
 luarocks install --server=https://luarocks.org/dev luaformatter
 ```
 
+## Install/update tmux plugins
+
+Install: `<prefix> I`
+Update: `<prefix> U`
+
 ## Start yabai
 
 ### Update macOS System Preferences > Mission Control
