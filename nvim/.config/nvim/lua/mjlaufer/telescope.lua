@@ -3,7 +3,14 @@ if not status_ok then
     return
 end
 
-telescope.setup({defaults = {file_ignore_patterns = {'node_modules'}}})
+telescope.setup({
+    defaults = {
+        file_ignore_patterns = {'node_modules'},
+        layout_strategy = 'horizontal',
+        layout_config = {horizontal = {prompt_position = 'top'}},
+        sorting_strategy = 'ascending',
+    },
+})
 
 local keymap = vim.api.nvim_set_keymap
 local opts = {noremap = true, silent = true}

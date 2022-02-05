@@ -53,7 +53,7 @@ return packer.startup(function(use)
 
     -- Telescope
     use {'nvim-lua/plenary.nvim', commit = '563d9f6'}
-    use {'nvim-telescope/telescope.nvim', commit = '0011b11'}
+    use {'nvim-telescope/telescope.nvim', commit = 'f262e7d'}
     use {'nvim-telescope/telescope-fzy-native.nvim', commit = '7b3d252'}
 
     -- Git
