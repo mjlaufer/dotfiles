@@ -1,5 +1,7 @@
-local status_ok, telescope = pcall(require, 'telescope')
-if not status_ok then
+local util = require('mjlaufer.util')
+
+local telescope = util.prequire('telescope')
+if not telescope then
     return
 end
 
@@ -12,27 +14,26 @@ telescope.setup({
     },
 })
 
-local keymap = vim.api.nvim_set_keymap
 local opts = {noremap = true, silent = true}
 
-keymap('n', '<leader>ff', ':Telescope find_files<CR>', opts)
-keymap('n', '<leader>fg', ':Telescope git_files<CR>', opts)
-keymap('n', '<leader>fs', ':Telescope live_grep<CR>', opts)
-keymap('n', '<leader>fw',
+util.map('n', '<leader>ff', ':Telescope find_files<CR>', opts)
+util.map('n', '<leader>fg', ':Telescope git_files<CR>', opts)
+util.map('n', '<leader>fs', ':Telescope live_grep<CR>', opts)
+util.map('n', '<leader>fw',
     ':lua require("telescope.builtin").grep_string({ search = vim.fn.input("Grep for > ")})<CR>',
     opts)
-keymap('n', '<leader>fb', ':Telescope buffers<CR>', opts)
-keymap('n', '<leader>fe', ':Telescope file_browser<CR>', opts)
-keymap('n', '<leader>fh', ':Telescope help_tags<CR>', opts)
+util.map('n', '<leader>fb', ':Telescope buffers<CR>', opts)
+util.map('n', '<leader>fe', ':Telescope file_browser<CR>', opts)
+util.map('n', '<leader>fh', ':Telescope help_tags<CR>', opts)
 
 -- Telescope DAP
 telescope.load_extension('dap')
 
-keymap('n', '<leader>dtb', ':Telescope dap list_breakpoints<CR>', opts)
-keymap('n', '<leader>dtf', ':Telescope dap frames<CR>', opts)
-keymap('n', '<leader>dtv', ':Telescope dap variables<CR>', opts)
+util.map('n', '<leader>dtb', ':Telescope dap list_breakpoints<CR>', opts)
+util.map('n', '<leader>dtf', ':Telescope dap frames<CR>', opts)
+util.map('n', '<leader>dtv', ':Telescope dap variables<CR>', opts)
 
-require('which-key').register({
+util.useWhichKey({
     ['<leader>f'] = {
         name = 'Telescope',
         f = 'Find files',

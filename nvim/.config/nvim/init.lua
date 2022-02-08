@@ -7,11 +7,12 @@ require('mjlaufer.autopairs')
 require('mjlaufer.comment')
 require('mjlaufer.lsp')
 require('mjlaufer.cmp')
-require('mjlaufer.git-plugins')
+require('mjlaufer.git_plugins')
 require('mjlaufer.debugger')
 require('mjlaufer.terminal')
 require('mjlaufer.nvim-tree')
 require('mjlaufer.lualine')
+require('mjlaufer.colorizer')
 
 function _G.ReloadConfig()
     for name, _ in pairs(package.loaded) do

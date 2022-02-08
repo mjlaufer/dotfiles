@@ -1,16 +1,19 @@
-local status_ok, comment = pcall(require, 'Comment')
-if not status_ok then
+local util = require('mjlaufer.util')
+
+local comment = util.prequire('Comment')
+if not comment then
     return
 end
 
 comment.setup({
     pre_hook = function(ctx)
-        local ts_status_ok = pcall(require, 'ts_context_commentstring')
-        if not ts_status_ok then
+        -- Enable Neovim's `commentstring` for JSX.
+        local ts_commentstring = util.prequire('ts_context_commentstring')
+        if not ts_commentstring then
             return
         end
 
-        local U = require 'Comment.utils'
+        local U = require('Comment.utils')
 
         local location = nil
         if ctx.ctype == U.ctype.block then

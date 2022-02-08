@@ -1,9 +1,10 @@
-local status_ok, dap = pcall(require, 'dap')
-if not status_ok then
+local util = require('mjlaufer.util')
+
+local dap = util.prequire('dap')
+local dap_install = util.prequire('dap-install')
+if not dap or not dap_install then
     return
 end
-
-local dap_install = require('dap-install')
 
 dap_install.config('chrome', {})
 
@@ -28,28 +29,27 @@ dap.configurations.typescriptreact = esconfig
 vim.fn.sign_define('DapBreakpoint', {text = '🔴', texthl = '', linehl = '', numhl = ''})
 vim.fn.sign_define('DapBreakpointRejected', {text = '🔵', texthl = '', linehl = '', numhl = ''})
 
-local keymap = vim.api.nvim_set_keymap
 local opts = {noremap = true, silent = true}
 
-keymap('n', '<leader>ic', ':lua require("dap").continue()<CR>', opts)
-keymap('n', '<leader>ib', ':lua require("dap").toggle_breakpoint()<CR>', opts)
-keymap('n', '<leader>in',
+util.map('n', '<leader>ic', ':lua require("dap").continue()<CR>', opts)
+util.map('n', '<leader>ib', ':lua require("dap").toggle_breakpoint()<CR>', opts)
+util.map('n', '<leader>in',
     ':lua require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>', opts)
-keymap('n', '<leader>im',
+util.map('n', '<leader>im',
     ':lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>', opts)
-keymap('n', '<leader>il', ':lua require("dap").step_into()<CR>', opts)
-keymap('n', '<leader>ij', ':lua require("dap").step_over()<CR>', opts)
-keymap('n', '<leader>ik', ':lua require("dap").step_out()<CR>', opts)
-keymap('n', '<leader>is', ':lua require("dap").close()<CR>', opts)
+util.map('n', '<leader>il', ':lua require("dap").step_into()<CR>', opts)
+util.map('n', '<leader>ij', ':lua require("dap").step_over()<CR>', opts)
+util.map('n', '<leader>ik', ':lua require("dap").step_out()<CR>', opts)
+util.map('n', '<leader>is', ':lua require("dap").close()<CR>', opts)
 
 -- DAP Widgets
-keymap('n', '<leader>iwu', ':lua require("dap.ui.widgets").hover()<CR>', opts)
-keymap('n', '<leader>iws',
+util.map('n', '<leader>iwu', ':lua require("dap.ui.widgets").hover()<CR>', opts)
+util.map('n', '<leader>iws',
     ':lua local widgets=require("dap.ui.widgets");widgets.sidebar(widgets.scopes).open()<CR>', opts)
-keymap('n', '<leader>iwf',
+util.map('n', '<leader>iwf',
     ':lua local widgets=require("dap.ui.widgets");widgets.sidebar(widgets.frames).open()<CR>', opts)
 
-require('which-key').register({
+util.useWhichKey({
     ['<leader>i'] = {
         name = 'Debugger',
         c = 'Start/continue',

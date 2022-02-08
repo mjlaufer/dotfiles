@@ -1,3 +1,5 @@
+local util = require('mjlaufer.util')
+
 local M = {}
 
 M.on_attach = function(client, bufnr)
@@ -28,7 +30,7 @@ M.on_attach = function(client, bufnr)
     buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
     buf_set_keymap('n', '<leader>lq', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 
-    require('which-key').register({
+    util.useWhichKey({
         gD = 'Go to declaration',
         gd = 'Go to definition',
         K = 'Hover',

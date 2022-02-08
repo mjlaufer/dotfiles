@@ -4,13 +4,11 @@ vim.cmd([[
     let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 ]])
 
-local cmp_status_ok, cmp = pcall(require, 'cmp')
-if not cmp_status_ok then
-    return
-end
+local util = require('mjlaufer.util')
 
-local luasnip_status_ok, luasnip = pcall(require, 'luasnip')
-if not luasnip_status_ok then
+local cmp = util.prequire('cmp')
+local luasnip = util.prequire('luasnip')
+if (not cmp or not luasnip) then
     return
 end
 

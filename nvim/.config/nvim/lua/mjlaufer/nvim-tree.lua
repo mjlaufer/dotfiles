@@ -1,8 +1,12 @@
-local status_ok, nvim_tree = pcall(require, 'nvim-tree')
-if not status_ok then
+local util = require('mjlaufer.util')
+
+local nvim_tree = util.prequire('nvim-tree')
+if not nvim_tree then
     return
 end
 
-vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
-
 nvim_tree.setup({view = {width = 36}})
+
+util.map('n', '<leader>e', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
+
+util.useWhichKey({['<leader>e'] = 'Toggle file explorer'})

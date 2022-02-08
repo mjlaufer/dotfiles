@@ -1,10 +1,8 @@
-local lsp_status_ok, nvim_lsp = pcall(require, 'lspconfig')
-if not lsp_status_ok then
-    return
-end
+local util = require('mjlaufer.util')
 
-local lsp_installer_status_ok, lsp_installer = pcall(require, 'nvim-lsp-installer')
-if not lsp_installer_status_ok then
+local nvim_lsp = util.prequire('lspconfig')
+local lsp_installer = util.prequire('nvim-lsp-installer')
+if not nvim_lsp or not lsp_installer then
     return
 end
 

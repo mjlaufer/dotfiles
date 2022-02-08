@@ -5,8 +5,10 @@ vim.cmd [[
     colorscheme undercity
 ]]
 
-local ts_status_ok, ts_configs = pcall(require, 'nvim-treesitter.configs')
-if not ts_status_ok then
+local util = require('mjlaufer.util')
+
+local ts_configs = util.prequire('nvim-treesitter.configs')
+if not ts_configs then
     return
 end
 
@@ -29,17 +31,3 @@ ts_configs.setup {
 
 local parser_config = require'nvim-treesitter.parsers'.get_parser_configs()
 parser_config.tsx.used_by = {'javascript', 'typescript.tsx'}
-
-local colorizer_status_ok, colorizer = pcall(require, 'colorizer')
-if not colorizer_status_ok then
-    return
-end
-
-colorizer.setup({
-    html = {mode = 'foreground'},
-    css = {rgb_fn = true, hsl_fn = true},
-    'scss',
-    'javascript',
-    'typescript',
-    'lua',
-})

@@ -1,3 +1,4 @@
+local util = require('mjlaufer.util')
 local fn = vim.fn
 
 -- Automatically install packer
@@ -15,8 +16,8 @@ if fn.empty(fn.glob(install_path)) > 0 then
     vim.cmd [[packadd packer.nvim]]
 end
 
-local status_ok, packer = pcall(require, 'packer')
-if not status_ok then
+local packer = util.prequire('packer')
+if not packer then
     return
 end
 
@@ -59,7 +60,13 @@ return packer.startup(function(use)
     -- Git
     use 'tpope/vim-fugitive'
     use 'tpope/vim-rhubarb'
-    use {'lewis6991/gitsigns.nvim', commit = 'f43cee3'}
+    use {
+        'lewis6991/gitsigns.nvim',
+        commit = 'f43cee3',
+        config = function()
+            require('gitsigns').setup()
+        end,
+    }
     use {'APZelos/blamer.nvim', commit = 'f4eb22a'}
     use {'sindrets/diffview.nvim', commit = 'eef4745'}
 
@@ -113,6 +120,6 @@ return packer.startup(function(use)
     }
 
     if PACKER_BOOTSTRAP then
-        require('packer').sync()
+        packer.sync()
     end
 end)

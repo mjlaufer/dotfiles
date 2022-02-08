@@ -1,7 +1,8 @@
+local util = require('mjlaufer.util')
 local opts = require('mjlaufer/lsp/server-options')
 
-local status_ok, ts_utils = pcall(require, 'nvim-lsp-ts-utils')
-if not status_ok then
+local ts_utils = util.prequire('nvim-lsp-ts-utils')
+if not ts_utils then
     return {
         on_attach = function(client, bufnr)
             -- Prevent tsserver from formatting; use efm instead
@@ -67,7 +68,7 @@ return {
         buf_set_keymap('n', '<leader>lti', ':TSLspImportAll<CR>', map_opts)
         buf_set_keymap('n', '<leader>lth', ':TSLspToggleInlayHints<CR>', map_opts)
 
-        require('which-key').register({
+        util.useWhichKey({
             ['<leader>lt'] = {
                 name = 'TS Utils',
                 o = 'Organize imports',

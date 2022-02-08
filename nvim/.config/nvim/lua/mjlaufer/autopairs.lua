@@ -1,5 +1,7 @@
-local status_ok, autopairs = pcall(require, 'nvim-autopairs')
-if not status_ok then
+local util = require('mjlaufer.util')
+
+local autopairs = util.prequire('nvim-autopairs')
+if not autopairs then
     return
 end
 
@@ -8,8 +10,9 @@ autopairs.setup {
     ts_config = {lua = {'string', 'source'}, javascript = {'string', 'template_string'}},
 }
 
-local cmp_status_ok, cmp = pcall(require, 'cmp')
-if not cmp_status_ok then
+-- Allow autopairs to work with cmp.
+local cmp = util.prequire('cmp')
+if not cmp then
     return
 end
 
