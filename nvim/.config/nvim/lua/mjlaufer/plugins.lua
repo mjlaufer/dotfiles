@@ -92,6 +92,8 @@ return packer.startup(function(use)
     use {'mfussenegger/nvim-dap', commit = 'c9a5826'}
     use {'Pocco81/DAPInstall.nvim', commit = 'dd09e9d'}
     use {'nvim-telescope/telescope-dap.nvim', commit = 'b4134ff'}
+    use {'theHamsta/nvim-dap-virtual-text', commit = 'fb176ca'}
+    use {'rcarriga/nvim-dap-ui', commit = 'ae3b003'}
 
     -- File explorer
     use {'kyazdani42/nvim-tree.lua', commit = '0a2f6b0'}

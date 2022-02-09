@@ -106,14 +106,21 @@ Open Vim, and install debuggers.
 ```
 :DIList
 :DIInstall chrome
+:DIInstall jsnode
 ```
 
-#### JavaScript and TypeScript
+Prefix for debugger keymaps: `<leader>i`
 
-Run the Chrome debugger.
+#### Chrome
+
+Run Chrome with remote debugging enabled:
 
 ```sh
 chrome-debug
 ```
 
-Prefix for debugger keymaps: `<leader>i`
+Start the Chrome debugger: `<leader> ic`
+
+#### Node.js
+
+Start the Node debugger: `<leader> isn`

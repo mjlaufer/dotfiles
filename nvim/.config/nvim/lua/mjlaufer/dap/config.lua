@@ -1,14 +1,11 @@
 local util = require('mjlaufer.util')
 
 local dap = util.prequire('dap')
-local dap_install = util.prequire('dap-install')
-if not dap or not dap_install then
+if not dap then
     return
 end
 
-dap_install.config('chrome', {})
-
-local esconfig = {
+local chrome_config = {
     {
         type = 'chrome',
         request = 'attach',
@@ -21,16 +18,42 @@ local esconfig = {
     },
 }
 
-dap.configurations.javascript = esconfig
-dap.configurations.javascriptreact = esconfig
-dap.configurations.typescript = esconfig
-dap.configurations.typescriptreact = esconfig
+dap.configurations.javascript = chrome_config
+dap.configurations.typescript = chrome_config
+dap.configurations.javascriptreact = chrome_config
+dap.configurations.typescriptreact = chrome_config
+
+_G.start_node_debugger = function()
+    local node_config = {
+        {
+            name = 'Launch',
+            type = 'node2',
+            request = 'launch',
+            program = '${file}',
+            cwd = vim.fn.getcwd(),
+            sourceMaps = true,
+            protocol = 'inspector',
+            console = 'integratedTerminal',
+        },
+        {
+            name = 'Attach to process', -- Used when starting node with the `--inspect` flag
+            type = 'node2',
+            request = 'attach',
+            processId = require('dap.utils').pick_process,
+        },
+    }
+
+    dap.configurations.javascript = node_config
+    dap.configurations.typescript = node_config
+    require('dap').continue()
+end
 
 vim.fn.sign_define('DapBreakpoint', {text = '🔴', texthl = '', linehl = '', numhl = ''})
 vim.fn.sign_define('DapBreakpointRejected', {text = '🔵', texthl = '', linehl = '', numhl = ''})
 
 local opts = {noremap = true, silent = true}
 
+util.map('n', '<leader>isn', ':lua start_node_debugger()<CR>', opts)
 util.map('n', '<leader>ic', ':lua require("dap").continue()<CR>', opts)
 util.map('n', '<leader>ib', ':lua require("dap").toggle_breakpoint()<CR>', opts)
 util.map('n', '<leader>in',
@@ -40,7 +63,7 @@ util.map('n', '<leader>im',
 util.map('n', '<leader>il', ':lua require("dap").step_into()<CR>', opts)
 util.map('n', '<leader>ij', ':lua require("dap").step_over()<CR>', opts)
 util.map('n', '<leader>ik', ':lua require("dap").step_out()<CR>', opts)
-util.map('n', '<leader>is', ':lua require("dap").close()<CR>', opts)
+util.map('n', '<leader>iq', ':lua require("dap").close()<CR>', opts)
 
 -- DAP Widgets
 util.map('n', '<leader>iwu', ':lua require("dap.ui.widgets").hover()<CR>', opts)
@@ -52,6 +75,7 @@ util.map('n', '<leader>iwf',
 util.useWhichKey({
     ['<leader>i'] = {
         name = 'Debugger',
+        sn = 'Start Node debugger',
         c = 'Start/continue',
         b = 'Toggle breakpoint',
         n = 'Set breakpoint condition',
@@ -59,12 +83,13 @@ util.useWhichKey({
         l = 'Step into',
         j = 'Step over',
         k = 'Step out',
-        s = 'Close',
+        q = 'Quit',
     },
     ['<leader>iw'] = {
-        name = 'Debugger UI',
+        name = 'DAP Widgets',
         u = 'Show expression (under cursor)',
         s = 'Show scopes',
         f = 'Show frames',
     },
 })
+
