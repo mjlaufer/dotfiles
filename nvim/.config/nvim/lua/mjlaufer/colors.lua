@@ -17,6 +17,7 @@ ts_configs.setup {
     incremental_selection = {enable = true},
     ensure_installed = {
         'css',
+        'go',
         'html',
         'javascript',
         'json',

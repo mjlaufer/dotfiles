@@ -8,11 +8,12 @@ end
 
 local server_opts = {
     eslint = require('mjlaufer.lsp.eslint'),
+    gopls = require('mjlaufer.lsp.gopls'),
     jsonls = require('mjlaufer.lsp.jsonls'),
     sumneko_lua = require('mjlaufer.lsp.sumneko_lua'),
     tsserver = require('mjlaufer.lsp.tsserver'),
 }
-local servers = {'eslint', 'jsonls', 'sumneko_lua', 'tsserver'}
+local servers = {'eslint', 'gopls', 'jsonls', 'sumneko_lua', 'tsserver'}
 
 for _, server in ipairs(servers) do
     local server_available, requested_server = lsp_installer.get_server(server)

@@ -3,6 +3,7 @@ tap "homebrew/cask-fonts"
 tap "koekeishiya/formulae"
 
 brew "fzf"
+brew "go"
 brew "htop"
 brew "jq"
 brew "less"
@@ -19,7 +20,7 @@ brew "ripgrep"
 brew "tree-sitter"
 brew "efm-langserver"
 
-# Lua development 
+# Lua development
 brew "cmake"
 brew "luarocks"
 
