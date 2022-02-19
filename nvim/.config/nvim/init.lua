@@ -11,7 +11,7 @@ require('mjlaufer.cmp')
 require('mjlaufer.git_plugins')
 require('mjlaufer.dap')
 require('mjlaufer.terminal')
-require('mjlaufer.nvim-tree')
+require('mjlaufer.nvim_tree')
 require('mjlaufer.lualine')
 require('mjlaufer.colorizer')
 

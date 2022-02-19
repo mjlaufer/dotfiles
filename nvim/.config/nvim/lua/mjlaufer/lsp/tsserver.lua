@@ -1,5 +1,5 @@
 local util = require('mjlaufer.util')
-local opts = require('mjlaufer/lsp/server-options')
+local opts = require('mjlaufer/lsp/server_options')
 
 local ts_utils = util.prequire('nvim-lsp-ts-utils')
 if not ts_utils then

@@ -9,7 +9,7 @@ end
 local server_opts = {
     eslint = require('mjlaufer.lsp.eslint'),
     jsonls = require('mjlaufer.lsp.jsonls'),
-    sumneko_lua = require('mjlaufer.lsp.sumneko-lua'),
+    sumneko_lua = require('mjlaufer.lsp.sumneko_lua'),
     tsserver = require('mjlaufer.lsp.tsserver'),
 }
 local servers = {'eslint', 'jsonls', 'sumneko_lua', 'tsserver'}

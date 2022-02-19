@@ -1,4 +1,4 @@
-local opts = require('mjlaufer/lsp/server-options')
+local opts = require('mjlaufer/lsp/server_options')
 
 local prettier = {
     formatCommand = './node_modules/.bin/prettier --stdin-filepath ${INPUT}',
