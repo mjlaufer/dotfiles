@@ -39,6 +39,7 @@ return packer.startup(function(use)
     }
 
     -- Editor
+    use 'editorconfig/editorconfig-vim'
     use 'tpope/vim-surround'
     use {'tpope/vim-unimpaired', requires = {'tpope/vim-repeat'}}
     use {'windwp/nvim-autopairs', commit = '97e454c'}

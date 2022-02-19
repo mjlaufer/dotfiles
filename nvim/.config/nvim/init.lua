@@ -1,6 +1,7 @@
 require('mjlaufer.sets')
 require('mjlaufer.keymaps')
 require('mjlaufer.plugins')
+require('mjlaufer.editorconfig')
 require('mjlaufer.colors')
 require('mjlaufer.telescope')
 require('mjlaufer.autopairs')
