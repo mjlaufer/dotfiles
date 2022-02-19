@@ -1,5 +1,6 @@
 .vscode/
 .DS_Store
+kitty.conf.bak
 node_modules/
 packer_compiled.lua
 tmux/.tmux/resurrect/

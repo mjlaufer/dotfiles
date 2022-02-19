@@ -2,7 +2,7 @@ vim.cmd [[
     " Enable True Color support.
     set termguicolors
     set background=dark
-    colorscheme undercity
+    colorscheme gruvbox
 ]]
 
 local util = require('mjlaufer.util')
