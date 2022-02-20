@@ -27,7 +27,7 @@ return packer.startup(function(use)
     -- Colors
     use {'nvim-treesitter/nvim-treesitter', commit = 'a7c0c17', run = ':TSUpdate'}
     use {'nvim-treesitter/playground', commit = '787a7a8'}
-    use 'mjlaufer/gruvbox-darker.nvim'
+    use 'mjlaufer/undercity.nvim'
 
     -- Icons (used by lualine and nvim-tree)
     use {
