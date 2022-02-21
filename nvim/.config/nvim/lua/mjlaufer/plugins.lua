@@ -73,7 +73,7 @@ return packer.startup(function(use)
 
     -- LSP
     use 'neovim/nvim-lspconfig'
-    use {'williamboman/nvim-lsp-installer', commit = '5e20d05'}
+    use {'williamboman/nvim-lsp-installer', commit = '2c80c2f'}
     use {'jose-elias-alvarez/nvim-lsp-ts-utils', commit = 'fb2f9d8'}
 
     -- Completion
