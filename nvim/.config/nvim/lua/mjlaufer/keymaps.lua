@@ -40,3 +40,7 @@ util.map('n', '<leader>P', '"+P<CR>', opts)
 
 -- tmux-sessionizer
 util.map('n', '<C-f>', ':silent !tmux neww tmux-sessionizer<CR>', opts)
+
+-- Reload config
+vim.api.nvim_set_keymap('n', '<leader><CR>', ':lua RELOAD_CONFIG()<CR>',
+    {silent = true, noremap = true})

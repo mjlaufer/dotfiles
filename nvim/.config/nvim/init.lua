@@ -1,4 +1,5 @@
-require('mjlaufer.sets')
+require('mjlaufer.globals')
+require('mjlaufer.options')
 require('mjlaufer.keymaps')
 require('mjlaufer.plugins')
 require('mjlaufer.editorconfig')
@@ -14,17 +15,3 @@ require('mjlaufer.terminal')
 require('mjlaufer.nvim_tree')
 require('mjlaufer.lualine')
 require('mjlaufer.colorizer')
-
-function _G.ReloadConfig()
-    for name, _ in pairs(package.loaded) do
-        if name:match('^mjlaufer') then
-            package.loaded[name] = nil
-        end
-    end
-
-    dofile(vim.env.MYVIMRC)
-end
-
-vim.api.nvim_set_keymap('n', '<leader><CR>', '<Cmd>lua ReloadConfig()<CR>',
-    {silent = true, noremap = true})
-
