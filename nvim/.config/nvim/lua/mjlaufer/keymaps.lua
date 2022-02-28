@@ -17,10 +17,10 @@ util.map('n', '<C-l>', '<C-w>l', opts)
 util.map('n', '<S-l>', ':bnext<CR>', opts)
 util.map('n', '<S-h>', ':bprevious<CR>', opts)
 
--- Change sets
-util.map('n', '<leader>sh', ':nohlsearch<CR>', opts)
-util.map('n', '<leader>st2', ':set tabstop=2 softtabstop=2 shiftwidth=2<CR>', opts)
-util.map('n', '<leader>st4', ':set tabstop=4 softtabstop=4 shiftwidth=4<CR>', opts)
+-- Change options
+util.map('n', '<leader>oh', ':nohlsearch<CR>', opts)
+util.map('n', '<leader>ot2', ':set tabstop=2 softtabstop=2 shiftwidth=2<CR>', opts)
+util.map('n', '<leader>ot4', ':set tabstop=4 softtabstop=4 shiftwidth=4<CR>', opts)
 
 -- [Visual] Move selected lines up/down
 util.map('v', 'J', ':m \'>+1<CR>gv=gv', opts)
@@ -41,6 +41,21 @@ util.map('n', '<leader>P', '"+P<CR>', opts)
 -- tmux-sessionizer
 util.map('n', '<C-f>', ':silent !tmux neww tmux-sessionizer<CR>', opts)
 
+-- Run current spec file with plenary.test_harness
+util.map('n', '<leader>s', '<Plug>PlenaryTestFile', {noremap = false, silent = false})
+
 -- Reload config
 vim.api.nvim_set_keymap('n', '<leader><CR>', ':lua RELOAD_CONFIG()<CR>',
     {silent = true, noremap = true})
+
+util.useWhichKey({
+    ['<leader>'] = {
+        o = {
+            name = 'Options',
+            h = 'Remove search highlights',
+            ['2'] = 'Set tab to 2 spaces',
+            ['4'] = 'Set tab to 4 spaces',
+        },
+        s = {name = 'Spec'},
+    },
+})
