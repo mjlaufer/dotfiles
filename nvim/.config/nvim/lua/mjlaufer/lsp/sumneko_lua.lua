@@ -10,8 +10,8 @@ return {
                 path = vim.split(package.path, ';'),
             },
             diagnostics = {
-                -- Allow the language server to recognize the `vim` global.
-                globals = {'vim'},
+                -- Recognize `vim` and plenary.test_harness globals.
+                globals = {'vim', 'describe', 'it', 'before_each'},
             },
             workspace = {
                 -- Make the server aware of Neovim runtime files.
