@@ -101,26 +101,20 @@ Note: tmux split directions are the opposite of Vim split directions.
 
 ### Debugging
 
-Open Vim, and install debuggers.
-
-```
-:DIList
-:DIInstall chrome
-:DIInstall jsnode
-```
-
 Prefix for debugger keymaps: `<leader>i`
 
 #### Chrome
 
-Run Chrome with remote debugging enabled:
+-   Install and build [vscode-chrome-debug](https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#javascript-chrome) in `$HOME/.local/share/nvim/dap/`.
+-   Run Chrome with remote debugging enabled:
 
 ```sh
 chrome-debug
 ```
 
-Start the Chrome debugger: `<leader> ic`
+-   Start the Chrome debugger: `<leader> ic`
 
 #### Node.js
 
-Start the Node debugger: `<leader> isn`
+-   Install and build [node-debug2](https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#javascript) in `$HOME/.local/share/nvim/dap/`.
+-   Start the Node debugger: `<leader> isn`

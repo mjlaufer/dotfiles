@@ -2,7 +2,7 @@ local util = require('mjlaufer.util')
 local fn = vim.fn
 
 -- Automatically install packer
-local install_path = fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
     PACKER_BOOTSTRAP = fn.system {
         'git',
@@ -91,7 +91,6 @@ return packer.startup(function(use)
 
     -- Debugger
     use {'mfussenegger/nvim-dap', commit = 'c9a5826'}
-    use {'Pocco81/DAPInstall.nvim', commit = 'dd09e9d'}
     use {'nvim-telescope/telescope-dap.nvim', commit = 'b4134ff'}
     use {'theHamsta/nvim-dap-virtual-text', commit = 'fb176ca'}
     use {'rcarriga/nvim-dap-ui', commit = 'ae3b003'}

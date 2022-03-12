@@ -5,6 +5,12 @@ if not dap then
     return
 end
 
+dap.adapters.chrome = {
+    type = 'executable',
+    command = 'node',
+    args = {vim.fn.stdpath('data') .. '/dap/vscode-chrome-debug/out/src/chromeDebug.js'},
+}
+
 local chrome_config = {
     {
         type = 'chrome',
@@ -23,7 +29,14 @@ dap.configurations.typescript = chrome_config
 dap.configurations.javascriptreact = chrome_config
 dap.configurations.typescriptreact = chrome_config
 
+-- This function allows JS/TS projects to use the Node.js debugger.
 _G.start_node_debugger = function()
+    dap.adapters.node2 = {
+        type = 'executable',
+        command = 'node',
+        args = {vim.fn.stdpath('data') .. '/dap/vscode-node-debug2/out/src/nodeDebug.js'},
+    }
+
     local node_config = {
         {
             name = 'Launch',
