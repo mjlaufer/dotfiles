@@ -16,7 +16,9 @@ telescope.setup({
 
 local opts = {noremap = true, silent = true}
 
-util.map('n', '<leader>ff', ':Telescope find_files<CR>', opts)
+util.map('n', '<leader>ff',
+    ':lua require("telescope.builtin").find_files({find_command={"rg", "--files", "--hidden", "-g", "!.git"}})<CR>',
+    opts)
 util.map('n', '<leader>fg', ':Telescope git_files<CR>', opts)
 util.map('n', '<leader>fs', ':Telescope live_grep<CR>', opts)
 util.map('n', '<leader>fw',
