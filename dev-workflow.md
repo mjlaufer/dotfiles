@@ -14,8 +14,6 @@
 
 ### tmux Sessions
 
-Use one tmux session per project.
-
 A `target-session` may be identified by one of the following:
 
 -   Session ID prefixed with `$` (e.g., `$1`)
@@ -35,8 +33,6 @@ A `target-session` may be identified by one of the following:
 -   Kill tmux server (all sessions): `tmux kill-server`
 
 ### tmux Windows
-
-Use tmux windows to separate Vim from running processes.
 
 A `target-window` may be identified by one of the following:
 
@@ -72,17 +68,20 @@ Note: tmux split directions are the opposite of Vim split directions.
 
 ### Vim Buffers
 
--   Alternate file: `C-6`
+-   Alternate buffer: `C-6`
 -   List open buffers: `:ls`
--   Go to next buffer: `:bn`
--   Go to previous buffer: `:bp`
--   Remove file from buffer list: `:bd`
+-   Go to next buffer: `:bn` or `]b` (with vim-unimpaired)
+-   Go to previous buffer: `:bp` or `[b` (with vim-unimpaired)
+-   Delete buffer from buffer list: `:bd`
 
 ### Vim Splits
 
--   Close all but current split: `<C-w>o`
 -   Split window vertically: `<C-w>v` or `:vsp`
 -   Split window horizontally: `<C-w>s` or `:sp`
+-   Close all but current split: `<C-w>o`
+-   Maximize the current split: `<C-w>|` (horizontal) or `<C-w>_` (vertical)
+-   Swap split with neighbor: `<C-w>x`
+-   Move split: `<C-w>H/J/K/L`
 -   Prefix for Neovim terminal keymaps: `<leader>t`
 
 ### Git

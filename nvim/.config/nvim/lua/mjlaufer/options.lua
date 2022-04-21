@@ -21,6 +21,7 @@ local options = {
     backup = false,
     errorbells = false,
     timeoutlen = 300,
+    mouse = 'a',
 }
 
 for k, v in pairs(options) do

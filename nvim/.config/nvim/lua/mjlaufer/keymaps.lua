@@ -31,10 +31,10 @@ util.map('v', '<', '<gv', opts)
 util.map('v', '>', '>gv', opts)
 
 -- [Normal/Visual] yank/delete to clipboard; [Normal] put from clipboard
-util.map('n', '<leader>y', '"*yy<CR>', opts)
-util.map('v', '<leader>y', '"*yy<CR>', opts)
-util.map('n', '<leader>d', '"*dd<CR>', opts)
-util.map('v', '<leader>d', '"*dd<CR>', opts)
+util.map('n', '<leader>y', '"+yy<CR>', opts)
+util.map('v', '<leader>y', '"+yy<CR>', opts)
+util.map('n', '<leader>d', '"+dd<CR>', opts)
+util.map('v', '<leader>d', '"+dd<CR>', opts)
 util.map('n', '<leader>p', '"+p<CR>', opts)
 util.map('n', '<leader>P', '"+P<CR>', opts)
 
