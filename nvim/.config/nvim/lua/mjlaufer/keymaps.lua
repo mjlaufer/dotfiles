@@ -38,10 +38,27 @@ util.map('v', '<leader>d', '"+dd<CR>', opts)
 util.map('n', '<leader>p', '"+p<CR>', opts)
 util.map('n', '<leader>P', '"+P<CR>', opts)
 
--- tmux-sessionizer
-util.map('n', '<C-f>', ':silent !tmux neww tmux-sessionizer<CR>', opts)
+-- [Visual] Search for current selection
+util.map('x', '*', ':lua VSetSearch("/")<CR>/<C-r>=@/<CR><CR>', opts)
+util.map('x', '#', ':lua VSetSearch("?")<CR>?<C-r>=@/<CR><CR>', opts)
 
--- Run current spec file with plenary.test_harness
+function _G.VSetSearch(search_cmd)
+    vim.cmd [[
+        let temp = @s
+        norm! gv"sy
+    ]]
+    if search_cmd == '/' then
+        vim.cmd [[ let @/ = '\V' . substitute(escape(@s, '/' . '\'), '\n', '\\n', 'g') ]]
+    elseif search_cmd == '?' then
+        vim.cmd [[ let @/ = '\V' . substitute(escape(@s, '?' . '\'), '\n', '\\n', 'g') ]]
+    end
+    vim.cmd [[ let @s = temp ]]
+end
+
+-- tmux-sessionizer
+util.map('n', '<c-f>', ':silent !tmux neww tmux-sessionizer<cr>', opts)
+
+-- run current spec file with plenary.test_harness
 util.map('n', '<leader>s', '<Plug>PlenaryTestFile', {noremap = false, silent = false})
 
 -- Reload config
