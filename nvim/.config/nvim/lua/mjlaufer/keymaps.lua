@@ -55,6 +55,10 @@ function _G.VSetSearch(search_cmd)
     vim.cmd [[ let @s = temp ]]
 end
 
+-- [Normal/Visual] Always use the same flags when repeating a substitution command.
+util.map('n', '&', ':&&<CR>', opts)
+util.map('x', '&', ':&&<CR>', opts)
+
 -- tmux-sessionizer
 util.map('n', '<c-f>', ':silent !tmux neww tmux-sessionizer<cr>', opts)
 
