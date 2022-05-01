@@ -30,11 +30,11 @@ cmp.setup({
             luasnip.lsp_expand(args.body)
         end,
     },
-    mapping = {
-        ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), {'i', 'c'}),
-        ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), {'i', 'c'}),
-        ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), {'i', 'c'}),
-        ['<C-c>'] = cmp.mapping({i = cmp.mapping.abort(), c = cmp.mapping.close()}),
+    mapping = cmp.mapping.preset.insert({
+        ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-d>'] = cmp.mapping.scroll_docs(4),
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-e>'] = cmp.mapping.abort(),
         ['<CR>'] = cmp.mapping.confirm({select = false}),
         ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
@@ -58,7 +58,7 @@ cmp.setup({
                 fallback()
             end
         end, {'i', 's'}),
-    },
+    }),
     sources = cmp.config.sources({
         {name = 'nvim_lsp'},
         {name = 'nvim_lua'},
@@ -78,4 +78,9 @@ cmp.setup({
             maxwidth = 50,
         }),
     },
+    cmp.setup.cmdline('/', {mapping = cmp.mapping.preset.cmdline(), sources = {{name = 'buffer'}}}),
+    cmp.setup.cmdline(':', {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({{name = 'path'}}, {{name = 'cmdline'}}),
+    }),
 })

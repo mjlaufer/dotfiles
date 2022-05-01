@@ -1,37 +1,24 @@
 local util = require('mjlaufer.util')
 
-local nvim_lsp = util.prequire('lspconfig')
+local lspconfig = util.prequire('lspconfig')
 local lsp_installer = util.prequire('nvim-lsp-installer')
-if not nvim_lsp or not lsp_installer then
+if not lspconfig or not lsp_installer then
     return
 end
 
-local server_opts = {
-    eslint = require('mjlaufer.lsp.eslint'),
-    golangci_lint_ls = require('mjlaufer.lsp.golangci_lint_ls'),
-    gopls = require('mjlaufer.lsp.gopls'),
-    jsonls = require('mjlaufer.lsp.jsonls'),
-    sumneko_lua = require('mjlaufer.lsp.sumneko_lua'),
-    tsserver = require('mjlaufer.lsp.tsserver'),
-}
-local servers = {'eslint', 'golangci_lint_ls', 'gopls', 'jsonls', 'sumneko_lua', 'tsserver'}
+lsp_installer.setup({
+    -- Note: efm is not listed below because it is installed with Homebrew.
+    ensure_installed = {'eslint', 'golangci_lint_ls', 'gopls', 'jsonls', 'sumneko_lua', 'tsserver'},
+    automatic_installation = true,
+})
 
-for _, server in ipairs(servers) do
-    local server_available, requested_server = lsp_installer.get_server(server)
-
-    if server_available then
-        local opts = server_opts[requested_server.name] or {}
-        requested_server:setup(opts)
-    end
-
-    if not requested_server:is_installed() then
-        requested_server:install()
-    end
-end
-
--- Set up efm separately (efm is installed with Homebrew)
-local efm_opts = require('mjlaufer.lsp.efm')
-nvim_lsp.efm.setup(efm_opts)
+lspconfig.efm.setup(require('mjlaufer.lsp.efm'))
+lspconfig.eslint.setup(require('mjlaufer.lsp.eslint'))
+lspconfig.golangci_lint_ls.setup(require('mjlaufer.lsp.golangci_lint_ls'))
+lspconfig.gopls.setup(require('mjlaufer.lsp.gopls'))
+lspconfig.jsonls.setup(require('mjlaufer.lsp.jsonls'))
+lspconfig.sumneko_lua.setup(require('mjlaufer.lsp.sumneko_lua'))
+lspconfig.tsserver.setup(require('mjlaufer.lsp.tsserver'))
 
 -- Diagnostic icons
 vim.lsp.handlers['textDocument/publishDiagnostics'] =

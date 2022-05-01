@@ -22,17 +22,17 @@ if not packer then
 end
 
 return packer.startup(function(use)
-    use {'wbthomason/packer.nvim', commit = '7182f0d'}
+    use {'wbthomason/packer.nvim', commit = '4dedd3b'}
 
     -- Colors
-    use {'nvim-treesitter/nvim-treesitter', commit = 'a7c0c17', run = ':TSUpdate'}
-    use {'nvim-treesitter/playground', commit = '787a7a8'}
+    use {'nvim-treesitter/nvim-treesitter', commit = '6f6cb20', run = ':TSUpdate'}
+    use {'nvim-treesitter/playground', commit = '13e2d2d'}
     use 'mjlaufer/undercity.nvim'
 
     -- Icons (used by lualine and nvim-tree)
     use {
         'kyazdani42/nvim-web-devicons',
-        commit = '634e268',
+        commit = '2033e8e',
         config = function()
             require('nvim-web-devicons').setup({override = {}, default = true})
         end,
@@ -42,7 +42,7 @@ return packer.startup(function(use)
     use 'editorconfig/editorconfig-vim'
     use 'tpope/vim-surround'
     use {'tpope/vim-unimpaired', requires = {'tpope/vim-repeat'}}
-    use {'windwp/nvim-autopairs', commit = '97e454c'}
+    use {'windwp/nvim-autopairs', commit = '63779ea'}
     use {
         'windwp/nvim-ts-autotag',
         commit = '32bc46e',
@@ -50,64 +50,63 @@ return packer.startup(function(use)
             require('nvim-ts-autotag').setup()
         end,
     }
-    use {'numToStr/Comment.nvim', commit = '90df2f8'}
-    use {'JoosepAlviste/nvim-ts-context-commentstring', commit = '097df33'}
+    use {'numToStr/Comment.nvim', commit = 'cb0de89'}
+    use {'JoosepAlviste/nvim-ts-context-commentstring', commit = '8834375'}
 
     -- Telescope
-    use {'nvim-lua/plenary.nvim', commit = '563d9f6'}
-    use {'nvim-telescope/telescope.nvim', commit = 'f262e7d'}
-    use {'nvim-telescope/telescope-fzy-native.nvim', commit = '7b3d252'}
+    use {'nvim-lua/plenary.nvim', commit = '9069d14'}
+    use {'nvim-telescope/telescope.nvim', commit = '57bd8a5'}
 
     -- Git
     use 'tpope/vim-fugitive'
     use 'tpope/vim-rhubarb'
     use {
         'lewis6991/gitsigns.nvim',
-        commit = 'f43cee3',
+        commit = 'b800663',
         config = function()
             require('gitsigns').setup()
         end,
     }
     use {'APZelos/blamer.nvim', commit = 'f4eb22a'}
-    use {'sindrets/diffview.nvim', commit = 'eef4745'}
+    use {'sindrets/diffview.nvim', commit = '2d1f452'}
 
     -- LSP
     use 'neovim/nvim-lspconfig'
-    use {'williamboman/nvim-lsp-installer', commit = '2c80c2f'}
-    use {'jose-elias-alvarez/nvim-lsp-ts-utils', commit = 'fb2f9d8'}
+    use {'williamboman/nvim-lsp-installer', commit = 'cd4dac0'}
+    use {'jose-elias-alvarez/nvim-lsp-ts-utils', commit = '1826275'}
 
     -- Completion
-    use {'hrsh7th/nvim-cmp', commit = '4c0a651'}
+    use {'hrsh7th/nvim-cmp', commit = 'f841fa6'}
     use {'hrsh7th/cmp-nvim-lsp', commit = 'ebdfc20'}
-    use {'hrsh7th/cmp-buffer', commit = 'f83773e'}
-    use {'hrsh7th/cmp-path', commit = 'c5230cb'}
+    use {'hrsh7th/cmp-buffer', commit = 'd66c4c2'}
+    use {'hrsh7th/cmp-path', commit = '466b6b8'}
     use {'hrsh7th/cmp-nvim-lua', commit = 'd276254'}
-    use {'onsails/lspkind-nvim', commit = 'f0d1552'}
-    use {'saadparwaiz1/cmp_luasnip', commit = 'd6f837f'}
+    use {'onsails/lspkind-nvim', commit = '57e5b5d'}
 
     -- Snippets
-    use {'L3MON4D3/LuaSnip', commit = '0222ee6'}
-    use {'rafamadriz/friendly-snippets', commit = '35bacce'}
+    use {'saadparwaiz1/cmp_luasnip', commit = 'b108297'}
+    use {'L3MON4D3/LuaSnip', commit = '7fc4f14'}
+    use {'rafamadriz/friendly-snippets', commit = '6e0881a'}
 
     -- Debugger
-    use {'mfussenegger/nvim-dap', commit = 'c9a5826'}
+    use {'mfussenegger/nvim-dap', commit = 'd6d8317'}
     use {'nvim-telescope/telescope-dap.nvim', commit = 'b4134ff'}
-    use {'theHamsta/nvim-dap-virtual-text', commit = 'fb176ca'}
-    use {'rcarriga/nvim-dap-ui', commit = 'ae3b003'}
+    use {'theHamsta/nvim-dap-virtual-text', commit = '10368a1'}
+    use {'rcarriga/nvim-dap-ui', commit = '3eec525'}
 
     -- File explorer
-    use {'kyazdani42/nvim-tree.lua', commit = '0a2f6b0'}
+    use {'kyazdani42/nvim-tree.lua', commit = '86d573d'}
 
     -- Integrated terminal
-    use {'akinsho/toggleterm.nvim', commit = 'f23866b'}
+    use {'akinsho/toggleterm.nvim', commit = '6c7f5db'}
 
     -- Status line
-    use {'nvim-lualine/lualine.nvim', commit = '70691ae'}
+    use {'nvim-lualine/lualine.nvim', commit = '030eb62'}
 
     -- Misc
     use {
         'folke/which-key.nvim',
-        commit = '28d2bd1',
+        commit = 'a3c19ec',
         config = function()
             require('which-key').setup({ignore_missing = true})
         end,
