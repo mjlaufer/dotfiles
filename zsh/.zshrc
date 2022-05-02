@@ -86,8 +86,9 @@ export PATH=$HOME/.local/bin:$GOPATH/bin:$PATH
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# C-f to run tmux-sessionizer
-bindkey -s ^f "tmux-sessionizer\n"
+# C-s to run tmux-sessionizer
+stty -ixon
+bindkey -s ^s "tmux-sessionizer\n"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

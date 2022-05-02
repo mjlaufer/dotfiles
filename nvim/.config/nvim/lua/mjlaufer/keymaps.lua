@@ -13,10 +13,6 @@ util.map('n', '<C-j>', '<C-w>j', opts)
 util.map('n', '<C-k>', '<C-w>k', opts)
 util.map('n', '<C-l>', '<C-w>l', opts)
 
--- Navigate buffers
-util.map('n', '<S-l>', ':bnext<CR>', opts)
-util.map('n', '<S-h>', ':bprevious<CR>', opts)
-
 -- Change options
 util.map('n', '<leader>oh', ':nohlsearch<CR>', opts)
 util.map('n', '<leader>ot2', ':set tabstop=2 softtabstop=2 shiftwidth=2<CR>', opts)
@@ -55,14 +51,14 @@ function _G.VSetSearch(search_cmd)
     vim.cmd [[ let @s = temp ]]
 end
 
--- [Normal/Visual] Always use the same flags when repeating a substitution command.
+-- [Normal/Visual] Always use the same flags when repeating a substitution command
 util.map('n', '&', ':&&<CR>', opts)
 util.map('x', '&', ':&&<CR>', opts)
 
 -- tmux-sessionizer
-util.map('n', '<c-f>', ':silent !tmux neww tmux-sessionizer<cr>', opts)
+util.map('n', '<c-s>', ':silent !tmux neww tmux-sessionizer<cr>', opts)
 
--- run current spec file with plenary.test_harness
+-- Run current spec file with plenary.test_harness
 util.map('n', '<leader>s', '<Plug>PlenaryTestFile', {noremap = false, silent = false})
 
 -- Reload config
