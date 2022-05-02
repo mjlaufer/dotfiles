@@ -19,11 +19,6 @@ require('luasnip/loaders/from_vscode').lazy_load({
 
 local lspkind = require('lspkind')
 
-local check_backspace = function()
-    local col = vim.fn.col '.' - 1
-    return col == 0 or vim.fn.getline('.'):sub(col, col):match '%s'
-end
-
 cmp.setup({
     snippet = {
         expand = function(args)
@@ -36,42 +31,21 @@ cmp.setup({
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.abort(),
         ['<CR>'] = cmp.mapping.confirm({select = false}),
-        ['<Tab>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_next_item()
-            elseif luasnip.expandable() then
-                luasnip.expand()
-            elseif luasnip.expand_or_jumpable() then
-                luasnip.expand_or_jump()
-            elseif check_backspace() then
-                fallback()
-            else
-                fallback()
-            end
-        end, {'i', 's'}),
-        ['<S-Tab>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-                luasnip.jump(-1)
-            else
-                fallback()
-            end
-        end, {'i', 's'}),
     }),
     sources = cmp.config.sources({
         {name = 'nvim_lsp'},
         {name = 'nvim_lua'},
         {name = 'luasnip'},
         {name = 'path'},
-    }, {{name = 'buffer', keyword_length = 5}}),
+        {name = 'buffer', keyword_length = 5},
+    }),
     formatting = {
         format = lspkind.cmp_format({
             with_text = true,
             menu = {
                 nvim_lsp = '[LSP]',
-                nvim_lua = '[VimApi]',
-                luasnip = '[Snip]',
+                nvim_lua = '[NvimApi]',
+                luasnip = '[LuaSnip]',
                 path = '[Path]',
                 buffer = '[Buf]',
             },
