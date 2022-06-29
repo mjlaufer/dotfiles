@@ -1,0 +1,18 @@
+let mapleader=" "
+
+" Plugins  --------------------------------
+set surround
+set commentary
+
+" Options ---------------------------------
+set relativenumber
+set nu
+set scrolloff
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set noerrorbells
+
+" Maps ------------------------------------
+nnoremap <leader>e :action SelectInProjectView<CR>
