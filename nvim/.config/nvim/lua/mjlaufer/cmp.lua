@@ -1,8 +1,8 @@
-vim.cmd([[
+vim.cmd [[
     " Completion menu options
     set completeopt=menu,menuone,noselect
     let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-]])
+]]
 
 local util = require('mjlaufer.util')
 

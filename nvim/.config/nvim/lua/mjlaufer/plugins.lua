@@ -24,24 +24,25 @@ end
 return packer.startup(function(use)
     use {'wbthomason/packer.nvim', commit = '4dedd3b'}
 
-    -- Colors
+    -- Look and Feel
     use {'nvim-treesitter/nvim-treesitter', commit = '6f6cb20', run = ':TSUpdate'}
     use {'nvim-treesitter/playground', commit = '13e2d2d'}
     use 'mjlaufer/undercity.nvim'
-
-    -- Icons (used by lualine and nvim-tree)
     use {
         'kyazdani42/nvim-web-devicons',
         commit = '2033e8e',
         config = function()
             require('nvim-web-devicons').setup({override = {}, default = true})
         end,
-    }
+    } -- Used by lualine and nvim-tree.
+    use {'psliwka/vim-smoothie', commit = '10fd0aa'}
+    use {'norcalli/nvim-colorizer.lua', commit = '36c610a'}
 
     -- Editor
     use 'editorconfig/editorconfig-vim'
     use 'tpope/vim-surround'
     use {'tpope/vim-unimpaired', requires = {'tpope/vim-repeat'}}
+    use 'tpope/vim-characterize'
     use {'windwp/nvim-autopairs', commit = '63779ea'}
     use {
         'windwp/nvim-ts-autotag',
@@ -52,10 +53,27 @@ return packer.startup(function(use)
     }
     use {'numToStr/Comment.nvim', commit = 'cb0de89'}
     use {'JoosepAlviste/nvim-ts-context-commentstring', commit = '8834375'}
+    use {'justinmk/vim-sneak', commit = '94c2de4'}
+    use {
+        'folke/which-key.nvim',
+        commit = 'a3c19ec',
+        config = function()
+            require('which-key').setup({ignore_missing = true})
+        end,
+    }
 
-    -- Telescope
+    -- Development Environment
     use {'nvim-lua/plenary.nvim', commit = '9069d14'}
     use {'nvim-telescope/telescope.nvim', commit = '57bd8a5'}
+    use {'kyazdani42/nvim-tree.lua', commit = '86d573d'}
+    use {'nvim-lualine/lualine.nvim', commit = '030eb62'}
+    use {'akinsho/toggleterm.nvim', commit = '6c7f5db'}
+    use {
+        'iamcco/markdown-preview.nvim',
+        commit = 'e5bfe9b',
+        run = 'cd app && yarn install',
+        ft = 'markdown',
+    }
 
     -- Git
     use 'tpope/vim-fugitive'
@@ -93,32 +111,6 @@ return packer.startup(function(use)
     use {'nvim-telescope/telescope-dap.nvim', commit = 'b4134ff'}
     use {'theHamsta/nvim-dap-virtual-text', commit = '10368a1'}
     use {'rcarriga/nvim-dap-ui', commit = '3eec525'}
-
-    -- File explorer
-    use {'kyazdani42/nvim-tree.lua', commit = '86d573d'}
-
-    -- Integrated terminal
-    use {'akinsho/toggleterm.nvim', commit = '6c7f5db'}
-
-    -- Status line
-    use {'nvim-lualine/lualine.nvim', commit = '030eb62'}
-
-    -- Misc
-    use {
-        'folke/which-key.nvim',
-        commit = 'a3c19ec',
-        config = function()
-            require('which-key').setup({ignore_missing = true})
-        end,
-    }
-    use {'psliwka/vim-smoothie', commit = '10fd0aa'}
-    use {'norcalli/nvim-colorizer.lua', commit = '36c610a'}
-    use {
-        'iamcco/markdown-preview.nvim',
-        commit = 'e5bfe9b',
-        run = 'cd app && yarn install',
-        ft = 'markdown',
-    }
 
     if PACKER_BOOTSTRAP then
         packer.sync()
