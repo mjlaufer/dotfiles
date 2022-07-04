@@ -1,3 +1,6 @@
+-- Set up `impatient` before any other lua plugin.
+require('impatient')
+
 require('mjlaufer.globals')
 require('mjlaufer.options')
 require('mjlaufer.keymaps')

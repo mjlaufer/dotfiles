@@ -23,6 +23,10 @@ end
 
 return packer.startup(function(use)
     use {'wbthomason/packer.nvim', commit = '4dedd3b'}
+    use 'lewis6991/impatient.nvim' -- Improves start time.
+
+    -- Plenary is a lua function library that a lot of plugins depend on.
+    use {'nvim-lua/plenary.nvim', commit = '46e8bb9'}
 
     -- Look and Feel
     use {'nvim-treesitter/nvim-treesitter', commit = '7d2bd76', run = ':TSUpdate'}
@@ -35,13 +39,22 @@ return packer.startup(function(use)
             require('nvim-web-devicons').setup({override = {}, default = true})
         end,
     } -- Used by lualine and nvim-tree.
-    use {'psliwka/vim-smoothie', commit = 'df1e324'}
+
+    use {'psliwka/vim-smoothie', commit = 'df1e324'} -- Smooth scrolling for `C-d`, etc.
+    use {
+        'mhinz/vim-startify',
+        commit = '81e36c3',
+        config = function()
+            vim.g.startify_disable_at_vimenter = true
+        end,
+    } -- Fancy start screen; useful for `:SSave` and `:SLoad` (wrappers for `:mksession`).
     use {'norcalli/nvim-colorizer.lua', commit = '36c610a'}
 
     -- Editor
     use 'editorconfig/editorconfig-vim'
     use 'tpope/vim-surround'
-    use {'tpope/vim-unimpaired', requires = {'tpope/vim-repeat'}}
+    use 'tpope/vim-repeat'
+    use {'tpope/vim-unimpaired', after = 'vim-repeat'}
     use 'tpope/vim-characterize'
     use {'windwp/nvim-autopairs', commit = '4a95b39'}
     use {
@@ -63,7 +76,6 @@ return packer.startup(function(use)
     }
 
     -- Development Environment
-    use {'nvim-lua/plenary.nvim', commit = '46e8bb9'}
     use {'nvim-telescope/telescope.nvim', commit = '2b1da47'}
     use {'kyazdani42/nvim-tree.lua', commit = '19dcacf'}
     use {'nvim-lualine/lualine.nvim', commit = '5113cdb'}
@@ -114,6 +126,14 @@ return packer.startup(function(use)
     use {'nvim-telescope/telescope-dap.nvim', commit = 'b4134ff'}
     use {'theHamsta/nvim-dap-virtual-text', commit = '10368a1'}
     use {'rcarriga/nvim-dap-ui', commit = '3eec525'}
+
+    -- Misc.
+    use {
+        'glacambre/firenvim',
+        run = function()
+            vim.fn['firenvim#install'](0)
+        end,
+    } -- Embeds Neovim in Chrome and Firefox textareas.
 
     if PACKER_BOOTSTRAP then
         packer.sync()
