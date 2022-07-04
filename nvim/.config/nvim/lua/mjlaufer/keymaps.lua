@@ -59,7 +59,7 @@ util.map('x', '&', ':&&<CR>', opts)
 util.map('n', '<c-s>', ':silent !tmux neww tmux-sessionizer<cr>', opts)
 
 -- Run current spec file with plenary.test_harness
-util.map('n', '<leader>s', '<Plug>PlenaryTestFile', {noremap = false, silent = false})
+util.map('n', '<leader>ps', '<Plug>PlenaryTestFile', {noremap = false, silent = false})
 
 -- Reload config
 vim.api.nvim_set_keymap('n', '<leader><CR>', ':lua RELOAD_CONFIG()<CR>',
@@ -73,6 +73,6 @@ util.useWhichKey({
             ['2'] = 'Set tab to 2 spaces',
             ['4'] = 'Set tab to 4 spaces',
         },
-        s = {name = 'Spec'},
+        p = {name = 'Plenary', s = 'Spec'},
     },
 })

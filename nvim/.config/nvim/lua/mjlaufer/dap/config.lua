@@ -87,7 +87,7 @@ util.map('n', '<leader>iwf',
 
 util.useWhichKey({
     ['<leader>i'] = {
-        name = 'Debugger',
+        name = 'Inspect/debug',
         sn = 'Start Node debugger',
         c = 'Start/continue',
         b = 'Toggle breakpoint',

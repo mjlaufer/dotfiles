@@ -7,9 +7,11 @@ end
 
 nvim_tree.setup({view = {width = 36}})
 
-util.map('n', '<leader>ee', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
-util.map('n', '<leader>ef', ':NvimTreeFindFile<CR>', {noremap = true, silent = true})
-util.map('n', '<leader>ec', ':NvimTreeCollapse<CR>', {noremap = true, silent = true})
+local opts = {noremap = true, silent = true}
+
+util.map('n', '<leader>ee', ':NvimTreeToggle<CR>', opts)
+util.map('n', '<leader>ef', ':NvimTreeFindFile<CR>', opts)
+util.map('n', '<leader>ec', ':NvimTreeCollapse<CR>', opts)
 
 util.useWhichKey({
     ['<leader>e'] = {

@@ -92,7 +92,7 @@ return packer.startup(function(use)
 
     -- Git
     use 'tpope/vim-fugitive'
-    use 'tpope/vim-rhubarb'
+    use {'tpope/vim-rhubarb', after = 'vim-fugitive'} -- GitHub integration
     use {
         'lewis6991/gitsigns.nvim',
         commit = 'b800663',
@@ -107,6 +107,13 @@ return packer.startup(function(use)
     use 'neovim/nvim-lspconfig'
     use {'williamboman/nvim-lsp-installer', commit = 'cd4dac0'}
     use {'jose-elias-alvarez/nvim-lsp-ts-utils', commit = '1826275'}
+    use {
+        'folke/trouble.nvim',
+        commit = 'da61737',
+        config = function()
+            require('trouble').setup({})
+        end,
+    }
 
     -- Completion
     use {'hrsh7th/nvim-cmp', commit = 'f841fa6'}

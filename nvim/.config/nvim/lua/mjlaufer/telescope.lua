@@ -1,7 +1,8 @@
 local util = require('mjlaufer.util')
 
 local telescope = util.prequire('telescope')
-if not telescope then
+local trouble = util.prequire('trouble.providers.telescope')
+if not telescope or not trouble then
     return
 end
 
@@ -11,6 +12,10 @@ telescope.setup({
         layout_strategy = 'horizontal',
         layout_config = {horizontal = {prompt_position = 'top'}},
         sorting_strategy = 'ascending',
+        mappings = {
+            i = {['<C-t>'] = trouble.open_with_trouble},
+            n = {['<C-t>'] = trouble.open_with_trouble},
+        },
     },
 })
 
@@ -30,10 +35,12 @@ util.map('n', '<leader>fh', ':Telescope help_tags<CR>', opts)
 
 -- Telescope DAP
 telescope.load_extension('dap')
+util.map('n', '<leader>fib', ':Telescope dap list_breakpoints<CR>', opts)
+util.map('n', '<leader>fif', ':Telescope dap frames<CR>', opts)
+util.map('n', '<leader>fiv', ':Telescope dap variables<CR>', opts)
 
-util.map('n', '<leader>dtb', ':Telescope dap list_breakpoints<CR>', opts)
-util.map('n', '<leader>dtf', ':Telescope dap frames<CR>', opts)
-util.map('n', '<leader>dtv', ':Telescope dap variables<CR>', opts)
+-- Trouble
+util.map('n', '<leader>xx', ':TroubleToggle<CR>', opts)
 
 util.useWhichKey({
     ['<leader>f'] = {
@@ -46,10 +53,11 @@ util.useWhichKey({
         e = 'File browser',
         h = 'Help tags',
     },
-    ['<leader>dt'] = {
-        name = 'Debugger (Telescope)',
+    ['<leader>fi'] = {
+        name = 'Inspect',
         b = 'List breakpoints',
         f = 'Show frames',
         v = 'Show variables',
     },
+    ['<leader>x'] = {name = 'Trouble', x = 'Toggle'},
 })
