@@ -25,17 +25,17 @@ return packer.startup(function(use)
     use {'wbthomason/packer.nvim', commit = '4dedd3b'}
 
     -- Look and Feel
-    use {'nvim-treesitter/nvim-treesitter', commit = '6f6cb20', run = ':TSUpdate'}
-    use {'nvim-treesitter/playground', commit = '13e2d2d'}
+    use {'nvim-treesitter/nvim-treesitter', commit = '7d2bd76', run = ':TSUpdate'}
+    use {'nvim-treesitter/playground', commit = 'ce7e4b7'}
     use 'mjlaufer/undercity.nvim'
     use {
         'kyazdani42/nvim-web-devicons',
-        commit = '2033e8e',
+        commit = '8d2c533',
         config = function()
             require('nvim-web-devicons').setup({override = {}, default = true})
         end,
     } -- Used by lualine and nvim-tree.
-    use {'psliwka/vim-smoothie', commit = '10fd0aa'}
+    use {'psliwka/vim-smoothie', commit = 'df1e324'}
     use {'norcalli/nvim-colorizer.lua', commit = '36c610a'}
 
     -- Editor
@@ -43,35 +43,38 @@ return packer.startup(function(use)
     use 'tpope/vim-surround'
     use {'tpope/vim-unimpaired', requires = {'tpope/vim-repeat'}}
     use 'tpope/vim-characterize'
-    use {'windwp/nvim-autopairs', commit = '63779ea'}
+    use {'windwp/nvim-autopairs', commit = '4a95b39'}
     use {
         'windwp/nvim-ts-autotag',
-        commit = '32bc46e',
+        commit = '044a05c',
         config = function()
             require('nvim-ts-autotag').setup()
         end,
     }
-    use {'numToStr/Comment.nvim', commit = 'cb0de89'}
+    use {'numToStr/Comment.nvim', commit = '4086630'}
     use {'JoosepAlviste/nvim-ts-context-commentstring', commit = '8834375'}
     use {'justinmk/vim-sneak', commit = '94c2de4'}
     use {
         'folke/which-key.nvim',
-        commit = 'a3c19ec',
+        commit = 'bd4411a',
         config = function()
             require('which-key').setup({ignore_missing = true})
         end,
     }
 
     -- Development Environment
-    use {'nvim-lua/plenary.nvim', commit = '9069d14'}
-    use {'nvim-telescope/telescope.nvim', commit = '57bd8a5'}
-    use {'kyazdani42/nvim-tree.lua', commit = '86d573d'}
-    use {'nvim-lualine/lualine.nvim', commit = '030eb62'}
-    use {'akinsho/toggleterm.nvim', commit = '6c7f5db'}
+    use {'nvim-lua/plenary.nvim', commit = '46e8bb9'}
+    use {'nvim-telescope/telescope.nvim', commit = '2b1da47'}
+    use {'kyazdani42/nvim-tree.lua', commit = '19dcacf'}
+    use {'nvim-lualine/lualine.nvim', commit = '5113cdb'}
+    use {'akinsho/toggleterm.nvim', commit = '04174e1'}
     use {
         'iamcco/markdown-preview.nvim',
-        commit = 'e5bfe9b',
+        commit = '02cc387',
         run = 'cd app && yarn install',
+        setup = function()
+            vim.g.mkdp_filetypes = {'markdown'}
+        end,
         ft = 'markdown',
     }
 
