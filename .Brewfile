@@ -19,7 +19,6 @@ brew "trash"
 brew "neovim"
 brew "ripgrep"
 brew "tree-sitter"
-brew "efm-langserver"
 
 # Lua development
 brew "cmake"

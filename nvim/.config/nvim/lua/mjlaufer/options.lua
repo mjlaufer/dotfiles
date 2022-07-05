@@ -27,11 +27,3 @@ local options = {
 for k, v in pairs(options) do
     vim.opt[k] = v
 end
-
--- Turn on 'wrap' for markdown files
-vim.cmd [[
-    augroup MarkdownWrap
-        autocmd!
-        autocmd FileType markdown set wrap
-    augroup END
-]]

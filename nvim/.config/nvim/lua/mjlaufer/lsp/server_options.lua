@@ -1,34 +1,23 @@
 local util = require('mjlaufer.util')
 
+local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
 local M = {}
 
 M.on_attach = function(client, bufnr)
-    local function buf_set_keymap(...)
-        vim.api.nvim_buf_set_keymap(bufnr, ...)
-    end
-    local function buf_set_option(...)
-        vim.api.nvim_buf_set_option(bufnr, ...)
-    end
-
-    -- Enable completion triggered by <c-x><c-o>
-    buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-    local opts = {noremap = true, silent = true}
+    -- Enable completion triggered by <C-x><C-o>
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
     -- See `:help vim.*` for documentation on any of the below functions
-    buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-    buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-    buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    buf_set_keymap('n', '<leader>lt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-    buf_set_keymap('n', '<leader>li', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-    buf_set_keymap('n', '<leader>ls', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-    buf_set_keymap('n', '<leader>ll', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-    buf_set_keymap('n', '<leader>lr', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-    buf_set_keymap('n', '<leader>lc', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-    buf_set_keymap('n', '<leader>ld', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-    buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-    buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-    buf_set_keymap('n', '<leader>lq', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+    local opts = {noremap = true, silent = true, buffer = bufnr}
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', '<leader>lt', vim.lsp.buf.type_definition, opts)
+    vim.keymap.set('n', '<leader>li', vim.lsp.buf.implementation, opts)
+    vim.keymap.set('n', '<leader>ls', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('n', '<leader>ll', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename, opts)
+    vim.keymap.set('n', '<leader>lc', vim.lsp.buf.code_action, opts)
 
     util.useWhichKey({
         gD = 'Go to declaration',
@@ -42,21 +31,20 @@ M.on_attach = function(client, bufnr)
             l = 'List references',
             r = 'Rename all references',
             c = 'Code actions',
-            d = 'Show diagnostics',
-            ['[d'] = 'Previous diagnostic',
-            [']d'] = 'Next diagnostic',
-            q = 'Add diagnostics to location list',
         },
     })
 
-    -- Format on save (using efm)
+    -- Format on save (using null-ls built-in formatters)
     if client.resolved_capabilities.document_formatting then
-        vim.cmd [[
-            augroup Format
-                autocmd! * <buffer>
-                autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()
-            augroup END
-        ]]
+        vim.api.nvim_clear_autocmds({group = augroup, buffer = bufnr})
+        vim.api.nvim_create_autocmd('BufWritePre', {
+            group = augroup,
+            buffer = bufnr,
+            callback = function()
+                -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+                vim.lsp.buf.formatting_seq_sync()
+            end,
+        })
     end
 end
 

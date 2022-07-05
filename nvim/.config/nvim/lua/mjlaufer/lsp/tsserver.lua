@@ -1,11 +1,11 @@
 local util = require('mjlaufer.util')
-local opts = require('mjlaufer/lsp/server_options')
+local opts = require('mjlaufer.lsp.server_options')
 
 local ts_utils = util.prequire('nvim-lsp-ts-utils')
 if not ts_utils then
     return {
         on_attach = function(client, bufnr)
-            -- Prevent tsserver from formatting; use efm instead
+            -- Prevent tsserver from formatting; use null-ls built-in formatters instead.
             client.resolved_capabilities.document_formatting = false
             opts.on_attach(client, bufnr)
         end,

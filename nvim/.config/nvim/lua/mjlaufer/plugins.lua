@@ -67,6 +67,9 @@ return packer.startup(function(use)
     use {'numToStr/Comment.nvim', commit = '4086630'}
     use {'JoosepAlviste/nvim-ts-context-commentstring', commit = '8834375'}
     use {'justinmk/vim-sneak', commit = '94c2de4'}
+
+    -- Development Environment
+    use {'nvim-telescope/telescope.nvim', commit = '2b1da47'}
     use {
         'folke/which-key.nvim',
         commit = 'bd4411a',
@@ -74,9 +77,13 @@ return packer.startup(function(use)
             require('which-key').setup({ignore_missing = true})
         end,
     }
-
-    -- Development Environment
-    use {'nvim-telescope/telescope.nvim', commit = '2b1da47'}
+    use {
+        'folke/trouble.nvim',
+        commit = 'da61737',
+        config = function()
+            require('trouble').setup()
+        end,
+    }
     use {'kyazdani42/nvim-tree.lua', commit = '19dcacf'}
     use {'nvim-lualine/lualine.nvim', commit = '5113cdb'}
     use {'akinsho/toggleterm.nvim', commit = '04174e1'}
@@ -106,14 +113,9 @@ return packer.startup(function(use)
     -- LSP
     use 'neovim/nvim-lspconfig'
     use {'williamboman/nvim-lsp-installer', commit = 'cd4dac0'}
-    use {'jose-elias-alvarez/nvim-lsp-ts-utils', commit = '1826275'}
-    use {
-        'folke/trouble.nvim',
-        commit = 'da61737',
-        config = function()
-            require('trouble').setup({})
-        end,
-    }
+    use {'jose-elias-alvarez/null-ls.nvim', commit = 'a2b7bf8'}
+    use {'jose-elias-alvarez/nvim-lsp-ts-utils', commit = '1826275'} -- TypeScript development
+    -- TODO: Use jose-elias-alvarez/typescript.nvim
 
     -- Completion
     use {'hrsh7th/nvim-cmp', commit = 'f841fa6'}

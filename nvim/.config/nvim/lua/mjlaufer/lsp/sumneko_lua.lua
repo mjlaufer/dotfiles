@@ -1,4 +1,4 @@
-local opts = require('mjlaufer/lsp/server_options')
+local opts = require('mjlaufer.lsp.server_options')
 
 return {
     settings = {

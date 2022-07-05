@@ -5,7 +5,7 @@ if not toggleterm then
     return
 end
 
-toggleterm.setup {
+toggleterm.setup({
     size = function(term)
         if term.direction == 'horizontal' then
             return 20
@@ -18,15 +18,12 @@ toggleterm.setup {
     shade_terminals = false,
     start_in_insert = true,
     insert_mappings = true,
+    terminal_mappings = true,
     persist_size = true,
     close_on_exit = true,
     shells = vim.o.shell,
-    float_opts = {
-        border = 'single',
-        winblend = 0,
-        highlights = {border = 'Normal', background = 'Normal'},
-    },
-}
+    float_opts = {border = 'single'},
+})
 
 local opts = {noremap = true, silent = true}
 
