@@ -76,13 +76,7 @@ return packer.startup(function(use)
             require('which-key').setup({ignore_missing = true})
         end,
     }
-    use {
-        'folke/trouble.nvim',
-        commit = 'da61737',
-        config = function()
-            require('trouble').setup()
-        end,
-    }
+    use {'folke/trouble.nvim', commit = 'da61737'} -- List for diagnostics, quickfix, and Telescope results
     use {'kyazdani42/nvim-tree.lua', commit = '19dcacf'}
     use {'nvim-lualine/lualine.nvim', commit = '5113cdb'}
     use {'akinsho/toggleterm.nvim', commit = '04174e1'}
@@ -95,6 +89,7 @@ return packer.startup(function(use)
         end,
         ft = 'markdown',
     }
+    use {'stevearc/aerial.nvim', commit = '4b4ada8'} -- Code outline window
 
     -- Git
     use 'tpope/vim-fugitive'

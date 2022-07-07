@@ -23,6 +23,7 @@ require('mjlaufer.trouble')
 require('mjlaufer.nvim_tree')
 require('mjlaufer.lualine')
 require('mjlaufer.terminal')
+require('mjlaufer.aerial')
 
 -- Git
 require('mjlaufer.git_plugins')
