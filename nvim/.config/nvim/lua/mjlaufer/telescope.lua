@@ -25,11 +25,7 @@ telescope.setup({
     },
 })
 
-util.useWhichKey({
-    ['<leader>f'] = {name = 'Telescope'},
-    ['<leader>fi'] = {name = 'Inspect'},
-    ['<leader>x'] = {name = 'Trouble'},
-})
+util.useWhichKey({['<leader>f'] = {name = 'Telescope'}, ['<leader>fi'] = {name = 'Inspect'}})
 
 map('n', '<leader>ff',
     ':lua require("telescope.builtin").find_files({find_command={"rg", "--files", "--hidden", "-g", "!.git"}})<CR>',
@@ -48,6 +44,3 @@ telescope.load_extension('dap')
 map('n', '<leader>fib', ':Telescope dap list_breakpoints<CR>', 'List breakpoints')
 map('n', '<leader>fif', ':Telescope dap frames<CR>', 'Show frames')
 map('n', '<leader>fiv', ':Telescope dap variables<CR>', 'Show variables')
-
--- Trouble
-map('n', '<leader>xx', ':TroubleToggle<CR>', 'Toggle')

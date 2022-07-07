@@ -1,21 +1,37 @@
 -- Set up `impatient` before any other lua plugin.
 require('impatient')
 
+-- Global functions and settings
 require('mjlaufer.globals')
 require('mjlaufer.options')
 require('mjlaufer.keymaps')
 require('mjlaufer.plugins')
-require('mjlaufer.editorconfig')
+
+-- Look and feel
 require('mjlaufer.colors')
-require('mjlaufer.telescope')
+require('mjlaufer.colorizer')
+
+-- Editor
+require('mjlaufer.editorconfig')
 require('mjlaufer.autopairs')
 require('mjlaufer.comment')
 require('mjlaufer.sneak')
-require('mjlaufer.lsp')
-require('mjlaufer.cmp')
-require('mjlaufer.git_plugins')
-require('mjlaufer.dap')
-require('mjlaufer.terminal')
+
+-- Workspace
+require('mjlaufer.telescope')
+require('mjlaufer.trouble')
 require('mjlaufer.nvim_tree')
 require('mjlaufer.lualine')
-require('mjlaufer.colorizer')
+require('mjlaufer.terminal')
+
+-- Git
+require('mjlaufer.git_plugins')
+
+-- LSP
+require('mjlaufer.lsp')
+
+-- Completion
+require('mjlaufer.cmp')
+
+-- Debugger
+require('mjlaufer.dap')

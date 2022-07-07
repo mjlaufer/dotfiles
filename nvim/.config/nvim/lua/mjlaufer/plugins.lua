@@ -39,7 +39,6 @@ return packer.startup(function(use)
             require('nvim-web-devicons').setup({override = {}, default = true})
         end,
     } -- Used by lualine and nvim-tree.
-
     use {'psliwka/vim-smoothie', commit = 'df1e324'} -- Smooth scrolling for `C-d`, etc.
     use {
         'mhinz/vim-startify',
@@ -68,7 +67,7 @@ return packer.startup(function(use)
     use {'JoosepAlviste/nvim-ts-context-commentstring', commit = '8834375'}
     use {'justinmk/vim-sneak', commit = '94c2de4'}
 
-    -- Development Environment
+    -- Workspace
     use {'nvim-telescope/telescope.nvim', commit = '2b1da47'}
     use {
         'folke/which-key.nvim',
