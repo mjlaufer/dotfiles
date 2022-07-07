@@ -1,4 +1,6 @@
 local util = require('mjlaufer.util')
+local map = util.map
+local bmap = util.bmap
 
 local toggleterm = util.prequire('toggleterm')
 if not toggleterm then
@@ -25,22 +27,18 @@ toggleterm.setup({
     float_opts = {border = 'single'},
 })
 
-local opts = {noremap = true, silent = true}
+util.useWhichKey({['<leader>t'] = {name = 'Terminal'}})
 
-util.map('n', '<Leader>tl', ':ToggleTerm direction=vertical<CR>', opts)
-util.map('n', '<Leader>tj', ':ToggleTerm direction=horizontal<CR>', opts)
-util.map('n', '<Leader>tu', ':ToggleTerm direction=float<CR>', opts)
+map('n', '<Leader>tl', ':ToggleTerm direction=vertical<CR>', 'Right split')
+map('n', '<Leader>tj', ':ToggleTerm direction=horizontal<CR>', 'Bottom split')
+map('n', '<Leader>tu', ':ToggleTerm direction=float<CR>', 'Float')
 
 function _G.set_terminal_keymaps()
-    util.bmap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
-    util.bmap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
-    util.bmap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
-    util.bmap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
-    util.bmap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
+    bmap(0, 't', '<esc>', [[<C-\><C-n>]])
+    bmap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]])
+    bmap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]])
+    bmap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]])
+    bmap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]])
 end
 
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
-
-util.useWhichKey({
-    ['<leader>t'] = {name = 'Terminal', l = 'Right split', j = 'Bottom split', u = 'Float'},
-})

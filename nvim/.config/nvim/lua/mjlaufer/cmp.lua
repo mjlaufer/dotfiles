@@ -17,7 +17,21 @@ require('luasnip/loaders/from_vscode').lazy_load({
     paths = {'~/.local/share/nvim/site/pack/packer/start/friendly-snippets'},
 })
 
-local lspkind = require('lspkind')
+local lspkind = util.prequire('lspkind')
+local formatting = {};
+if lspkind then
+    formatting.format = lspkind.cmp_format({
+        with_text = true,
+        menu = {
+            nvim_lsp = '[LSP]',
+            nvim_lua = '[NvimApi]',
+            luasnip = '[LuaSnip]',
+            path = '[Path]',
+            buffer = '[Buf]',
+        },
+        maxwidth = 50,
+    })
+end
 
 cmp.setup({
     snippet = {
@@ -39,19 +53,7 @@ cmp.setup({
         {name = 'path'},
         {name = 'buffer', keyword_length = 5},
     }),
-    formatting = {
-        format = lspkind.cmp_format({
-            with_text = true,
-            menu = {
-                nvim_lsp = '[LSP]',
-                nvim_lua = '[NvimApi]',
-                luasnip = '[LuaSnip]',
-                path = '[Path]',
-                buffer = '[Buf]',
-            },
-            maxwidth = 50,
-        }),
-    },
+    formatting = formatting,
     cmp.setup.cmdline('/', {mapping = cmp.mapping.preset.cmdline(), sources = {{name = 'buffer'}}}),
     cmp.setup.cmdline(':', {
         mapping = cmp.mapping.preset.cmdline(),

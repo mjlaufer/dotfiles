@@ -1,4 +1,5 @@
 local util = require('mjlaufer.util')
+local bmap = util.bmap
 local opts = require('mjlaufer.lsp.server_options')
 
 local ts_utils = util.prequire('nvim-lsp-ts-utils')
@@ -58,25 +59,13 @@ return {
         -- required to fix code action ranges and filter diagnostics
         ts_utils.setup_client(client)
 
-        local function buf_set_keymap(...)
-            vim.api.nvim_buf_set_keymap(bufnr, ...)
-        end
+        util.useWhichKey({['<leader>lt'] = {name = 'TS Utils'}})
 
-        local map_opts = {noremap = true, silent = true}
-        buf_set_keymap('n', '<leader>lto', ':TSLspOrganize<CR>', map_opts)
-        buf_set_keymap('n', '<leader>ltr', ':TSLspRenameFile<CR>', map_opts)
-        buf_set_keymap('n', '<leader>lti', ':TSLspImportAll<CR>', map_opts)
-        buf_set_keymap('n', '<leader>lth', ':TSLspToggleInlayHints<CR>', map_opts)
+        bmap(bufnr, 'n', '<leader>lto', ':TSLspOrganize<CR>', 'Organize imports')
+        bmap(bufnr, 'n', '<leader>ltr', ':TSLspRenameFile<CR>', 'Rename file')
+        bmap(bufnr, 'n', '<leader>lti', ':TSLspImportAll<CR>', 'Import all')
+        bmap(bufnr, 'n', '<leader>lth', ':TSLspToggleInlayHints<CR>', 'Toggle inlay hints')
 
-        util.useWhichKey({
-            ['<leader>lt'] = {
-                name = 'TS Utils',
-                o = 'Organize imports',
-                r = 'Rename file',
-                i = 'Import all',
-                h = 'Toggle inlay hints',
-            },
-        })
     end,
     capabilities = opts.capabilities,
 }

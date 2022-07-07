@@ -1,6 +1,6 @@
 require('mjlaufer.git_plugins.blamer')
 require('mjlaufer.git_plugins.diffview')
 
-local util = require('mjlaufer.util')
+local useWhichKey = require('mjlaufer.util').useWhichKey
 
-util.useWhichKey({['<leader>g'] = {name = 'Git'}})
+useWhichKey({['<leader>g'] = {name = 'Git'}})

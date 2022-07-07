@@ -1,4 +1,5 @@
 local util = require('mjlaufer.util')
+local map = util.map
 
 local dap = util.prequire('dap')
 if not dap then
@@ -64,45 +65,27 @@ end
 vim.fn.sign_define('DapBreakpoint', {text = '🔴', texthl = '', linehl = '', numhl = ''})
 vim.fn.sign_define('DapBreakpointRejected', {text = '🔵', texthl = '', linehl = '', numhl = ''})
 
-local opts = {noremap = true, silent = true}
+util.useWhichKey({['<leader>i'] = {name = 'Inspect/debug'}, ['<leader>iw'] = {name = 'DAP Widgets'}})
 
-util.map('n', '<leader>isn', ':lua start_node_debugger()<CR>', opts)
-util.map('n', '<leader>ic', ':lua require("dap").continue()<CR>', opts)
-util.map('n', '<leader>ib', ':lua require("dap").toggle_breakpoint()<CR>', opts)
-util.map('n', '<leader>in',
-    ':lua require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>', opts)
-util.map('n', '<leader>im',
-    ':lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>', opts)
-util.map('n', '<leader>il', ':lua require("dap").step_into()<CR>', opts)
-util.map('n', '<leader>ij', ':lua require("dap").step_over()<CR>', opts)
-util.map('n', '<leader>ik', ':lua require("dap").step_out()<CR>', opts)
-util.map('n', '<leader>iq', ':lua require("dap").close()<CR>', opts)
+map('n', '<leader>isn', ':lua start_node_debugger()<CR>', 'Start Node debugger')
+map('n', '<leader>ic', ':lua require("dap").continue()<CR>', 'Start/continue')
+map('n', '<leader>ib', ':lua require("dap").toggle_breakpoint()<CR>', 'Toggle breakpoint')
+map('n', '<leader>in',
+    ':lua require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>',
+    'Set breakpoint condition')
+map('n', '<leader>im',
+    ':lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>',
+    'Set breakpoint log message')
+map('n', '<leader>il', ':lua require("dap").step_into()<CR>', 'Step into')
+map('n', '<leader>ij', ':lua require("dap").step_over()<CR>', 'Step over')
+map('n', '<leader>ik', ':lua require("dap").step_out()<CR>', 'Step out')
+map('n', '<leader>iq', ':lua require("dap").close()<CR>', 'Quit')
 
 -- DAP Widgets
-util.map('n', '<leader>iwu', ':lua require("dap.ui.widgets").hover()<CR>', opts)
-util.map('n', '<leader>iws',
-    ':lua local widgets=require("dap.ui.widgets");widgets.sidebar(widgets.scopes).open()<CR>', opts)
-util.map('n', '<leader>iwf',
-    ':lua local widgets=require("dap.ui.widgets");widgets.sidebar(widgets.frames).open()<CR>', opts)
-
-util.useWhichKey({
-    ['<leader>i'] = {
-        name = 'Inspect/debug',
-        sn = 'Start Node debugger',
-        c = 'Start/continue',
-        b = 'Toggle breakpoint',
-        n = 'Set breakpoint condition',
-        m = 'Set breakpoint log message',
-        l = 'Step into',
-        j = 'Step over',
-        k = 'Step out',
-        q = 'Quit',
-    },
-    ['<leader>iw'] = {
-        name = 'DAP Widgets',
-        u = 'Show expression (under cursor)',
-        s = 'Show scopes',
-        f = 'Show frames',
-    },
-})
-
+map('n', '<leader>iwu', ':lua require("dap.ui.widgets").hover()<CR>', 'Show expression under cursor')
+map('n', '<leader>iws',
+    ':lua local widgets=require("dap.ui.widgets");widgets.sidebar(widgets.scopes).open()<CR>',
+    'Show scopes')
+map('n', '<leader>iwf',
+    ':lua local widgets=require("dap.ui.widgets");widgets.sidebar(widgets.frames).open()<CR>',
+    'Show frames')

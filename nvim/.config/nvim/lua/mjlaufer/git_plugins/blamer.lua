@@ -1,5 +1,3 @@
-local util = require('mjlaufer.util')
-
 vim.cmd [[
     let g:blamer_enabled = 1
     let g:blamer_delay = 500
@@ -9,8 +7,6 @@ vim.cmd [[
     highlight Blamer guifg=#595959
 ]]
 
-local opts = {noremap = true, silent = true}
+local map = require('mjlaufer.util').map
 
-util.map('n', '<leader>gb', ':BlamerToggle<CR>', opts)
-
-util.useWhichKey({['<leader>gb'] = 'Toggle git blamer'})
+map('n', '<leader>gb', ':BlamerToggle<CR>', 'Toggle git blamer')

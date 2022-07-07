@@ -1,4 +1,5 @@
 local util = require('mjlaufer.util')
+local map = util.map
 
 local lspconfig = util.prequire('lspconfig')
 local lsp_installer = util.prequire('nvim-lsp-installer')
@@ -29,18 +30,9 @@ vim.fn
     .sign_define('DiagnosticSignInformation', {text = '', texthl = 'DiagnosticSignInformation'})
 vim.fn.sign_define('DiagnosticSignHint', {text = '', texthl = 'DiagnosticSignHint'})
 
-local opts = {noremap = true, silent = true}
-vim.keymap.set('n', '<leader>ld', vim.diagnostic.open_float, opts)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-vim.keymap.set('n', '<leader>lq', vim.diagnostic.setloclist, opts)
+util.useWhichKey({['<leader>l'] = {name = 'LSP'}})
 
-util.useWhichKey({
-    ['<leader>l'] = {
-        name = 'LSP',
-        d = 'Show diagnostics',
-        ['[d'] = 'Previous diagnostic',
-        [']d'] = 'Next diagnostic',
-        q = 'Add diagnostics to location list',
-    },
-})
+map('n', '<leader>ld', vim.diagnostic.open_float, 'Show diagnostics')
+map('n', '[d', vim.diagnostic.goto_prev, 'Previous diagnostic')
+map('n', ']d', vim.diagnostic.goto_next, 'Next diagnostic')
+map('n', '<leader>lq', vim.diagnostic.setloclist, 'Add diagnostics to location list')

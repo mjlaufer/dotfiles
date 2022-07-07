@@ -1,4 +1,5 @@
 local util = require('mjlaufer.util')
+local map = util.map
 
 local diffview = util.prequire('diffview')
 if not diffview then
@@ -7,11 +8,7 @@ end
 
 diffview.setup({use_icons = true})
 
-local opts = {noremap = true, silent = true}
+util.useWhichKey({['<leader>gd'] = {name = 'Git diff view'}})
 
-util.map('n', '<leader>gdo', ':DiffviewOpen<CR>', opts)
-util.map('n', '<leader>gdc', ':DiffviewClose<CR>', opts)
-
-util.useWhichKey({
-    ['<leader>gd'] = {name = 'Git diff view', o = 'Open diff view', c = 'Close diff view'},
-})
+map('n', '<leader>gdo', ':DiffviewOpen<CR>', 'Open')
+map('n', '<leader>gdc', ':DiffviewClose<CR>', 'Close')

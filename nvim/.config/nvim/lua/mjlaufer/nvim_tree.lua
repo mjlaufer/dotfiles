@@ -1,4 +1,5 @@
 local util = require('mjlaufer.util')
+local map = util.map
 
 local nvim_tree = util.prequire('nvim-tree')
 if not nvim_tree then
@@ -7,17 +8,8 @@ end
 
 nvim_tree.setup({view = {width = 36}})
 
-local opts = {noremap = true, silent = true}
+util.useWhichKey({['<leader>e'] = {name = 'Explorer'}})
 
-util.map('n', '<leader>ee', ':NvimTreeToggle<CR>', opts)
-util.map('n', '<leader>ef', ':NvimTreeFindFile<CR>', opts)
-util.map('n', '<leader>ec', ':NvimTreeCollapse<CR>', opts)
-
-util.useWhichKey({
-    ['<leader>e'] = {
-        name = 'Explorer (nvim-tree)',
-        e = 'Toggle explorer',
-        f = 'Find file',
-        c = 'Collapse explorer',
-    },
-})
+map('n', '<leader>ee', ':NvimTreeToggle<CR>', 'Toggle')
+map('n', '<leader>ef', ':NvimTreeFindFile<CR>', 'Find file')
+map('n', '<leader>ec', ':NvimTreeCollapse<CR>', 'Collapse')
