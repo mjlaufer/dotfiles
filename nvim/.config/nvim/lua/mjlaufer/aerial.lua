@@ -10,10 +10,6 @@ util.useWhichKey({['<leader>a'] = {name = 'Aerial'}})
 
 aerial.setup({
     on_attach = function(bufnr)
-        bmap(bufnr, 'n', '<leader>aa', ':AerialToggle!<CR>', 'Toggle')
-        bmap(bufnr, 'n', '{', ':AerialPrev<CR>', 'Prev')
-        bmap(bufnr, 'n', '}', ':AerialPrev<CR>', 'Next')
-        bmap(bufnr, 'n', '[[', ':AerialPrev<CR>', 'Prev Up')
-        bmap(bufnr, 'n', ']]', ':AerialPrev<CR>', 'Next Up')
+        bmap(bufnr, 'n', '<leader>a', ':AerialToggle!<CR>', 'Aerial')
     end,
 })
