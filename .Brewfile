@@ -8,6 +8,7 @@ brew "go"
 brew "htop"
 brew "jq"
 brew "less"
+brew "reattach-to-user-namespace"
 brew "stow"
 brew "tmux"
 
