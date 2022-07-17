@@ -8,7 +8,5 @@ end
 
 diffview.setup({use_icons = true})
 
-util.useWhichKey({['<leader>gd'] = {name = 'Git diff view'}})
-
-map('n', '<leader>gdo', ':DiffviewOpen<CR>', 'Open')
-map('n', '<leader>gdc', ':DiffviewClose<CR>', 'Close')
+map('n', '<leader>go', ':DiffviewOpen<CR>', 'Open diff')
+map('n', '<leader>gc', ':DiffviewClose<CR>', 'Close diff')

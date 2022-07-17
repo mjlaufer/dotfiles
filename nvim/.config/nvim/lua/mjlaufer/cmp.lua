@@ -39,6 +39,11 @@ cmp.setup({
             luasnip.lsp_expand(args.body)
         end,
     },
+    window = {
+        documentation = cmp.config.window.bordered({
+            winhighlight = 'Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None',
+        }),
+    },
     mapping = cmp.mapping.preset.insert({
         ['<C-u>'] = cmp.mapping.scroll_docs(-4),
         ['<C-d>'] = cmp.mapping.scroll_docs(4),

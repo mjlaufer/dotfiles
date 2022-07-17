@@ -68,7 +68,7 @@ return packer.startup(function(use)
     use {'justinmk/vim-sneak', commit = '94c2de4'}
 
     -- Workspace
-    use {'nvim-telescope/telescope.nvim', commit = '2b1da47'}
+    use {'nvim-telescope/telescope.nvim', commit = 'b79cd6c'}
     use {
         'folke/which-key.nvim',
         commit = 'bd4411a',
@@ -94,14 +94,7 @@ return packer.startup(function(use)
     -- Git
     use 'tpope/vim-fugitive'
     use {'tpope/vim-rhubarb', after = 'vim-fugitive'} -- GitHub integration
-    use {
-        'lewis6991/gitsigns.nvim',
-        commit = 'b800663',
-        config = function()
-            require('gitsigns').setup()
-        end,
-    }
-    use {'APZelos/blamer.nvim', commit = 'f4eb22a'}
+    use {'lewis6991/gitsigns.nvim', commit = '4883988'}
     use {'sindrets/diffview.nvim', commit = '2d1f452'}
 
     -- LSP
@@ -112,7 +105,7 @@ return packer.startup(function(use)
     -- TODO: Use jose-elias-alvarez/typescript.nvim
 
     -- Completion
-    use {'hrsh7th/nvim-cmp', commit = 'f841fa6'}
+    use {'hrsh7th/nvim-cmp', commit = 'df6734a'}
     use {'hrsh7th/cmp-nvim-lsp', commit = 'ebdfc20'}
     use {'hrsh7th/cmp-buffer', commit = 'd66c4c2'}
     use {'hrsh7th/cmp-path', commit = '466b6b8'}
