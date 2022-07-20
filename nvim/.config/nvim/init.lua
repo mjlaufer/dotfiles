@@ -34,5 +34,8 @@ require('mjlaufer.lsp')
 -- Completion
 require('mjlaufer.cmp')
 
+-- Testing
+require('mjlaufer.neotest')
+
 -- Debugger
 require('mjlaufer.dap')

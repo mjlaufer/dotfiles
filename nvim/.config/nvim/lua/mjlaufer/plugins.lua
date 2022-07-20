@@ -117,19 +117,18 @@ return packer.startup(function(use)
     use {'L3MON4D3/LuaSnip', commit = '7fc4f14'}
     use {'rafamadriz/friendly-snippets', commit = '6e0881a'}
 
+    -- Testing
+    use {
+        'nvim-neotest/neotest',
+        commit = '7e13978',
+        requires = {'haydenmeade/neotest-jest', commit = 'd132fe9'},
+    }
+
     -- Debugger
     use {'mfussenegger/nvim-dap', commit = 'd6d8317'}
     use {'nvim-telescope/telescope-dap.nvim', commit = 'b4134ff'}
     use {'theHamsta/nvim-dap-virtual-text', commit = '10368a1'}
     use {'rcarriga/nvim-dap-ui', commit = '3eec525'}
-
-    -- Misc.
-    use {
-        'glacambre/firenvim',
-        run = function()
-            vim.fn['firenvim#install'](0)
-        end,
-    } -- Embeds Neovim in Chrome and Firefox textareas.
 
     if PACKER_BOOTSTRAP then
         packer.sync()
