@@ -50,9 +50,7 @@
       "other": "off"
     }
   },
-  "Lua.diagnostics.globals": [
-    "vim"
-  ],
+  "Lua.diagnostics.globals": ["vim"],
   "eslint.validate": [
     "javascript",
     "javascriptreact",
