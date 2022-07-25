@@ -7,7 +7,7 @@ end
 
 lualine.setup({
     options = {
-        theme = 'undercity',
+        theme = 'glint',
         icons_enabled = true,
         section_separators = {left = '', right = ''},
         component_separators = {left = '', right = ''},
