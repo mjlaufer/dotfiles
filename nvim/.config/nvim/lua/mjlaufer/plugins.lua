@@ -89,7 +89,6 @@ return packer.startup(function(use)
         end,
         ft = 'markdown',
     }
-    use {'stevearc/aerial.nvim', commit = '4b4ada8'} -- Code outline window
 
     -- Git
     use 'tpope/vim-fugitive'
@@ -100,9 +99,12 @@ return packer.startup(function(use)
     -- LSP
     use 'neovim/nvim-lspconfig'
     use {'williamboman/nvim-lsp-installer', commit = 'cd4dac0'}
+    -- TODO: Use williamboman/mason.nvim
     use {'jose-elias-alvarez/null-ls.nvim', commit = 'a2b7bf8'}
     use {'jose-elias-alvarez/nvim-lsp-ts-utils', commit = '1826275'} -- TypeScript development
     -- TODO: Use jose-elias-alvarez/typescript.nvim
+    use {'glepnir/lspsaga.nvim', branch = 'main', commit = 'f404125'} -- LSP UI enhancements
+    use {'stevearc/aerial.nvim', commit = '4b4ada8'} -- Symbol outline window
 
     -- Completion
     use {'hrsh7th/nvim-cmp', commit = 'df6734a'}
@@ -118,11 +120,8 @@ return packer.startup(function(use)
     use {'rafamadriz/friendly-snippets', commit = '6e0881a'}
 
     -- Testing
-    use {
-        'nvim-neotest/neotest',
-        commit = '7e13978',
-        requires = {'haydenmeade/neotest-jest', commit = 'd132fe9'},
-    }
+    use {'nvim-neotest/neotest', commit = '7e13978'}
+    use {'haydenmeade/neotest-jest', commit = '0e20fad'}
 
     -- Debugger
     use {'mfussenegger/nvim-dap', commit = 'd6d8317'}
