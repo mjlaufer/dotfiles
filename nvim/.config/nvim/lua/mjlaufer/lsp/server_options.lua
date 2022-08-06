@@ -38,21 +38,11 @@ M.on_attach = function(client, bufnr)
     -- LSP Saga
     local saga = util.prequire('lspsaga')
     if saga then
-        local action = require('lspsaga.action')
-        map('n', '<C-f>', function()
-            action.smart_scroll_with_saga(1)
-        end, nil, opts)
-        map('n', '<C-b>', function()
-            action.smart_scroll_with_saga(-1)
-        end, nil, opts)
-
         map('n', 'K', '<cmd>Lspsaga hover_doc<CR>', 'Hover', opts)
         map('n', '<leader>lp', '<cmd>Lspsaga preview_definition<CR>', 'Preview definition', opts)
         map('n', '<leader>lr', '<cmd>Lspsaga rename<CR>', 'Rename all references', opts);
         map('n', '<leader>ls', '<cmd>Lspsaga signature_help<CR>', 'Signature help', opts)
-
-        local code_action = require('lspsaga.codeaction')
-        map('n', '<leader>la', code_action.code_action, 'Code actions', opts)
+        map('n', '<leader>la', require('lspsaga.codeaction').code_action, 'Code actions', opts)
     end
 end
 

@@ -22,7 +22,7 @@ map('n', '<leader>lq', vim.diagnostic.setloclist, 'Add diagnostics to location l
 -- Initialize LSP Saga before setting up language servers.
 local saga = util.prequire('lspsaga')
 if saga then
-    saga.init_lsp_saga()
+    saga.init_lsp_saga({max_preview_lines = 32})
     map('n', '<leader>ld', '<cmd>Lspsaga show_line_diagnostics<CR>', 'Show diagnostics')
     map('n', '[d', '<cmd>Lspsaga diagnostic_jump_prev<CR>', 'Previous diagnostic')
     map('n', ']d', '<cmd>Lspsaga diagnostic_jump_next<CR>', 'Next diagnostic')
