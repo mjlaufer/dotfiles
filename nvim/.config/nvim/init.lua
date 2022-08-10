@@ -7,7 +7,7 @@ require('mjlaufer.options')
 require('mjlaufer.keymaps')
 require('mjlaufer.plugins')
 
--- Look and feel
+-- Colors
 require('mjlaufer.colors')
 require('mjlaufer.colorizer')
 

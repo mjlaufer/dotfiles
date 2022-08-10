@@ -100,10 +100,10 @@ return packer.startup(function(use)
     use 'neovim/nvim-lspconfig'
     use {'williamboman/nvim-lsp-installer', commit = 'cd4dac0'}
     -- TODO: Use williamboman/mason.nvim
-    use {'jose-elias-alvarez/null-ls.nvim', commit = 'a2b7bf8'}
+    use {'jose-elias-alvarez/null-ls.nvim', commit = '4f9fd41'}
     use {'jose-elias-alvarez/nvim-lsp-ts-utils', commit = '1826275'} -- TypeScript development
     -- TODO: Use jose-elias-alvarez/typescript.nvim
-    use {'glepnir/lspsaga.nvim', branch = 'main', commit = 'f404125'} -- LSP UI enhancements
+    use {'glepnir/lspsaga.nvim', branch = 'main', commit = '125795c'} -- LSP UI enhancements
     use {'stevearc/aerial.nvim', commit = '4b4ada8'} -- Symbol outline window
 
     -- Completion
