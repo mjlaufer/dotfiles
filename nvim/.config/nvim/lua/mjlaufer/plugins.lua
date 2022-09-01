@@ -31,7 +31,7 @@ return packer.startup(function(use)
     -- Look and Feel
     use {'nvim-treesitter/nvim-treesitter', commit = '7d2bd76', run = ':TSUpdate'}
     use {'nvim-treesitter/playground', commit = 'ce7e4b7'}
-    use 'mjlaufer/glint.nvim'
+    use 'mjlaufer/undercity.nvim'
     use {
         'kyazdani42/nvim-web-devicons',
         commit = '8d2c533',

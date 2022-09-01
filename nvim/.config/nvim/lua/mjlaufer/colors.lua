@@ -3,7 +3,7 @@ vim.cmd [[
     set termguicolors
 
     set background=dark
-    colorscheme glint
+    colorscheme undercity
 
     let g:markdown_fenced_languages = ['html', 'sh', 'bash=sh', 'javascript', 'js=javascript', 'typescript', 'ts=typescript', 'go', 'lua']
 ]]
