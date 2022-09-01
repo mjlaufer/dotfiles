@@ -3,6 +3,7 @@ let mapleader=" "
 " Plugins  --------------------------------
 set surround
 set commentary
+set sneak
 
 " Options ---------------------------------
 set relativenumber
