@@ -4,16 +4,73 @@ let mapleader=" "
 set surround
 set commentary
 set sneak
+set NERDTree
 
 " Options ---------------------------------
 set relativenumber
 set nu
-set scrolloff
+set scrolloff=8
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
 set noerrorbells
+set ideajoin " Use vim's `J` in IntelliJ
 
 " Maps ------------------------------------
-nnoremap <leader>e :action SelectInProjectView<CR>
+
+" Change options
+:nmap <leader>oh :nohlsearch<CR>
+
+" Better window navigation
+:nmap <C-h> <C-w>h
+:nmap <C-j> <C-w>j
+:nmap <C-k> <C-w>k
+:nmap <C-l> <C-w>l
+
+" NERDTree
+:nmap <leader>ee :NERDTreeToggle<CR>
+:nmap <leader>ef :NERDTreeFind<CR>
+
+" vim-unimpaired maps
+:nmap ]<space> o<Esc>k
+:nmap [<space> O<Esc>j
+:nmap [b <Action>(PreviousTab)
+:nmap ]b <Action>(NextTab)
+:nmap [q <Action>(PreviousOccurence)
+:nmap ]q <Action>(NextOccurence)
+:nmap [m <Action>(MethodUp)
+:nmap ]m <Action>(MethodDown)
+:nmap [c <Action>(VcsShowPrevChangeMarker)
+:nmap ]c <Action>(VcsShowNextChangeMarker)
+
+" [Visual] Move selected lines up/down
+:vmap K <Action>(MoveLineUp)
+:vmap J <Action>(MoveLineDown)
+
+" [Visual] Stay in indent mode
+:vmap < <gv
+:vmap > >gv
+
+" Find
+:nmap <leader>ff <Action>(GotoFile)
+:nmap <leader>fs <Action>(FindInPath)
+
+" Terminal
+:nmap <leader>tj <Action>(ActivateTerminalToolWindow)
+
+" Diagnostics
+:nmap <leader>ld <Action>(ShowErrorDescription)
+:nmap [d <Action>(GotoPreviousError)
+:nmap ]d <Action>(GotoNextError)
+
+" Code refactoring
+:nmap <leader>rn <Action>(RenameElement)
+:nmap <leader>rl <Action>(Refactorings.QuickListPopupAction)
+:nmap <leader>rf <Action>(ReformatCode)
+:nmap <leader>rs <Action>(SurroundWith)
+:nmap <leader>ro <Action>(OptimizeImports)
+
+" Inspect/Debug
+:nmap <leader>ic <Action>(Debug)
+:nmap <leader>ib <Action>(ToggleLineBreakpoint)
