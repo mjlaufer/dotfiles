@@ -56,8 +56,13 @@ set ideajoin " Use vim's `J` in IntelliJ
 :nmap <leader>ff <Action>(GotoFile)
 :nmap <leader>fs <Action>(FindInPath)
 
+" Search
+:nmap <leader>/ <Action>(Find)
+
 " Terminal
 :nmap <leader>tj <Action>(ActivateTerminalToolWindow)
+:nmap <leader>tl <Action>(ActivateTerminalToolWindow)
+:nmap <leader>tu <Action>(ActivateTerminalToolWindow)
 
 " Diagnostics
 :nmap <leader>ld <Action>(ShowErrorDescription)
@@ -71,6 +76,19 @@ set ideajoin " Use vim's `J` in IntelliJ
 :nmap <leader>rs <Action>(SurroundWith)
 :nmap <leader>ro <Action>(OptimizeImports)
 
-" Inspect/Debug
+" Debug (Inspect)
 :nmap <leader>ic <Action>(Debug)
 :nmap <leader>ib <Action>(ToggleLineBreakpoint)
+
+" Test (Spec)
+:nmap <leader>ss <Action>(RerunTests)
+:nmap <leader>sf <Action>(RerunFailedTests)
+
+" Compile/Run
+:nmap <leader>cc <Action>(CompileDirty)
+:nmap <leader>rr <Action>(Run)
+:nmap <leader>ra <Action>(RunAnything)
+:nmap <leader>rc <Action>(RunClass)
+
+" Git
+:nmap <leader>gs <Action>(Vcs.Show.Local.Changes)
