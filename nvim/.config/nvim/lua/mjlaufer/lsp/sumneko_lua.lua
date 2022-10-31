@@ -22,6 +22,10 @@ return {
             },
         },
     },
-    on_attach = opts.on_attach,
+    on_attach = function(client, bufnr)
+        -- Prevent sumneko_lua from formatting; use null-ls + LuaFormatter instead.
+        client.server_capabilities.documentFormattingProvider = false
+        opts.on_attach(client, bufnr)
+    end,
     capabilities = opts.capabilities,
 }

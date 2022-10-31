@@ -3,6 +3,7 @@ tap "homebrew/cask-fonts"
 tap "koekeishiya/formulae"
 
 brew "fzf"
+brew "git"
 brew "gnu-sed"
 brew "go"
 brew "htop"

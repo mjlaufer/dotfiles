@@ -6,7 +6,7 @@ local ts_utils = util.prequire('nvim-lsp-ts-utils')
 if not ts_utils then
     return {
         on_attach = function(client, bufnr)
-            -- Prevent tsserver from formatting; use null-ls built-in formatters instead.
+            -- Prevent tsserver from formatting; use null-ls + Prettier instead.
             client.server_capabilities.documentFormattingProvider = false
             opts.on_attach(client, bufnr)
         end,
@@ -18,7 +18,7 @@ return {
     -- Needed for inlayHints
     init_options = require('nvim-lsp-ts-utils').init_options,
     on_attach = function(client, bufnr)
-        -- Prevent tsserver from formatting; use efm instead
+        -- Prevent tsserver from formatting; use null-ls + Prettier instead
         client.server_capabilities.documentFormattingProvider = false
 
         opts.on_attach(client, bufnr)

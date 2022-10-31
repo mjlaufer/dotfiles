@@ -30,20 +30,33 @@ end
 
 -- Install and set up language servers.
 local lspconfig = util.prequire('lspconfig')
-local lsp_installer = util.prequire('nvim-lsp-installer')
-if not lspconfig or not lsp_installer then
+local mason = util.prequire('mason');
+local mason_lspconfig = util.prequire('mason-lspconfig')
+if not lspconfig or not mason or not mason_lspconfig then
     return
 end
 
-lsp_installer.setup({
-    ensure_installed = {'eslint', 'golangci_lint_ls', 'gopls', 'jsonls', 'sumneko_lua', 'tsserver'},
+mason.setup()
+mason_lspconfig.setup({
+    ensure_installed = {
+        'cssls',
+        'eslint',
+        'golangci_lint_ls',
+        'gopls',
+        'html',
+        'jsonls',
+        'sumneko_lua',
+        'tsserver',
+    },
     automatic_installation = true,
 })
 
 require('mjlaufer.lsp.null_ls')
+lspconfig.cssls.setup(require('mjlaufer.lsp.cssls'))
 lspconfig.eslint.setup(require('mjlaufer.lsp.eslint'))
 lspconfig.golangci_lint_ls.setup(require('mjlaufer.lsp.golangci_lint_ls'))
 lspconfig.gopls.setup(require('mjlaufer.lsp.gopls'))
+lspconfig.html.setup(require('mjlaufer.lsp.html'))
 lspconfig.jsonls.setup(require('mjlaufer.lsp.jsonls'))
 lspconfig.sumneko_lua.setup(require('mjlaufer.lsp.sumneko_lua'))
 lspconfig.tsserver.setup(require('mjlaufer.lsp.tsserver'))

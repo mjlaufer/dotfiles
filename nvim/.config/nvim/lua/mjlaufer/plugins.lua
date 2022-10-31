@@ -98,8 +98,8 @@ return packer.startup(function(use)
 
     -- LSP
     use 'neovim/nvim-lspconfig'
-    use {'williamboman/nvim-lsp-installer', commit = 'cd4dac0'}
-    -- TODO: Use williamboman/mason.nvim
+    use {'williamboman/mason.nvim', commit = 'bf170f8'}
+    use {'williamboman/mason-lspconfig.nvim', commit = 'a910b4d'}
     use {'jose-elias-alvarez/null-ls.nvim', commit = '8291005'}
     use {'jose-elias-alvarez/nvim-lsp-ts-utils', commit = '0a6a16e'} -- TypeScript development
     -- TODO: Use jose-elias-alvarez/typescript.nvim
