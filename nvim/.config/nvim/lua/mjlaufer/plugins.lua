@@ -104,6 +104,7 @@ return packer.startup(function(use)
     use {'jose-elias-alvarez/nvim-lsp-ts-utils', commit = '0a6a16e'} -- TypeScript development
     -- TODO: Use jose-elias-alvarez/typescript.nvim
     use {'glepnir/lspsaga.nvim', branch = 'main', commit = 'f33bc99'} -- LSP UI enhancements
+    use {'RRethy/vim-illuminate', commit = '0603e75'} -- Highlights identifier under curor
     use {'stevearc/aerial.nvim', commit = 'bf80cba'} -- Symbol outline window
 
     -- Completion
