@@ -6,10 +6,8 @@ if not colorizer then
 end
 
 colorizer.setup({
-    html = {mode = 'foreground'},
-    css = {rgb_fn = true, hsl_fn = true},
-    'scss',
-    'javascript',
-    'typescript',
-    'lua',
+    filetypes = {
+        '*',
+        css = {rgb_fn = true, hsl_fn = true},
+    },
 })

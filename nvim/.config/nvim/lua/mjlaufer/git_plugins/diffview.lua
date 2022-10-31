@@ -6,7 +6,5 @@ if not diffview then
     return
 end
 
-diffview.setup({use_icons = true})
-
 map('n', '<leader>go', ':DiffviewOpen<CR>', 'Open diff')
 map('n', '<leader>gc', ':DiffviewClose<CR>', 'Close diff')

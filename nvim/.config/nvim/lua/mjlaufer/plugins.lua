@@ -4,15 +4,15 @@ local fn = vim.fn
 -- Automatically install packer
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-    PACKER_BOOTSTRAP = fn.system {
+    PACKER_BOOTSTRAP = fn.system({
         'git',
         'clone',
         '--depth',
         '1',
         'https://github.com/wbthomason/packer.nvim',
         install_path,
-    }
-    print 'Installing packer close and reopen Neovim...'
+    })
+    print('Installing packer. Close and reopen Neovim.')
     vim.cmd [[packadd packer.nvim]]
 end
 
@@ -22,19 +22,19 @@ if not packer then
 end
 
 return packer.startup(function(use)
-    use {'wbthomason/packer.nvim', commit = '4dedd3b'}
+    use {'wbthomason/packer.nvim', commit = '6db20b4'}
     use 'lewis6991/impatient.nvim' -- Improves start time.
 
     -- Plenary is a lua function library that a lot of plugins depend on.
-    use {'nvim-lua/plenary.nvim', commit = '46e8bb9'}
+    use {'nvim-lua/plenary.nvim', commit = '4b7e520'}
 
     -- Look and Feel
-    use {'nvim-treesitter/nvim-treesitter', commit = '7d2bd76', run = ':TSUpdate'}
-    use {'nvim-treesitter/playground', commit = 'ce7e4b7'}
+    use {'nvim-treesitter/nvim-treesitter', commit = '9ada5f7', run = ':TSUpdate'}
+    use {'nvim-treesitter/playground', commit = 'e6a0bfa'}
     use 'mjlaufer/glint.nvim'
     use {
         'kyazdani42/nvim-web-devicons',
-        commit = '8d2c533',
+        commit = '9061e2d',
         config = function()
             require('nvim-web-devicons').setup({override = {}, default = true})
         end,
@@ -47,7 +47,7 @@ return packer.startup(function(use)
             vim.g.startify_disable_at_vimenter = true
         end,
     } -- Fancy start screen; useful for `:SSave` and `:SLoad` (wrappers for `:mksession`).
-    use {'norcalli/nvim-colorizer.lua', commit = '36c610a'}
+    use {'NvChad/nvim-colorizer.lua', commit = '760e27d'}
 
     -- Editor
     use 'editorconfig/editorconfig-vim'
@@ -55,7 +55,7 @@ return packer.startup(function(use)
     use 'tpope/vim-repeat'
     use {'tpope/vim-unimpaired', after = 'vim-repeat'}
     use 'tpope/vim-characterize'
-    use {'windwp/nvim-autopairs', commit = '4a95b39'}
+    use {'windwp/nvim-autopairs', commit = '6b6e35f'}
     use {
         'windwp/nvim-ts-autotag',
         commit = '044a05c',
@@ -63,23 +63,23 @@ return packer.startup(function(use)
             require('nvim-ts-autotag').setup()
         end,
     }
-    use {'numToStr/Comment.nvim', commit = '4086630'}
-    use {'JoosepAlviste/nvim-ts-context-commentstring', commit = '8834375'}
-    use {'justinmk/vim-sneak', commit = '94c2de4'}
+    use {'numToStr/Comment.nvim', commit = 'ad7ffa8'}
+    use {'JoosepAlviste/nvim-ts-context-commentstring', commit = '37a97a0'}
+    use {'justinmk/vim-sneak', commit = '93395f5'}
 
     -- Workspace
-    use {'nvim-telescope/telescope.nvim', commit = 'b79cd6c'}
+    use {'nvim-telescope/telescope.nvim', commit = '9784730'}
     use {
         'folke/which-key.nvim',
-        commit = 'bd4411a',
+        commit = '61553ae',
         config = function()
             require('which-key').setup({ignore_missing = true})
         end,
     }
-    use {'folke/trouble.nvim', commit = 'da61737'} -- List for diagnostics, quickfix, and Telescope results
-    use {'kyazdani42/nvim-tree.lua', commit = '19dcacf'}
-    use {'nvim-lualine/lualine.nvim', commit = '5113cdb'}
-    use {'akinsho/toggleterm.nvim', commit = '04174e1'}
+    use {'folke/trouble.nvim', commit = 'ed65f84'} -- List for diagnostics, quickfix, and Telescope results
+    use {'kyazdani42/nvim-tree.lua', commit = '3845039'}
+    use {'nvim-lualine/lualine.nvim', commit = '3325d5d'}
+    use {'akinsho/toggleterm.nvim', commit = '8f302c9'}
     use {
         'iamcco/markdown-preview.nvim',
         commit = '02cc387',
@@ -93,41 +93,41 @@ return packer.startup(function(use)
     -- Git
     use 'tpope/vim-fugitive'
     use {'tpope/vim-rhubarb', after = 'vim-fugitive'} -- GitHub integration
-    use {'lewis6991/gitsigns.nvim', commit = '4883988'}
-    use {'sindrets/diffview.nvim', commit = '2d1f452'}
+    use {'lewis6991/gitsigns.nvim', commit = '9110ea1'}
+    use {'sindrets/diffview.nvim', commit = '94a3422'}
 
     -- LSP
     use 'neovim/nvim-lspconfig'
     use {'williamboman/nvim-lsp-installer', commit = 'cd4dac0'}
     -- TODO: Use williamboman/mason.nvim
-    use {'jose-elias-alvarez/null-ls.nvim', commit = '4f9fd41'}
-    use {'jose-elias-alvarez/nvim-lsp-ts-utils', commit = '1826275'} -- TypeScript development
+    use {'jose-elias-alvarez/null-ls.nvim', commit = '8291005'}
+    use {'jose-elias-alvarez/nvim-lsp-ts-utils', commit = '0a6a16e'} -- TypeScript development
     -- TODO: Use jose-elias-alvarez/typescript.nvim
-    use {'glepnir/lspsaga.nvim', branch = 'main', commit = '125795c'} -- LSP UI enhancements
-    use {'stevearc/aerial.nvim', commit = '4b4ada8'} -- Symbol outline window
+    use {'glepnir/lspsaga.nvim', branch = 'main', commit = 'f33bc99'} -- LSP UI enhancements
+    use {'stevearc/aerial.nvim', commit = 'bf80cba'} -- Symbol outline window
 
     -- Completion
-    use {'hrsh7th/nvim-cmp', commit = 'df6734a'}
-    use {'hrsh7th/cmp-nvim-lsp', commit = 'ebdfc20'}
-    use {'hrsh7th/cmp-buffer', commit = 'd66c4c2'}
-    use {'hrsh7th/cmp-path', commit = '466b6b8'}
+    use {'hrsh7th/nvim-cmp', commit = '9bb8ee6'}
+    use {'hrsh7th/cmp-nvim-lsp', commit = '78924d1'}
+    use {'hrsh7th/cmp-buffer', commit = '3022dbc'}
+    use {'hrsh7th/cmp-path', commit = '91ff86c'}
     use {'hrsh7th/cmp-nvim-lua', commit = 'd276254'}
-    use {'onsails/lspkind-nvim', commit = '57e5b5d'}
+    use {'onsails/lspkind-nvim', commit = 'c68b3a0'}
 
     -- Snippets
-    use {'saadparwaiz1/cmp_luasnip', commit = 'b108297'}
-    use {'L3MON4D3/LuaSnip', commit = '7fc4f14'}
-    use {'rafamadriz/friendly-snippets', commit = '6e0881a'}
+    use {'saadparwaiz1/cmp_luasnip', commit = '1809552'}
+    use {'L3MON4D3/LuaSnip', commit = '663d544'}
+    use {'rafamadriz/friendly-snippets', commit = 'c93311f'}
 
     -- Testing
-    use {'nvim-neotest/neotest', commit = '7e13978'}
-    use {'haydenmeade/neotest-jest', commit = '0e20fad'}
+    use {'nvim-neotest/neotest', commit = '0be9899'}
+    use {'haydenmeade/neotest-jest', commit = '2051686'}
 
     -- Debugger
-    use {'mfussenegger/nvim-dap', commit = 'd6d8317'}
+    use {'mfussenegger/nvim-dap', commit = '3d0d731'}
     use {'nvim-telescope/telescope-dap.nvim', commit = 'b4134ff'}
-    use {'theHamsta/nvim-dap-virtual-text', commit = '10368a1'}
-    use {'rcarriga/nvim-dap-ui', commit = '3eec525'}
+    use {'theHamsta/nvim-dap-virtual-text', commit = '2971ce3'}
+    use {'rcarriga/nvim-dap-ui', commit = '111236e'}
 
     if PACKER_BOOTSTRAP then
         packer.sync()

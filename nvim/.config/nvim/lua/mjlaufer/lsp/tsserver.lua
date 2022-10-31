@@ -7,7 +7,7 @@ if not ts_utils then
     return {
         on_attach = function(client, bufnr)
             -- Prevent tsserver from formatting; use null-ls built-in formatters instead.
-            client.resolved_capabilities.document_formatting = false
+            client.server_capabilities.documentFormattingProvider = false
             opts.on_attach(client, bufnr)
         end,
         capabilities = opts.capabilities,
@@ -19,7 +19,7 @@ return {
     init_options = require('nvim-lsp-ts-utils').init_options,
     on_attach = function(client, bufnr)
         -- Prevent tsserver from formatting; use efm instead
-        client.resolved_capabilities.document_formatting = false
+        client.server_capabilities.documentFormattingProvider = false
 
         opts.on_attach(client, bufnr)
 

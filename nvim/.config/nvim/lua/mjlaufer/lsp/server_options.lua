@@ -23,14 +23,13 @@ M.on_attach = function(client, bufnr)
     map('n', '<leader>la', vim.lsp.buf.code_action, 'Code actions', opts)
 
     -- Format on save (using null-ls built-in formatters)
-    if client.resolved_capabilities.document_formatting then
+    if client.server_capabilities.documentFormattingProvider then
         vim.api.nvim_clear_autocmds({group = augroup, buffer = bufnr})
         vim.api.nvim_create_autocmd('BufWritePre', {
             group = augroup,
             buffer = bufnr,
             callback = function()
-                -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-                vim.lsp.buf.formatting_seq_sync()
+                vim.lsp.buf.format({ bufnr = bufnr })
             end,
         })
     end
@@ -47,8 +46,7 @@ M.on_attach = function(client, bufnr)
 end
 
 -- Set up completion using nvim-cmp with Neovim's built-in LSP client.
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 M.capabilities = capabilities
 
 return M
