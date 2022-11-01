@@ -27,11 +27,20 @@ toggleterm.setup({
     float_opts = {border = 'single'},
 })
 
+-- Set up lazygit.
+local Terminal = require('toggleterm.terminal').Terminal
+local lazygit = Terminal:new({cmd = 'lazygit', direction = 'float', hidden = true})
+
+function _G.toggle_lazygit()
+    lazygit:toggle()
+end
+
 util.useWhichKey({['<leader>t'] = {name = 'Terminal'}})
 
 map('n', '<Leader>tl', ':ToggleTerm direction=vertical<CR>', 'Right split')
 map('n', '<Leader>tj', ':ToggleTerm direction=horizontal<CR>', 'Bottom split')
 map('n', '<Leader>tu', ':ToggleTerm direction=float<CR>', 'Float')
+map('n', '<Leader>tg', '<cmd>lua toggle_lazygit()<CR>', 'lazygit')
 
 function _G.set_terminal_keymaps()
     bmap(0, 't', '<esc>', [[<C-\><C-n>]])

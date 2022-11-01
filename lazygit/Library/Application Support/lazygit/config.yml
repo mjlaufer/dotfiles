@@ -1,0 +1,14 @@
+gui:
+  theme:
+    selectedLineBgColor:
+      - default
+    selectedRangeBgColor:
+      - default
+    cherryPickedCommitBgColor:
+      - yellow
+    cherryPickedCommitFgColor:
+      - black
+keybinding:
+  universal:
+    quit: '<c-q>'
+    return: 'q'
