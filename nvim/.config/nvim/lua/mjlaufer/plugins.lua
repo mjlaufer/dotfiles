@@ -64,7 +64,7 @@ return packer.startup(function(use)
         end,
     }
     use {'numToStr/Comment.nvim', commit = 'ad7ffa8'}
-    use {'JoosepAlviste/nvim-ts-context-commentstring', commit = '37a97a0'}
+    use {'JoosepAlviste/nvim-ts-context-commentstring', commit = '32d9627'}
     use {'justinmk/vim-sneak', commit = '93395f5'}
 
     -- Workspace
