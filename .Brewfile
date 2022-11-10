@@ -1,6 +1,5 @@
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
-tap "koekeishiya/formulae"
 
 brew "fzf"
 brew "git"
@@ -27,10 +26,6 @@ brew "tree-sitter"
 brew "cmake"
 brew "luarocks"
 
-# From koekeishiya/formulae tap
-brew "skhd"
-brew "yabai"
-
 cask "font-fira-code"
 cask "font-fira-code-nerd-font"
 cask "font-jetbrains-mono"
@@ -40,3 +35,4 @@ cask "brave-browser"
 cask "google-chrome"
 cask "docker"
 cask "insomnia"
+cask "visual-studio-code"

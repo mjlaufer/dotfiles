@@ -74,36 +74,11 @@ luarocks install --server=https://luarocks.org/dev luaformatter
 -   Install: `<prefix> I`
 -   Update: `<prefix> U`
 
-## Start yabai
-
-### Update macOS System Preferences > Mission Control
-
--   Disable "Automatically rearrange Spaces based on most recent use".
--   Enable "Displays have separate Spaces".
-
-### Install limelight
-
-```sh
-cd ~
-git clone https://github.com/koekeishiya/limelight.git
-cd limelight
-make
-ln -s ~/limelight/bin/limelight /usr/local/bin/limelight
-```
-
-Start yabai and skhd.
-
-```sh
-brew services start yabai
-brew services start skhd
-```
-
 ## Add Browser extensions
 
 ### Brave
 
 -   [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en)
--   [axe - Web Accessibility Testing](https://chrome.google.com/webstore/detail/axe-web-accessibility-tes/lhdoppojpmngadmnindnejefpokejbdd?hl=en-US)
 -   [JSON Formatter](https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=en)
+-   [axe - Web Accessibility Testing](https://chrome.google.com/webstore/detail/axe-web-accessibility-tes/lhdoppojpmngadmnindnejefpokejbdd?hl=en-US)
 -   [Web Vitals](https://chrome.google.com/webstore/detail/web-vitals/ahfhijdlegdabablpippeagghigmibma?hl=en)
--   [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
