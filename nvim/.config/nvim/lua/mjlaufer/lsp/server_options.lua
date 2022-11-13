@@ -22,14 +22,21 @@ M.on_attach = function(client, bufnr)
     map('n', '<leader>ls', vim.lsp.buf.signature_help, 'Signature help', opts)
     map('n', '<leader>la', vim.lsp.buf.code_action, 'Code actions', opts)
 
-    -- Format on save (using null-ls built-in formatters)
+    -- Format on save
     if client.server_capabilities.documentFormattingProvider then
         vim.api.nvim_clear_autocmds({group = augroup, buffer = bufnr})
         vim.api.nvim_create_autocmd('BufWritePre', {
             group = augroup,
             buffer = bufnr,
             callback = function()
-                vim.lsp.buf.format({ bufnr = bufnr })
+                vim.lsp.buf.format({
+                    bufnr = bufnr,
+                    filter = function(_client)
+                        -- Use null-ls instead of the clients excluded below.
+                        return not (_client.name == 'cssls' or _client.name == 'html' or
+                                   _client.name == 'sumneko_lua' or _client.name == 'tsserver')
+                    end,
+                })
             end,
         })
     end
