@@ -1,42 +1,33 @@
 {
-  "window.nativeTabs": false,
+  "window.autoDetectHighContrast": false,
+  "window.nativeTabs": true,
   "window.restoreFullscreen": true,
   "window.restoreWindows": "all",
+  "workbench.colorTheme": "Glint",
   "workbench.editor.wrapTabs": true,
-  "workbench.activityBar.visible": true,
-  "workbench.statusBar.visible": false,
+  "workbench.iconTheme": "material-icon-theme",
   "workbench.settings.editor": "json",
-  "editor.guides.indentation": false,
-  "workbench.tree.renderIndentGuides": "none",
-  "breadcrumbs.enabled": false,
-  "editor.bracketPairColorization.enabled": true,
-  "workbench.colorCustomizations": {
-    "editorBracketHighlight.foreground1": "#fabd2f",
-    "editorBracketHighlight.foreground2": "#d3869b",
-    "editorBracketHighlight.foreground3": "#83a598"
-  },
+  "editor.bracketPairColorization.enabled": false,
+  "editor.cursorSurroundingLines": 8,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.detectIndentation": false,
-  "editor.folding": false,
-  "editor.fontFamily": "fira code",
-  "editor.fontLigatures": true,
+  "editor.fontFamily": "jetbrains mono",
   "editor.fontSize": 15,
-  "editor.hideCursorInOverviewRuler": true,
+  "editor.fontLigatures": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.inlineSuggest.enabled": true,
   "editor.lineHeight": 24,
   "editor.lineNumbers": "relative",
   "editor.minimap.enabled": false,
   "editor.overviewRulerBorder": false,
-  "editor.renderLineHighlight": "none",
-  "editor.formatOnSave": true,
-  "editor.formatOnPaste": true,
-  "editor.inlineSuggest.enabled": true,
   "explorer.openEditors.visible": 0,
   "explorer.confirmDragAndDrop": false,
-  "extensions.ignoreRecommendations": false,
   "files.associations": {
     "*.js": "javascript",
     "*.jsx": "javascriptreact"
   },
-  "html.format.wrapLineLength": 60,
+  "html.format.wrapLineLength": 100,
   "js/ts.implicitProjectConfig.checkJs": true,
   "js/ts.implicitProjectConfig.strictNullChecks": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
@@ -46,21 +37,27 @@
     "editor.wordWrapColumn": 100,
     "editor.quickSuggestions": {
       "comments": "off",
-      "strings": "off",
-      "other": "off"
+      "strings": "off"
     }
   },
-  "Lua.diagnostics.globals": ["vim"],
   "eslint.validate": [
     "javascript",
     "javascriptreact",
     "typescript",
     "typescriptreact"
   ],
+  "Lua.diagnostics.globals": ["vim"],
   "prettier.configPath": ".prettierrc.json",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "workbench.colorTheme": "MJL Gruvbox Dark Contrast",
-  "workbench.iconTheme": "material-icon-theme",
   "vscode-neovim.neovimInitVimPaths.darwin": "/Users/matthewlaufer/.config/nvim/init.lua",
-  "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim"
+  "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+        {
+            "scope": "keyword.other.dotenv",
+            "settings": {
+                "foreground": "#FF000005"
+            }
+        }
+    ]
+}
 }
