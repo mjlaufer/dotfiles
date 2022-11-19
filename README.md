@@ -74,11 +74,37 @@ luarocks install --server=https://luarocks.org/dev luaformatter
 -   Install: `<prefix> I`
 -   Update: `<prefix> U`
 
-## Add Browser extensions
-
-### Brave
+## Add Chrome extensions
 
 -   [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en)
 -   [JSON Formatter](https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=en)
 -   [axe - Web Accessibility Testing](https://chrome.google.com/webstore/detail/axe-web-accessibility-tes/lhdoppojpmngadmnindnejefpokejbdd?hl=en-US)
 -   [Web Vitals](https://chrome.google.com/webstore/detail/web-vitals/ahfhijdlegdabablpippeagghigmibma?hl=en)
+
+## Customize IntelliJ
+
+Install and build [Glint](https://github.com/mjlaufer/glint-intellij). Then select **Install Plugin from Disk**.
+
+Select **File | Manage IDE Settings | Settings Repository** from the main menu. Specify the applicable repository URL (see below), and click **Overwrite Local**.
+
+-   [IDEA](https://github.com/mjlaufer/idea-settings)
+-   [Webstorm](https://github.com/mjlaufer/webstorm-settings)
+
+## Customize VS Code
+
+Install the `code` command: Open the Command Palette (⇧ + ⌘ + p) and find the **Shell Command: Install 'code' command in PATH** command. After executing the command, restart the terminal for the new `$PATH` value to take effect. You can now simply type `code .` in any folder to open VSCode and start editing files in that folder.
+
+Install extensions:
+
+-   [Glint](https://github.com/mjlaufer/glint-vscode)
+-   [DotENV](https://marketplace.visualstudio.com/items?itemName=dotenv.dotenv-vscode)
+-   [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
+-   [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+-   [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+-   [Image Preview](https://marketplace.visualstudio.com/items?itemName=kisstkondoros.vscode-gutter-preview)
+-   [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
+-   [npm Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense)
+-   [Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)
+-   [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+-   [Version Lens](https://marketplace.visualstudio.com/items?itemName=pflannery.vscode-versionlens)
+-   [VSCode Neovim](https://marketplace.visualstudio.com/items?itemName=asvetliakov.vscode-neovim)
