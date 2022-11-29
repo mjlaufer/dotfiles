@@ -45,6 +45,7 @@ mason_lspconfig.setup({
         'gopls',
         'html',
         'jsonls',
+        'rust_analyzer',
         'sumneko_lua',
         'tsserver',
     },
@@ -62,6 +63,27 @@ lspconfig.html.setup(opts)
 lspconfig.jsonls.setup(require('mjlaufer.lsp.jsonls')(opts))
 lspconfig.sumneko_lua.setup(require('mjlaufer.lsp.sumneko_lua')(opts))
 lspconfig.tsserver.setup(require('mjlaufer.lsp.tsserver')(opts))
+
+-- Rust
+local rt = util.prequire('rust-tools')
+if rt then
+    local codelldb_path = vim.fn.stdpath('data') .. '/mason/packages/codelldb/extension/'
+    local adapter_path = codelldb_path .. 'adapter/codelldb'
+    local liblldb_path = codelldb_path .. 'lldb/lib/liblldb.dylib'
+
+    rt.setup({
+        dap = {adapter = require('rust-tools.dap').get_codelldb_adapter(adapter_path, liblldb_path)},
+        server = {
+            on_attach = function(_, bufnr)
+                -- Hover actions
+                vim.keymap.set('n', '<leader>rh', rt.hover_actions.hover_actions, {buffer = bufnr})
+                -- Code action groups
+                vim.keymap.set('n', '<leader>ra', rt.code_action_group.code_action_group,
+                    {buffer = bufnr})
+            end,
+        },
+    })
+end
 
 -- Aerial (symbol outline)
 local aerial = util.prequire('aerial')

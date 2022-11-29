@@ -31,7 +31,7 @@ done
 echo "\nInstalling/updating Kitty..."
 bash -c "$(curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin)"
 
-# NVM, Node.js, and Neovim LSP dependencies
+# Node.js and TypeScript
 if [[ $("which" node) ]]; then
     echo "\nNode.js is installed."
 else
@@ -41,6 +41,14 @@ else
 
     echo "Installing TypeScript..."
     npm install -g typescript
+fi
+
+# Rust
+if [[ $("which" rustc)]]; then
+    echo "\nRust is installed."
+else
+    echo "\nInstalling Rust..."
+    bash -c "$(curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh)"
 fi
 
 # Lua development dependencies

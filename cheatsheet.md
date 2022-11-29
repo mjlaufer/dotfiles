@@ -14,30 +14,6 @@ Prefix for Git keymaps: `<leader>g`
 -   Open/close [Diffview](https://github.com/sindrets/diffview.nvim): `<leader>go`/`<leader>gc`
 -   [Vim Fugitive](https://github.com/tpope/vim-fugitive): `:G`
 
-### Testing
-
-Prefix for testing keymaps: `<leader>s` ("spec")
-
-### Debugging
-
-Prefix for debugger keymaps: `<leader>i` ("inspect")
-
-#### JavaScript - Chrome
-
--   Install and build [vscode-chrome-debug](https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#javascript-chrome) in `$HOME/.local/share/nvim/dap/`.
--   Run Chrome with remote debugging enabled:
-
-```sh
-chrome-debug
-```
-
--   Start the Chrome debugger: `<leader>ic`
-
-#### JavaScript - Node.js
-
--   Install and build [node-debug2](https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#javascript) in `$HOME/.local/share/nvim/dap/`.
--   Start the Node debugger: `<leader>isn`
-
 ## tmux
 
 ### Sessions

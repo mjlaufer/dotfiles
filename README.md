@@ -62,11 +62,33 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 nvm install node
 ```
 
+Install [Rust](https://www.rust-lang.org/tools/install)
+
+```sh
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
 Install Neovim LSP dependencies.
 
 ```sh
 npm install -g typescript
 luarocks install --server=https://luarocks.org/dev luaformatter
+```
+
+## Install Neovim DAP servers
+
+Use the [Mason](https://github.com/williamboman/mason.nvim) plugin to install [DAP](https://microsoft.github.io/debug-adapter-protocol/) servers.
+
+#### JavaScript/TypeScript
+
+```sh
+:MasonInstall js-debug-adapter
+```
+
+#### Rust
+
+```sh
+:MasonInstall codelldb
 ```
 
 ## Install/update tmux plugins
@@ -97,6 +119,7 @@ Install the `code` command: Open the Command Palette (⇧ + ⌘ + p) and find th
 Install extensions:
 
 -   [Glint](https://github.com/mjlaufer/glint-vscode)
+-   [CodeLLDB](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb)
 -   [DotENV](https://marketplace.visualstudio.com/items?itemName=dotenv.dotenv-vscode)
 -   [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
 -   [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
@@ -106,5 +129,6 @@ Install extensions:
 -   [npm Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense)
 -   [Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)
 -   [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+-   [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
 -   [Version Lens](https://marketplace.visualstudio.com/items?itemName=pflannery.vscode-versionlens)
 -   [VSCode Neovim](https://marketplace.visualstudio.com/items?itemName=asvetliakov.vscode-neovim)
