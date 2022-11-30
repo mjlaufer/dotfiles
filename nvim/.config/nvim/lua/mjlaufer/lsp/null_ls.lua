@@ -10,6 +10,6 @@ local formatting = null_ls.builtins.formatting
 
 null_ls.setup({
     debug = false,
-    sources = {formatting.prettier, formatting.lua_format},
+    sources = {formatting.prettier, formatting.lua_format, formatting.rustfmt},
     on_attach = opts.on_attach,
 })
