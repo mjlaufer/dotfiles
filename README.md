@@ -85,6 +85,12 @@ Use the [Mason](https://github.com/williamboman/mason.nvim) plugin to install [D
 :MasonInstall js-debug-adapter
 ```
 
+To debug in Chrome, make sure to first run Chrome with remote debugging enabled:
+
+```sh
+chrome-debug
+```
+
 #### Rust
 
 ```sh

@@ -6,57 +6,48 @@ if not dap then
     return
 end
 
-dap.adapters.chrome = {
-    type = 'executable',
-    command = 'node',
-    args = {vim.fn.stdpath('data') .. '/dap/vscode-chrome-debug/out/src/chromeDebug.js'},
-}
+-- JavaScript and TypeScript
+local dap_js = util.prequire('dap-vscode-js')
+if dap_js then
+    dap_js.setup({
+        debugger_path = vim.fn.stdpath('data') .. '/mason/packages/js-debug-adapter',
+        adapters = {'pwa-node', 'pwa-chrome'},
+    })
 
-local chrome_config = {
-    {
-        type = 'chrome',
-        request = 'attach',
-        program = '${file}',
-        cwd = vim.fn.getcwd(),
-        sourceMaps = true,
-        protocol = 'inspector',
-        port = 9222,
-        webRoot = '${workspaceFolder}',
-    },
-}
-
-dap.configurations.javascript = chrome_config
-dap.configurations.typescript = chrome_config
-dap.configurations.javascriptreact = chrome_config
-dap.configurations.typescriptreact = chrome_config
+    local chrome_config = {
+        {
+            type = 'pwa-chrome',
+            request = 'attach',
+            name = 'Attach to Chrome',
+            program = '${file}',
+            cwd = '${workspaceFolder}',
+            port = 9222,
+        },
+    }
+    dap.configurations.javascript = chrome_config
+    dap.configurations.typescript = chrome_config
+    dap.configurations.javascriptreact = chrome_config
+    dap.configurations.typescriptreact = chrome_config
+end
 
 -- This function allows JS/TS projects to use the Node.js debugger.
 _G.start_node_debugger = function()
-    dap.adapters.node2 = {
-        type = 'executable',
-        command = 'node',
-        args = {vim.fn.stdpath('data') .. '/dap/vscode-node-debug2/out/src/nodeDebug.js'},
-    }
-
     local node_config = {
         {
-            name = 'Launch',
-            type = 'node2',
+            type = 'pwa-node',
             request = 'launch',
+            name = 'Launch',
             program = '${file}',
-            cwd = vim.fn.getcwd(),
-            sourceMaps = true,
-            protocol = 'inspector',
-            console = 'integratedTerminal',
+            cwd = '${workspaceFolder}',
         },
         {
-            name = 'Attach to process', -- Used when starting node with the `--inspect` flag
-            type = 'node2',
+            type = 'pwa-node',
             request = 'attach',
+            name = 'Attach to process', -- Used when starting node with the `--inspect` flag
             processId = require('dap.utils').pick_process,
+            cwd = '${workspaceFolder}',
         },
     }
-
     dap.configurations.javascript = node_config
     dap.configurations.typescript = node_config
     require('dap').continue()

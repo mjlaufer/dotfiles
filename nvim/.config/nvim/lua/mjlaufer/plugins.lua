@@ -130,6 +130,7 @@ return packer.startup(function(use)
     use {'nvim-telescope/telescope-dap.nvim', commit = 'b4134ff'}
     use {'theHamsta/nvim-dap-virtual-text', commit = '2971ce3'}
     use {'rcarriga/nvim-dap-ui', commit = '111236e'}
+    use {'mxsdev/nvim-dap-vscode-js', commit = 'e7c0549'}
 
     if PACKER_BOOTSTRAP then
         packer.sync()
