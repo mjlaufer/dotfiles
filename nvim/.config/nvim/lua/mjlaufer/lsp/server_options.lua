@@ -47,7 +47,6 @@ M.on_attach = function(client, bufnr)
         map('n', 'K', '<cmd>Lspsaga hover_doc<CR>', 'Hover', opts)
         map('n', '<leader>lp', '<cmd>Lspsaga preview_definition<CR>', 'Preview definition', opts)
         map('n', '<leader>lr', '<cmd>Lspsaga rename<CR>', 'Rename all references', opts);
-        map('n', '<leader>ls', '<cmd>Lspsaga signature_help<CR>', 'Signature help', opts)
         map('n', '<leader>la', require('lspsaga.codeaction').code_action, 'Code actions', opts)
     end
 end
