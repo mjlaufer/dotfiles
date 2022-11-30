@@ -111,6 +111,7 @@ return packer.startup(function(use)
     -- Completion
     use {'hrsh7th/nvim-cmp', commit = '9bb8ee6'}
     use {'hrsh7th/cmp-nvim-lsp', commit = '78924d1'}
+    use {'hrsh7th/cmp-nvim-lsp-signature-help', commit = 'd2768cb'}
     use {'hrsh7th/cmp-buffer', commit = '3022dbc'}
     use {'hrsh7th/cmp-path', commit = '91ff86c'}
     use {'hrsh7th/cmp-nvim-lua', commit = 'd276254'}

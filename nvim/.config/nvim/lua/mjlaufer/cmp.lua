@@ -52,11 +52,12 @@ cmp.setup({
         ['<CR>'] = cmp.mapping.confirm({select = false}),
     }),
     sources = cmp.config.sources({
+        {name = 'nvim_lsp_signature_help'},
         {name = 'nvim_lsp'},
         {name = 'nvim_lua'},
         {name = 'luasnip'},
         {name = 'path'},
-        {name = 'buffer', keyword_length = 5},
+        {name = 'buffer', keyword_length = 3},
     }),
     formatting = formatting,
     cmp.setup.cmdline('/', {mapping = cmp.mapping.preset.cmdline(), sources = {{name = 'buffer'}}}),
