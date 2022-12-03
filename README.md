@@ -62,16 +62,15 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 nvm install node
 ```
 
-Install [Rust](https://www.rust-lang.org/tools/install)
+Install [Rust](https://www.rust-lang.org/tools/install).
 
 ```sh
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
-Install Neovim LSP dependencies.
+Install [LuaFormatter](https://github.com/Koihik/LuaFormatter).
 
 ```sh
-npm install -g typescript
 luarocks install --server=https://luarocks.org/dev luaformatter
 ```
 
