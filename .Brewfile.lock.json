@@ -879,12 +879,6 @@
           "full_name": "brave-browser"
         }
       },
-      "insomnia": {
-        "version": "2022.6.0",
-        "options": {
-          "full_name": "insomnia"
-        }
-      },
       "font-jetbrains-mono": {
         "version": "2.242",
         "options": {

@@ -22,6 +22,12 @@ Run the install script.
 
 ## Manual installation
 
+Install Oh My Zsh.
+
+```sh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
 Install Zsh plugins.
 
 ```sh
@@ -76,24 +82,20 @@ luarocks install --server=https://luarocks.org/dev luaformatter
 
 ## Install Neovim DAP servers
 
-Use the [Mason](https://github.com/williamboman/mason.nvim) plugin to install [DAP](https://microsoft.github.io/debug-adapter-protocol/) servers.
+Use the [Mason](https://github.com/williamboman/mason.nvim) plugin to install [DAP](https://microsoft.github.io/debug-adapter-protocol/) servers:
 
-#### JavaScript/TypeScript
-
-```sh
+```viml
+" JavaScript/TypeScript
 :MasonInstall js-debug-adapter
+
+" Rust
+:MasonInstall codelldb
 ```
 
 To debug in Chrome, make sure to first run Chrome with remote debugging enabled:
 
 ```sh
 chrome-debug
-```
-
-#### Rust
-
-```sh
-:MasonInstall codelldb
 ```
 
 ## Install/update tmux plugins

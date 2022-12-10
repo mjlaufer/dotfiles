@@ -20,19 +20,17 @@ brew "trash"
 # Neovim
 brew "neovim"
 brew "ripgrep"
-brew "tree-sitter"
 
 # Lua development
 brew "cmake"
 brew "luarocks"
 
+cask "brave-browser"
+cask "docker"
 cask "font-fira-code"
 cask "font-fira-code-nerd-font"
 cask "font-jetbrains-mono"
 cask "font-jetbrains-mono-nerd-font"
-cask "karabiner-elements"
-cask "brave-browser"
 cask "google-chrome"
-cask "docker"
-cask "insomnia"
+cask "karabiner-elements"
 cask "visual-studio-code"
