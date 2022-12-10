@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-This repository is intended for use with macOS.
+This repository is intended for use with macOS and assumes your default shell is zsh.
 
 1. Install [Homebrew](https://brew.sh/).
 
@@ -61,11 +61,14 @@ Install [Kitty](https://sw.kovidgoyal.net/kitty).
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 ```
 
-Install [Node Version Manager](https://github.com/nvm-sh/nvm) and Node.js.
+Install [asdf](https://asdf-vm.com/) and Node.js.
 
 ```sh
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
-nvm install node
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
+source ~/.zshrc
+asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+asdf install nodejs latest
+asdf global nodejs latest
 ```
 
 Install [Rust](https://www.rust-lang.org/tools/install).

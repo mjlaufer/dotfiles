@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env zsh
 
 echo '\nSetting up dev environment...\n'
 
@@ -32,10 +32,20 @@ done
 echo "\nInstalling/updating Kitty..."
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 
-# Node.js
-echo "\nInstalling/updating Node Version Manager and Node.js..."
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
-nvm install node
+# asdf
+if [[ $("which" asdf) ]]; then
+    echo "\nasdf is already installed."
+else
+    echo "\nInstalling asdf..."
+    git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
+    source ~/.zshrc
+
+    # Node.js
+    echo "\nInstalling Node.js..."
+    asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+    asdf install nodejs latest
+    asdf global nodejs latest
+fi
 
 # Rust
 if [[ $("which" rustc) ]]; then
