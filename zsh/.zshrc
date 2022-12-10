@@ -85,6 +85,7 @@ export PATH=$HOME/.local/bin:$GOPATH/bin:$PATH
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias kssh="kitty +kitten ssh"
 
 # C-s to run tmux-sessionizer
 stty -ixon
