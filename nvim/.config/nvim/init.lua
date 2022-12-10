@@ -1,5 +1,7 @@
+local util = require('mjlaufer.util')
+
 -- Set up `impatient` before any other lua plugin.
-require('impatient')
+util.prequire('impatient')
 
 -- Global functions and settings
 require('mjlaufer.globals')
