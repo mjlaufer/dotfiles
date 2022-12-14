@@ -16,6 +16,11 @@ Prefix for Git keymaps: `<leader>g`
 
 ## tmux
 
+### Basics
+
+-   Enter scroll mode: `<prefix> [`
+-   Exit scroll mode: `q`
+
 ### Sessions
 
 A `target-session` may be identified by one of the following:

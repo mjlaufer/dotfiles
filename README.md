@@ -22,13 +22,14 @@ Run the install script.
 
 ## Manual installation
 
-Install Oh My Zsh.
+Install [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh). It will automatically rename the current `.zshrc` file to `.zshrc.pre-oh-my-zsh`. Rename (or delete) the `.zshrc` created by Oh My Zsh so you can `stow` this repo's `/zsh` directory without conflicts.
 
 ```sh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+cp .zshrc .zshrc.oh-my-zsh-default
 ```
 
-Install Zsh plugins.
+Install plugins for Zsh and tmux.
 
 ```sh
 cd ~/dotfiles
