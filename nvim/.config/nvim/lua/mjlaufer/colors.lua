@@ -5,7 +5,15 @@ vim.cmd [[
     set background=dark
     colorscheme glint
 
-    let g:markdown_fenced_languages = ['html', 'sh', 'bash=sh', 'javascript', 'js=javascript', 'typescript', 'ts=typescript', 'go', 'lua']
+    let g:markdown_fenced_languages = [
+        \ 'html',
+        \ 'sh', 'bash=sh',
+        \ 'java',
+        \ 'javascript', 'js=javascript',
+        \ 'typescript', 'ts=typescript',
+        \ 'go',
+        \ 'lua',
+        \ 'rust']
 ]]
 
 local util = require('mjlaufer.util')
@@ -20,6 +28,7 @@ ts_configs.setup {
         'css',
         'go',
         'html',
+        'java',
         'javascript',
         'json',
         'lua',

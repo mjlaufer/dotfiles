@@ -103,6 +103,7 @@ return packer.startup(function(use)
     use {'jose-elias-alvarez/null-ls.nvim', commit = '8291005'}
     use {'jose-elias-alvarez/nvim-lsp-ts-utils', commit = '0a6a16e'} -- TypeScript development
     -- TODO: Use jose-elias-alvarez/typescript.nvim
+    use {'mfussenegger/nvim-jdtls', commit = '69ad133'}
     use {'simrat39/rust-tools.nvim', commit = '99fd123'}
     use {'glepnir/lspsaga.nvim', branch = 'main', commit = 'f33bc99'} -- LSP UI enhancements
     use {'RRethy/vim-illuminate', commit = '0603e75'} -- Highlights identifier under curor
