@@ -33,8 +33,9 @@ M.on_attach = function(client, bufnr)
                     bufnr = bufnr,
                     filter = function(_client)
                         -- Use null-ls instead of the clients excluded below.
-                        return not (_client.name == 'cssls' or _client.name == 'html' or
-                                   _client.name == 'sumneko_lua' or _client.name == 'tsserver')
+                        return not (_client.name == 'cssls' or _client.name == 'jdtls' or
+                                   _client.name == 'html' or _client.name == 'sumneko_lua' or
+                                   _client.name == 'tsserver')
                     end,
                 })
             end,
