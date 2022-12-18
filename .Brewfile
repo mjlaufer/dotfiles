@@ -1,36 +1,48 @@
 tap "homebrew/cask"
-tap "homebrew/cask-fonts"
 
+# Fonts
+tap "homebrew/cask-fonts"
+cask "font-fira-code"
+cask "font-fira-code-nerd-font"
+cask "font-jetbrains-mono"
+cask "font-jetbrains-mono-nerd-font"
+
+# Utils
 brew "fzf"
 brew "git"
 brew "gnu-sed"
-brew "go"
 brew "htop"
 brew "jq"
 brew "lazygit"
 brew "less"
-brew "reattach-to-user-namespace"
 brew "stow"
-brew "tmux"
 
-# Ranger
-brew "ranger"
-brew "trash"
+# Java development
+cask "temurin"
+brew "google-java-format"
 
-# Neovim
-brew "neovim"
-brew "ripgrep"
+# Go development
+brew "go"
 
 # Lua development
 brew "cmake"
 brew "luarocks"
 
+# tmux
+brew "reattach-to-user-namespace"
+brew "tmux"
+
+# Neovim
+brew "neovim"
+brew "ripgrep"
+
+# Ranger
+brew "ranger"
+brew "trash"
+
+# Apps
 cask "brave-browser"
-cask "docker"
-cask "font-fira-code"
-cask "font-fira-code-nerd-font"
-cask "font-jetbrains-mono"
-cask "font-jetbrains-mono-nerd-font"
 cask "google-chrome"
+cask "docker"
 cask "karabiner-elements"
 cask "visual-studio-code"

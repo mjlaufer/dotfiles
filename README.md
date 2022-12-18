@@ -128,6 +128,7 @@ Select **File | Manage IDE Settings | Settings Repository** from the main menu. 
 
 -   [IDEA](https://github.com/mjlaufer/idea-settings)
 -   [Webstorm](https://github.com/mjlaufer/webstorm-settings)
+-   [CLion](https://github.com/mjlaufer/clion-settings)
 
 ## Customize VS Code
 
