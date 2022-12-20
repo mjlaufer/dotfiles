@@ -2,8 +2,6 @@
 
 This guide is for setting up a development environment on an Amazon EC2 instance running Amazon Linux 2 (AL2).
 
-This guide generally prefers Linux package managers and installation instructions, but will fall back to Homebrew when alternative installation methods are inconvenient.
-
 ## Prerequisites
 
 This repository is intended for use with AL2 and assumes your default shell is zsh.
@@ -22,13 +20,19 @@ echo $0
 
 ## Installation
 
-### Development Tools and Stow
+### Package managers
 
-Install [EPEL](https://docs.fedoraproject.org/en-US/epel/). The yum package manager, which comes with AL2, does not contain GNU Stow, but EPEL (Extra Packages for Enterprise Linux) does.
+This guide generally prefers Linux package managers and installation instructions, but will fall back to Homebrew when alternative installation methods are inconvenient.
+
+Install [EPEL](https://docs.fedoraproject.org/en-US/epel/). The yum package manager, which comes with AL2, does not contain GNU Stow (among other things), but EPEL (Extra Packages for Enterprise Linux) does.
 
 ```sh
 sudo yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 ```
+
+Install [Homebrew](https://brew.sh/). Then follow the instructions in the output to add `brew` to your `PATH`.
+
+### Development Tools and Stow
 
 Check whether the "Development Tools" group (e.g., gcc, make, automake) is installed.
 
@@ -127,6 +131,12 @@ tmux is now located at usr/local/bin/tmux. You may need to restart your shell.
 
 Install tmux plugins: `<prefix> I`
 
+Install fzf, which is a dependency of `tmux-sessionizer`.
+
+```sh
+brew install fzf
+```
+
 ### htop
 
 ```sh
@@ -134,12 +144,6 @@ cd ~/dotfiles
 stow htop
 sudo yum -y install htop
 ```
-
-### Homebrew
-
-On AL2, Homebrew is the most convenient way to install and update lazygit and ripgrep (Neovim plugin dependency).
-
-Install [Homebrew](https://brew.sh/). Then follow the instructions in the output to add `brew` to your `PATH`.
 
 ### lazygit
 
