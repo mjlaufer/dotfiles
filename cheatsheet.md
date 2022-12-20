@@ -32,6 +32,7 @@ A `target-session` may be identified by one of the following:
 -   Create a new session: `tmux new -s session-name [-d] [-n window-name] [-c start-dir] [shell-cmd]`
 -   Attach to a session: `tmux attach -t target-session`
 -   Detach from current session: `<prefix> d`
+-   Select a session from a list: `<prefix> s`
 -   Next/previous session: `<prefix> (`/`<prefix> )`
 -   Alternate session: `<prefix> L`
 -   Rename current session: `<prefix> $`
