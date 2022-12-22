@@ -108,6 +108,12 @@ To debug in Chrome, make sure to first run Chrome with remote debugging enabled:
 chrome-debug
 ```
 
+To enable remote debugging in Java, run your app with the Java Debug Wire Protocol (JDWP):
+
+```sh
+java -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005 -jar [path/to/JAR]
+```
+
 ## Install/update tmux plugins
 
 -   Install: `<prefix> I`

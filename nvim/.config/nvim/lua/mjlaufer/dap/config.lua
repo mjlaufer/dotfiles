@@ -6,6 +6,17 @@ if not dap then
     return
 end
 
+-- Java
+dap.configurations.java = {
+    {
+        type = 'java',
+        request = 'attach',
+        name = 'Debug (Attach) - Remote',
+        hostName = '127.0.0.1',
+        port = 5005,
+    },
+}
+
 -- JavaScript and TypeScript
 local dap_js = util.prequire('dap-vscode-js')
 if dap_js then
@@ -58,22 +69,22 @@ vim.fn.sign_define('DapBreakpointRejected', {text = '🔵', texthl = '', linehl 
 
 util.useWhichKey({['<leader>i'] = {name = 'Inspect/debug'}, ['<leader>iw'] = {name = 'DAP Widgets'}})
 
-map('n', '<leader>isn', ':lua start_node_debugger()<CR>', 'Start Node debugger')
-map('n', '<leader>ic', ':lua require("dap").continue()<CR>', 'Start/continue')
-map('n', '<leader>ib', ':lua require("dap").toggle_breakpoint()<CR>', 'Toggle breakpoint')
+map('n', '<leader>isn', start_node_debugger, 'Start Node debugger')
+map('n', '<leader>ic', dap.continue, 'Start/continue')
+map('n', '<leader>ib', dap.toggle_breakpoint, 'Toggle breakpoint')
 map('n', '<leader>in',
     ':lua require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>',
     'Set breakpoint condition')
 map('n', '<leader>im',
     ':lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>',
     'Set breakpoint log message')
-map('n', '<leader>il', ':lua require("dap").step_into()<CR>', 'Step into')
-map('n', '<leader>ij', ':lua require("dap").step_over()<CR>', 'Step over')
-map('n', '<leader>ik', ':lua require("dap").step_out()<CR>', 'Step out')
-map('n', '<leader>iq', ':lua require("dap").close()<CR>', 'Quit')
+map('n', '<leader>il', dap.step_into, 'Step into')
+map('n', '<leader>ij', dap.step_over, 'Step over')
+map('n', '<leader>ik', dap.step_out, 'Step out')
+map('n', '<leader>iq', dap.close, 'Quit')
 
 -- DAP Widgets
-map('n', '<leader>iwu', ':lua require("dap.ui.widgets").hover()<CR>', 'Show expression under cursor')
+map('n', '<leader>iwu', require('dap.ui.widgets').hover, 'Show expression under cursor')
 map('n', '<leader>iws',
     ':lua local widgets=require("dap.ui.widgets");widgets.sidebar(widgets.scopes).open()<CR>',
     'Show scopes')

@@ -16,8 +16,7 @@ end
 local home = vim.env.HOME
 local jdtls_path = vim.fn.stdpath('data') .. '/mason/packages/jdtls/'
 local root_dir = require('jdtls.setup').find_root({'.git', 'gradlew', 'mvnw'})
-local project_name = vim.fn.fnamemodify(root_dir, ':p:h:t')
-local project_data_dir = home .. '/.local/share/eclipse/' .. project_name
+local project_data_dir = home .. '/.local/share/eclipse/' .. vim.fn.fnamemodify(root_dir, ':p:h:t')
 
 -- Create a list of paths to JAR files for debug and test.
 local java_debug_jar_path = vim.fn.stdpath('data') ..
@@ -36,7 +35,7 @@ extendedClientCapabilities.resolveAdditionalTextEditsSupport = true;
 
 local config = {
     cmd = {
-        'java',
+        'java', -- path to Java 17 or newer
         '-Declipse.application=org.eclipse.jdt.ls.core.id1',
         '-Dosgi.bundles.defaultStartLevel=4',
         '-Declipse.product=org.eclipse.jdt.ls.core.product',
@@ -88,7 +87,7 @@ local config = {
         jdtls.setup.add_commands()
 
         util.useWhichKey({['<leader>r'] = {name = 'jdtls refactor'}})
-        local opts = {silent = true, buffer = bufnr}
+        local opts = {noremap = true, silent = true, buffer = bufnr}
         map('n', '<leader>ro', jdtls.organize_imports, 'Organize imports', opts)
         map('n', '<leader>rv', jdtls.extract_variable, 'Extract variable', opts)
         map('n', '<leader>rc', jdtls.extract_constant, 'Extract constant', opts)
