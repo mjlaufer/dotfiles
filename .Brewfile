@@ -41,8 +41,11 @@ brew "ranger"
 brew "trash"
 
 # Apps
+tap "homebrew/cask-versions"
 cask "brave-browser"
 cask "google-chrome"
+cask "firefox"
+cask "firefox-developer-edition"
 cask "docker"
 cask "karabiner-elements"
 cask "visual-studio-code"

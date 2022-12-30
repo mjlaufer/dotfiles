@@ -35,6 +35,9 @@ map('v', '<leader>d', '"+dd<CR>')
 map('n', '<leader>p', '"+p<CR>')
 map('n', '<leader>P', '"+P<CR>')
 
+-- [Visual] Search in current selection
+map('x', '/', '<esc>/\\%V')
+
 -- [Visual] Search for current selection
 map('x', '*', ':lua VSetSearch("/")<CR>/<C-r>=@/<CR><CR>')
 map('x', '#', ':lua VSetSearch("?")<CR>?<C-r>=@/<CR><CR>')

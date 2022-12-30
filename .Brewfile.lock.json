@@ -2,10 +2,13 @@
   "entries": {
     "tap": {
       "homebrew/cask": {
-        "revision": "c9c1c3be4b4793e008c688f290b26a9359821c24"
+        "revision": "a6029109a0beb946158505c5770226ccdbb5687f"
       },
       "homebrew/cask-fonts": {
-        "revision": "62cc58dccb06ec619fd5efefe30a6748abe32871"
+        "revision": "2fc5b14b5066cc64ce918ce34d84dcd3872407d3"
+      },
+      "homebrew/cask-versions": {
+        "revision": "ada4b03a4588f58a96af30f7ea036c5934010309"
       }
     },
     "cask": {
@@ -64,9 +67,21 @@
         }
       },
       "visual-studio-code": {
-        "version": "1.74.1",
+        "version": "1.74.2",
         "options": {
           "full_name": "visual-studio-code"
+        }
+      },
+      "firefox": {
+        "version": "108.0.1",
+        "options": {
+          "full_name": "firefox"
+        }
+      },
+      "firefox-developer-edition": {
+        "version": "latest",
+        "options": {
+          "full_name": "firefox-developer-edition"
         }
       }
     },
@@ -491,13 +506,13 @@
       "google-java-format": {
         "version": "1.15.0",
         "bottle": {
-          "rebuild": 0,
+          "rebuild": 1,
           "root_url": "https://ghcr.io/v2/homebrew/core",
           "files": {
             "all": {
               "cellar": ":any_skip_relocation",
-              "url": "https://ghcr.io/v2/homebrew/core/google-java-format/blobs/sha256:0148b7af6496e069695eda9f889999cd942ab795e9ce8a8d911906d1b79b8b05",
-              "sha256": "0148b7af6496e069695eda9f889999cd942ab795e9ce8a8d911906d1b79b8b05"
+              "url": "https://ghcr.io/v2/homebrew/core/google-java-format/blobs/sha256:c8f46c31667409fd1540e1219812dc2ee3308d6c4774c6f1a6765a5d1a6405ae",
+              "sha256": "c8f46c31667409fd1540e1219812dc2ee3308d6c4774c6f1a6765a5d1a6405ae"
             }
           }
         }
@@ -948,9 +963,9 @@
   "system": {
     "macos": {
       "monterey": {
-        "HOMEBREW_VERSION": "3.6.15",
+        "HOMEBREW_VERSION": "3.6.16",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "0df8b253884cc603999aa79bdadc60c2aab092f2",
+        "Homebrew/homebrew-core": "899315026c48cb1e7247a0c1a730660c286eadf3",
         "CLT": "13.1.0.0.1.1633545042",
         "Xcode": "13.2.1",
         "macOS": "12.0.1"

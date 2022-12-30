@@ -126,6 +126,10 @@ java -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005 -jar [pa
 -   [axe - Web Accessibility Testing](https://chrome.google.com/webstore/detail/axe-web-accessibility-tes/lhdoppojpmngadmnindnejefpokejbdd?hl=en-US)
 -   [Web Vitals](https://chrome.google.com/webstore/detail/web-vitals/ahfhijdlegdabablpippeagghigmibma?hl=en)
 
+## Add Firefox extensions
+
+-   [Vimium-FF](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff)
+
 ## Customize IntelliJ
 
 Install and build [Glint](https://github.com/mjlaufer/glint-intellij). Then select **Install Plugin from Disk**.
