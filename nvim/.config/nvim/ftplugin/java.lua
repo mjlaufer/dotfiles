@@ -13,10 +13,10 @@ elseif vim.fn.has('unix') == 1 then
     os_name = 'linux'
 end
 
-local home = vim.env.HOME
 local jdtls_path = vim.fn.stdpath('data') .. '/mason/packages/jdtls/'
 local root_dir = require('jdtls.setup').find_root({'.git', 'gradlew', 'mvnw'})
-local project_data_dir = home .. '/.local/share/eclipse/' .. vim.fn.fnamemodify(root_dir, ':p:h:t')
+local project_data_dir = vim.env.HOME .. '/.local/share/eclipse/' ..
+                             vim.fn.fnamemodify(root_dir, ':p:h:t')
 
 -- Create a list of paths to JAR files for debug and test.
 local java_debug_jar_path = vim.fn.stdpath('data') ..

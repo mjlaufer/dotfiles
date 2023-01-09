@@ -1,5 +1,5 @@
 local util = require('mjlaufer.util')
-local bmap = util.bmap
+local map = util.map
 
 local ts_utils = util.prequire('nvim-lsp-ts-utils')
 if not ts_utils then
@@ -51,12 +51,13 @@ return function(opts)
             -- required to fix code action ranges and filter diagnostics
             ts_utils.setup_client(client)
 
-            util.useWhichKey({['<leader>lt'] = {name = 'TS Utils'}})
+            util.useWhichKey({['<leader>at'] = {name = 'TS Utils'}})
 
-            bmap(bufnr, 'n', '<leader>lto', ':TSLspOrganize<CR>', 'Organize imports')
-            bmap(bufnr, 'n', '<leader>ltr', ':TSLspRenameFile<CR>', 'Rename file')
-            bmap(bufnr, 'n', '<leader>lti', ':TSLspImportAll<CR>', 'Import all')
-            bmap(bufnr, 'n', '<leader>lth', ':TSLspToggleInlayHints<CR>', 'Toggle inlay hints')
+            local map_opts = {buffer = bufnr, noremap = true, silent = true}
+            map('n', '<leader>ato', ':TSLspOrganize<CR>', 'Organize imports', map_opts)
+            map('n', '<leader>atr', ':TSLspRenameFile<CR>', 'Rename file', map_opts)
+            map('n', '<leader>ati', ':TSLspImportAll<CR>', 'Import all', map_opts)
+            map('n', '<leader>ath', ':TSLspToggleInlayHints<CR>', 'Toggle inlay hints', map_opts)
 
         end,
         capabilities = opts.capabilities,

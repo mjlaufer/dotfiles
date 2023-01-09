@@ -8,7 +8,7 @@ local util = require('mjlaufer.util')
 
 local cmp = util.prequire('cmp')
 local luasnip = util.prequire('luasnip')
-if (not cmp or not luasnip) then
+if not cmp or not luasnip then
     return
 end
 

@@ -1,6 +1,5 @@
 local util = require('mjlaufer.util')
 local map = util.map
-local bmap = util.bmap
 
 local toggleterm = util.prequire('toggleterm')
 if not toggleterm then
@@ -43,11 +42,12 @@ map('n', '<Leader>tu', ':ToggleTerm direction=float<CR>', 'Float')
 map('n', '<Leader>tg', toggle_lazygit, 'lazygit')
 
 function _G.set_terminal_keymaps()
-    bmap(0, 't', '<esc>', [[<C-\><C-n>]])
-    bmap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]])
-    bmap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]])
-    bmap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]])
-    bmap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]])
+    local opts = {buffer = 0, noremap = true, silent = true}
+    map('t', '<esc>', [[<C-\><C-n>]], opts)
+    map('t', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
+    map('t', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
+    map('t', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
+    map('t', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
 end
 
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')

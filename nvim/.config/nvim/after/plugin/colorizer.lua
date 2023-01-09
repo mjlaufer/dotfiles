@@ -5,9 +5,4 @@ if not colorizer then
     return
 end
 
-colorizer.setup({
-    filetypes = {
-        '*',
-        css = {rgb_fn = true, hsl_fn = true},
-    },
-})
+colorizer.setup({filetypes = {'*', css = {rgb_fn = true, hsl_fn = true}}})

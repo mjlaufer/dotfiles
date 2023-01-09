@@ -1,6 +1,11 @@
 local util = require('mjlaufer.util')
 local map = util.map
-local bmap = util.bmap
+
+-- neodev must be set up before the LSP config.
+local neodev = util.prequire('neodev')
+if neodev then
+    neodev.setup()
+end
 
 -- Diagnostics
 vim.lsp.handlers['textDocument/publishDiagnostics'] =
@@ -12,23 +17,29 @@ vim.fn
     .sign_define('DiagnosticSignInformation', {text = '', texthl = 'DiagnosticSignInformation'})
 vim.fn.sign_define('DiagnosticSignHint', {text = '', texthl = 'DiagnosticSignHint'})
 
-util.useWhichKey({['<leader>l'] = {name = 'LSP'}})
+-- Set whichkey LSP entry.
+util.useWhichKey({['<leader>a'] = {name = 'LSP'}})
 
-map('n', '<leader>ld', vim.diagnostic.open_float, 'Show diagnostics')
+map('n', '<leader>ad', vim.diagnostic.open_float, 'Show diagnostics')
+map('n', '<leader>ld', vim.diagnostic.setloclist, 'Show diagnostics in location list')
 map('n', '[d', vim.diagnostic.goto_prev, 'Previous diagnostic')
 map('n', ']d', vim.diagnostic.goto_next, 'Next diagnostic')
-map('n', '<leader>lq', vim.diagnostic.setloclist, 'Add diagnostics to location list')
 
 -- Initialize LSP Saga before setting up language servers.
 local saga = util.prequire('lspsaga')
 if saga then
     saga.init_lsp_saga({max_preview_lines = 32})
-    map('n', '<leader>ld', '<cmd>Lspsaga show_line_diagnostics<CR>', 'Show diagnostics')
+    map('n', '<leader>ad', '<cmd>Lspsaga show_line_diagnostics<CR>', 'Show diagnostics')
     map('n', '[d', '<cmd>Lspsaga diagnostic_jump_prev<CR>', 'Previous diagnostic')
     map('n', ']d', '<cmd>Lspsaga diagnostic_jump_next<CR>', 'Next diagnostic')
 end
 
 -- Install and set up language servers.
+local fidget = util.prequire('fidget')
+if fidget then
+    fidget.setup()
+end
+
 local lspconfig = util.prequire('lspconfig')
 local mason = util.prequire('mason');
 local mason_lspconfig = util.prequire('mason-lspconfig')
@@ -79,23 +90,12 @@ if rt then
         server = {
             on_attach = function(_, bufnr)
                 -- Hover actions
-                vim.keymap.set('n', '<leader>rh', rt.hover_actions.hover_actions, {buffer = bufnr})
+                map('n', '<leader>rh', rt.hover_actions.hover_actions,
+                    {buffer = bufnr, silent = true})
                 -- Code action groups
-                vim.keymap.set('n', '<leader>ra', rt.code_action_group.code_action_group,
-                    {buffer = bufnr})
+                map('n', '<leader>ra', rt.code_action_group.code_action_group,
+                    {buffer = bufnr, silent = true})
             end,
         },
-    })
-end
-
--- Aerial (symbol outline)
-local aerial = util.prequire('aerial')
-if aerial then
-    util.useWhichKey({['<leader>a'] = {name = 'Aerial'}})
-
-    aerial.setup({
-        on_attach = function(bufnr)
-            bmap(bufnr, 'n', '<leader>a', '<cmd>AerialToggle!<CR>', 'Aerial')
-        end,
     })
 end

@@ -12,17 +12,17 @@ local which_key = prequire('which-key');
 local M = {}
 
 M.map = function(mode, lhs, rhs, desc, opts)
-    opts = opts or {noremap = true, silent = true}
-    vim.keymap.set(mode, lhs, rhs, opts)
-    if (which_key and mode == 'n' and desc ~= nil) then
-        which_key.register({[lhs] = {rhs, desc}})
+    local has_desc = type(desc) == 'string'
+    -- Get options.
+    if not has_desc and opts == nil then
+        opts = desc
     end
-end
-
-M.bmap = function(buffer, mode, lhs, rhs, desc, opts)
     opts = opts or {noremap = true, silent = true}
-    vim.api.nvim_buf_set_keymap(buffer, mode, lhs, rhs, opts)
-    if (which_key and mode == 'n' and desc ~= nil) then
+
+    vim.keymap.set(mode, lhs, rhs, opts)
+
+    -- Set whichkey.
+    if (has_desc and which_key and mode == 'n') then
         which_key.register({[lhs] = {rhs, desc}})
     end
 end
