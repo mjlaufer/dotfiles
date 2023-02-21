@@ -84,7 +84,22 @@ Install [LuaFormatter](https://github.com/Koihik/LuaFormatter).
 luarocks install --server=https://luarocks.org/dev luaformatter
 ```
 
-## Install Neovim DAP servers
+## Java
+
+Install a JDK distribution.
+
+-   [Eclipse Temurin](https://adoptium.net/temurin/releases/)
+-   [Amazon Corretto](https://docs.aws.amazon.com/corretto/latest/corretto-19-ug/downloads-list.html)
+
+If needed, switch JDK versions.
+
+```sh
+/usr/libexec/java_home -V
+export JAVA_HOME=`/usr/libexec/java_home -v 19`
+java --version
+```
+
+## Neovim DAP servers
 
 Use the [Mason](https://github.com/williamboman/mason.nvim) plugin to install [DAP](https://microsoft.github.io/debug-adapter-protocol/) servers:
 
@@ -114,23 +129,23 @@ To enable remote debugging in Java, run your app with the Java Debug Wire Protoc
 java -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005 -jar [path/to/JAR]
 ```
 
-## Install/update tmux plugins
+## tmux
 
--   Install: `<prefix> I`
--   Update: `<prefix> U`
+-   Install plugins: `<prefix> I`
+-   Update plugins: `<prefix> U`
 
-## Add Chrome extensions
+## Chrome extensions
 
 -   [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en)
 -   [JSON Formatter](https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=en)
 -   [axe - Web Accessibility Testing](https://chrome.google.com/webstore/detail/axe-web-accessibility-tes/lhdoppojpmngadmnindnejefpokejbdd?hl=en-US)
 -   [Web Vitals](https://chrome.google.com/webstore/detail/web-vitals/ahfhijdlegdabablpippeagghigmibma?hl=en)
 
-## Add Firefox extensions
+## Firefox extensions
 
 -   [Vimium-FF](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff)
 
-## Customize IntelliJ
+## IntelliJ
 
 Install and build [Glint](https://github.com/mjlaufer/glint-intellij). Then select **Install Plugin from Disk**.
 
@@ -140,7 +155,7 @@ Select **File | Manage IDE Settings | Settings Repository** from the main menu. 
 -   [Webstorm](https://github.com/mjlaufer/webstorm-settings)
 -   [CLion](https://github.com/mjlaufer/clion-settings)
 
-## Customize VS Code
+## VS Code
 
 Install the `code` command: Open the Command Palette (⇧ + ⌘ + p) and find the **Shell Command: Install 'code' command in PATH** command. After executing the command, restart the terminal for the new `$PATH` value to take effect. You can now simply type `code .` in any folder to open VSCode and start editing files in that folder.
 

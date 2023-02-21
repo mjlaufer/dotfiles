@@ -39,7 +39,6 @@ require('packer').startup(function(use)
     use {'mfussenegger/nvim-jdtls', commit = '69ad133'}
     use {'simrat39/rust-tools.nvim', commit = '99fd123'}
     use {'j-hui/fidget.nvim', commit = '44585a0'} -- UI for LSP installation progress
-    use {'glepnir/lspsaga.nvim', branch = 'main', commit = 'f33bc99'} -- LSP UI enhancements
     use {'RRethy/vim-illuminate', commit = '0603e75'} -- Highlights identifier under curor
 
     -- Completion

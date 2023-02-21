@@ -45,15 +45,6 @@ M.on_attach = function(client, bufnr)
     vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
         fmt()
     end, {desc = 'Format current buffer with LSP'})
-
-    -- LSP Saga
-    local saga = util.prequire('lspsaga')
-    if saga then
-        map('n', 'K', '<cmd>Lspsaga hover_doc<CR>', 'Hover', opts)
-        map('n', '<leader>ap', '<cmd>Lspsaga preview_definition<CR>', 'Preview definition', opts)
-        map('n', '<leader>ar', '<cmd>Lspsaga rename<CR>', 'Rename all references', opts);
-        map('n', '<leader>aa', require('lspsaga.codeaction').code_action, 'Code actions', opts)
-    end
 end
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers.

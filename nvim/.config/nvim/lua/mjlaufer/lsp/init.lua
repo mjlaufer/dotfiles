@@ -25,15 +25,6 @@ map('n', '<leader>ld', vim.diagnostic.setloclist, 'Show diagnostics in location 
 map('n', '[d', vim.diagnostic.goto_prev, 'Previous diagnostic')
 map('n', ']d', vim.diagnostic.goto_next, 'Next diagnostic')
 
--- Initialize LSP Saga before setting up language servers.
-local saga = util.prequire('lspsaga')
-if saga then
-    saga.init_lsp_saga({max_preview_lines = 32})
-    map('n', '<leader>ad', '<cmd>Lspsaga show_line_diagnostics<CR>', 'Show diagnostics')
-    map('n', '[d', '<cmd>Lspsaga diagnostic_jump_prev<CR>', 'Previous diagnostic')
-    map('n', ']d', '<cmd>Lspsaga diagnostic_jump_next<CR>', 'Next diagnostic')
-end
-
 -- Install and set up language servers.
 local fidget = util.prequire('fidget')
 if fidget then
