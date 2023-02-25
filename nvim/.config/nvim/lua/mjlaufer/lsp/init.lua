@@ -43,8 +43,6 @@ mason_lspconfig.setup({
     ensure_installed = {
         'cssls',
         'eslint',
-        'golangci_lint_ls',
-        'gopls',
         'gradle_ls',
         'html',
         'jdtls',
@@ -61,8 +59,6 @@ local opts = require('mjlaufer.lsp.server_options')
 
 lspconfig.cssls.setup(opts)
 lspconfig.eslint.setup(opts)
-lspconfig.golangci_lint_ls.setup(opts)
-lspconfig.gopls.setup(opts)
 lspconfig.gradle_ls.setup(require('mjlaufer.lsp.gradle_ls')(opts))
 lspconfig.html.setup(opts)
 lspconfig.jsonls.setup(require('mjlaufer.lsp.jsonls')(opts))

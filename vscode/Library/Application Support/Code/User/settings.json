@@ -49,15 +49,5 @@
   "Lua.diagnostics.globals": ["vim"],
   "prettier.configPath": ".prettierrc.json",
   "vscode-neovim.neovimInitVimPaths.darwin": "/Users/matthewlaufer/.config/nvim/init.lua",
-  "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
-  "editor.tokenColorCustomizations": {
-    "textMateRules": [
-        {
-            "scope": "keyword.other.dotenv",
-            "settings": {
-                "foreground": "#FF000005"
-            }
-        }
-    ]
-}
+  "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim"
 }

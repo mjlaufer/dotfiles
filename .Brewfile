@@ -21,9 +21,6 @@ brew "stow"
 cask "temurin"
 brew "google-java-format"
 
-# Go development
-brew "go"
-
 # Lua development
 brew "cmake"
 brew "luarocks"

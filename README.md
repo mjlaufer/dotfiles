@@ -112,9 +112,6 @@ Use the [Mason](https://github.com/williamboman/mason.nvim) plugin to install [D
 
 " Rust
 :MasonInstall codelldb
-
-" Go
-:MasonInstall go-debug-adapter
 ```
 
 To debug in Chrome, make sure to first run Chrome with remote debugging enabled:
@@ -167,7 +164,6 @@ Install extensions:
 -   [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
 -   [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 -   [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
--   [Go](https://marketplace.visualstudio.com/items?itemName=golang.go)
 -   [Image Preview](https://marketplace.visualstudio.com/items?itemName=kisstkondoros.vscode-gutter-preview)
 -   [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
 -   [npm Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense)

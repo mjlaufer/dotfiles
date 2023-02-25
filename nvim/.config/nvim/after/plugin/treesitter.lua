@@ -11,7 +11,6 @@ ts_configs.setup {
         'css',
         'dockerfile',
         'gitignore',
-        'go',
         'hjson',
         'html',
         'java',

@@ -11,7 +11,6 @@ vim.cmd [[
         \ 'java',
         \ 'javascript', 'js=javascript',
         \ 'typescript', 'ts=typescript',
-        \ 'go',
         \ 'lua',
         \ 'rust']
 ]]
