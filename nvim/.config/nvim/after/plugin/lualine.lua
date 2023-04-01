@@ -6,13 +6,7 @@ if not lualine then
 end
 
 lualine.setup({
-    options = {
-        theme = 'glint',
-        icons_enabled = true,
-        section_separators = {left = '', right = ''},
-        component_separators = {left = '', right = ''},
-        disabled_filetypes = {},
-    },
+    options = {theme = 'glint', always_divide_middle = false, globalstatus = true},
     sections = {
         lualine_a = {'mode'},
         lualine_b = {'branch', 'diff'},
@@ -36,6 +30,5 @@ lualine.setup({
         lualine_y = {},
         lualine_z = {},
     },
-    tabline = {},
     extensions = {'fugitive', 'nvim-tree', 'toggleterm'},
 })
