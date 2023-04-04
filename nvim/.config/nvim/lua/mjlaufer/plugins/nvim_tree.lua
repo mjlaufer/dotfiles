@@ -1,12 +1,7 @@
 local util = require('mjlaufer.util')
 local map = util.map
 
-local nvim_tree = util.prequire('nvim-tree')
-if not nvim_tree then
-    return
-end
-
-nvim_tree.setup({view = {width = 36}})
+require('nvim-tree').setup({view = {width = 36}})
 
 util.useWhichKey({['<leader>e'] = {name = 'Explorer'}})
 

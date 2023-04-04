@@ -1,11 +1,4 @@
-local util = require('mjlaufer.util')
-
-local lualine = util.prequire('lualine')
-if not lualine then
-    return
-end
-
-lualine.setup({
+require('lualine').setup({
     options = {theme = 'glint', always_divide_middle = false, globalstatus = true},
     sections = {
         lualine_a = {'mode'},

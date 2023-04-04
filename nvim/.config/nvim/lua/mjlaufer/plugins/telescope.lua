@@ -1,19 +1,13 @@
 local util = require('mjlaufer.util')
 local map = util.map
 
-local telescope = util.prequire('telescope')
-if not telescope then
-    return
-end
+local trouble = require('trouble.providers.telescope')
+local mappings = {
+    i = {['<C-t>'] = trouble.open_with_trouble},
+    n = {['<C-t>'] = trouble.open_with_trouble},
+}
 
-local trouble = util.prequire('trouble.providers.telescope')
-local mappings = {}
-if trouble then
-    mappings = {
-        i = {['<C-t>'] = trouble.open_with_trouble},
-        n = {['<C-t>'] = trouble.open_with_trouble},
-    }
-end
+local telescope = require('telescope')
 
 telescope.setup({
     defaults = {

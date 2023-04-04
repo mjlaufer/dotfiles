@@ -1,13 +1,7 @@
 local util = require('mjlaufer.util')
 local map = util.map
 
-local neotest = util.prequire('neotest')
-local neotest_jest = util.prequire('neotest-jest')
-if (not neotest or not neotest_jest) then
-    return
-end
-
-neotest.setup({adapters = {neotest_jest({jestCommand = 'yarn test'})}})
+require('neotest').setup({adapters = {require('neotest-jest')({jestCommand = 'yarn test'})}})
 
 util.useWhichKey({['<leader>s'] = {name = 'Spec'}})
 

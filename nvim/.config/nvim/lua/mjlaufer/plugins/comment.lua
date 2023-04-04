@@ -1,18 +1,6 @@
-local util = require('mjlaufer.util')
-
-local comment = util.prequire('Comment')
-if not comment then
-    return
-end
-
-comment.setup({
+require('Comment').setup({
     pre_hook = function(ctx)
         -- Enable Neovim's `commentstring` for JSX.
-        local ts_commentstring = util.prequire('ts_context_commentstring')
-        if not ts_commentstring then
-            return
-        end
-
         local U = require('Comment.utils')
         local type = ctx.ctype == U.ctype.linewise and '__default' or '__multiline'
         local location = nil

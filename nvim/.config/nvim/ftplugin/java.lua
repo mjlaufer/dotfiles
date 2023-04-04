@@ -1,10 +1,7 @@
 local util = require('mjlaufer.util')
 local map = util.map
 
-local jdtls = util.prequire('jdtls')
-if not jdtls then
-    return
-end
+local jdtls = require('jdtls')
 
 local os_name
 if vim.fn.has('mac') == 1 then
@@ -29,7 +26,7 @@ local bundles = {}
 vim.list_extend(bundles, java_debug_bundles)
 vim.list_extend(bundles, java_test_bundles)
 
-local server_opts = require('mjlaufer.lsp.server_options')
+local server_opts = require('mjlaufer.plugins.lsp.server_options')
 local extendedClientCapabilities = jdtls.extendedClientCapabilities
 extendedClientCapabilities.resolveAdditionalTextEditsSupport = true;
 

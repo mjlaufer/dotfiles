@@ -4,39 +4,30 @@ vim.cmd [[
     let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 ]]
 
-local util = require('mjlaufer.util')
-
-local cmp = util.prequire('cmp')
-local luasnip = util.prequire('luasnip')
-if not cmp or not luasnip then
-    return
-end
-
 require('luasnip/loaders/from_vscode').lazy_load()
 require('luasnip/loaders/from_vscode').lazy_load({
     paths = {'~/.local/share/nvim/site/pack/packer/start/friendly-snippets'},
 })
 
-local lspkind = util.prequire('lspkind')
 local formatting = {};
-if lspkind then
-    formatting.format = lspkind.cmp_format({
-        with_text = true,
-        menu = {
-            nvim_lsp = '[LSP]',
-            nvim_lua = '[NvimApi]',
-            luasnip = '[LuaSnip]',
-            path = '[Path]',
-            buffer = '[Buf]',
-        },
-        maxwidth = 50,
-    })
-end
+formatting.format = require('lspkind').cmp_format({
+    with_text = true,
+    menu = {
+        nvim_lsp = '[LSP]',
+        nvim_lua = '[NvimApi]',
+        luasnip = '[LuaSnip]',
+        path = '[Path]',
+        buffer = '[Buf]',
+    },
+    maxwidth = 50,
+})
+
+local cmp = require('cmp')
 
 cmp.setup({
     snippet = {
         expand = function(args)
-            luasnip.lsp_expand(args.body)
+            require('luasnip').lsp_expand(args.body)
         end,
     },
     window = {

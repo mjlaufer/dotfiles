@@ -10,7 +10,7 @@ M.on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
     -- See `:help vim.*` for documentation on any of the below functions
-    local opts = {buffer = bufnr, noremap = true, silent = true}
+    local opts = { buffer = bufnr, noremap = true, silent = true }
     map('n', 'gd', vim.lsp.buf.definition, 'Go to definition', opts)
     map('n', 'gD', vim.lsp.buf.declaration, 'Go to declaration', opts)
     map('n', 'gt', vim.lsp.buf.type_definition, 'Go to type definition', opts)
@@ -29,22 +29,22 @@ M.on_attach = function(client, bufnr)
             filter = function(_client)
                 -- Use null-ls instead of the clients excluded below.
                 return not (_client.name == 'cssls' or _client.name == 'jdtls' or _client.name ==
-                           'html' or _client.name == 'sumneko_lua' or _client.name == 'tsserver')
+                    'html' or _client.name == 'lua_ls' or _client.name == 'tsserver')
             end,
         })
     end
 
     -- Format on save.
     if client.server_capabilities.documentFormattingProvider then
-        vim.api.nvim_clear_autocmds({group = augroup, buffer = bufnr})
+        vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
         vim.api
-            .nvim_create_autocmd('BufWritePre', {group = augroup, buffer = bufnr, callback = fmt})
+            .nvim_create_autocmd('BufWritePre', { group = augroup, buffer = bufnr, callback = fmt })
     end
 
     -- Create a `:Format` command local to the LSP buffer.
     vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
         fmt()
-    end, {desc = 'Format current buffer with LSP'})
+    end, { desc = 'Format current buffer with LSP' })
 end
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers.

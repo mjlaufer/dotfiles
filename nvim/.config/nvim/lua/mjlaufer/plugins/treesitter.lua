@@ -1,11 +1,4 @@
-local util = require('mjlaufer.util')
-
-local ts_configs = util.prequire('nvim-treesitter.configs')
-if not ts_configs then
-    return
-end
-
-ts_configs.setup {
+require('nvim-treesitter.configs').setup({
     ensure_installed = {
         'comment',
         'css',
@@ -66,7 +59,7 @@ ts_configs.setup {
             swap_previous = {['<leader>A'] = '@parameter.inner'},
         },
     },
-}
+})
 
 local ft_to_parser = require('nvim-treesitter.parsers').filetype_to_parsername
 ft_to_parser.tsx = {'javascript', 'typescript.tsx'}

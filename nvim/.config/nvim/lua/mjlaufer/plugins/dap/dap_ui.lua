@@ -1,12 +1,7 @@
 local util = require('mjlaufer.util')
 local map = util.map
 
-local dapui = util.prequire('dapui')
-if not dapui then
-    return
-end
-
-dapui.setup()
+require('dapui').setup()
 
 util.useWhichKey({['<leader>iu'] = {name = 'DAP UI'}})
 

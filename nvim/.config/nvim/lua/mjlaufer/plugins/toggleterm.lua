@@ -1,12 +1,7 @@
 local util = require('mjlaufer.util')
 local map = util.map
 
-local toggleterm = util.prequire('toggleterm')
-if not toggleterm then
-    return
-end
-
-toggleterm.setup({
+require('toggleterm').setup({
     size = function(term)
         if term.direction == 'horizontal' then
             return 20

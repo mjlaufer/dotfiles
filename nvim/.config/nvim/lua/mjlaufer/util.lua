@@ -1,13 +1,4 @@
-local prequire = function(name)
-    local ok, m = pcall(require, name)
-    if not ok then
-        print('Error: Could not load', name)
-        return nil
-    end
-    return m
-end
-
-local which_key = prequire('which-key');
+local which_key = require('which-key');
 
 local M = {}
 
@@ -26,8 +17,6 @@ M.map = function(mode, lhs, rhs, desc, opts)
         which_key.register({[lhs] = {rhs, desc}})
     end
 end
-
-M.prequire = prequire
 
 M.useWhichKey = function(config)
     if not which_key then

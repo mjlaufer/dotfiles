@@ -1,12 +1,7 @@
 local util = require('mjlaufer.util')
 local map = util.map
 
-local trouble = util.prequire('trouble')
-if not trouble then
-    return
-end
-
-trouble.setup({height = 12, indent_lines = false})
+require('trouble').setup({height = 12, indent_lines = false})
 
 util.useWhichKey({['<leader>x'] = {name = 'Trouble'}})
 

@@ -1,10 +1,7 @@
 local util = require('mjlaufer.util')
 local map = util.map
 
-local dap = util.prequire('dap')
-if not dap then
-    return
-end
+local dap = require('dap')
 
 -- Java
 dap.configurations.java = {
@@ -18,28 +15,25 @@ dap.configurations.java = {
 }
 
 -- JavaScript and TypeScript
-local dap_js = util.prequire('dap-vscode-js')
-if dap_js then
-    dap_js.setup({
-        debugger_path = vim.fn.stdpath('data') .. '/mason/packages/js-debug-adapter',
-        adapters = {'pwa-node', 'pwa-chrome'},
-    })
+require('dap-vscode-js').setup({
+    debugger_path = vim.fn.stdpath('data') .. '/mason/packages/js-debug-adapter',
+    adapters = {'pwa-node', 'pwa-chrome'},
+})
 
-    local chrome_config = {
-        {
-            type = 'pwa-chrome',
-            request = 'attach',
-            name = 'Attach to Chrome',
-            program = '${file}',
-            cwd = '${workspaceFolder}',
-            port = 9222,
-        },
-    }
-    dap.configurations.javascript = chrome_config
-    dap.configurations.typescript = chrome_config
-    dap.configurations.javascriptreact = chrome_config
-    dap.configurations.typescriptreact = chrome_config
-end
+local chrome_config = {
+    {
+        type = 'pwa-chrome',
+        request = 'attach',
+        name = 'Attach to Chrome',
+        program = '${file}',
+        cwd = '${workspaceFolder}',
+        port = 9222,
+    },
+}
+dap.configurations.javascript = chrome_config
+dap.configurations.typescript = chrome_config
+dap.configurations.javascriptreact = chrome_config
+dap.configurations.typescriptreact = chrome_config
 
 -- This function allows JS/TS projects to use the Node.js debugger.
 _G.start_node_debugger = function()

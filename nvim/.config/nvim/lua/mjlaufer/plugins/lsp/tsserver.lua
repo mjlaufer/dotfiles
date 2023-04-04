@@ -1,12 +1,7 @@
 local util = require('mjlaufer.util')
 local map = util.map
 
-local ts_utils = util.prequire('nvim-lsp-ts-utils')
-if not ts_utils then
-    return function(opts)
-        return opts
-    end
-end
+local ts_utils = require('nvim-lsp-ts-utils')
 
 return function(opts)
     return {

@@ -1,10 +1,6 @@
-local util = require('mjlaufer.util')
-local opts = require('mjlaufer.lsp.server_options')
+local opts = require('mjlaufer.plugins.lsp.server_options')
 
-local null_ls = util.prequire('null-ls')
-if not null_ls then
-    return
-end
+local null_ls = require('null-ls')
 
 local formatting = null_ls.builtins.formatting
 
