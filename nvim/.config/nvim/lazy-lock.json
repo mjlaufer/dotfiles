@@ -12,6 +12,7 @@
   "fidget.nvim": { "branch": "main", "commit": "44585a0c0085765195e6961c15529ba6c5a2a13b" },
   "friendly-snippets": { "branch": "main", "commit": "c93311fbcc840210a2c0db574177d84a35a2c9c1" },
   "gitsigns.nvim": { "branch": "main", "commit": "9110ea15a134b421723cc45c3a8775a6491df39a" },
+  "glint.nvim": { "branch": "main", "commit": "37f8ab76d6d2db5c478b5c24f17efd8ea505882f" },
   "indent-blankline.nvim": { "branch": "master", "commit": "c4c203c3e8a595bc333abaf168fcb10c13ed5fb7" },
   "lazy.nvim": { "branch": "main", "commit": "57cce98dfdb2f2dd05a0567d89811e6d0505e13b" },
   "lspkind-nvim": { "branch": "master", "commit": "c68b3a003483cf382428a43035079f78474cd11e" },

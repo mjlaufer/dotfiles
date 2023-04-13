@@ -32,7 +32,7 @@ require('lazy').setup({
             ]]
         end,
         priority = 1000,
-        dev = true,
+        dev = false,
     },
     {
         'nvim-treesitter/nvim-treesitter',
