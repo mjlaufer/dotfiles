@@ -21,6 +21,19 @@
             "description": "Post Esc if Caps is tapped, Control if held.",
             "manipulators": [
               {
+                "conditions": [
+                  {
+                    "identifiers": [
+                      {
+                        "vendor_id": 1452
+                      },
+                      {
+                        "vendor_id": 10730
+                      }
+                    ],
+                    "type": "device_if"
+                  }
+                ],
                 "from": {
                   "key_code": "left_control",
                   "modifiers": {
@@ -40,17 +53,7 @@
                     "key_code": "escape"
                   }
                 ],
-                "type": "basic",
-                "conditions": [
-                  {
-                    "type": "device_if",
-                    "identifiers": [
-                      {
-                        "vendor_id": 1452
-                      }
-                    ]
-                  }
-                ]
+                "type": "basic"
               }
             ]
           },
@@ -104,8 +107,8 @@
           "identifiers": {
             "is_keyboard": true,
             "is_pointing_device": false,
-            "product_id": 632,
-            "vendor_id": 1452
+            "product_id": 258,
+            "vendor_id": 10730
           },
           "ignore": false,
           "manipulate_caps_lock_led": true,
@@ -127,70 +130,25 @@
           "disable_built_in_keyboard_if_exists": false,
           "fn_function_keys": [],
           "identifiers": {
-            "is_keyboard": false,
-            "is_pointing_device": true,
+            "is_keyboard": true,
+            "is_pointing_device": false,
             "product_id": 632,
             "vendor_id": 1452
           },
-          "ignore": true,
-          "manipulate_caps_lock_led": false,
-          "simple_modifications": [],
-          "treat_as_built_in_keyboard": false
-        },
-        {
-          "disable_built_in_keyboard_if_exists": false,
-          "fn_function_keys": [],
-          "identifiers": {
-            "is_keyboard": true,
-            "is_pointing_device": true,
-            "product_id": 45091,
-            "vendor_id": 1133
-          },
-          "ignore": true,
-          "manipulate_caps_lock_led": true,
-          "simple_modifications": [],
-          "treat_as_built_in_keyboard": false
-        },
-        {
-          "disable_built_in_keyboard_if_exists": false,
-          "fn_function_keys": [],
-          "identifiers": {
-            "is_keyboard": true,
-            "is_pointing_device": false,
-            "product_id": 34304,
-            "vendor_id": 1452
-          },
           "ignore": false,
           "manipulate_caps_lock_led": true,
-          "simple_modifications": [],
-          "treat_as_built_in_keyboard": false
-        },
-        {
-          "disable_built_in_keyboard_if_exists": false,
-          "fn_function_keys": [],
-          "identifiers": {
-            "is_keyboard": false,
-            "is_pointing_device": false,
-            "product_id": 34304,
-            "vendor_id": 1452
-          },
-          "ignore": false,
-          "manipulate_caps_lock_led": false,
-          "simple_modifications": [],
-          "treat_as_built_in_keyboard": false
-        },
-        {
-          "disable_built_in_keyboard_if_exists": false,
-          "fn_function_keys": [],
-          "identifiers": {
-            "is_keyboard": true,
-            "is_pointing_device": false,
-            "product_id": 866,
-            "vendor_id": 10730
-          },
-          "ignore": false,
-          "manipulate_caps_lock_led": true,
-          "simple_modifications": [],
+          "simple_modifications": [
+            {
+              "from": {
+                "key_code": "caps_lock"
+              },
+              "to": [
+                {
+                  "key_code": "escape"
+                }
+              ]
+            }
+          ],
           "treat_as_built_in_keyboard": false
         }
       ],
