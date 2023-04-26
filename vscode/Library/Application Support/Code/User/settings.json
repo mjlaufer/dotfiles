@@ -11,7 +11,7 @@
   "editor.cursorSurroundingLines": 8,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.detectIndentation": false,
-  "editor.fontFamily": "jetbrains mono",
+  "editor.fontFamily": "ibm plex mono",
   "editor.fontSize": 15,
   "editor.fontLigatures": true,
   "editor.formatOnPaste": true,
