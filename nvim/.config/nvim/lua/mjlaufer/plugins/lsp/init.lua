@@ -55,6 +55,7 @@ local adapter_path = codelldb_path .. 'adapter/codelldb'
 local liblldb_path = codelldb_path .. 'lldb/lib/liblldb.dylib'
 
 rt.setup({
+    tools = {inlay_hints = {highlight = 'LineNr'}},
     dap = {adapter = require('rust-tools.dap').get_codelldb_adapter(adapter_path, liblldb_path)},
     server = {
         on_attach = function(_, bufnr)
