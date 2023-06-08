@@ -180,12 +180,6 @@ require('lazy').setup({
     },
 
     -- Editor
-    {
-        'editorconfig/editorconfig-vim',
-        config = function()
-            require('mjlaufer.plugins.editorconfig')
-        end,
-    },
     'tpope/vim-surround',
     'tpope/vim-repeat',
     'tpope/vim-unimpaired',
