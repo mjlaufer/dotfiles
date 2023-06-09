@@ -43,6 +43,7 @@ map('n', '<C-l>', '<C-w>l')
 map('n', '<leader>oh', ':nohlsearch<CR>', 'Remove search highlights')
 map('n', '<leader>o2', ':set tabstop=2 softtabstop=2 shiftwidth=2<CR>', 'Set tab to 2 spaces')
 map('n', '<leader>o4', ':set tabstop=4 softtabstop=4 shiftwidth=4<CR>', 'Set tab to 4 spaces')
+map('n', '<leader>os', ':set spell<CR>', 'Set spell checking')
 
 -- Better movement for wrapped lines
 map('n', 'k', 'v:count == 0 ? "gk" : "k"', {expr = true, silent = true})

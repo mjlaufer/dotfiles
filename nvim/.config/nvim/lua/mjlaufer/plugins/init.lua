@@ -186,6 +186,7 @@ require('lazy').setup({
     'tpope/vim-eunuch',
     'tpope/vim-characterize',
     'tpope/vim-sleuth',
+    'tpope/vim-abolish',
     {
         'windwp/nvim-autopairs',
         pin = true,
@@ -277,4 +278,24 @@ require('lazy').setup({
             require('mjlaufer.plugins.dap')
         end,
     },
+
+    -- Writing
+    {
+        'folke/zen-mode.nvim',
+        pin = true,
+        opts = {
+            window = {
+                backdrop = 1,
+                width = 100,
+                options = {signcolumn = 'auto', number = true, relativenumber = true},
+            },
+            plugins = {
+                twilight = {enabled = true},
+                gitsigns = {enabled = false},
+                tmux = {enabled = false},
+                kitty = {enabled = true, font = '+4'},
+            },
+        },
+    },
+    {'folke/twilight.nvim', pin = true, opts = {dimming = {alpha = 0.5}, context = 12}},
 }, {dev = {path = '~/personal'}})
