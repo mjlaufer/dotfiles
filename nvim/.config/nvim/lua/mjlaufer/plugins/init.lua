@@ -83,6 +83,7 @@ require('lazy').setup({
     {
         -- UI for LSP installation progress
         'j-hui/fidget.nvim',
+        tag = 'legacy',
         pin = true,
         config = function()
             require('fidget').setup()
