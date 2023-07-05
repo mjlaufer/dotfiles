@@ -8,9 +8,7 @@ null_ls.setup({
     debug = false,
     sources = {
         formatting.prettier,
-        formatting.google_java_format.with({
-            extra_args = {'--aosp', '--sortImports', '--removeUnusedImports'},
-        }),
+        formatting.google_java_format.with({extra_args = {'--aosp'}}),
         formatting.lua_format,
         formatting.rustfmt,
     },
