@@ -123,7 +123,7 @@ chrome-debug
 To enable remote debugging in Java, run your app with the Java Debug Wire Protocol (JDWP):
 
 ```sh
-java -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005 -jar [path/to/JAR]
+java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -jar [path/to/JAR]
 ```
 
 ## tmux
