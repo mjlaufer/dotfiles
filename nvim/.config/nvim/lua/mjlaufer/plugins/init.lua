@@ -15,12 +15,12 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
     -- Colors
     {
-        'mjlaufer/glint.nvim',
+        'mjlaufer/flashy.nvim',
         config = function()
             vim.cmd [[
                 set termguicolors " Enable True Color support.
                 set background=dark
-                colorscheme glint
+                colorscheme flashy
                 let g:markdown_fenced_languages = [
                     \ 'html',
                     \ 'sh', 'bash=sh',

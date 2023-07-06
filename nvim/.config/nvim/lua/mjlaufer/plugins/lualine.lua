@@ -1,5 +1,5 @@
 require('lualine').setup({
-    options = {theme = 'glint', always_divide_middle = false, globalstatus = true},
+    options = {theme = 'flashy', always_divide_middle = false, globalstatus = true},
     sections = {
         lualine_a = {'mode'},
         lualine_b = {'branch', 'diff'},
