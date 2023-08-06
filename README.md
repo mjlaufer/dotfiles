@@ -144,7 +144,7 @@ java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -jar [pa
 
 ## IntelliJ
 
-Install and build [Glint](https://github.com/mjlaufer/glint-intellij). Then select **Install Plugin from Disk**.
+Install and build [Flashy](https://github.com/mjlaufer/flashy-intellij). Then select **Install Plugin from Disk**.
 
 Select **File | Manage IDE Settings | Settings Repository** from the main menu. Specify the applicable repository URL (see below), and click **Overwrite Local**.
 
