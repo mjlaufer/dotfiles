@@ -158,7 +158,7 @@ Install the `code` command: Open the Command Palette (⇧ + ⌘ + p) and find th
 
 Install extensions:
 
--   [Glint](https://github.com/mjlaufer/glint-vscode)
+-   [Flashy](https://github.com/mjlaufer/flashy-vscode)
 -   [CodeLLDB](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb)
 -   [DotENV](https://marketplace.visualstudio.com/items?itemName=dotenv.dotenv-vscode)
 -   [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
@@ -167,7 +167,6 @@ Install extensions:
 -   [Image Preview](https://marketplace.visualstudio.com/items?itemName=kisstkondoros.vscode-gutter-preview)
 -   [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
 -   [npm Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense)
--   [Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)
 -   [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 -   [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
 -   [Version Lens](https://marketplace.visualstudio.com/items?itemName=pflannery.vscode-versionlens)

@@ -3,7 +3,7 @@
   "window.nativeTabs": true,
   "window.restoreFullscreen": true,
   "window.restoreWindows": "all",
-  "workbench.colorTheme": "Glint",
+  "workbench.colorTheme": "Flashy",
   "workbench.editor.wrapTabs": true,
   "workbench.iconTheme": "material-icon-theme",
   "workbench.settings.editor": "json",
@@ -13,7 +13,7 @@
   "editor.detectIndentation": false,
   "editor.fontFamily": "ibm plex mono",
   "editor.fontSize": 15,
-  "editor.fontLigatures": true,
+  "editor.fontLigatures": false,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.inlineSuggest.enabled": true,
@@ -21,11 +21,14 @@
   "editor.lineNumbers": "relative",
   "editor.minimap.enabled": false,
   "editor.overviewRulerBorder": false,
-  "explorer.openEditors.visible": 0,
+  "explorer.openEditors.visible": 1,
   "explorer.confirmDragAndDrop": false,
+  "terminal.integrated.fontSize": 15,
+  "terminal.integrated.lineHeight": 1.1,
   "files.associations": {
     "*.js": "javascript",
-    "*.jsx": "javascriptreact"
+    "*.jsx": "javascriptreact",
+    ".env*": "dotenv"
   },
   "html.format.wrapLineLength": 100,
   "js/ts.implicitProjectConfig.checkJs": true,
@@ -46,8 +49,13 @@
     "typescript",
     "typescriptreact"
   ],
-  "Lua.diagnostics.globals": ["vim"],
+  "Lua.diagnostics.globals": [
+    "vim"
+  ],
   "prettier.configPath": ".prettierrc.json",
   "vscode-neovim.neovimInitVimPaths.darwin": "/Users/matthewlaufer/.config/nvim/init.lua",
-  "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim"
+  "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
+  "editor.tokenColorCustomizations": {
+    "textMateRules": []
+  }
 }
