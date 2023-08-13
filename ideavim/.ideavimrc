@@ -4,6 +4,7 @@ let mapleader=" "
 set surround
 set commentary
 set sneak
+set which-key
 set NERDTree
 
 " Options ---------------------------------
