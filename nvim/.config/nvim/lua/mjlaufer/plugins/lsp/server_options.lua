@@ -27,9 +27,14 @@ M.on_attach = function(client, bufnr)
         vim.lsp.buf.format({
             bufnr = bufnr,
             filter = function(_client)
-                -- Use null-ls instead of the clients excluded below.
-                return not (_client.name == 'cssls' or _client.name == 'jdtls' or _client.name ==
-                    'html' or _client.name == 'lua_ls' or _client.name == 'tsserver')
+                -- Use formatter plugin instead of the clients excluded below.
+                return not (
+                    _client.name == 'cssls'
+                    or _client.name == 'jdtls'
+                    or _client.name == 'html'
+                    or _client.name == 'lua_ls'
+                    or _client.name == 'tsserver'
+                )
             end,
         })
     end
@@ -37,8 +42,10 @@ M.on_attach = function(client, bufnr)
     -- Format on save.
     if client.server_capabilities.documentFormattingProvider then
         vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-        vim.api
-            .nvim_create_autocmd('BufWritePre', { group = augroup, buffer = bufnr, callback = fmt })
+        vim.api.nvim_create_autocmd(
+            'BufWritePre',
+            { group = augroup, buffer = bufnr, callback = fmt }
+        )
     end
 
     -- Create a `:Format` command local to the LSP buffer.

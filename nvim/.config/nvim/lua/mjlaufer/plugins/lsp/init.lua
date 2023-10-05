@@ -2,17 +2,20 @@ local util = require('mjlaufer.util')
 local map = util.map
 
 -- Diagnostics
-vim.lsp.handlers['textDocument/publishDiagnostics'] =
-    vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,
-        {underline = true, virtual_text = {spacing = 2}})
-vim.fn.sign_define('DiagnosticSignError', {text = '', texthl = 'DiagnosticSignError'})
-vim.fn.sign_define('DiagnosticSignWarn', {text = '', texthl = 'DiagnosticSignWarn'})
-vim.fn
-    .sign_define('DiagnosticSignInformation', {text = '', texthl = 'DiagnosticSignInformation'})
-vim.fn.sign_define('DiagnosticSignHint', {text = '', texthl = 'DiagnosticSignHint'})
+vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics,
+    { underline = true, virtual_text = { spacing = 2 } }
+)
+vim.fn.sign_define('DiagnosticSignError', { text = '', texthl = 'DiagnosticSignError' })
+vim.fn.sign_define('DiagnosticSignWarn', { text = '', texthl = 'DiagnosticSignWarn' })
+vim.fn.sign_define(
+    'DiagnosticSignInformation',
+    { text = '', texthl = 'DiagnosticSignInformation' }
+)
+vim.fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'DiagnosticSignHint' })
 
 -- Set whichkey LSP entry.
-util.useWhichKey({['<leader>a'] = {name = 'LSP'}})
+util.useWhichKey({ ['<leader>a'] = { name = 'LSP' } })
 
 map('n', '<leader>ad', vim.diagnostic.open_float, 'Show diagnostics')
 map('n', '<leader>ld', vim.diagnostic.setloclist, 'Show diagnostics in location list')
@@ -38,7 +41,6 @@ require('mason-lspconfig').setup({
 
 local lspconfig = require('lspconfig')
 local opts = require('mjlaufer.plugins.lsp.server_options')
-require('mjlaufer.plugins.lsp.null_ls')
 
 lspconfig.cssls.setup(opts)
 lspconfig.eslint.setup(opts)
@@ -55,15 +57,24 @@ local adapter_path = codelldb_path .. 'adapter/codelldb'
 local liblldb_path = codelldb_path .. 'lldb/lib/liblldb.dylib'
 
 rt.setup({
-    tools = {inlay_hints = {highlight = 'LineNr'}},
-    dap = {adapter = require('rust-tools.dap').get_codelldb_adapter(adapter_path, liblldb_path)},
+    tools = { inlay_hints = { highlight = 'LineNr' } },
+    dap = { adapter = require('rust-tools.dap').get_codelldb_adapter(adapter_path, liblldb_path) },
     server = {
         on_attach = function(_, bufnr)
             -- Hover actions
-            map('n', '<leader>rh', rt.hover_actions.hover_actions, {buffer = bufnr, silent = true})
+            map(
+                'n',
+                '<leader>rh',
+                rt.hover_actions.hover_actions,
+                { buffer = bufnr, silent = true }
+            )
             -- Code action groups
-            map('n', '<leader>ra', rt.code_action_group.code_action_group,
-                {buffer = bufnr, silent = true})
+            map(
+                'n',
+                '<leader>ra',
+                rt.code_action_group.code_action_group,
+                { buffer = bufnr, silent = true }
+            )
         end,
     },
 })
