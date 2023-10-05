@@ -8,8 +8,8 @@ null_ls.setup({
     debug = false,
     sources = {
         formatting.prettier,
-        formatting.google_java_format.with({extra_args = {'--aosp'}}),
-        formatting.lua_format,
+        formatting.google_java_format.with({ extra_args = { '--aosp' } }),
+        formatting.stylua,
         formatting.rustfmt,
     },
     on_attach = opts.on_attach,

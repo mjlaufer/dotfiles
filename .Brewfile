@@ -24,8 +24,7 @@ cask "temurin"
 brew "google-java-format"
 
 # Lua development
-brew "cmake"
-brew "luarocks"
+brew "stylua"
 
 # tmux
 brew "reattach-to-user-namespace"

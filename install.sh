@@ -8,6 +8,7 @@ if [ -d ~/.oh-my-zsh ]; then
 else
     echo "Installing Oh My Zsh...\n"
     curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+    cp .zshrc .zshrc.oh-my-zsh-default
 fi
 
 cd ~/dotfiles
@@ -52,15 +53,7 @@ if [[ $("which" rustc) ]]; then
     echo "\nRust is already installed in $("which" rustc)."
 else
     echo "\nInstalling Rust..."
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-fi
-
-# Lua development dependencies
-if [[ $("which" lua-format) ]]; then
-    echo "\nLua Formatter is already installed in $("which" lua-format)."
-else
-    echo "\nInstalling Lua Formatter..."
-    luarocks install --server=https://luarocks.org/dev luaformatter
+    yes | curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
 
 echo "\nSuccess."

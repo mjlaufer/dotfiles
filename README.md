@@ -22,7 +22,7 @@ Run the install script.
 
 ## Manual installation
 
-Install [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh). It will automatically rename the current `.zshrc` file to `.zshrc.pre-oh-my-zsh`. Rename (or delete) the `.zshrc` created by Oh My Zsh so you can `stow` this repo's `/zsh` directory without conflicts.
+Install [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh). It will automatically rename the current `.zshrc` file (if one exists) to `.zshrc.pre-oh-my-zsh`. Rename (or delete) the `.zshrc` created by Oh My Zsh so you can `stow` this repo's `/zsh` directory without conflicts.
 
 ```sh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -78,24 +78,15 @@ Install [Rust](https://www.rust-lang.org/tools/install).
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
-Install [LuaFormatter](https://github.com/Koihik/LuaFormatter).
-
-```sh
-luarocks install --server=https://luarocks.org/dev luaformatter
-```
-
 ## Java
 
-Install a JDK distribution.
+The installation script (Brewfile) installs the most recent [Eclipse Temurin](https://adoptium.net/temurin/releases/) JDK distribution. You can install the [Amazon Corretto](https://docs.aws.amazon.com/corretto) JDK with `brew install --cask corretto`.
 
--   [Eclipse Temurin](https://adoptium.net/temurin/releases/)
--   [Amazon Corretto](https://docs.aws.amazon.com/corretto/latest/corretto-19-ug/downloads-list.html)
-
-If needed, switch JDK versions.
+To manage Java versions:
 
 ```sh
 /usr/libexec/java_home -V
-export JAVA_HOME=`/usr/libexec/java_home -v 19`
+export JAVA_HOME=`/usr/libexec/java_home -v 20`
 java --version
 ```
 
@@ -150,7 +141,6 @@ Select **File | Manage IDE Settings | Settings Repository** from the main menu. 
 
 -   [IDEA](https://github.com/mjlaufer/idea-settings)
 -   [Webstorm](https://github.com/mjlaufer/webstorm-settings)
--   [CLion](https://github.com/mjlaufer/clion-settings)
 
 ## VS Code
 
