@@ -4,6 +4,7 @@ require('nvim-treesitter.configs').setup({
         'css',
         'dockerfile',
         'gitignore',
+        'go',
         'hjson',
         'html',
         'java',
@@ -20,7 +21,7 @@ require('nvim-treesitter.configs').setup({
         'vim',
         'yaml',
     },
-    highlight = {enable = true},
+    highlight = { enable = true },
     incremental_selection = {
         enable = true,
         keymaps = {
@@ -30,7 +31,7 @@ require('nvim-treesitter.configs').setup({
             node_decremental = '<c-backspace>',
         },
     },
-    context_commentstring = {enable = true, enable_autocmd = false},
+    context_commentstring = { enable = true, enable_autocmd = false },
     textobjects = {
         select = {
             enable = true,
@@ -48,15 +49,15 @@ require('nvim-treesitter.configs').setup({
         move = {
             enable = true,
             set_jumps = true, -- whether to set jumps in the jumplist
-            goto_next_start = {[']m'] = '@function.outer', [']]'] = '@class.outer'},
-            goto_next_end = {[']M'] = '@function.outer', [']['] = '@class.outer'},
-            goto_previous_start = {['[m'] = '@function.outer', ['[['] = '@class.outer'},
-            goto_previous_end = {['[M'] = '@function.outer', ['[]'] = '@class.outer'},
+            goto_next_start = { [']m'] = '@function.outer', [']]'] = '@class.outer' },
+            goto_next_end = { [']M'] = '@function.outer', [']['] = '@class.outer' },
+            goto_previous_start = { ['[m'] = '@function.outer', ['[['] = '@class.outer' },
+            goto_previous_end = { ['[M'] = '@function.outer', ['[]'] = '@class.outer' },
         },
         swap = {
             enable = true,
-            swap_next = {['<leader>a'] = '@parameter.inner'},
-            swap_previous = {['<leader>A'] = '@parameter.inner'},
+            swap_next = { ['<leader>a'] = '@parameter.inner' },
+            swap_previous = { ['<leader>A'] = '@parameter.inner' },
         },
     },
 })

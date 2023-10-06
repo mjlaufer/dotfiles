@@ -22,13 +22,14 @@ require('lazy').setup({
                 set background=dark
                 colorscheme flashy
                 let g:markdown_fenced_languages = [
-                    \ 'html',
                     \ 'sh', 'bash=sh',
-                    \ 'java',
+                    \ 'html',
                     \ 'javascript', 'js=javascript',
                     \ 'typescript', 'ts=typescript',
+                    \ 'java',
                     \ 'lua',
-                    \ 'rust']
+                    \ 'rust',
+                    \ 'go']
             ]])
         end,
         priority = 1000,

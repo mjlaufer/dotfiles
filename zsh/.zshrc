@@ -9,7 +9,8 @@ plugins=(git asdf zsh-syntax-highlighting zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-export PATH=$HOME/.local/bin:$PATH
+export GOPATH=$HOME/go
+export PATH=$HOME/.local/bin:$GOPATH/bin:$PATH
 
 # Aliases
 alias kssh="kitty +kitten ssh"

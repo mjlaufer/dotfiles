@@ -26,6 +26,9 @@ brew "google-java-format"
 # Lua development
 brew "stylua"
 
+# Go development
+brew "go"
+
 # tmux
 brew "reattach-to-user-namespace"
 brew "tmux"
