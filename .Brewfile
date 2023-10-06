@@ -28,6 +28,7 @@ brew "stylua"
 
 # Go development
 brew "go"
+brew "golangci-lint"
 
 # tmux
 brew "reattach-to-user-namespace"
