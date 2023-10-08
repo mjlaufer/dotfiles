@@ -168,6 +168,13 @@ require('lazy').setup({
         end,
     },
     {
+        'stevearc/oil.nvim',
+        pin = true,
+        config = function()
+            require('mjlaufer.plugins.oil')
+        end,
+    },
+    {
         'nvim-lualine/lualine.nvim',
         pin = true,
         config = function()

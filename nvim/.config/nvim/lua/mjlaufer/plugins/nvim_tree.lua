@@ -1,9 +1,9 @@
 local util = require('mjlaufer.util')
 local map = util.map
 
-require('nvim-tree').setup({view = {width = 36}})
+require('nvim-tree').setup({ view = { width = 36 } })
 
-util.useWhichKey({['<leader>e'] = {name = 'Explorer'}})
+util.useWhichKey({ ['<leader>e'] = { name = 'Explorer' } })
 
 map('n', '<leader>ee', ':NvimTreeToggle<CR>', 'Toggle')
 map('n', '<leader>ef', ':NvimTreeFindFile<CR>', 'Find file')
