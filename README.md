@@ -92,21 +92,12 @@ java --version
 
 ## Neovim DAP servers
 
-Use the [Mason](https://github.com/williamboman/mason.nvim) plugin to install [DAP](https://microsoft.github.io/debug-adapter-protocol/) servers:
+Use `:MasonInstall [SERVER_NAME]` (see [Mason](https://github.com/williamboman/mason.nvim)) to install [DAP](https://microsoft.github.io/debug-adapter-protocol/) servers:
 
-```viml
-" JavaScript/TypeScript
-:MasonInstall js-debug-adapter
-
-" Java
-:MasonInstall java-debug-adapter java-test
-
-" Rust
-:MasonInstall codelldb
-
-" Go
-:MasonInstall go-debug-adapter
-```
+-   JavaScript/TypeScript: `js-debug-adapter`
+-   Java: `java-debug-adapter` and `java-test`
+-   Rust: `codelldb`
+-   Go: `go-debug-adapter`
 
 To debug in Chrome, make sure to first run Chrome with remote debugging enabled:
 
@@ -144,6 +135,7 @@ Select **File | Manage IDE Settings | Settings Repository** from the main menu. 
 
 -   [IDEA](https://github.com/mjlaufer/idea-settings)
 -   [Webstorm](https://github.com/mjlaufer/webstorm-settings)
+-   [CLion](https://github.com/mjlaufer/clion-settings)
 
 ## VS Code
 

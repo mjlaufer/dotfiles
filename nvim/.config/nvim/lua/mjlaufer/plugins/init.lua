@@ -23,13 +23,14 @@ require('lazy').setup({
                 colorscheme flashy
                 let g:markdown_fenced_languages = [
                     \ 'sh', 'bash=sh',
+                    \ 'c',
+                    \ 'go',
                     \ 'html',
-                    \ 'javascript', 'js=javascript',
-                    \ 'typescript', 'ts=typescript',
                     \ 'java',
+                    \ 'javascript', 'js=javascript',
                     \ 'lua',
                     \ 'rust',
-                    \ 'go']
+                    \ 'typescript', 'ts=typescript']
             ]])
         end,
         priority = 1000,
@@ -64,11 +65,12 @@ require('lazy').setup({
             require('conform').setup({
                 formatters_by_ft = {
                     css = { 'prettier' },
-                    lua = { 'stylua' },
                     html = { 'prettier' },
                     java = { 'google-java-format' },
                     javascript = { 'prettier' },
                     javascriptreact = { 'prettier' },
+                    lua = { 'stylua' },
+                    markdown = { 'prettier' },
                     rust = { 'rustfmt' },
                     typescript = { 'prettier' },
                     typescriptreact = { 'prettier' },

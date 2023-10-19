@@ -26,6 +26,7 @@ map('n', ']d', vim.diagnostic.goto_next, 'Next diagnostic')
 require('mason').setup()
 require('mason-lspconfig').setup({
     ensure_installed = {
+        'clangd',
         'cssls',
         'eslint',
         'golangci_lint_ls',
@@ -44,6 +45,7 @@ require('mason-lspconfig').setup({
 local lspconfig = require('lspconfig')
 local opts = require('mjlaufer.plugins.lsp.server_options')
 
+lspconfig.clangd.setup(opts)
 lspconfig.cssls.setup(opts)
 lspconfig.eslint.setup(opts)
 lspconfig.golangci_lint_ls.setup(opts)

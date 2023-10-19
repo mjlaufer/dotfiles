@@ -30,6 +30,9 @@ brew "stylua"
 brew "go"
 brew "golangci-lint"
 
+# C development
+brew "llvm"
+
 # tmux
 brew "reattach-to-user-namespace"
 brew "tmux"
