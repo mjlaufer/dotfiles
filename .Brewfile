@@ -19,6 +19,10 @@ brew "lazygit"
 brew "less"
 brew "stow"
 
+# Node.js development
+brew "pnpm"
+brew "yarn"
+
 # Java development
 cask "temurin"
 brew "google-java-format"
