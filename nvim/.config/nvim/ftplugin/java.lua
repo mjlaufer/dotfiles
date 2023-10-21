@@ -11,16 +11,17 @@ elseif vim.fn.has('unix') == 1 then
 end
 
 local jdtls_path = vim.fn.stdpath('data') .. '/mason/packages/jdtls/'
-local root_dir = require('jdtls.setup').find_root({'.git', 'gradlew', 'mvnw'})
-local project_data_dir = vim.env.HOME .. '/.local/share/eclipse/' ..
-                             vim.fn.fnamemodify(root_dir, ':p:h:t')
+local root_dir = require('jdtls.setup').find_root({ '.git', 'gradlew', 'mvnw' })
+local project_data_dir = vim.env.HOME
+    .. '/.local/share/eclipse/'
+    .. vim.fn.fnamemodify(root_dir, ':p:h:t')
 
 -- Create a list of paths to JAR files for debug and test.
-local java_debug_jar_path = vim.fn.stdpath('data') ..
-                                '/mason/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar'
+local java_debug_jar_path = vim.fn.stdpath('data')
+    .. '/mason/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar'
 local java_debug_bundles = vim.split(vim.fn.glob(java_debug_jar_path), '\n')
-local java_test_jar_path = vim.fn.stdpath('data') ..
-                               '/mason/packages/java-test/extension/server/*.jar'
+local java_test_jar_path = vim.fn.stdpath('data')
+    .. '/mason/packages/java-test/extension/server/*.jar'
 local java_test_bundles = vim.split(vim.fn.glob(java_test_jar_path), '\n')
 local bundles = {}
 vim.list_extend(bundles, java_debug_bundles)
@@ -28,7 +29,7 @@ vim.list_extend(bundles, java_test_bundles)
 
 local server_opts = require('mjlaufer.plugins.lsp.server_options')
 local extendedClientCapabilities = jdtls.extendedClientCapabilities
-extendedClientCapabilities.resolveAdditionalTextEditsSupport = true;
+extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
 
 local config = {
     cmd = {
@@ -45,7 +46,7 @@ local config = {
         '--add-opens',
         'java.base/java.lang=ALL-UNNAMED',
         '-jar',
-        jdtls_path .. 'plugins/org.eclipse.equinox.launcher_1.6.500.v20230622-2056.jar',
+        jdtls_path .. 'plugins/org.eclipse.equinox.launcher_1.6.500.v20230717-2134.jar',
         '-configuration',
         jdtls_path .. 'config_' .. os_name,
         '-data',
@@ -54,8 +55,8 @@ local config = {
     root_dir = root_dir,
     settings = {
         java = {
-            signatureHelp = {enabled = true},
-            contentProvider = {preferred = 'fernflower'},
+            signatureHelp = { enabled = true },
+            contentProvider = { preferred = 'fernflower' },
             completion = {
                 favoriteStaticMembers = {
                     'org.hamcrest.MatcherAssert.assertThat',
@@ -67,7 +68,7 @@ local config = {
                     'org.mockito.Mockito.*',
                 },
             },
-            sources = {organizeImports = {starThreshold = 9999, staticStarThreshold = 9999}},
+            sources = { organizeImports = { starThreshold = 9999, staticStarThreshold = 9999 } },
             codeGeneration = {
                 toString = {
                     template = '${object.className}{${member.name()}=${member.value}, ${otherMembers}}',
@@ -80,11 +81,11 @@ local config = {
         server_opts.on_attach(client, bufnr)
 
         -- DAP setup
-        jdtls.setup_dap({hotcodereplace = 'auto'})
+        jdtls.setup_dap({ hotcodereplace = 'auto' })
         jdtls.setup.add_commands()
 
-        util.useWhichKey({['<leader>r'] = {name = 'jdtls refactor'}})
-        local opts = {noremap = true, silent = true, buffer = bufnr}
+        util.useWhichKey({ ['<leader>r'] = { name = 'jdtls refactor' } })
+        local opts = { noremap = true, silent = true, buffer = bufnr }
         map('n', '<leader>ro', jdtls.organize_imports, 'Organize imports', opts)
         map('n', '<leader>rv', jdtls.extract_variable, 'Extract variable', opts)
         map('n', '<leader>rc', jdtls.extract_constant, 'Extract constant', opts)
@@ -95,7 +96,7 @@ local config = {
         map('n', '<leader>sm', jdtls.test_nearest_method, 'Test nearest method', opts)
     end,
     capabilities = server_opts.capabilities,
-    init_options = {bundles = bundles, extendedClientCapabilities = extendedClientCapabilities},
+    init_options = { bundles = bundles, extendedClientCapabilities = extendedClientCapabilities },
 }
 
 jdtls.start_or_attach(config)

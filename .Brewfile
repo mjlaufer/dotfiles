@@ -25,7 +25,6 @@ brew "pnpm"
 brew "yarn"
 
 # Java development
-cask "temurin"
 brew "google-java-format"
 
 # Lua development

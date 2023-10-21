@@ -68,22 +68,16 @@ Install Node.js.
 rtx use -g node@lts
 ```
 
+Install the JDK
+
+```sh
+rtx use -g java@20
+```
+
 Install [Rust](https://www.rust-lang.org/tools/install).
 
 ```sh
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-```
-
-## Java
-
-The installation script (Brewfile) installs the most recent [Eclipse Temurin](https://adoptium.net/temurin/releases/) JDK distribution. You can install the [Amazon Corretto](https://docs.aws.amazon.com/corretto) JDK with `brew install --cask corretto`.
-
-To manage Java versions:
-
-```sh
-/usr/libexec/java_home -V
-export JAVA_HOME=`/usr/libexec/java_home -v 20`
-java --version
 ```
 
 ## Neovim DAP servers

@@ -36,12 +36,6 @@
           "full_name": "font-jetbrains-mono-nerd-font"
         }
       },
-      "temurin": {
-        "version": "21,35",
-        "options": {
-          "full_name": "temurin"
-        }
-      },
       "brave-browser": {
         "version": "1.59.122.0",
         "options": {

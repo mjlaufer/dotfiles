@@ -37,6 +37,10 @@ curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 echo "\nInstalling Node.js..."
 rtx use -g node@lts
 
+# JDK
+echo "\nInstalling OpenJDK..."
+rtx use -g java@20
+
 # Rust
 if [[ $("which" rustc) ]]; then
     echo "\nRust is already installed in $("which" rustc)."
