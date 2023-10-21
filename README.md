@@ -62,14 +62,10 @@ Install [Kitty](https://sw.kovidgoyal.net/kitty).
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 ```
 
-Install [asdf](https://asdf-vm.com/) and Node.js.
+Install Node.js.
 
 ```sh
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
-source ~/.zshrc
-asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-asdf install nodejs latest
-asdf global nodejs latest
+rtx use -g node@lts
 ```
 
 Install [Rust](https://www.rust-lang.org/tools/install).

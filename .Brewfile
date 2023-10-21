@@ -20,6 +20,7 @@ brew "less"
 brew "stow"
 
 # Node.js development
+brew "rtx"
 brew "pnpm"
 brew "yarn"
 

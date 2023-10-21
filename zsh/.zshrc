@@ -4,7 +4,7 @@ export ZSH=$HOME/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-plugins=(git asdf zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -25,3 +25,6 @@ bindkey -s ^s "tmux-sessionizer\n"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source ~/dotfiles/zsh/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Set up rtx for runtime management.
+eval "$(/usr/local/bin/rtx activate zsh)"
