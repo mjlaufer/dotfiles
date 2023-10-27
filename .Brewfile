@@ -26,6 +26,7 @@ brew "yarn"
 
 # Java development
 brew "google-java-format"
+brew "gradle"
 
 # Lua development
 brew "stylua"

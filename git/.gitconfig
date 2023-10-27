@@ -3,3 +3,5 @@
     name = Matthew Laufer
 [core]
 	editor = nvim
+[pull]
+	rebase = true

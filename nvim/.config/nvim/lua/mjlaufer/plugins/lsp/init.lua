@@ -66,7 +66,10 @@ rt.setup({
     tools = { inlay_hints = { highlight = 'LineNr' } },
     dap = { adapter = require('rust-tools.dap').get_codelldb_adapter(adapter_path, liblldb_path) },
     server = {
-        on_attach = function(_, bufnr)
+        on_attach = function(client, bufnr)
+            opts.on_attach(client, bufnr)
+
+            util.useWhichKey({ ['<leader>r'] = { name = 'Rust Tools' } })
             -- Hover actions
             map(
                 'n',
