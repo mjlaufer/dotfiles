@@ -54,7 +54,63 @@ lspconfig.gradle_ls.setup(require('mjlaufer.plugins.lsp.gradle_ls')(opts))
 lspconfig.html.setup(opts)
 lspconfig.jsonls.setup(require('mjlaufer.plugins.lsp.jsonls')(opts))
 lspconfig.lua_ls.setup(require('mjlaufer.plugins.lsp.lua_ls')(opts))
-lspconfig.tsserver.setup(require('mjlaufer.plugins.lsp.tsserver')(opts))
+
+-- TypeScript
+require('typescript').setup({
+    -- TODO: Uncomment the rest of the TypeScript config after upgrading to NVIM 0.10
+    server = {
+        on_attach = function(client, bufnr)
+            -- vim.lsp.buf.inlay_hint(bufnr, true)
+            opts.on_attach(client, bufnr)
+
+            util.useWhichKey({ ['<leader>at'] = { name = 'TS Utils' } })
+
+            local map_opts = { buffer = bufnr, noremap = true, silent = true }
+            map('n', '<leader>atf', ':TypescriptFixAll<CR>', 'Fix all', map_opts)
+            map(
+                'n',
+                '<leader>ati',
+                ':TypescriptAddMissingImports<CR>',
+                'Add missing imports',
+                map_opts
+            )
+            map('n', '<leader>ato', ':TypescriptOrganizeImports<CR>', 'Organize imports', map_opts)
+            map('n', '<leader>atr', ':TypescriptRenameFile<CR>', 'Rename file', map_opts)
+            map(
+                'n',
+                '<leader>atd',
+                ':TypescriptGoToSourceDefinition<CR>',
+                'Go to source definition',
+                map_opts
+            )
+        end,
+        capabilities = opts.capabilities,
+        -- settings = {
+        --     javascript = {
+        --         inlayHints = {
+        --             includeInlayEnumMemberValueHints = true,
+        --             includeInlayFunctionLikeReturnTypeHints = true,
+        --             includeInlayFunctionParameterTypeHints = true,
+        --             includeInlayParameterNameHints = 'all', -- 'none' | 'literals' | 'all';
+        --             includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+        --             includeInlayPropertyDeclarationTypeHints = true,
+        --             includeInlayVariableTypeHints = true,
+        --         },
+        --     },
+        --     typescript = {
+        --         inlayHints = {
+        --             includeInlayEnumMemberValueHints = true,
+        --             includeInlayFunctionLikeReturnTypeHints = true,
+        --             includeInlayFunctionParameterTypeHints = true,
+        --             includeInlayParameterNameHints = 'all', -- 'none' | 'literals' | 'all';
+        --             includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+        --             includeInlayPropertyDeclarationTypeHints = true,
+        --             includeInlayVariableTypeHints = true,
+        --         },
+        --     },
+        -- },
+    },
+})
 
 -- Rust
 local rt = require('rust-tools')

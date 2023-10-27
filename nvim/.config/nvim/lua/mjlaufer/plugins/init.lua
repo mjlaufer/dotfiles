@@ -99,8 +99,7 @@ require('lazy').setup({
             { 'williamboman/mason.nvim', pin = true },
             { 'williamboman/mason-lspconfig.nvim', pin = true },
             -- TypeScript development
-            -- TODO: jose-elias-alvarez/typescript.nvim
-            { 'jose-elias-alvarez/nvim-lsp-ts-utils', pin = true },
+            { 'jose-elias-alvarez/typescript.nvim', pin = true },
             { 'simrat39/rust-tools.nvim', pin = true },
         },
         config = function()
