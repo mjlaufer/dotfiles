@@ -57,37 +57,9 @@ require('lazy').setup({
     -- Plenary is a lua function library that a lot of plugins depend on.
     { 'nvim-lua/plenary.nvim', pin = true },
 
-    -- Formatter
-    {
-        'stevearc/conform.nvim',
-        pin = true,
-        config = function()
-            require('conform').setup({
-                formatters_by_ft = {
-                    c = { 'clang_format' },
-                    css = { 'prettier' },
-                    html = { 'prettier' },
-                    java = { 'google-java-format' },
-                    javascript = { 'prettier' },
-                    javascriptreact = { 'prettier' },
-                    lua = { 'stylua' },
-                    markdown = { 'prettier' },
-                    rust = { 'rustfmt' },
-                    typescript = { 'prettier' },
-                    typescriptreact = { 'prettier' },
-                },
-                format_after_save = {
-                    lsp_fallback = false,
-                },
-            })
-            local util = require('conform.util')
-            util.add_formatter_args(require('conform.formatters.google-java-format'), { '--aosp' })
-        end,
-    },
-
     -- LSP
     {
-        -- Neodev improves init.lua and plugin DX; must be set up before LSP config.
+        -- Improves init.lua and plugin DX; must be set up before LSP config.
         'folke/neodev.nvim',
         pin = true,
         config = function()
@@ -99,7 +71,6 @@ require('lazy').setup({
         dependencies = {
             { 'williamboman/mason.nvim', pin = true },
             { 'williamboman/mason-lspconfig.nvim', pin = true },
-            -- TypeScript development
             { 'jose-elias-alvarez/typescript.nvim', pin = true },
             { 'simrat39/rust-tools.nvim', pin = true },
         },
@@ -118,9 +89,8 @@ require('lazy').setup({
         end,
     },
     { 'RRethy/vim-illuminate', pin = true }, -- Highlights identifier under curor
-
-    -- Completion
     {
+        -- Completion
         'hrsh7th/nvim-cmp',
         pin = true,
         dependencies = {
@@ -183,15 +153,6 @@ require('lazy').setup({
         end,
     },
     {
-        'iamcco/markdown-preview.nvim',
-        pin = true,
-        build = 'cd app && yarn install',
-        init = function()
-            vim.g.mkdp_filetypes = { 'markdown' }
-        end,
-        ft = 'markdown',
-    },
-    {
         'mbbill/undotree',
         pin = true,
         config = function()
@@ -207,6 +168,32 @@ require('lazy').setup({
     'tpope/vim-characterize',
     'tpope/vim-sleuth',
     'tpope/vim-abolish',
+    {
+        'stevearc/conform.nvim',
+        pin = true,
+        config = function()
+            require('conform').setup({
+                formatters_by_ft = {
+                    c = { 'clang_format' },
+                    css = { 'prettier' },
+                    html = { 'prettier' },
+                    java = { 'google-java-format' },
+                    javascript = { 'prettier' },
+                    javascriptreact = { 'prettier' },
+                    lua = { 'stylua' },
+                    markdown = { 'prettier' },
+                    rust = { 'rustfmt' },
+                    typescript = { 'prettier' },
+                    typescriptreact = { 'prettier' },
+                },
+                format_after_save = {
+                    lsp_fallback = false,
+                },
+            })
+            local util = require('conform.util')
+            util.add_formatter_args(require('conform.formatters.google-java-format'), { '--aosp' })
+        end,
+    },
     {
         'windwp/nvim-autopairs',
         pin = true,
@@ -243,6 +230,15 @@ require('lazy').setup({
         config = function()
             require('mjlaufer.plugins.sneak')
         end,
+    },
+    {
+        'iamcco/markdown-preview.nvim',
+        pin = true,
+        build = 'cd app && yarn install',
+        init = function()
+            vim.g.mkdp_filetypes = { 'markdown' }
+        end,
+        ft = 'markdown',
     },
     {
         'NvChad/nvim-colorizer.lua',
