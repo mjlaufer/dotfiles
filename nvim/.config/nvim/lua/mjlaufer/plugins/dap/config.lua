@@ -3,6 +3,9 @@ local map = util.map
 
 local dap = require('dap')
 
+-- C/Rust
+-- TODO
+
 -- Java
 dap.configurations.java = {
     {
@@ -17,7 +20,7 @@ dap.configurations.java = {
 -- JavaScript and TypeScript
 require('dap-vscode-js').setup({
     debugger_path = vim.fn.stdpath('data') .. '/mason/packages/js-debug-adapter',
-    adapters = {'pwa-node', 'pwa-chrome'},
+    adapters = { 'pwa-node', 'pwa-chrome' },
 })
 
 local chrome_config = {
@@ -58,20 +61,29 @@ _G.start_node_debugger = function()
     require('dap').continue()
 end
 
-vim.fn.sign_define('DapBreakpoint', {text = '🔴', texthl = '', linehl = '', numhl = ''})
-vim.fn.sign_define('DapBreakpointRejected', {text = '🔵', texthl = '', linehl = '', numhl = ''})
+vim.fn.sign_define('DapBreakpoint', { text = '🔴', texthl = '', linehl = '', numhl = '' })
+vim.fn.sign_define('DapBreakpointRejected', { text = '🔵', texthl = '', linehl = '', numhl = '' })
 
-util.useWhichKey({['<leader>i'] = {name = 'Inspect/debug'}, ['<leader>iw'] = {name = 'DAP Widgets'}})
+util.useWhichKey({
+    ['<leader>i'] = { name = 'Inspect/debug' },
+    ['<leader>iw'] = { name = 'DAP Widgets' },
+})
 
 map('n', '<leader>isn', start_node_debugger, 'Start Node debugger')
 map('n', '<leader>ic', dap.continue, 'Start/continue')
 map('n', '<leader>ib', dap.toggle_breakpoint, 'Toggle breakpoint')
-map('n', '<leader>in',
+map(
+    'n',
+    '<leader>in',
     ':lua require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>',
-    'Set breakpoint condition')
-map('n', '<leader>im',
+    'Set breakpoint condition'
+)
+map(
+    'n',
+    '<leader>im',
     ':lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>',
-    'Set breakpoint log message')
+    'Set breakpoint log message'
+)
 map('n', '<leader>il', dap.step_into, 'Step into')
 map('n', '<leader>ij', dap.step_over, 'Step over')
 map('n', '<leader>ik', dap.step_out, 'Step out')
@@ -79,9 +91,15 @@ map('n', '<leader>iq', dap.close, 'Quit')
 
 -- DAP Widgets
 map('n', '<leader>iwu', require('dap.ui.widgets').hover, 'Show expression under cursor')
-map('n', '<leader>iws',
+map(
+    'n',
+    '<leader>iws',
     ':lua local widgets=require("dap.ui.widgets");widgets.sidebar(widgets.scopes).open()<CR>',
-    'Show scopes')
-map('n', '<leader>iwf',
+    'Show scopes'
+)
+map(
+    'n',
+    '<leader>iwf',
     ':lua local widgets=require("dap.ui.widgets");widgets.sidebar(widgets.frames).open()<CR>',
-    'Show frames')
+    'Show frames'
+)

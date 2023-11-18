@@ -29,7 +29,8 @@ M.on_attach = function(client, bufnr)
             filter = function(_client)
                 -- Use formatter plugin instead of the clients excluded below.
                 return not (
-                    _client.name == 'cssls'
+                    _client.name == 'clangd'
+                    or _client.name == 'cssls'
                     or _client.name == 'jdtls'
                     or _client.name == 'html'
                     or _client.name == 'lua_ls'

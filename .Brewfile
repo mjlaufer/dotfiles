@@ -19,6 +19,10 @@ brew "lazygit"
 brew "less"
 brew "stow"
 
+# C development
+brew "llvm"
+brew "clang-format"
+
 # Node.js development
 brew "rtx"
 brew "pnpm"
@@ -34,9 +38,6 @@ brew "stylua"
 # Go development
 brew "go"
 brew "golangci-lint"
-
-# C development
-brew "llvm"
 
 # tmux
 brew "reattach-to-user-namespace"

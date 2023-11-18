@@ -84,9 +84,9 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 Use `:MasonInstall [SERVER_NAME]` (see [Mason](https://github.com/williamboman/mason.nvim)) to install [DAP](https://microsoft.github.io/debug-adapter-protocol/) servers:
 
+-   C/Rust: `codelldb`
 -   JavaScript/TypeScript: `js-debug-adapter`
 -   Java: `java-debug-adapter` and `java-test`
--   Rust: `codelldb`
 -   Go: `go-debug-adapter`
 
 To debug in Chrome, make sure to first run Chrome with remote debugging enabled:
