@@ -1,34 +1,33 @@
 local util = require('mjlaufer.util')
 local map = util.map
 
-local trouble = require('trouble.providers.telescope')
-local mappings = {
-    i = {['<C-t>'] = trouble.open_with_trouble},
-    n = {['<C-t>'] = trouble.open_with_trouble},
-}
-
 local telescope = require('telescope')
 
 telescope.setup({
     defaults = {
-        file_ignore_patterns = {'node_modules'},
+        file_ignore_patterns = { 'node_modules' },
         layout_strategy = 'horizontal',
-        layout_config = {horizontal = {prompt_position = 'top'}},
+        layout_config = { horizontal = { prompt_position = 'top' } },
         sorting_strategy = 'ascending',
-        mappings = mappings,
     },
 })
 
-util.useWhichKey({['<leader>f'] = {name = 'Telescope'}, ['<leader>fi'] = {name = 'Inspect'}})
+util.useWhichKey({ ['<leader>f'] = { name = 'Telescope' }, ['<leader>fi'] = { name = 'Inspect' } })
 
-map('n', '<leader>ff',
+map(
+    'n',
+    '<leader>ff',
     ':lua require("telescope.builtin").find_files({find_command={"rg", "--files", "--hidden", "-g", "!.git"}})<CR>',
-    'Find files')
+    'Find files'
+)
 map('n', '<leader>fg', ':Telescope git_files<CR>', 'Find git files')
 map('n', '<leader>fs', ':Telescope live_grep<CR>', 'Live grep')
-map('n', '<leader>fw',
+map(
+    'n',
+    '<leader>fw',
     ':lua require("telescope.builtin").grep_string({ search = vim.fn.input("Grep for > ")})<CR>',
-    'Find word')
+    'Find word'
+)
 map('n', '<leader>fb', ':Telescope buffers<CR>', 'List open buffers')
 map('n', '<leader>fe', ':Telescope file_browser<CR>', 'File browser')
 map('n', '<leader>fh', ':Telescope help_tags<CR>', 'Help tags')

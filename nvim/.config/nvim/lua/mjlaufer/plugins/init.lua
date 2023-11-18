@@ -148,14 +148,6 @@ require('lazy').setup({
         end,
     },
     {
-        -- List for diagnostics, quickfix, and Telescope results
-        'folke/trouble.nvim',
-        pin = true,
-        config = function()
-            require('mjlaufer.plugins.trouble')
-        end,
-    },
-    {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.4',
         config = function()
@@ -206,14 +198,6 @@ require('lazy').setup({
             require('mjlaufer.plugins.undotree')
         end,
     },
-    {
-        -- Fancy start screen; useful for `:SSave` and `:SLoad` (wrappers for `:mksession`).
-        'mhinz/vim-startify',
-        pin = true,
-        config = function()
-            vim.g.startify_disable_at_vimenter = true
-        end,
-    },
 
     -- Editor
     'tpope/vim-surround',
@@ -254,13 +238,6 @@ require('lazy').setup({
         end,
     },
     {
-        'lukas-reineke/indent-blankline.nvim',
-        pin = true,
-        config = function()
-            require('indent_blankline').setup({ show_current_context = true })
-        end,
-    },
-    {
         'justinmk/vim-sneak',
         pin = true,
         config = function()
@@ -295,17 +272,7 @@ require('lazy').setup({
         end,
     },
 
-    -- Testing
-    {
-        'nvim-neotest/neotest',
-        pin = true,
-        dependencies = { { 'haydenmeade/neotest-jest', pin = true } },
-        config = function()
-            require('mjlaufer.plugins.neotest')
-        end,
-    },
-
-    -- DAP
+    -- Debug/test
     {
         'mfussenegger/nvim-dap',
         pin = true,
@@ -319,24 +286,12 @@ require('lazy').setup({
             require('mjlaufer.plugins.dap')
         end,
     },
-
-    -- Writing
     {
-        'folke/zen-mode.nvim',
+        'nvim-neotest/neotest',
         pin = true,
-        opts = {
-            window = {
-                backdrop = 1,
-                width = 100,
-                options = { signcolumn = 'auto', number = true, relativenumber = true },
-            },
-            plugins = {
-                twilight = { enabled = true },
-                gitsigns = { enabled = false },
-                tmux = { enabled = false },
-                kitty = { enabled = true, font = '+4' },
-            },
-        },
+        dependencies = { { 'haydenmeade/neotest-jest', pin = true } },
+        config = function()
+            require('mjlaufer.plugins.neotest')
+        end,
     },
-    { 'folke/twilight.nvim', pin = true, opts = { dimming = { alpha = 0.5 }, context = 12 } },
 }, { dev = { path = '~/personal' } })
