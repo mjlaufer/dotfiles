@@ -1,5 +1,11 @@
 require('lualine').setup({
-    options = { theme = 'flashy', always_divide_middle = false, globalstatus = true },
+    options = {
+        theme = 'flashy',
+        component_separators = { left = '│', right = '│' },
+        section_separators = { left = '▏', right = '▏' }, -- Left One Eighth Block - U+258F
+        always_divide_middle = false,
+        globalstatus = true,
+    },
     sections = {
         lualine_a = { 'mode' },
         lualine_b = { 'branch', 'diff' },

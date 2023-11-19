@@ -9,7 +9,7 @@ This repository is intended for use with macOS and assumes your default shell is
 2. Clone this repository into your `$HOME` directory.
 
 ```sh
-git clone https://github.com/mjlaufer/dotfiles.git ~/dotfiles
+$ git clone https://github.com/mjlaufer/dotfiles.git ~/dotfiles
 ```
 
 ## Installation
@@ -17,7 +17,7 @@ git clone https://github.com/mjlaufer/dotfiles.git ~/dotfiles
 Run the install script.
 
 ```sh
-~/dotfiles/install.sh
+$ ~/dotfiles/install.sh
 ```
 
 ## Manual installation
@@ -25,21 +25,21 @@ Run the install script.
 Install [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh). It will automatically rename the current `.zshrc` file (if one exists) to `.zshrc.pre-oh-my-zsh`. Rename (or delete) the `.zshrc` created by Oh My Zsh so you can `stow` this repo's `/zsh` directory without conflicts.
 
 ```sh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-cp .zshrc .zshrc.oh-my-zsh-default
+$ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+$ cp .zshrc .zshrc.oh-my-zsh-default
 ```
 
 Install plugins for Zsh and tmux.
 
 ```sh
-cd ~/dotfiles
-git submodule update --recursive --init
+$ cd ~/dotfiles
+$ git submodule update --recursive --init
 ```
 
 Install the command line utilities, fonts, and GUI macOS apps listed in `.Brewfile`.
 
 ```sh
-brew bundle --file=~/dotfiles/.Brewfile
+$ brew bundle --file=~/dotfiles/.Brewfile
 ```
 
 Now GNU Stow should be installed. Run `stow` in simulation mode to see warnings about possible errors.
@@ -47,37 +47,37 @@ Now GNU Stow should be installed. Run `stow` in simulation mode to see warnings 
 Stow throws an error if the symlink destination already exists. Delete these existing files (or change their names) before stowing your custom versions.
 
 ```sh
-stow -n PACKAGE_NAME
+$ stow -n PACKAGE_NAME
 ```
 
 If there are no warnings, you may use `stow` to symlink your dotfiles.
 
 ```sh
-stow PACKAGE_NAME
+$ stow PACKAGE_NAME
 ```
 
 Install [Kitty](https://sw.kovidgoyal.net/kitty).
 
 ```sh
-curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+$ curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 ```
 
 Install Node.js.
 
 ```sh
-rtx use -g node@lts
+$ rtx use -g node@lts
 ```
 
 Install the JDK
 
 ```sh
-rtx use -g java@20
+$ rtx use -g java@20
 ```
 
 Install [Rust](https://www.rust-lang.org/tools/install).
 
 ```sh
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
 ## Neovim DAP servers
@@ -92,13 +92,13 @@ Use `:MasonInstall [SERVER_NAME]` (see [Mason](https://github.com/williamboman/m
 To debug in Chrome, make sure to first run Chrome with remote debugging enabled:
 
 ```sh
-chrome-debug
+$ chrome-debug
 ```
 
 To enable remote debugging in Java, run your app with the Java Debug Wire Protocol (JDWP):
 
 ```sh
-java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -jar [path/to/JAR]
+$ java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -jar [path/to/JAR]
 ```
 
 ## tmux

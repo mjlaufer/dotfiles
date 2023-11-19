@@ -15,6 +15,9 @@ export PATH=$HOME/.local/bin:$GOPATH/bin:$PATH
 # Aliases
 alias kssh="kitty +kitten ssh"
 
+# Vi mode
+bindkey -v
+
 # C-s to run tmux-sessionizer
 stty -ixon
 bindkey -s ^s "tmux-sessionizer\n"
