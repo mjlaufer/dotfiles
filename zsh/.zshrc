@@ -15,6 +15,16 @@ export PATH=$HOME/.local/bin:$GOPATH/bin:$PATH
 # Aliases
 alias kssh="kitty +kitten ssh"
 
+unalias glo
+glo() {
+    if [ "$1" != "" ]
+    then
+        git -c color.ui=always log --oneline --decorate | head -n"$1"
+    else
+        git log --oneline --decorate
+    fi
+}
+
 # Vi mode
 bindkey -v
 
