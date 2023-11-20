@@ -4,9 +4,15 @@
 
 This repository is intended for use with macOS and assumes your default shell is zsh.
 
-1. Install [Homebrew](https://brew.sh/).
+1. Install the Xcode command line developer tools.
 
-2. Clone this repository into your `$HOME` directory.
+```sh
+$ xcode-select --install
+```
+
+2. Install [Homebrew](https://brew.sh/).
+
+3. Clone this repository into your `$HOME` directory.
 
 ```sh
 $ git clone https://github.com/mjlaufer/dotfiles.git ~/dotfiles
@@ -22,12 +28,16 @@ $ ~/dotfiles/install.sh
 
 ## Manual installation
 
-Install [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh). It will automatically rename the current `.zshrc` file (if one exists) to `.zshrc.pre-oh-my-zsh`. Rename (or delete) the `.zshrc` created by Oh My Zsh so you can `stow` this repo's `/zsh` directory without conflicts.
+### Oh My Zsh
+
+Install [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh). It will automatically rename the current `.zshrc` file (if one exists) to `.zshrc.pre-oh-my-zsh`. Rename (or delete) the `.zshrc` created by Oh My Zsh so you can `stow` this repo's `zsh/` contents without conflicts.
 
 ```sh
 $ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 $ cp .zshrc .zshrc.oh-my-zsh-default
 ```
+
+### Git submodules (Zsh and tmux plugins)
 
 Install plugins for Zsh and tmux.
 
@@ -36,11 +46,21 @@ $ cd ~/dotfiles
 $ git submodule update --recursive --init
 ```
 
+To update plugins, run the following:
+
+```sh
+$ git submodule update --remote
+```
+
+### Homebrew packages
+
 Install the command line utilities, fonts, and GUI macOS apps listed in `.Brewfile`.
 
 ```sh
 $ brew bundle --file=~/dotfiles/.Brewfile
 ```
+
+### `Stow` (symlink) dotfiles
 
 Now GNU Stow should be installed. Run `stow` in simulation mode to see warnings about possible errors.
 
@@ -56,11 +76,15 @@ If there are no warnings, you may use `stow` to symlink your dotfiles.
 $ stow PACKAGE_NAME
 ```
 
+### Kitty terminal
+
 Install [Kitty](https://sw.kovidgoyal.net/kitty).
 
 ```sh
 $ curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 ```
+
+### Programming languages
 
 Install Node.js.
 
@@ -101,7 +125,7 @@ To enable remote debugging in Java, run your app with the Java Debug Wire Protoc
 $ java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -jar [path/to/JAR]
 ```
 
-## tmux
+## tmux plugins
 
 -   Install plugins: `<prefix> I`
 -   Update plugins: `<prefix> U`
@@ -126,6 +150,8 @@ Select **File | Manage IDE Settings | Settings Repository** from the main menu. 
 -   [IDEA](https://github.com/mjlaufer/idea-settings)
 -   [Webstorm](https://github.com/mjlaufer/webstorm-settings)
 -   [CLion](https://github.com/mjlaufer/clion-settings)
+-   GoLand - TODO
+-   RustRover - TODO
 
 ## VS Code
 
@@ -134,6 +160,7 @@ Install the `code` command: Open the Command Palette (⇧ + ⌘ + p) and find th
 Install extensions:
 
 -   [Flashy](https://github.com/mjlaufer/flashy-vscode)
+-   [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
 -   [CodeLLDB](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb)
 -   [DotENV](https://marketplace.visualstudio.com/items?itemName=dotenv.dotenv-vscode)
 -   [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)

@@ -13,13 +13,13 @@ fi
 
 cd ~/dotfiles
 
-# Zsh plugins
+# Git submodules (Zsh and tmux plugins)
 git submodule update --init --recursive
 
-# Homebrew
+# Homebrew packages
 brew bundle --file=~/dotfiles/.Brewfile
 
-# GNU Stow for dotfiles
+# GNU Stow to symlink dotfiles
 for source in ~/dotfiles/*; do
     if [ -d "$source" ]; then
         base="$(basename $source)"
@@ -29,7 +29,7 @@ for source in ~/dotfiles/*; do
     fi
 done
 
-# Kitty
+# Kitty terminal
 echo "\nInstalling/updating Kitty..."
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 
