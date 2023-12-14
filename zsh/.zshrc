@@ -9,8 +9,9 @@ plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+export CLANGBIN="/usr/local/opt/llvm/bin"
 export GOPATH=$HOME/go
-export PATH=$HOME/.local/bin:$GOPATH/bin:$PATH
+export PATH=$HOME/.local/bin:$CLANGBIN:$GOPATH/bin:$PATH
 
 # Aliases
 alias kssh="kitty +kitten ssh"
