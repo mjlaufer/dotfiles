@@ -43,7 +43,7 @@ require('lazy').setup({
             require('mjlaufer.plugins.treesitter')
         end,
     },
-    { 'nvim-treesitter/playground', pin = true },
+    { 'nvim-treesitter/playground' },
     { 'nvim-treesitter/nvim-treesitter-textobjects', pin = true },
     {
         -- Icons used by lualine and nvim-tree
@@ -219,9 +219,21 @@ require('lazy').setup({
     {
         'numToStr/Comment.nvim',
         pin = true,
-        dependencies = { { 'JoosepAlviste/nvim-ts-context-commentstring', pin = true } },
+        dependencies = {
+            {
+                'JoosepAlviste/nvim-ts-context-commentstring',
+                pin = true,
+                config = function()
+                    require('ts_context_commentstring').setup({
+                        enable_autocmd = false,
+                    })
+                end,
+            },
+        },
         config = function()
-            require('mjlaufer.plugins.comment')
+            require('Comment').setup({
+                pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+            })
         end,
     },
     {
