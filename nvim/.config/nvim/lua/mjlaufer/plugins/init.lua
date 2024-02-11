@@ -72,6 +72,8 @@ require('lazy').setup({
             { 'williamboman/mason.nvim', pin = true },
             { 'williamboman/mason-lspconfig.nvim', pin = true },
             { 'jose-elias-alvarez/typescript.nvim', pin = true },
+            -- TODO: Replace rust-tools.nvim with rustaceanvim.
+            -- { 'mrcjkb/rustaceanvim', version = '^4', ft = { 'rust' } },
             { 'simrat39/rust-tools.nvim', pin = true },
         },
         config = function()
