@@ -1,13 +1,23 @@
 local util = require('mjlaufer.util')
 local map = util.map
-
 local dap = require('dap')
 
--- JavaScript and TypeScript (Chrome debugger)
-require('dap-vscode-js').setup({
-    debugger_path = vim.fn.stdpath('data') .. '/mason/packages/js-debug-adapter',
-    adapters = { 'pwa-node', 'pwa-chrome' },
-})
+local js_debug_adapter_config = {
+    type = 'server',
+    host = 'localhost',
+    port = '${port}',
+    executable = {
+        command = 'node',
+        args = {
+            vim.fn.stdpath('data')
+                .. '/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js',
+            '${port}',
+        },
+    },
+}
+
+dap.adapters['pwa-chrome'] = js_debug_adapter_config
+dap.adapters['pwa-node'] = js_debug_adapter_config
 
 local chrome_config = {
     {

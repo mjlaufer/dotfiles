@@ -179,7 +179,6 @@ require('lazy').setup({
                     c = { 'clang_format' },
                     css = { 'prettier' },
                     html = { 'prettier' },
-                    java = { 'google-java-format' },
                     javascript = { 'prettier' },
                     javascriptreact = { 'prettier' },
                     lua = { 'stylua' },
@@ -192,8 +191,6 @@ require('lazy').setup({
                     lsp_fallback = false,
                 },
             })
-            local util = require('conform.util')
-            util.add_formatter_args(require('conform.formatters.google-java-format'), { '--aosp' })
         end,
     },
     {
@@ -290,7 +287,6 @@ require('lazy').setup({
             { 'nvim-telescope/telescope-dap.nvim', pin = true },
             { 'theHamsta/nvim-dap-virtual-text', pin = true },
             { 'rcarriga/nvim-dap-ui', pin = true },
-            { 'mxsdev/nvim-dap-vscode-js', pin = true },
         },
         config = function()
             require('mjlaufer.plugins.dap')
