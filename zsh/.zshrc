@@ -40,5 +40,5 @@ bindkey -s ^s "tmux-sessionizer\n"
 
 source ~/dotfiles/zsh/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Set up rtx for runtime management.
-eval "$(/usr/local/bin/rtx activate zsh)"
+# Set up mise for runtime management.
+eval "$(/usr/local/bin/mise activate zsh)"

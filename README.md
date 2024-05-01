@@ -89,13 +89,13 @@ $ curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 Install Node.js.
 
 ```sh
-$ rtx use -g node@lts
+$ mise use -g node@lts
 ```
 
 Install the JDK
 
 ```sh
-$ rtx use -g java@20
+$ mise use -g java@20
 ```
 
 Install [Rust](https://www.rust-lang.org/tools/install).

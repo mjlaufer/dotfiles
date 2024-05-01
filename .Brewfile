@@ -1,5 +1,3 @@
-tap "homebrew/cask"
-
 # Fonts
 tap "homebrew/cask-fonts"
 cask "font-fira-code"
@@ -17,6 +15,7 @@ brew "htop"
 brew "jq"
 brew "lazygit"
 brew "less"
+brew "mise"
 brew "stow"
 
 # C development
@@ -24,7 +23,6 @@ brew "llvm"
 brew "clang-format"
 
 # Node.js development
-brew "rtx"
 brew "pnpm"
 brew "yarn"
 
