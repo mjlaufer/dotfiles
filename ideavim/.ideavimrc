@@ -65,6 +65,10 @@ set ideajoin " Use vim's `J` in IntelliJ
 :nmap <leader>tl <Action>(ActivateTerminalToolWindow)
 :nmap <leader>tu <Action>(ActivateTerminalToolWindow)
 
+" Language Server
+:nmap <leader>al <Action>(ShowUsages)
+:nmap <leader>aa <Action>(ShowIntentionActions)
+
 " Diagnostics
 :nmap <leader>ad <Action>(ShowErrorDescription)
 :nmap [d <Action>(GotoPreviousError)
