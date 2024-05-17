@@ -21,6 +21,7 @@ brew "stow"
 # C development
 brew "llvm"
 brew "clang-format"
+brew "cmake"
 
 # Node.js development
 brew "pnpm"
