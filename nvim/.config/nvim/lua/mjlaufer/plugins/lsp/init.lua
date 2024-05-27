@@ -54,10 +54,8 @@ lspconfig.lua_ls.setup(require('mjlaufer.plugins.lsp.lua_ls')(opts))
 
 -- TypeScript
 require('typescript').setup({
-    -- TODO: Uncomment the rest of the TypeScript config after upgrading to NVIM 0.10
     server = {
         on_attach = function(client, bufnr)
-            -- vim.lsp.buf.inlay_hint(bufnr, true)
             opts.on_attach(client, bufnr)
 
             util.useWhichKey({ ['<leader>at'] = { name = 'TS Utils' } })
@@ -82,30 +80,32 @@ require('typescript').setup({
             )
         end,
         capabilities = opts.capabilities,
-        -- settings = {
-        --     javascript = {
-        --         inlayHints = {
-        --             includeInlayEnumMemberValueHints = true,
-        --             includeInlayFunctionLikeReturnTypeHints = true,
-        --             includeInlayFunctionParameterTypeHints = true,
-        --             includeInlayParameterNameHints = 'all', -- 'none' | 'literals' | 'all';
-        --             includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-        --             includeInlayPropertyDeclarationTypeHints = true,
-        --             includeInlayVariableTypeHints = true,
-        --         },
-        --     },
-        --     typescript = {
-        --         inlayHints = {
-        --             includeInlayEnumMemberValueHints = true,
-        --             includeInlayFunctionLikeReturnTypeHints = true,
-        --             includeInlayFunctionParameterTypeHints = true,
-        --             includeInlayParameterNameHints = 'all', -- 'none' | 'literals' | 'all';
-        --             includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-        --             includeInlayPropertyDeclarationTypeHints = true,
-        --             includeInlayVariableTypeHints = true,
-        --         },
-        --     },
-        -- },
+        settings = {
+            javascript = {
+                inlayHints = {
+                    includeInlayEnumMemberValueHints = true,
+                    includeInlayFunctionLikeReturnTypeHints = true,
+                    includeInlayFunctionParameterTypeHints = true,
+                    includeInlayParameterNameHints = 'all', -- 'none' | 'literals' | 'all';
+                    includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+                    includeInlayPropertyDeclarationTypeHints = true,
+                    includeInlayVariableTypeHints = true,
+                    includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+                },
+            },
+            typescript = {
+                inlayHints = {
+                    includeInlayEnumMemberValueHints = true,
+                    includeInlayFunctionLikeReturnTypeHints = true,
+                    includeInlayFunctionParameterTypeHints = true,
+                    includeInlayParameterNameHints = 'all', -- 'none' | 'literals' | 'all';
+                    includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+                    includeInlayPropertyDeclarationTypeHints = true,
+                    includeInlayVariableTypeHints = true,
+                    includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+                },
+            },
+        },
     },
 })
 

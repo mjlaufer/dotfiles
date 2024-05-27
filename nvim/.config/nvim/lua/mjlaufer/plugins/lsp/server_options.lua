@@ -9,6 +9,18 @@ M.on_attach = function(client, bufnr)
     -- Enable completion triggered by <C-x><C-o>
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
+    -- Inlay hints
+    if client.server_capabilities.inlayHintProvider then
+        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+    end
+
+    local toggle_inlay_hints = function()
+        vim.lsp.inlay_hint.enable(
+            not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }),
+            { bufnr = bufnr }
+        )
+    end
+
     -- See `:help vim.*` for documentation on any of the below functions
     local opts = { buffer = bufnr, noremap = true, silent = true }
     map('n', 'gd', vim.lsp.buf.definition, 'Go to definition', opts)
@@ -21,6 +33,7 @@ M.on_attach = function(client, bufnr)
     map('n', '<leader>ai', vim.lsp.buf.implementation, 'List implementations', opts)
     map('n', '<leader>ac', vim.lsp.buf.incoming_calls, 'List call sites', opts)
     map('n', '<leader>aa', vim.lsp.buf.code_action, 'Code actions', opts)
+    map('n', '<leader>ah', toggle_inlay_hints, 'Toggle inlay hints', opts)
 
     -- Format buffer with LSP.
     local fmt = function()
