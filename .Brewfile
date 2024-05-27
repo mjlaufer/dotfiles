@@ -10,6 +10,7 @@ cask "font-jetbrains-mono-nerd-font"
 # Utils
 brew "fzf"
 brew "git"
+brew "git-delta"
 brew "gnu-sed"
 brew "htop"
 brew "jq"
