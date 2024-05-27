@@ -8,6 +8,7 @@ cask "font-jetbrains-mono"
 cask "font-jetbrains-mono-nerd-font"
 
 # Utils
+brew "bat"
 brew "fzf"
 brew "git"
 brew "git-delta"
