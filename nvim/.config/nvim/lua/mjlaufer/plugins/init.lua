@@ -43,8 +43,9 @@ require('lazy').setup({
             require('mjlaufer.plugins.treesitter')
         end,
     },
-    { 'nvim-treesitter/playground' },
-    { 'nvim-treesitter/nvim-treesitter-textobjects', pin = true },
+    'nvim-treesitter/nvim-treesitter-context',
+    'nvim-treesitter/playground',
+    'nvim-treesitter/nvim-treesitter-textobjects',
     {
         -- Icons used by lualine and nvim-tree
         'kyazdani42/nvim-web-devicons',
