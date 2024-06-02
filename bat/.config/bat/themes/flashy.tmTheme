@@ -126,6 +126,17 @@
 		</dict>
 		<dict>
 			<key>name</key>
+			<string>Operator</string>
+			<key>scope</key>
+			<string>keyword.operator</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#f67ebb</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
 			<string>Storage</string>
 			<key>scope</key>
 			<string>storage</string>
