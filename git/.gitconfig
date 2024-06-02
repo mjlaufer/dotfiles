@@ -12,7 +12,7 @@
 [delta]
     navigate = true
     side-by-side = true
-    syntax-theme = ansi
+    syntax-theme = flashy
     line-numbers-minus-style = "#f98660"
     line-numbers-plus-style = "#74c792"
     line-numbers-zero-style = "#818181"

@@ -76,6 +76,12 @@ If there are no warnings, you may use `stow` to symlink your dotfiles.
 $ stow PACKAGE_NAME
 ```
 
+To install the [bat](https://github.com/sharkdp/bat/#adding-new-themes) theme used by [lazygit](https://github.com/jesseduffield/lazygit)/[delta](https://github.com/dandavison/delta), update the bat binary cache:
+
+```sh
+$ bat cache --build
+```
+
 ### Kitty terminal
 
 Install [Kitty](https://sw.kovidgoyal.net/kitty).

@@ -29,6 +29,9 @@ for source in ~/dotfiles/*; do
     fi
 done
 
+# Update bat binary cache
+bat cache --build
+
 # Kitty terminal
 echo "\nInstalling/updating Kitty..."
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
