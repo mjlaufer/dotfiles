@@ -23,19 +23,6 @@
 				<string>#353535</string>
 			</dict>
 		</dict>
-        <dict>
-			<key>name</key>
-			<string>Punctuation</string>
-			<key>scope</key>
-			<string>punctuation</string>
-			<key>settings</key>
-			<dict>
-				<key>fontStyle</key>
-				<string></string>
-				<key>foreground</key>
-				<string>#a0a0a0</string>
-			</dict>
-		</dict>
 		<dict>
 			<key>name</key>
 			<string>Comment</string>
@@ -58,11 +45,33 @@
 				<string>#74c792</string>
 			</dict>
 		</dict>
+		<dict>
+			<key>name</key>
+			<string>Variable</string>
+			<key>scope</key>
+			<string>variable, source.json</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>#c6c6c6</string>
+			</dict>
+		</dict>
         <dict>
 			<key>name</key>
-			<string>String.regexp</string>
+			<string>Punctuation, braces</string>
 			<key>scope</key>
-			<string>string.regexp</string>
+			<string>punctuation, meta.brace</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#a0a0a0</string>
+			</dict>
+		</dict>
+        <dict>
+			<key>name</key>
+			<string>Regex, escape characters</string>
+			<key>scope</key>
+			<string>string.regexp, constant.character, support.constant</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -71,53 +80,9 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Number</string>
-			<key>scope</key>
-			<string>constant.numeric</string>
-			<key>settings</key>
-			<dict>
-				<key>foreground</key>
-				<string>#e4a452</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Built-in constant</string>
-			<key>scope</key>
-			<string>constant.language</string>
-			<key>settings</key>
-			<dict>
-				<key>foreground</key>
-				<string>#e4a452</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>User-defined constant</string>
-			<key>scope</key>
-			<string>constant.character, constant.other</string>
-			<key>settings</key>
-			<dict>
-				<key>foreground</key>
-				<string>#c6c6c6</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Variable</string>
-			<key>scope</key>
-			<string>variable</string>
-			<key>settings</key>
-			<dict>
-				<key>fontStyle</key>
-				<string>#c6c6c6</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
 			<string>Keyword</string>
 			<key>scope</key>
-			<string>keyword</string>
+			<string>keyword, constant.language</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -126,9 +91,31 @@
 		</dict>
 		<dict>
 			<key>name</key>
+			<string>Number</string>
+			<key>scope</key>
+			<string>constant.numeric, keyword.other.unit</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#e4a452</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Boolean</string>
+			<key>scope</key>
+			<string>constant.language.boolean</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#e4a452</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
 			<string>Operator</string>
 			<key>scope</key>
-			<string>keyword.operator</string>
+			<string>keyword.operator, storage.type.function.arrow</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -139,70 +126,27 @@
 			<key>name</key>
 			<string>Storage</string>
 			<key>scope</key>
-			<string>storage</string>
+			<string>storage.type, storage.modifier</string>
 			<key>settings</key>
 			<dict>
-				<key>fontStyle</key>
-				<string></string>
 				<key>foreground</key>
 				<string>#bf9af7</string>
 			</dict>
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Storage type</string>
-			<key>scope</key>
-			<string>storage.type</string>
-			<key>settings</key>
-			<dict>
-				<key>fontStyle</key>
-				<string></string>
-				<key>foreground</key>
-				<string>#66b9b7</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Class name</string>
-			<key>scope</key>
-			<string>entity.name.class</string>
-			<key>settings</key>
-			<dict>
-				<key>fontStyle</key>
-				<string></string>
-				<key>foreground</key>
-				<string>#66b9b7</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Inherited class</string>
-			<key>scope</key>
-			<string>entity.other.inherited-class</string>
-			<key>settings</key>
-			<dict>
-				<key>fontStyle</key>
-				<string></string>
-				<key>foreground</key>
-				<string>#66b9b7</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
 			<string>Function name</string>
 			<key>scope</key>
-			<string>entity.name.function</string>
+			<string>entity.name.function, variable.function, support.function</string>
 			<key>settings</key>
 			<dict>
-				<key>fontStyle</key>
-				<string></string>
 				<key>foreground</key>
 				<string>#6fb1e7</string>
 			</dict>
 		</dict>
         <dict>
 			<key>name</key>
-			<string>Function Call</string>
+			<string>Function call</string>
 			<key>scope</key>
 			<string>meta.function-call</string>
 			<key>settings</key>
@@ -211,28 +155,46 @@
 				<string>#6fb1e7</string>
 			</dict>
 		</dict>
-		<dict>
-			<key>name</key>
-			<string>Function argument</string>
-			<key>scope</key>
-			<string>variable.parameter</string>
-			<key>settings</key>
-			<dict>
-				<key>fontStyle</key>
-				<string></string>
-				<key>foreground</key>
-				<string>#c6c6c6</string>
-			</dict>
-		</dict>
         <dict>
 			<key>name</key>
-			<string>Support.function</string>
+			<string>Language method</string>
 			<key>scope</key>
-			<string>support.function</string>
+			<string>variable.language</string>
 			<key>settings</key>
 			<dict>
-				<key>fontStyle</key>
-				<string></string>
+				<key>foreground</key>
+				<string>#6fb1e7</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Class, inherited class, built-in class</string>
+			<key>scope</key>
+			<string>entity.name.class, entity.other.inherited-class, support.class.builtin</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#66b9b7</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Type</string>
+			<key>scope</key>
+			<string>entity.name.type, support.type</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#66b9b7</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>JSX component tag name</string>
+			<key>scope</key>
+			<string>support.class.component</string>
+			<key>settings</key>
+			<dict>
 				<key>foreground</key>
 				<string>#6fb1e7</string>
 			</dict>
@@ -244,36 +206,19 @@
 			<string>entity.name.tag</string>
 			<key>settings</key>
 			<dict>
-				<key>fontStyle</key>
-				<string></string>
 				<key>foreground</key>
 				<string>#66b9b7</string>
 			</dict>
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Tag attribute</string>
+			<string>HTML/JSX attributes</string>
 			<key>scope</key>
 			<string>entity.other.attribute-name</string>
 			<key>settings</key>
 			<dict>
-				<key>fontStyle</key>
-				<string></string>
 				<key>foreground</key>
-				<string>#a0a0a0</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Library function</string>
-			<key>scope</key>
-			<string>support.function</string>
-			<key>settings</key>
-			<dict>
-				<key>fontStyle</key>
-				<string></string>
-				<key>foreground</key>
-				<string>#6fb1e7</string>
+				<string>#c6c6c6</string>
 			</dict>
 		</dict>
 		<dict>
@@ -283,21 +228,8 @@
 			<string>support.constant</string>
 			<key>settings</key>
 			<dict>
-				<key>fontStyle</key>
-				<string></string>
 				<key>foreground</key>
 				<string>#a0a0a0</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Library class&#x2f;type</string>
-			<key>scope</key>
-			<string>support.type, support.class</string>
-			<key>settings</key>
-			<dict>
-				<key>foreground</key>
-				<string>#66b9b7</string>
 			</dict>
 		</dict>
 		<dict>
@@ -308,20 +240,7 @@
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
-				<string></string>
-			</dict>
-		</dict>
-        <dict>
-			<key>name</key>
-			<string>Lang Variable</string>
-			<key>scope</key>
-			<string>variable.language</string>
-			<key>settings</key>
-			<dict>
-				<key>fontStyle</key>
-				<string></string>
-				<key>foreground</key>
-				<string>#a0a0a0</string>
+				<string>#c6c6c6</string>
 			</dict>
 		</dict>
 		<dict>
@@ -333,8 +252,6 @@
 			<dict>
 				<key>background</key>
 				<string>#353535</string>
-				<key>fontStyle</key>
-				<string></string>
 				<key>foreground</key>
 				<string>#f98660</string>
 			</dict>
