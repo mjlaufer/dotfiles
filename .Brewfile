@@ -52,6 +52,9 @@ brew "ripgrep"
 brew "ranger"
 brew "trash"
 
+# Databases
+brew "postgresql@14"
+
 # Apps
 tap "homebrew/cask-versions"
 cask "brave-browser"
@@ -61,3 +64,5 @@ cask "firefox-developer-edition"
 cask "docker"
 cask "karabiner-elements"
 cask "visual-studio-code"
+cask "db-browser-for-sqlite"
+cask "pgadmin4"
