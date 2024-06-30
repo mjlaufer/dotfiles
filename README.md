@@ -110,7 +110,18 @@ Install [Rust](https://www.rust-lang.org/tools/install).
 $ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
-## Neovim DAP servers
+## tmux setup
+
+-   Install plugins: `<prefix> I`
+-   Update plugins: `<prefix> U`
+
+## Neovim setup
+
+### Plugins
+
+Run `:Lazy restore` to install/update all plugins to the state in the lockfile. (See [lazy.nvim](https://lazy.folke.io/).)
+
+### DAP servers
 
 Use `:MasonInstall [SERVER_NAME]` (see [Mason](https://github.com/williamboman/mason.nvim)) to install [DAP](https://microsoft.github.io/debug-adapter-protocol/) servers:
 
@@ -131,11 +142,6 @@ To enable remote debugging in Java, run your app with the Java Debug Wire Protoc
 $ java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -jar [path/to/JAR]
 ```
 
-## tmux plugins
-
--   Install plugins: `<prefix> I`
--   Update plugins: `<prefix> U`
-
 ## Chrome extensions
 
 -   [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en)
@@ -151,24 +157,17 @@ $ java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -jar [
 
 Install and build [Flashy](https://github.com/mjlaufer/flashy-intellij). Then select **Install Plugin from Disk**.
 
-Select **File | Manage IDE Settings | Settings Repository** from the main menu. Specify the applicable repository URL (see below), and click **Overwrite Local**.
-
--   [IDEA](https://github.com/mjlaufer/idea-settings)
--   [Webstorm](https://github.com/mjlaufer/webstorm-settings)
--   [CLion](https://github.com/mjlaufer/clion-settings)
--   GoLand - TODO
--   RustRover - TODO
+Select **File | Manage IDE Settings | Settings Sync** from the main menu. Click **Enable Settings Sync...**. Ensure all settings checkboxes are checked, and click **Get Settings from Account**.
 
 ## VS Code
 
-Install the `code` command: Open the Command Palette (⇧ + ⌘ + p) and find the **Shell Command: Install 'code' command in PATH** command. After executing the command, restart the terminal for the new `$PATH` value to take effect. You can now simply type `code .` in any folder to open VSCode and start editing files in that folder.
+Install the `code` command: Open the Command Palette (⇧ + ⌘ + p) and find the **Shell Command: Install 'code' command in PATH** command. After executing the command, restart the terminal for the new `$PATH` value to take effect. You can now simply type `code .` in any folder to open VS Code and start editing files in that folder.
 
 Install extensions:
 
 -   [Flashy](https://github.com/mjlaufer/flashy-vscode)
 -   [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
 -   [CodeLLDB](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb)
--   [DotENV](https://marketplace.visualstudio.com/items?itemName=dotenv.dotenv-vscode)
 -   [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
 -   [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 -   [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
@@ -179,4 +178,4 @@ Install extensions:
 -   [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 -   [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
 -   [Version Lens](https://marketplace.visualstudio.com/items?itemName=pflannery.vscode-versionlens)
--   [VSCode Neovim](https://marketplace.visualstudio.com/items?itemName=asvetliakov.vscode-neovim)
+-   [VSCodeVim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim)
