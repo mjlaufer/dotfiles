@@ -25,6 +25,7 @@ require('mason-lspconfig').setup({
     ensure_installed = {
         'clangd',
         'cssls',
+        'elmls',
         'eslint',
         'golangci_lint_ls',
         'gopls',
@@ -44,6 +45,7 @@ local opts = require('mjlaufer.plugins.lsp.server_options')
 
 lspconfig.clangd.setup(opts)
 lspconfig.cssls.setup(opts)
+lspconfig.elmls.setup(opts)
 lspconfig.eslint.setup(opts)
 lspconfig.golangci_lint_ls.setup(opts)
 lspconfig.gopls.setup(opts)

@@ -20,25 +20,29 @@ brew "less"
 brew "mise"
 brew "stow"
 
-# C development
+# C/C++
 brew "llvm"
 brew "clang-format"
 brew "cmake"
 
-# Node.js development
-brew "pnpm"
-brew "yarn"
+# Elm
+brew "elm"
+brew "elm-format"
 
-# Java development
+# Go
+brew "go"
+brew "golangci-lint"
+
+# Java
 brew "google-java-format"
 brew "gradle"
 
-# Lua development
+# Lua
 brew "stylua"
 
-# Go development
-brew "go"
-brew "golangci-lint"
+# Node.js
+brew "pnpm"
+brew "yarn"
 
 # tmux
 brew "reattach-to-user-namespace"
