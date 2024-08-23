@@ -36,6 +36,7 @@ brew "golangci-lint"
 # Java
 brew "google-java-format"
 brew "gradle"
+brew "maven"
 
 # Lua
 brew "stylua"
