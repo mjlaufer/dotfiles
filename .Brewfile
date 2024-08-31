@@ -58,7 +58,7 @@ brew "ranger"
 brew "trash"
 
 # Databases
-brew "postgresql@14"
+brew "postgresql@16"
 
 # Apps
 tap "homebrew/cask-versions"
