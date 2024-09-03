@@ -46,7 +46,7 @@ local config = {
         '--add-opens',
         'java.base/java.lang=ALL-UNNAMED',
         '-jar',
-        jdtls_path .. 'plugins/org.eclipse.equinox.launcher_1.6.700.v20231214-2017.jar',
+        jdtls_path .. 'plugins/org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar',
         '-configuration',
         jdtls_path .. 'config_' .. os_name,
         '-data',
