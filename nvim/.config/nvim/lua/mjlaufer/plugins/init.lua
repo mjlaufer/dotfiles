@@ -180,6 +180,7 @@ require('lazy').setup({
                     c = { 'clang_format' },
                     css = { 'prettier' },
                     html = { 'prettier' },
+                    java = { 'google-java-format' },
                     javascript = { 'prettier' },
                     javascriptreact = { 'prettier' },
                     lua = { 'stylua' },
@@ -192,6 +193,8 @@ require('lazy').setup({
                     lsp_fallback = false,
                 },
             })
+            local util = require('conform.util')
+            util.add_formatter_args(require('conform.formatters.google-java-format'), { '--aosp' })
         end,
     },
     {
