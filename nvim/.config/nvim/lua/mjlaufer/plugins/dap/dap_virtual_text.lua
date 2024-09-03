@@ -3,7 +3,7 @@ local map = util.map
 
 require('nvim-dap-virtual-text').setup()
 
-util.useWhichKey({['<leader>it'] = {name = 'DAP Virtual Text'}})
+util.useWhichKey({ { '<leader>it', group = 'DAP Virtual Text' } })
 
 map('n', '<leader>itr', ':DapVirtualTextForceRefresh<CR>', 'Force refresh')
 map('n', '<leader>itt', ':DapVirtualTextToggle<CR>', 'Toggle')

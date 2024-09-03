@@ -18,18 +18,18 @@ require('toggleterm').setup({
     persist_size = true,
     close_on_exit = true,
     shells = vim.o.shell,
-    float_opts = {border = 'single'},
+    float_opts = { border = 'single' },
 })
 
 -- Set up lazygit.
 local Terminal = require('toggleterm.terminal').Terminal
-local lazygit = Terminal:new({cmd = 'lazygit', direction = 'float', hidden = true})
+local lazygit = Terminal:new({ cmd = 'lazygit', direction = 'float', hidden = true })
 
 function _G.toggle_lazygit()
     lazygit:toggle()
 end
 
-util.useWhichKey({['<leader>t'] = {name = 'Terminal'}})
+util.useWhichKey({ { '<leader>t', group = 'Terminal' } })
 
 map('n', '<Leader>tl', ':ToggleTerm direction=vertical<CR>', 'Right split')
 map('n', '<Leader>tj', ':ToggleTerm direction=horizontal<CR>', 'Bottom split')
@@ -37,7 +37,7 @@ map('n', '<Leader>tu', ':ToggleTerm direction=float<CR>', 'Float')
 map('n', '<Leader>tg', toggle_lazygit, 'lazygit')
 
 function _G.set_terminal_keymaps()
-    local opts = {buffer = 0, noremap = true, silent = true}
+    local opts = { buffer = 0, noremap = true, silent = true }
     map('t', '<esc>', [[<C-\><C-n>]], opts)
     map('t', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
     map('t', '<C-j>', [[<C-\><C-n><C-W>j]], opts)

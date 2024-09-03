@@ -12,7 +12,7 @@ telescope.setup({
     },
 })
 
-util.useWhichKey({ ['<leader>f'] = { name = 'Telescope' }, ['<leader>fi'] = { name = 'Inspect' } })
+util.useWhichKey({ { '<leader>f', group = 'Telescope' }, { '<leader>fi', group = 'Inspect' } })
 
 map(
     'n',

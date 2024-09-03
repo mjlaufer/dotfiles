@@ -1,4 +1,4 @@
-local which_key = require('which-key');
+local wk = require('which-key')
 
 local M = {}
 
@@ -8,21 +8,21 @@ M.map = function(mode, lhs, rhs, desc, opts)
     if not has_desc and opts == nil then
         opts = desc
     end
-    opts = opts or {noremap = true, silent = true}
+    opts = opts or { noremap = true, silent = true }
 
     vim.keymap.set(mode, lhs, rhs, opts)
 
     -- Set whichkey.
-    if (has_desc and which_key and mode == 'n') then
-        which_key.register({[lhs] = {rhs, desc}})
+    if has_desc and wk and mode == 'n' then
+        wk.add({ mode = { 'n' }, { lhs, rhs, desc = desc } })
     end
 end
 
 M.useWhichKey = function(config)
-    if not which_key then
+    if not wk then
         return
     else
-        which_key.register(config)
+        wk.add(config)
     end
 end
 

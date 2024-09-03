@@ -15,7 +15,7 @@ function _G.open_oil()
     require('oil').open()
 end
 
-util.useWhichKey({ ['<leader>e'] = { name = 'Explorer' } })
+util.useWhichKey({ { '<leader>e', group = 'Explorer' } })
 
 map('n', '<leader>eo', open_oil, 'Oil')
 map('n', '-', open_oil, 'Oil')

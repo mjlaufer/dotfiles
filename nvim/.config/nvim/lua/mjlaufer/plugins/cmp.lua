@@ -1,15 +1,15 @@
-vim.cmd [[
+vim.cmd([[
     " Completion menu options
     set completeopt=menu,menuone,noselect
     let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-]]
+]])
 
 require('luasnip/loaders/from_vscode').lazy_load()
 require('luasnip/loaders/from_vscode').lazy_load({
-    paths = {'~/.local/share/nvim/site/pack/packer/start/friendly-snippets'},
+    paths = { '~/.local/share/nvim/site/pack/packer/start/friendly-snippets' },
 })
 
-local formatting = {};
+local formatting = {}
 formatting.format = require('lspkind').cmp_format({
     with_text = true,
     menu = {
@@ -40,20 +40,23 @@ cmp.setup({
         ['<C-d>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.abort(),
-        ['<CR>'] = cmp.mapping.confirm({select = false}),
+        ['<CR>'] = cmp.mapping.confirm({ select = false }),
     }),
     sources = cmp.config.sources({
-        {name = 'nvim_lsp_signature_help'},
-        {name = 'nvim_lsp'},
-        {name = 'nvim_lua'},
-        {name = 'luasnip'},
-        {name = 'path'},
-        {name = 'buffer', keyword_length = 3},
+        { name = 'nvim_lsp_signature_help' },
+        { name = 'nvim_lsp' },
+        { name = 'nvim_lua' },
+        { name = 'luasnip' },
+        { name = 'path' },
+        { name = 'buffer', keyword_length = 3 },
     }),
     formatting = formatting,
-    cmp.setup.cmdline('/', {mapping = cmp.mapping.preset.cmdline(), sources = {{name = 'buffer'}}}),
+    cmp.setup.cmdline(
+        '/',
+        { mapping = cmp.mapping.preset.cmdline(), sources = { { name = 'buffer' } } }
+    ),
     cmp.setup.cmdline(':', {
         mapping = cmp.mapping.preset.cmdline(),
-        sources = cmp.config.sources({{name = 'path'}}, {{name = 'cmdline'}}),
+        sources = cmp.config.sources({ { name = 'path' } }, { { name = 'cmdline' } }),
     }),
 })

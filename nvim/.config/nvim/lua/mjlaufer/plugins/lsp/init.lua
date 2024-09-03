@@ -12,7 +12,7 @@ vim.fn.sign_define('DiagnosticSignInfo', { text = '', texthl = 'DiagnosticSig
 vim.fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'DiagnosticSignHint' })
 
 -- Set whichkey LSP entry.
-util.useWhichKey({ ['<leader>a'] = { name = 'LSP' } })
+util.useWhichKey({ { '<leader>a', group = 'LSP' } })
 
 map('n', '<leader>ad', vim.diagnostic.open_float, 'Show diagnostics')
 map('n', '<leader>ld', vim.diagnostic.setloclist, 'Show diagnostics in location list')
@@ -60,7 +60,7 @@ require('typescript').setup({
         on_attach = function(client, bufnr)
             opts.on_attach(client, bufnr)
 
-            util.useWhichKey({ ['<leader>at'] = { name = 'TS Utils' } })
+            util.useWhichKey({ { '<leader>at', group = 'TS Utils' } })
 
             local map_opts = { buffer = bufnr, noremap = true, silent = true }
             map('n', '<leader>atf', ':TypescriptFixAll<CR>', 'Fix all', map_opts)
@@ -124,7 +124,7 @@ rt.setup({
         on_attach = function(client, bufnr)
             opts.on_attach(client, bufnr)
 
-            util.useWhichKey({ ['<leader>r'] = { name = 'Rust Tools' } })
+            util.useWhichKey({ { '<leader>r', group = 'Rust Tools' } })
             -- Hover actions
             map(
                 'n',

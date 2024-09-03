@@ -95,8 +95,8 @@ vim.fn.sign_define('DapBreakpoint', { text = '🔴', texthl = '', linehl = '', n
 vim.fn.sign_define('DapBreakpointRejected', { text = '🔵', texthl = '', linehl = '', numhl = '' })
 
 util.useWhichKey({
-    ['<leader>i'] = { name = 'Inspect/debug' },
-    ['<leader>iw'] = { name = 'DAP Widgets' },
+    { '<leader>i', group = 'Inspect/debug' },
+    { '<leader>iw', group = 'DAP Widgets' },
 })
 
 map('n', '<leader>isn', start_node_debugger, 'Start Node debugger')

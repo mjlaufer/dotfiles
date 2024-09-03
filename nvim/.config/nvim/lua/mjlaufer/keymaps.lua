@@ -2,12 +2,10 @@ local map = require('mjlaufer.util').map
 local useWhichKey = require('mjlaufer.util').useWhichKey
 
 useWhichKey({
-    ['<leader>'] = {
-        c = {name = 'Quickfix list'},
-        l = {name = 'Location list'},
-        o = {name = 'Options'},
-        p = {name = 'Plenary'},
-    },
+    { '<leader>c', group = 'Quickfix list' },
+    { '<leader>l', group = 'Location list' },
+    { '<leader>o', group = 'Options' },
+    { '<leader>p', group = 'Plenary' },
 })
 
 -- Remap space as leader key.
@@ -46,19 +44,19 @@ map('n', '<leader>o4', ':set tabstop=4 softtabstop=4 shiftwidth=4<CR>', 'Set tab
 map('n', '<leader>os', ':set spell<CR>', 'Set spell checking')
 
 -- Better movement for wrapped lines
-map('n', 'k', 'v:count == 0 ? "gk" : "k"', {expr = true, silent = true})
-map('n', 'j', 'v:count == 0 ? "gj" : "j"', {expr = true, silent = true})
+map('n', 'k', 'v:count == 0 ? "gk" : "k"', { expr = true, silent = true })
+map('n', 'j', 'v:count == 0 ? "gj" : "j"', { expr = true, silent = true })
 
 -- [Visual] Move selected lines up/down.
-map('v', 'J', ':m \'>+1<CR>gv=gv')
-map('v', 'K', ':m \'<-2<CR>gv=gv')
+map('v', 'J', ":m '>+1<CR>gv=gv")
+map('v', 'K', ":m '<-2<CR>gv=gv")
 
 -- [Visual] Stay in indent mode.
 map('v', '<', '<gv')
 map('v', '>', '>gv')
 
 -- Highlight on yank.
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', {clear = true})
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
     callback = function()
         vim.highlight.on_yank()
@@ -68,8 +66,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- [Normal/Visual] Yank/delete to clipboard.
-map({'n', 'v'}, '<leader>y', '"+yy<CR>')
-map({'n', 'v'}, '<leader>d', '"+dd<CR>')
+map({ 'n', 'v' }, '<leader>y', '"+yy<CR>')
+map({ 'n', 'v' }, '<leader>d', '"+dd<CR>')
 -- [Normal] Put from clipboard.
 map('n', '<leader>p', '"+p<CR>')
 map('n', '<leader>P', '"+P<CR>')
@@ -77,30 +75,30 @@ map('n', '<leader>P', '"+P<CR>')
 map('x', '<leader>p', '"_dP')
 
 -- [Visual] Search in current selection.
-map('x', '/', '<esc>/\\%V', {noremap = true})
+map('x', '/', '<esc>/\\%V', { noremap = true })
 
 -- [Visual] Search for current selection.
 map('x', '*', ':lua VSetSearch("/")<CR>/<C-r>=@/<CR><CR>')
 map('x', '#', ':lua VSetSearch("?")<CR>?<C-r>=@/<CR><CR>')
 
 function _G.VSetSearch(search_cmd)
-    vim.cmd [[
+    vim.cmd([[
         let temp = @s
         norm! gv"sy
-    ]]
+    ]])
     if search_cmd == '/' then
-        vim.cmd [[ let @/ = '\V' . substitute(escape(@s, '/' . '\'), '\n', '\\n', 'g') ]]
+        vim.cmd([[ let @/ = '\V' . substitute(escape(@s, '/' . '\'), '\n', '\\n', 'g') ]])
     elseif search_cmd == '?' then
-        vim.cmd [[ let @/ = '\V' . substitute(escape(@s, '?' . '\'), '\n', '\\n', 'g') ]]
+        vim.cmd([[ let @/ = '\V' . substitute(escape(@s, '?' . '\'), '\n', '\\n', 'g') ]])
     end
-    vim.cmd [[ let @s = temp ]]
+    vim.cmd([[ let @s = temp ]])
 end
 
 -- Substitute word under cursor.
-map('n', '<leader>r', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], {noremap = true})
+map('n', '<leader>r', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { noremap = true })
 
 -- [Normal/Visual] Always use the same flags when repeating a substitution command.
-map({'n', 'x'}, '&', ':&&<CR>')
+map({ 'n', 'x' }, '&', ':&&<CR>')
 
 -- tmux-sessionizer
 map('n', '<c-s>', ':silent !tmux neww tmux-sessionizer<cr>')

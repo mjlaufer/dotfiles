@@ -84,7 +84,7 @@ local config = {
         jdtls.setup_dap({ hotcodereplace = 'auto' })
         jdtls.setup.add_commands()
 
-        util.useWhichKey({ ['<leader>r'] = { name = 'jdtls refactor' } })
+        util.useWhichKey({ { '<leader>r', group = 'jdtls refactor' } })
         local opts = { noremap = true, silent = true, buffer = bufnr }
         map('n', '<leader>ro', jdtls.organize_imports, 'Organize imports', opts)
         map('n', '<leader>rv', jdtls.extract_variable, 'Extract variable', opts)
