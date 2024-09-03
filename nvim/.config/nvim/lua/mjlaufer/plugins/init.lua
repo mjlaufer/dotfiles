@@ -179,7 +179,6 @@ require('lazy').setup({
                 formatters_by_ft = {
                     c = { 'clang_format' },
                     css = { 'prettier' },
-                    elm = { 'elm_format' },
                     html = { 'prettier' },
                     javascript = { 'prettier' },
                     javascriptreact = { 'prettier' },

@@ -27,7 +27,6 @@ brew "cmake"
 
 # Elm
 brew "elm"
-brew "elm-format"
 
 # Go
 brew "go"

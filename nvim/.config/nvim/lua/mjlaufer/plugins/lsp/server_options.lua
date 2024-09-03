@@ -44,7 +44,6 @@ M.on_attach = function(client, bufnr)
                 return not (
                     _client.name == 'clangd'
                     or _client.name == 'cssls'
-                    or _client.name == 'elmls'
                     or _client.name == 'jdtls'
                     or _client.name == 'html'
                     or _client.name == 'lua_ls'
