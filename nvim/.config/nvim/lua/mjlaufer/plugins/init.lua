@@ -184,6 +184,12 @@ require('lazy').setup({
         end,
     },
     {
+        'folke/ts-comments.nvim',
+        opts = {},
+        event = 'VeryLazy',
+        enabled = vim.fn.has('nvim-0.10.0') == 1,
+    },
+    {
         'windwp/nvim-autopairs',
         config = function()
             require('nvim-autopairs').setup({
@@ -201,24 +207,6 @@ require('lazy').setup({
         'windwp/nvim-ts-autotag',
         config = function()
             require('nvim-ts-autotag').setup()
-        end,
-    },
-    {
-        'numToStr/Comment.nvim',
-        dependencies = {
-            {
-                'JoosepAlviste/nvim-ts-context-commentstring',
-                config = function()
-                    require('ts_context_commentstring').setup({
-                        enable_autocmd = false,
-                    })
-                end,
-            },
-        },
-        config = function()
-            require('Comment').setup({
-                pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
-            })
         end,
     },
     {
