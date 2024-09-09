@@ -1,20 +1,19 @@
--- Bootstrap lazy.nvim
+-- Bootstrap lazy.nvim. See `:help lazy.nvim.txt`.
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
-if not vim.loop.fs_stat(lazypath) then
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
     vim.fn.system({
         'git',
         'clone',
         '--filter=blob:none',
-        'https://github.com/folke/lazy.nvim.git',
         '--branch=stable', -- latest stable release
+        'https://github.com/folke/lazy.nvim.git',
         lazypath,
     })
 end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-    -- Plenary is a lua function library that a lot of plugins depend on.
-    'nvim-lua/plenary.nvim',
+    'nvim-lua/plenary.nvim', -- Lua function library that a lot of plugins depend on.
 
     -- Colors
     {
@@ -50,8 +49,7 @@ require('lazy').setup({
     'nvim-treesitter/playground',
     'nvim-treesitter/nvim-treesitter-textobjects',
     {
-        -- Icons used by lualine and nvim-tree
-        'kyazdani42/nvim-web-devicons',
+        'kyazdani42/nvim-web-devicons', -- Icons used by lualine and nvim-tree
         config = function()
             require('nvim-web-devicons').setup({ override = {}, default = true })
         end,
@@ -74,16 +72,13 @@ require('lazy').setup({
     },
     'mfussenegger/nvim-jdtls',
     {
-        -- UI for LSP installation progress
-        'j-hui/fidget.nvim',
-        tag = 'legacy',
-        config = function()
-            require('fidget').setup()
-        end,
+        'j-hui/fidget.nvim', -- UI for LSP installation progress
+        opts = {},
     },
     'RRethy/vim-illuminate', -- Highlights identifier under curor
+
+    -- Completion
     {
-        -- Completion
         'hrsh7th/nvim-cmp',
         dependencies = {
             'hrsh7th/cmp-nvim-lsp',
@@ -114,7 +109,7 @@ require('lazy').setup({
     },
     {
         'nvim-telescope/telescope.nvim',
-        tag = '0.1.4',
+        branch = '0.1.x',
         config = function()
             require('mjlaufer.plugins.telescope')
         end,
@@ -151,12 +146,12 @@ require('lazy').setup({
     },
 
     -- Editor
-    'tpope/vim-surround',
+    'tpope/vim-surround', -- Provides maps for working with parens, brackets, tags, etc.
     'tpope/vim-repeat',
     'tpope/vim-unimpaired',
     'tpope/vim-eunuch',
     'tpope/vim-characterize',
-    'tpope/vim-sleuth',
+    'tpope/vim-sleuth', -- Adjusts `shiftwidth` and `expandtab` automatically
     'tpope/vim-abolish',
     {
         'stevearc/conform.nvim',
@@ -205,9 +200,7 @@ require('lazy').setup({
     },
     {
         'windwp/nvim-ts-autotag',
-        config = function()
-            require('nvim-ts-autotag').setup()
-        end,
+        opts = {},
     },
     {
         'justinmk/vim-sneak',

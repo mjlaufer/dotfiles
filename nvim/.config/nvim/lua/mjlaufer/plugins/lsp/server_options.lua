@@ -21,6 +21,7 @@ M.on_attach = function(client, bufnr)
         )
     end
 
+    util.useWhichKey({ { '<leader>a', group = 'LSP' } })
     -- See `:help vim.*` for documentation on any of the below functions
     local opts = { buffer = bufnr, noremap = true, silent = true }
     map('n', 'gd', vim.lsp.buf.definition, 'Go to definition', opts)

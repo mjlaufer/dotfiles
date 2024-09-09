@@ -11,14 +11,6 @@ vim.fn.sign_define('DiagnosticSignWarn', { text = '', texthl = 'DiagnosticSig
 vim.fn.sign_define('DiagnosticSignInfo', { text = '', texthl = 'DiagnosticSignInfo' })
 vim.fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'DiagnosticSignHint' })
 
--- Set whichkey LSP entry.
-util.useWhichKey({ { '<leader>a', group = 'LSP' } })
-
-map('n', '<leader>ad', vim.diagnostic.open_float, 'Show diagnostics')
-map('n', '<leader>ld', vim.diagnostic.setloclist, 'Show diagnostics in location list')
-map('n', '[d', vim.diagnostic.goto_prev, 'Previous diagnostic')
-map('n', ']d', vim.diagnostic.goto_next, 'Next diagnostic')
-
 -- Install and set up language servers.
 require('mason').setup()
 require('mason-lspconfig').setup({

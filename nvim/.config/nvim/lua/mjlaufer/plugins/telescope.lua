@@ -12,28 +12,27 @@ telescope.setup({
     },
 })
 
-util.useWhichKey({ { '<leader>f', group = 'Telescope' }, { '<leader>fi', group = 'Inspect' } })
+local builtin = require('telescope.builtin')
 
-map(
-    'n',
-    '<leader>ff',
-    ':lua require("telescope.builtin").find_files({find_command={"rg", "--files", "--hidden", "-g", "!.git"}})<CR>',
-    'Find files'
-)
-map('n', '<leader>fg', ':Telescope git_files<CR>', 'Find git files')
-map('n', '<leader>fs', ':Telescope live_grep<CR>', 'Live grep')
-map(
-    'n',
-    '<leader>fw',
-    ':lua require("telescope.builtin").grep_string({ search = vim.fn.input("Grep for > ")})<CR>',
-    'Find word'
-)
-map('n', '<leader>fb', ':Telescope buffers<CR>', 'List open buffers')
-map('n', '<leader>fe', ':Telescope file_browser<CR>', 'File browser')
-map('n', '<leader>fh', ':Telescope help_tags<CR>', 'Help tags')
+util.useWhichKey({ '<leader>f', group = 'Telescope' })
 
--- Telescope DAP
-telescope.load_extension('dap')
-map('n', '<leader>fib', ':Telescope dap list_breakpoints<CR>', 'List breakpoints')
-map('n', '<leader>fif', ':Telescope dap frames<CR>', 'Show frames')
-map('n', '<leader>fiv', ':Telescope dap variables<CR>', 'Show variables')
+map('n', '<leader>fb', builtin.buffers, 'List open buffers')
+map('n', '<leader>fd', builtin.diagnostics, 'List diagnostics')
+map('n', '<leader>ff', function()
+    builtin.find_files({ find_command = { 'rg', '--files', '--hidden', '-g', '!.git' } })
+end, 'Find files')
+map('n', '<leader>fg', builtin.git_files, 'Find git files')
+map('n', '<leader>fh', builtin.help_tags, 'Help tags')
+map('n', '<leader>fn', function()
+    builtin.find_files({ cwd = vim.fn.stdpath('config') })
+end, 'Find in Neovim files')
+map('n', '<leader>fo', function()
+    builtin.live_grep({
+        grep_open_files = true,
+        prompt_title = 'Live Grep in Open Files',
+    })
+end, 'Find in open files')
+map('n', '<leader>fs', builtin.live_grep, 'Live grep')
+map('n', '<leader>fw', function()
+    builtin.grep_string({ search = vim.fn.input('Grep for > ') })
+end, 'Find word')
