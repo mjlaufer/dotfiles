@@ -1,6 +1,3 @@
-local util = require('mjlaufer.util')
-local map = util.map
-
 require('codecompanion').setup({
     strategies = {
         chat = {
@@ -24,10 +21,7 @@ require('codecompanion').setup({
     },
 })
 
-util.useWhichKey({ { '<leader>m', group = 'CodeCompanion' } })
-
-map('n', '<leader>ma', ':CodeCompanionActions<CR>', 'Open action palette')
-map('n', '<leader>mt', ':CodeCompanionToggle<CR>', 'Toggle chat buffer')
-
--- Expand 'cc' into 'CodeCompanion' in the command line
+-- Expand CodeCompanion[...] commands.
 vim.cmd([[cab cc CodeCompanion]])
+vim.cmd([[cab cca CodeCompanionActions]])
+vim.cmd([[cab cct CodeCompanionToggle]])
