@@ -79,7 +79,8 @@ end
 map('n', '<leader>r', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { noremap = true })
 
 -- Always use the same flags when repeating a substitution command.
-map({ 'n', 'x' }, '&', ':&&<CR>')
+map('n', '&', ':&&<CR>')
+map('x', '&', ':&&<CR>')
 
 -- tmux-sessionizer
 map('n', '<c-s>', ':silent !tmux neww tmux-sessionizer<cr>')
