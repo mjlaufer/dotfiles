@@ -88,8 +88,13 @@ require('lazy').setup({
             'hrsh7th/cmp-nvim-lua',
             'onsails/lspkind-nvim',
             'saadparwaiz1/cmp_luasnip',
-            { 'L3MON4D3/LuaSnip', run = 'make install_jsregexp' },
-            'rafamadriz/friendly-snippets',
+            {
+                'L3MON4D3/LuaSnip', -- snippet engine
+                run = 'make install_jsregexp',
+                dependencies = {
+                    'rafamadriz/friendly-snippets', -- contains a variety of premade snippets
+                },
+            },
         },
         config = function()
             require('mjlaufer.plugins.cmp')
