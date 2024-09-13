@@ -1,6 +1,8 @@
 local util = require('mjlaufer.util')
 local map = util.map
-local dap = require('dap')
+
+vim.fn.sign_define('DapBreakpoint', { text = '🔴', texthl = '', linehl = '', numhl = '' })
+vim.fn.sign_define('DapBreakpointRejected', { text = '🔵', texthl = '', linehl = '', numhl = '' })
 
 local js_debug_adapter_config = {
     type = 'server',
@@ -16,9 +18,6 @@ local js_debug_adapter_config = {
     },
 }
 
-dap.adapters['pwa-chrome'] = js_debug_adapter_config
-dap.adapters['pwa-node'] = js_debug_adapter_config
-
 local chrome_config = {
     {
         type = 'pwa-chrome',
@@ -29,6 +28,12 @@ local chrome_config = {
         port = 9222,
     },
 }
+
+local dap = require('dap')
+
+dap.adapters['pwa-chrome'] = js_debug_adapter_config
+dap.adapters['pwa-node'] = js_debug_adapter_config
+
 dap.configurations.javascript = chrome_config
 dap.configurations.typescript = chrome_config
 dap.configurations.javascriptreact = chrome_config
@@ -78,6 +83,7 @@ dap.adapters.codelldb = {
         args = { '--port', 13000 },
     },
 }
+
 dap.configurations.c = {
     {
         name = 'Debug using codelldb',
@@ -90,9 +96,6 @@ dap.configurations.c = {
         stopOnEntry = false,
     },
 }
-
-vim.fn.sign_define('DapBreakpoint', { text = '🔴', texthl = '', linehl = '', numhl = '' })
-vim.fn.sign_define('DapBreakpointRejected', { text = '🔵', texthl = '', linehl = '', numhl = '' })
 
 util.useWhichKey({
     { '<leader>i', group = 'Inspect/debug' },
@@ -133,3 +136,20 @@ map(
     ':lua local widgets=require("dap.ui.widgets");widgets.sidebar(widgets.frames).open()<CR>',
     'Show frames'
 )
+
+-- Virtual text
+require('nvim-dap-virtual-text').setup()
+
+util.useWhichKey({ { '<leader>it', group = 'DAP Virtual Text' } })
+
+map('n', '<leader>itr', ':DapVirtualTextForceRefresh<CR>', 'Force refresh')
+map('n', '<leader>itt', ':DapVirtualTextToggle<CR>', 'Toggle')
+
+-- DAP UI
+require('dapui').setup()
+
+util.useWhichKey({ { '<leader>iu', group = 'DAP UI' } })
+
+map('n', '<leader>iui', ':lua require("dapui").toggle()<CR>', 'Toggle UI')
+map('n', '<leader>ius', ':lua require("dapui").toggle("sidebar")<CR>', 'Toggle sidebar')
+map('n', '<leader>iut', ':lua require("dapui").toggle("tray")<CR>', 'Toggle tray')
