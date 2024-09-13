@@ -78,6 +78,18 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 -- LANGUAGE SERVERS
+
+local vtslsLangSettings = {
+    inlayHints = {
+        parameterNames = { enabled = 'literals' },
+        parameterTypes = { enabled = true },
+        variableTypes = { enabled = true },
+        propertyDeclarationTypes = { enabled = true },
+        functionLikeReturnTypes = { enabled = true },
+        enumMemberValues = { enabled = true },
+    },
+}
+
 -- Add any server configuration overrides to the following tables.
 local servers = {
     biome = {},
@@ -126,7 +138,16 @@ local servers = {
             },
         },
     },
-    tsserver = {},
+    vtsls = {
+        settings = {
+            vtsls = {
+                -- Automatically use workspace version of TypeScript lib on startup.
+                autoUseWorkspaceTsdk = true,
+            },
+            javascript = vtslsLangSettings,
+            typescript = vtslsLangSettings,
+        },
+    },
     yamlls = {
         settings = {
             yaml = {
