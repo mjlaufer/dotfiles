@@ -1,9 +1,9 @@
 [user]
-	email = matthew.j.laufer@gmail.com
+    email = matthew.j.laufer@gmail.com
     name = Matthew Laufer
 
 [core]
-	editor = nvim
+    editor = nvim
     pager = delta
 
 [init]
@@ -31,7 +31,7 @@
     colorMoved = default
 
 [pull]
-	rebase = true
+    rebase = true
 
 [rerere]
-	enabled = true
+    enabled = true
