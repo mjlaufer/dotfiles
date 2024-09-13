@@ -166,16 +166,9 @@ Install the `code` command: Open the Command Palette (⇧ + ⌘ + p) and find th
 Install extensions:
 
 -   [Flashy](https://github.com/mjlaufer/flashy-vscode)
--   [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
--   [CodeLLDB](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb)
 -   [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
--   [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 -   [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
--   [Go](https://marketplace.visualstudio.com/items?itemName=golang.go)
 -   [Image Preview](https://marketplace.visualstudio.com/items?itemName=kisstkondoros.vscode-gutter-preview)
 -   [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
--   [npm Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense)
--   [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
--   [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
 -   [Version Lens](https://marketplace.visualstudio.com/items?itemName=pflannery.vscode-versionlens)
 -   [VSCodeVim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim)
