@@ -1,19 +1,28 @@
 # Mac config
 gui:
   theme:
+    activeBorderColor:
+      - yellow
+      - bold
     selectedLineBgColor:
       - default
-    selectedRangeBgColor:
-      - default
     cherryPickedCommitBgColor:
-      - yellow
-    cherryPickedCommitFgColor:
       - black
+    markedBaseCommitBgColor:
+      - black
+  border: single
+  nerdFontsVersion: '3'
 git:
   paging:
     colorArg: always
     pager: delta --dark --paging=never
+  mainBranches:
+    - main
+    - mainline
+    - master
 keybinding:
   universal:
     quit: '<c-q>'
     return: 'q'
+os:
+  editPreset: nvim
