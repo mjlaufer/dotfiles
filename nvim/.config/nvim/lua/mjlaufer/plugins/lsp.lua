@@ -102,40 +102,8 @@ local servers = {
     jsonls = {
         settings = {
             json = {
-                schemas = {
-                    {
-                        fileMatch = { 'package.json' },
-                        url = 'https://json.schemastore.org/package.json',
-                    },
-                    {
-                        fileMatch = { 'tsconfig*.json' },
-                        url = 'https://json.schemastore.org/tsconfig.json',
-                    },
-                    {
-                        fileMatch = { 'jsconfig*.json' },
-                        url = 'https://json.schemastore.org/jsconfig.json',
-                    },
-                    {
-                        fileMatch = {
-                            '.prettierrc',
-                            '.prettierrc.json',
-                            'prettier.config.json',
-                        },
-                        url = 'https://json.schemastore.org/prettierrc.json',
-                    },
-                    {
-                        fileMatch = { '.eslintrc', '.eslintrc.json' },
-                        url = 'https://json.schemastore.org/eslintrc.json',
-                    },
-                    {
-                        fileMatch = { '.babelrc', '.babelrc.json' },
-                        url = 'https://json.schemastore.org/babelrc.json',
-                    },
-                    {
-                        fileMatch = { '.stylelintrc', '.stylelintrc.json' },
-                        url = 'http://json.schemastore.org/stylelintrc',
-                    },
-                },
+                schemas = require('schemastore').json.schemas(),
+                validate = { enable = true },
             },
         },
     },
@@ -159,6 +127,18 @@ local servers = {
         },
     },
     tsserver = {},
+    yamlls = {
+        settings = {
+            yaml = {
+                -- Disable built-in Schema Store support to use schemastore plugin.
+                schemaStore = {
+                    enable = false,
+                    url = '',
+                },
+                schemas = require('schemastore').yaml.schemas(),
+            },
+        },
+    },
 }
 
 -- By default, Neovim doesn't fully support the completion capabilities in the LSP specification.

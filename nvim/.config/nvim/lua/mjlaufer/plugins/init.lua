@@ -65,6 +65,7 @@ require('lazy').setup({
                 'j-hui/fidget.nvim', -- UI for LSP installation progress
                 opts = {},
             },
+            'b0o/schemastore.nvim',
             'mfussenegger/nvim-jdtls',
             -- TODO: Add mrcjkb/rustaceanvim.
         },
