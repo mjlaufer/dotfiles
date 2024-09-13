@@ -50,7 +50,7 @@ local config = {
         '--add-opens',
         'java.base/java.lang=ALL-UNNAMED',
         '-jar',
-        jdtls_path .. 'plugins/org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar',
+        vim.fn.glob(jdtls_path .. 'plugins/org.eclipse.equinox.launcher_*.jar'),
         '-configuration',
         jdtls_path .. 'config_' .. os_name,
         '-data',
