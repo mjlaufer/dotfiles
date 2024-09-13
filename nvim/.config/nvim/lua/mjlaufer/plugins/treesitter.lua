@@ -1,7 +1,10 @@
 require('nvim-treesitter.configs').setup({
     ensure_installed = {
+        'bash',
+        'c',
         'comment',
         'css',
+        'diff',
         'dockerfile',
         'elm',
         'gitignore',
@@ -13,46 +16,51 @@ require('nvim-treesitter.configs').setup({
         'jsdoc',
         'json',
         'lua',
+        'markdown',
+        'markdown_inline',
         'rust',
         'scss',
+        'sql',
         'svelte',
         'toml',
         'tsx',
         'typescript',
         'vim',
+        'vimdoc',
         'yaml',
     },
     highlight = { enable = true },
-    incremental_selection = {
-        enable = true,
-        keymaps = {
-            init_selection = '<c-space>',
-            node_incremental = '<c-space>',
-            scope_incremental = '<c-s>',
-            node_decremental = '<c-backspace>',
-        },
-    },
     textobjects = {
         select = {
             enable = true,
-            lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+            lookahead = true, -- Automatically jump forward to textobj.
             keymaps = {
-                -- You can use the capture groups defined in textobjects.scm
-                ['aa'] = '@parameter.outer',
-                ['ia'] = '@parameter.inner',
-                ['af'] = '@function.outer',
-                ['if'] = '@function.inner',
-                ['ac'] = '@class.outer',
-                ['ic'] = '@class.inner',
+                ['af'] = { query = '@function.outer', desc = 'Select outer part of a function' },
+                ['if'] = { query = '@function.inner', desc = 'Select inner part of a function' },
+                ['ac'] = { query = '@class.outer', desc = 'Select outer part of a class region' },
+                ['ic'] = { query = '@class.inner', desc = 'Select inner part of a class region' },
             },
         },
         move = {
             enable = true,
-            set_jumps = true, -- whether to set jumps in the jumplist
-            goto_next_start = { [']m'] = '@function.outer', [']]'] = '@class.outer' },
-            goto_next_end = { [']M'] = '@function.outer', [']['] = '@class.outer' },
-            goto_previous_start = { ['[m'] = '@function.outer', ['[['] = '@class.outer' },
-            goto_previous_end = { ['[M'] = '@function.outer', ['[]'] = '@class.outer' },
+            set_jumps = true, -- Set jumps in the jumplist.
+            goto_next_start = {
+                [']m'] = { query = '@function.outer', desc = 'Next function start' },
+                [']]'] = { query = '@class.outer', desc = 'Next class start' },
+                [']o'] = { query = { '@loop.inner', '@loop.outer' }, desc = 'Next loop section' },
+            },
+            goto_next_end = {
+                [']M'] = { query = '@function.outer', desc = 'Next function end' },
+                [']['] = { query = '@class.outer', desc = 'Next class end' },
+            },
+            goto_previous_start = {
+                ['[m'] = { query = '@function.outer', desc = 'Previous function start' },
+                ['[['] = { query = '@class.outer', desc = 'Previous class start' },
+            },
+            goto_previous_end = {
+                ['[M'] = { query = '@function.outer', desc = 'Previous function end' },
+                ['[]'] = { query = '@class.outer', desc = 'Previous class end' },
+            },
         },
     },
 })

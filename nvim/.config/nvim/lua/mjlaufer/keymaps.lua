@@ -2,7 +2,7 @@ local map = require('mjlaufer.util').map
 local useWhichKey = require('mjlaufer.util').useWhichKey
 
 useWhichKey({
-    { '<leader>d', group = 'Diagnostics' },
+    { '<leader>l', group = 'Location List' },
     { '<leader>o', group = 'Options' },
     { '<leader>p', group = 'Plenary' },
 })
@@ -10,11 +10,8 @@ useWhichKey({
 -- Set <space> to no-op since we use it for our leader.
 map('', '<Space>', '<Nop>')
 
--- Diagnostics
-map('n', '<leader>dl', vim.diagnostic.setloclist, 'Show diagnostics in location list')
-map('n', '<leader>df', vim.diagnostic.open_float, 'Show diagnostics')
-map('n', '[d', vim.diagnostic.goto_prev, 'Previous diagnostic')
-map('n', ']d', vim.diagnostic.goto_next, 'Next diagnostic')
+-- Location list diagnostics
+map('n', '<leader>ld', vim.diagnostic.setloclist, 'Show diagnostics')
 
 -- Keep cursor line centered during page/search/list movement.
 map('n', '<C-f>', '<C-f>zz')

@@ -61,21 +61,17 @@ require('lazy').setup({
         dependencies = {
             'williamboman/mason.nvim',
             'williamboman/mason-lspconfig.nvim',
-            'jose-elias-alvarez/typescript.nvim',
-            -- TODO: Replace rust-tools.nvim with rustaceanvim.
-            -- { 'mrcjkb/rustaceanvim', version = '^4', ft = { 'rust' } },
-            'simrat39/rust-tools.nvim',
+            {
+                'j-hui/fidget.nvim', -- UI for LSP installation progress
+                opts = {},
+            },
+            'mfussenegger/nvim-jdtls',
+            -- TODO: Add mrcjkb/rustaceanvim.
         },
         config = function()
             require('mjlaufer.plugins.lsp')
         end,
     },
-    'mfussenegger/nvim-jdtls',
-    {
-        'j-hui/fidget.nvim', -- UI for LSP installation progress
-        opts = {},
-    },
-    'RRethy/vim-illuminate', -- Highlights identifier under curor
 
     -- Completion
     {
@@ -169,14 +165,16 @@ require('lazy').setup({
                     java = { 'google-java-format' },
                     javascript = { 'prettier' },
                     javascriptreact = { 'prettier' },
+                    json = { 'prettier' },
                     lua = { 'stylua' },
                     markdown = { 'prettier' },
                     rust = { 'rustfmt' },
                     typescript = { 'prettier' },
                     typescriptreact = { 'prettier' },
                 },
-                format_after_save = {
-                    lsp_fallback = false,
+                format_on_save = {
+                    lsp_format = 'fallback',
+                    timeout_ms = 2000,
                 },
             })
             local util = require('conform.util')

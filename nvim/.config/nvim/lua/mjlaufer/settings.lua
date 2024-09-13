@@ -13,6 +13,7 @@ local options = {
     showmode = false, -- Do not show a message for mode; Lualine handles this.
     errorbells = false,
     timeoutlen = 300, -- Decrease mapped sequence wait time (and display which-key popup sooner).
+    updatetime = 250,
     mouse = 'a',
     scrolloff = 8, -- Scroll when cursor is 8 lines from top or bottom.
 

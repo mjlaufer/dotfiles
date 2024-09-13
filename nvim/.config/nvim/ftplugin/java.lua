@@ -27,7 +27,11 @@ local bundles = {}
 vim.list_extend(bundles, java_debug_bundles)
 vim.list_extend(bundles, java_test_bundles)
 
-local server_opts = require('mjlaufer.plugins.lsp.server_options')
+-- See 'mjlaufer.plugins.lsp`.
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities =
+    vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+
 local extendedClientCapabilities = jdtls.extendedClientCapabilities
 extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
 
@@ -77,9 +81,7 @@ local config = {
             },
         },
     },
-    on_attach = function(client, bufnr)
-        server_opts.on_attach(client, bufnr)
-
+    on_attach = function(_, bufnr)
         -- DAP setup
         jdtls.setup_dap({ hotcodereplace = 'auto' })
         jdtls.setup.add_commands()
@@ -89,13 +91,13 @@ local config = {
         map('n', '<leader>ro', jdtls.organize_imports, 'Organize imports', opts)
         map('n', '<leader>rv', jdtls.extract_variable, 'Extract variable', opts)
         map('n', '<leader>rc', jdtls.extract_constant, 'Extract constant', opts)
-        map('v', 'rv', [[<esc><cmd>lua require('jdtls').extract_variable(true)<CR>]], opts)
-        map('v', 'rc', [[<esc><cmd>lua require('jdtls').extract_constant(true)<CR>]], opts)
-        map('v', 'rm', [[<esc><cmd>lua require('jdtls').extract_method(true)<CR>]], opts)
+        map('x', 'rv', [[<esc><cmd>lua require('jdtls').extract_variable(true)<CR>]], opts)
+        map('x', 'rc', [[<esc><cmd>lua require('jdtls').extract_constant(true)<CR>]], opts)
+        map('x', 'rm', [[<esc><cmd>lua require('jdtls').extract_method(true)<CR>]], opts)
         map('n', '<leader>sc', jdtls.test_class, 'Test class', opts)
         map('n', '<leader>sm', jdtls.test_nearest_method, 'Test nearest method', opts)
     end,
-    capabilities = server_opts.capabilities,
+    capabilities = capabilities,
     init_options = { bundles = bundles, extendedClientCapabilities = extendedClientCapabilities },
 }
 
