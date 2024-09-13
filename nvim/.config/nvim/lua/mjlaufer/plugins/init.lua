@@ -160,17 +160,17 @@ require('lazy').setup({
             require('conform').setup({
                 formatters_by_ft = {
                     c = { 'clang_format' },
-                    css = { 'prettier' },
+                    css = { 'biome', 'prettier', stop_after_first = true },
                     html = { 'prettier' },
                     java = { 'google-java-format' },
-                    javascript = { 'prettier' },
-                    javascriptreact = { 'prettier' },
-                    json = { 'prettier' },
+                    javascript = { 'biome', 'prettier', stop_after_first = true },
+                    javascriptreact = { 'biome', 'prettier', stop_after_first = true },
+                    json = { 'biome', 'prettier', stop_after_first = true },
                     lua = { 'stylua' },
                     markdown = { 'prettier' },
                     rust = { 'rustfmt' },
-                    typescript = { 'prettier' },
-                    typescriptreact = { 'prettier' },
+                    typescript = { 'biome', 'prettier', stop_after_first = true },
+                    typescriptreact = { 'biome', 'prettier', stop_after_first = true },
                 },
                 format_on_save = {
                     lsp_format = 'fallback',

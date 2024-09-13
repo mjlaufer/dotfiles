@@ -80,6 +80,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 -- LANGUAGE SERVERS
 -- Add any server configuration overrides to the following tables.
 local servers = {
+    biome = {},
     clangd = {},
     cssls = {},
     elmls = {},
