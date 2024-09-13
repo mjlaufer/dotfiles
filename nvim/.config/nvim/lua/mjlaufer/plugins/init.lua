@@ -66,13 +66,13 @@ require('lazy').setup({
                 opts = {},
             },
             'b0o/schemastore.nvim',
-            'mfussenegger/nvim-jdtls',
             -- TODO: Add mrcjkb/rustaceanvim.
         },
         config = function()
             require('mjlaufer.plugins.lsp')
         end,
     },
+    'mfussenegger/nvim-jdtls',
 
     -- Completion
     {
