@@ -246,7 +246,7 @@ require('lazy').setup({
         end,
     },
 
-    -- Debug/test
+    -- Debug
     'nvim-neotest/nvim-nio',
     {
         'mfussenegger/nvim-dap',
@@ -257,13 +257,6 @@ require('lazy').setup({
         },
         config = function()
             require('mjlaufer.plugins.dap')
-        end,
-    },
-    {
-        'nvim-neotest/neotest',
-        dependencies = { 'haydenmeade/neotest-jest' },
-        config = function()
-            require('mjlaufer.plugins.neotest')
         end,
     },
 
