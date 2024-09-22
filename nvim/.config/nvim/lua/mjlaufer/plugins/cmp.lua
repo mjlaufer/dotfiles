@@ -8,7 +8,7 @@ cmp.setup({
             require('luasnip').lsp_expand(args.body)
         end,
     },
-    completion = { completeopt = 'menu,menuone,noinsert' },
+    completion = { completeopt = 'menu,menuone,noinsert,noselect', autoselect = false },
     window = {
         -- For documentation, use dark background with border.
         documentation = cmp.config.window.bordered({
