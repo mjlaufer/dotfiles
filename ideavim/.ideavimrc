@@ -3,9 +3,9 @@ let mapleader=" "
 " Plugins  --------------------------------
 set surround
 set commentary
-set sneak
 set which-key
 set NERDTree
+:nmap s <Action>(flash.search)
 
 " Options ---------------------------------
 set relativenumber
