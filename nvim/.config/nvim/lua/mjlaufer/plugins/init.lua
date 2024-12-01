@@ -160,6 +160,18 @@ require('lazy').setup({
         'stevearc/conform.nvim',
         config = function()
             require('conform').setup({
+                formatters = {
+                    biome = {
+                        command = function()
+                            -- Resolve Biome from `node_modules`.
+                            return vim.fn.findfile(
+                                'node_modules/.bin/biome',
+                                vim.fn.expand('%:p:h') .. ';'
+                            )
+                        end,
+                        stdin = true,
+                    },
+                },
                 formatters_by_ft = {
                     c = { 'clang_format' },
                     css = { 'biome', 'prettier', stop_after_first = true },
