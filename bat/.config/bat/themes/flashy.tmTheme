@@ -135,6 +135,17 @@
 		</dict>
 		<dict>
 			<key>name</key>
+			<string>Language-specific variables</string>
+			<key>scope</key>
+			<string>variable.language</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#bf9af7</string>
+			</dict>
+		</dict>
+        <dict>
+			<key>name</key>
 			<string>Function name</string>
 			<key>scope</key>
 			<string>entity.name.function, variable.function, support.function</string>
@@ -149,17 +160,6 @@
 			<string>Function call</string>
 			<key>scope</key>
 			<string>meta.function-call</string>
-			<key>settings</key>
-			<dict>
-				<key>foreground</key>
-				<string>#6fb1e7</string>
-			</dict>
-		</dict>
-        <dict>
-			<key>name</key>
-			<string>Language method</string>
-			<key>scope</key>
-			<string>variable.language</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
