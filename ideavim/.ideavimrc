@@ -1,3 +1,5 @@
+" Set <space> as the leader key (See `:help mapleader`).
+" NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used).
 let mapleader=" "
 
 " Plugins  --------------------------------
@@ -5,23 +7,24 @@ set surround
 set commentary
 set which-key
 set NERDTree
+set functiontextobj
 :nmap s <Action>(flash.search)
 
 " Options ---------------------------------
-set relativenumber
-set nu
-set scrolloff=8
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
 set noerrorbells
+set scrolloff=8 " Scroll when cursoer is 8 lines from top or bottom.
+set nu " Show current line number.
+set relativenumber
+set hlsearch
+set incsearch " Highlight the currently matched string while searching.
+set ignorecase " Ignore casing in search patterns.
+set smartcase " Override ignorecase if search pattern contains uppercase.
 set ideajoin " Use vim's `J` in IntelliJ
 
 " Maps ------------------------------------
 
 " Change options
-:nmap <leader>oh :nohlsearch<CR>
+:nmap <esc> :nohlsearch<CR>
 
 " Better window navigation
 :nmap <C-h> <C-w>h
@@ -56,44 +59,49 @@ set ideajoin " Use vim's `J` in IntelliJ
 " Find
 :nmap <leader>ff <Action>(GotoFile)
 :nmap <leader>fs <Action>(FindInPath)
+:nmap <leader>fa <Action>(GotoAction)
 
 " Search
 :nmap <leader>/ <Action>(Find)
+
+" Language Server
+:nmap <C-w>d <Action>(ShowErrorDescription)
+:nmap [d <Action>(GotoPreviousError)
+:nmap ]d <Action>(GotoNextError)
+:nmap gr <Action>(ShowUsages)
+:nmap <leader>aa <Action>(ShowIntentionActions)
+:nmap <leader>ar <Action>(RenameElement)
 
 " Terminal
 :nmap <leader>tj <Action>(ActivateTerminalToolWindow)
 :nmap <leader>tl <Action>(ActivateTerminalToolWindow)
 :nmap <leader>tu <Action>(ActivateTerminalToolWindow)
 
-" Language Server
-:nmap <leader>al <Action>(ShowUsages)
-:nmap <leader>aa <Action>(ShowIntentionActions)
-
-" Diagnostics
-:nmap <leader>ad <Action>(ShowErrorDescription)
-:nmap [d <Action>(GotoPreviousError)
-:nmap ]d <Action>(GotoNextError)
-
-" Code refactoring
-:nmap <leader>rn <Action>(RenameElement)
-:nmap <leader>rl <Action>(Refactorings.QuickListPopupAction)
-:nmap <leader>rf <Action>(ReformatCode)
-:nmap <leader>rs <Action>(SurroundWith)
-:nmap <leader>ro <Action>(OptimizeImports)
-
 " Compile/Run
 :nmap <leader>cc <Action>(CompileDirty)
-:nmap <leader>rr <Action>(Run)
 :nmap <leader>ra <Action>(RunAnything)
 :nmap <leader>rc <Action>(RunClass)
+:nmap <leader>rq <Action>(Stop)
+:nmap <leader>rr <Action>(Run)
+
+" Debug (Inspect)
+:nmap <leader>ib <Action>(ToggleLineBreakpoint)
+:nmap <leader>ic <Action>(Resume)
+:nmap <leader>ij <Action>(StepOver)
+:nmap <leader>ik <Action>(StepOut)
+:nmap <leader>il <Action>(StepInto)
+:nmap <leader>iq <Action>(Stop)
+:nmap <leader>is <Action>(Debug)
 
 " Test (Spec)
 :nmap <leader>ss <Action>(RerunTests)
 :nmap <leader>sf <Action>(RerunFailedTests)
 
-" Debug (Inspect)
-:nmap <leader>ic <Action>(Debug)
-:nmap <leader>ib <Action>(ToggleLineBreakpoint)
-
 " Git
-:nmap <leader>gs <Action>(Vcs.Show.Local.Changes)
+:nmap <leader>go <Action>(Vcs.Show.Local.Changes)
+
+" Code refactoring
+:nmap <leader>rf <Action>(ReformatCode)
+:nmap <leader>ri <Action>(OptimizeImports)
+:nmap <leader>rl <Action>(Refactorings.QuickListPopupAction)
+:nmap <leader>rs <Action>(SurroundWith)
