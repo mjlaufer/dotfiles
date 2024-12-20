@@ -3,12 +3,15 @@ local useWhichKey = require('mjlaufer.util').useWhichKey
 
 useWhichKey({
     { '<leader>l', group = 'Location List' },
-    { '<leader>o', group = 'Options' },
+    { '<leader>o', group = 'Open in IDE' },
     { '<leader>p', group = 'Plenary' },
 })
 
 -- Set <space> to no-op since we use it for our leader.
 map('', '<Space>', '<Nop>')
+
+-- Remove search highlights.
+map('n', '<esc>', ':nohlsearch<CR>', 'Remove search highlights')
 
 -- Location list diagnostics
 map('n', '<leader>ld', vim.diagnostic.setloclist, 'Show diagnostics')
@@ -30,12 +33,6 @@ map('n', '<C-h>', '<C-w>h')
 map('n', '<C-j>', '<C-w>j')
 map('n', '<C-k>', '<C-w>k')
 map('n', '<C-l>', '<C-w>l')
-
--- Change options.
-map('n', '<esc>', ':nohlsearch<CR>', 'Remove search highlights')
-map('n', '<leader>o2', ':set tabstop=2 softtabstop=2 shiftwidth=2<CR>', 'Set tab to 2 spaces')
-map('n', '<leader>o4', ':set tabstop=4 softtabstop=4 shiftwidth=4<CR>', 'Set tab to 4 spaces')
-map('n', '<leader>os', ':set spell<CR>', 'Set spell checking')
 
 -- Better movement for wrapped lines
 map('n', 'k', 'v:count == 0 ? "gk" : "k"', { expr = true, silent = true })
@@ -84,6 +81,23 @@ map('n', '<c-s>', ':silent !tmux neww tmux-sessionizer<cr>')
 
 -- Run current spec file with plenary.test_harness.
 map('n', '<leader>ps', '<Plug>PlenaryTestFile', 'Run current spec file')
+
+-- Open IDEs.
+map('n', '<leader>oc', function()
+    vim.cmd('!clion .')
+end, 'Open in CLion')
+map('n', '<leader>og', function()
+    vim.cmd('!goland1 .')
+end, 'Open in GoLand')
+map('n', '<leader>oi', function()
+    vim.cmd('!idea1 .')
+end, 'Open in IntelliJ IDEA')
+map('n', '<leader>or', function()
+    vim.cmd('!rustrover .')
+end, 'Open in RustRover')
+map('n', '<leader>ow', function()
+    vim.cmd('!webstorm1 .')
+end, 'Open in WebStorm')
 
 -- Reload config.
 map('n', '<leader><CR>', RELOAD_CONFIG)
