@@ -276,7 +276,7 @@ require('lazy').setup({
         ft = 'markdown',
     },
     {
-        'NvChad/nvim-colorizer.lua',
+        'catgoose/nvim-colorizer.lua',
         config = function()
             require('colorizer').setup({
                 filetypes = { '*', css = { rgb_fn = true, hsl_fn = true } },
