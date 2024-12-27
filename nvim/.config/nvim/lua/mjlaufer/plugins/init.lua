@@ -46,7 +46,6 @@ require('lazy').setup({
         end,
     },
     'nvim-treesitter/nvim-treesitter-context',
-    'nvim-treesitter/playground',
     'nvim-treesitter/nvim-treesitter-textobjects',
     {
         'kyazdani42/nvim-web-devicons', -- Icons used by lualine and nvim-tree
