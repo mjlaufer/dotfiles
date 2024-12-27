@@ -150,12 +150,11 @@ require('lazy').setup({
 
     -- Editor
     'tpope/vim-surround', -- Provides maps for working with parens, brackets, tags, etc.
-    'tpope/vim-repeat',
-    'tpope/vim-unimpaired',
-    'tpope/vim-eunuch',
-    'tpope/vim-characterize',
+    'tpope/vim-unimpaired', -- Provides maps for complementary pairs (e.g., `]q` for `:cnext` and `[q` for `:cprevious`).
+    'tpope/vim-repeat', -- Applies `.` to vim-surround and vim-unimpaired.
+    'tpope/vim-eunuch', -- Vim sugar for Unix shell commands (e.g., `:Chmod`).
+    'tpope/vim-characterize', -- Enhances `ga`, which displays a character's representation in decimal, octal, and hex.
     'tpope/vim-sleuth', -- Adjusts `shiftwidth` and `expandtab` automatically
-    'tpope/vim-abolish',
     {
         'stevearc/conform.nvim',
         config = function()
@@ -286,7 +285,6 @@ require('lazy').setup({
 
     -- Git
     'tpope/vim-fugitive',
-    'tpope/vim-rhubarb', -- GitHub integration
     {
         'lewis6991/gitsigns.nvim',
         config = function()
