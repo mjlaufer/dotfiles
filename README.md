@@ -126,9 +126,9 @@ Run `:Lazy restore` to install/update all plugins to the state in the lockfile. 
 Use `:MasonInstall [SERVER_NAME]` (see [Mason](https://github.com/williamboman/mason.nvim)) to install [DAP](https://microsoft.github.io/debug-adapter-protocol/) servers:
 
 -   C/Rust: `codelldb`
--   JavaScript/TypeScript: `js-debug-adapter`
+-   Go: `delve`
 -   Java: `java-debug-adapter` and `java-test`
--   Go: `go-debug-adapter`
+-   JavaScript/TypeScript: `js-debug-adapter`
 
 To debug in Chrome, make sure to first run Chrome with remote debugging enabled:
 
