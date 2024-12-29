@@ -56,11 +56,6 @@ set ideajoin " Use vim's `J` in IntelliJ
 :vmap < <gv
 :vmap > >gv
 
-" Find
-:nmap <leader>ff <Action>(GotoFile)
-:nmap <leader>fs <Action>(FindInPath)
-:nmap <leader>fa <Action>(GotoAction)
-
 " Search
 :nmap <leader>/ <Action>(Find)
 
@@ -72,10 +67,18 @@ set ideajoin " Use vim's `J` in IntelliJ
 :nmap <leader>aa <Action>(ShowIntentionActions)
 :nmap <leader>ar <Action>(RenameElement)
 
+" Find
+:nmap <leader>ff <Action>(GotoFile)
+:nmap <leader>fs <Action>(FindInPath)
+:nmap <leader>fa <Action>(GotoAction)
+
 " Terminal
 :nmap <leader>tj <Action>(ActivateTerminalToolWindow)
 :nmap <leader>tl <Action>(ActivateTerminalToolWindow)
 :nmap <leader>tu <Action>(ActivateTerminalToolWindow)
+
+" Git
+:nmap <leader>go <Action>(Vcs.Show.Local.Changes)
 
 " Compile/Run
 :nmap <leader>cc <Action>(CompileDirty)
@@ -84,24 +87,17 @@ set ideajoin " Use vim's `J` in IntelliJ
 :nmap <leader>rq <Action>(Stop)
 :nmap <leader>rr <Action>(Run)
 
-" Debug (Inspect)
-:nmap <leader>ib <Action>(ToggleLineBreakpoint)
-:nmap <leader>ic <Action>(Resume)
-:nmap <leader>ij <Action>(StepOver)
-:nmap <leader>ik <Action>(StepOut)
-:nmap <leader>il <Action>(StepInto)
-:nmap <leader>iq <Action>(Stop)
-:nmap <leader>is <Action>(Debug)
-
-" Test (Spec)
-:nmap <leader>ss <Action>(RerunTests)
-:nmap <leader>sf <Action>(RerunFailedTests)
-
-" Git
-:nmap <leader>go <Action>(Vcs.Show.Local.Changes)
-
-" Code refactoring
+" Refactor
 :nmap <leader>rf <Action>(ReformatCode)
 :nmap <leader>ri <Action>(OptimizeImports)
 :nmap <leader>rl <Action>(Refactorings.QuickListPopupAction)
 :nmap <leader>rs <Action>(SurroundWith)
+
+" Debug
+:nmap <leader>db <Action>(ToggleLineBreakpoint)
+:nmap <leader>dc <Action>(Resume)
+:nmap <leader>dj <Action>(StepOver)
+:nmap <leader>dk <Action>(StepOut)
+:nmap <leader>dl <Action>(StepInto)
+:nmap <leader>dq <Action>(Stop)
+:nmap <leader>ds <Action>(Debug)

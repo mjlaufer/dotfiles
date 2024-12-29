@@ -164,47 +164,43 @@ _G.start_node_debugger = function()
 end
 
 util.useWhichKey({
-    { '<leader>i', group = 'Inspect/debug' },
-    { '<leader>iw', group = 'DAP Widgets' },
+    { '<leader>d', group = 'Debug' },
+    { '<leader>dw', group = 'DAP Widgets' },
 })
 
-map('n', '<leader>ib', dap.toggle_breakpoint, 'Toggle breakpoint')
-map('n', '<leader>ic', dap.continue, 'Start/continue')
-map('n', '<leader>ij', dap.step_over, 'Step over')
-map('n', '<leader>ik', dap.step_out, 'Step out')
-map('n', '<leader>il', dap.step_into, 'Step into')
-map('n', '<leader>im', function()
+map('n', '<leader>db', dap.toggle_breakpoint, 'Toggle breakpoint')
+map('n', '<leader>dc', dap.continue, 'Start/continue')
+map('n', '<leader>dj', dap.step_over, 'Step over')
+map('n', '<leader>dk', dap.step_out, 'Step out')
+map('n', '<leader>dl', dap.step_into, 'Step into')
+map('n', '<leader>dm', function()
     require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))
 end, 'Set breakpoint log message')
-map('n', '<leader>in', function()
+map('n', '<leader>dn', function()
     require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))
 end, 'Set breakpoint condition')
-map('n', '<leader>iq', dap.close, 'Quit')
-map('n', '<leader>ir', dap.repl.open, 'Open REPL')
-map('n', '<leader>is', start_node_debugger, 'Start Node debugger')
+map('n', '<leader>dq', dap.close, 'Quit')
+map('n', '<leader>dr', dap.repl.open, 'Open REPL')
+map('n', '<leader>ds', start_node_debugger, 'Start Node debugger')
 
 -- DAP Widgets
-map('n', '<leader>iwu', require('dap.ui.widgets').hover, 'Show expression under cursor')
-map(
-    'n',
-    '<leader>iws',
-    ':lua local widgets=require("dap.ui.widgets");widgets.sidebar(widgets.scopes).open()<CR>',
-    'Show scopes'
-)
-map(
-    'n',
-    '<leader>iwf',
-    ':lua local widgets=require("dap.ui.widgets");widgets.sidebar(widgets.frames).open()<CR>',
-    'Show frames'
-)
+map('n', '<leader>dwu', require('dap.ui.widgets').hover, 'Show expression under cursor')
+map('n', '<leader>dws', function()
+    local widgets = require('dap.ui.widgets')
+    widgets.sidebar(widgets.scopes).open()
+end, 'Show scopes')
+map('n', '<leader>dwf', function()
+    local widgets = require('dap.ui.widgets')
+    widgets.sidebar(widgets.frames).open()
+end, 'Show frames')
 
 -- Virtual text
 require('nvim-dap-virtual-text').setup()
 
-util.useWhichKey({ { '<leader>it', group = 'DAP Virtual Text' } })
+util.useWhichKey({ { '<leader>dt', group = 'DAP Virtual Text' } })
 
-map('n', '<leader>itr', ':DapVirtualTextForceRefresh<CR>', 'Force refresh')
-map('n', '<leader>itt', ':DapVirtualTextToggle<CR>', 'Toggle')
+map('n', '<leader>dtr', ':DapVirtualTextForceRefresh<CR>', 'Force refresh')
+map('n', '<leader>dtt', ':DapVirtualTextToggle<CR>', 'Toggle')
 
 -- DAP UI
 local dapui = require('dapui')
@@ -223,12 +219,12 @@ dap.listeners.before.event_exited.dapui_config = function()
     dapui.close()
 end
 
-util.useWhichKey({ { '<leader>iu', group = 'DAP UI' } })
+util.useWhichKey({ { '<leader>du', group = 'DAP UI' } })
 
-map('n', '<leader>iui', dapui.toggle, 'Toggle UI')
-map('n', '<leader>ius', function()
+map('n', '<leader>dui', dapui.toggle, 'Toggle UI')
+map('n', '<leader>dus', function()
     dapui.toggle('sidebar')
 end, 'Toggle sidebar')
-map('n', '<leader>iut', function()
+map('n', '<leader>dut', function()
     dapui.toggle('tray')
 end, 'Toggle tray')
