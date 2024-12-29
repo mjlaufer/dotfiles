@@ -56,9 +56,6 @@ brew "ripgrep"
 brew "ranger"
 brew "trash"
 
-# Databases
-brew "postgresql@16"
-
 # Apps
 tap "homebrew/cask-versions"
 cask "brave-browser"
