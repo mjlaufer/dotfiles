@@ -207,16 +207,28 @@ map('n', '<leader>itr', ':DapVirtualTextForceRefresh<CR>', 'Force refresh')
 map('n', '<leader>itt', ':DapVirtualTextToggle<CR>', 'Toggle')
 
 -- DAP UI
-require('dapui').setup()
+local dapui = require('dapui')
+dapui.setup()
+
+dap.listeners.before.attach.dapui_config = function()
+    dapui.open()
+end
+dap.listeners.before.launch.dapui_config = function()
+    dapui.open()
+end
+dap.listeners.before.event_terminated.dapui_config = function()
+    dapui.close()
+end
+dap.listeners.before.event_exited.dapui_config = function()
+    dapui.close()
+end
 
 util.useWhichKey({ { '<leader>iu', group = 'DAP UI' } })
 
-map('n', '<leader>iui', function()
-    require('dapui').toggle()
-end, 'Toggle UI')
+map('n', '<leader>iui', dapui.toggle, 'Toggle UI')
 map('n', '<leader>ius', function()
-    require('dapui').toggle('sidebar')
+    dapui.toggle('sidebar')
 end, 'Toggle sidebar')
 map('n', '<leader>iut', function()
-    require('dapui').toggle('tray')
+    dapui.toggle('tray')
 end, 'Toggle tray')
