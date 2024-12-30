@@ -47,6 +47,7 @@ mise use -g node@lts
 
 # Go tools
 echo "\nInstalling Go tools..."
+go install golang.org/x/pkgsite/cmd/pkgsite@latest
 go install golang.org/x/tools/cmd/goimports@latest
 go install mvdan.cc/gofumpt@latest
 go install github.com/cweill/gotests/gotests@latest

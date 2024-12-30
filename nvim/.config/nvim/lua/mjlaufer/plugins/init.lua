@@ -312,7 +312,7 @@ require('lazy').setup({
         end,
     },
 
-    -- Language-specific tools
+    -- Language-specific tools (non-LSP)
     {
         'olexsmir/gopher.nvim',
         ft = 'go',
