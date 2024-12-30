@@ -1,13 +1,10 @@
 require('codecompanion').setup({
     strategies = {
         chat = {
-            adapter = 'anthropic',
+            adapter = 'copilot',
         },
         inline = {
-            adapter = 'anthropic',
-        },
-        agent = {
-            adapter = 'anthropic',
+            adapter = 'copilot',
         },
     },
     adapters = {
@@ -24,4 +21,4 @@ require('codecompanion').setup({
 -- Expand CodeCompanion[...] commands.
 vim.cmd([[cab cc CodeCompanion]])
 vim.cmd([[cab cca CodeCompanionActions]])
-vim.cmd([[cab cct CodeCompanionToggle]])
+vim.cmd([[cab ccc CodeCompanionChat]])

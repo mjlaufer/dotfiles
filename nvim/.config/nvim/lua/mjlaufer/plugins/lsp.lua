@@ -22,10 +22,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
         map('n', 'gD', vim.lsp.buf.declaration, 'Go to declaration', opts)
         map('n', 'gI', vim.lsp.buf.implementation, 'Go to implementations', opts)
         map('n', 'gr', vim.lsp.buf.references, 'Go to references', opts)
-        map('n', '<leader>at', vim.lsp.buf.type_definition, 'Go to type definition', opts)
         map('n', '<leader>aa', vim.lsp.buf.code_action, 'Code actions', opts)
+        map('x', '<leader>aa', vim.lsp.buf.code_action, 'Code actions', opts)
         map('n', '<leader>ac', vim.lsp.buf.incoming_calls, 'List call sites', opts)
         map('n', '<leader>ar', vim.lsp.buf.rename, 'Rename references', opts)
+        map('n', '<leader>at', vim.lsp.buf.type_definition, 'Go to type definition', opts)
+        map('n', '<leader>al', vim.lsp.codelens.run, 'Run codelens action', opts)
 
         local client = vim.lsp.get_client_by_id(event.data.client_id)
 
@@ -98,7 +100,24 @@ local servers = {
     elmls = {},
     eslint = {},
     golangci_lint_ls = {},
-    gopls = {},
+    gopls = {
+        settings = {
+            completeUnimported = true,
+            usePlaceholders = true,
+            analyses = {
+                unusedparams = true,
+                nilness = true,
+            },
+        },
+        codelenses = {
+            generate = true,
+            gc_details = true,
+            regenerate_cgo = true,
+            tidy = true,
+            upgrade_dependency = true,
+            vendor = true,
+        },
+    },
     gradle_ls = {
         cmd = { vim.fn.stdpath('data') .. '/mason/bin/gradle-language-server' },
         filetypes = { 'groovy', 'kotlin' },

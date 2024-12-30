@@ -48,6 +48,11 @@ mise use -g node@lts
 # Go tools
 echo "\nInstalling Go tools..."
 go install golang.org/x/tools/cmd/goimports@latest
+go install mvdan.cc/gofumpt@latest
+go install github.com/cweill/gotests/gotests@latest
+go install github.com/koron/iferr@latest
+go install github.com/josharian/impl@latest
+go install github.com/fatih/gomodifytags@latest
 
 # JDK
 echo "\nInstalling OpenJDK..."

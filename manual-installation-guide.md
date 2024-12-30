@@ -74,6 +74,11 @@ Install Go tools.
 
 ```sh
 $ go install golang.org/x/tools/cmd/goimports@latest
+$ go install mvdan.cc/gofumpt@latest
+$ go install github.com/cweill/gotests/gotests@latest
+$ go install github.com/koron/iferr@latest
+$ go install github.com/josharian/impl@latest
+$ go install github.com/fatih/gomodifytags@latest
 ```
 
 Install the JDK

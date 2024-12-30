@@ -312,6 +312,22 @@ require('lazy').setup({
         end,
     },
 
+    -- Language-specific tools
+    {
+        'olexsmir/gopher.nvim',
+        ft = 'go',
+        ---@type gopher.Config
+        opts = {
+            commands = {
+                go = 'go',
+                gomodifytags = 'gomodifytags',
+                gotests = 'gotests',
+                impl = 'impl',
+                iferr = 'iferr',
+            },
+        },
+    },
+
     -- LLM support
     {
         'olimorris/codecompanion.nvim',
