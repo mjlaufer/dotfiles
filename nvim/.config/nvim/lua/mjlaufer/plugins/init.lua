@@ -173,6 +173,7 @@ require('lazy').setup({
                 formatters_by_ft = {
                     c = { 'clang_format' },
                     css = { 'biome', 'prettier', stop_after_first = true },
+                    go = { 'goimports' },
                     html = { 'prettier' },
                     java = { 'google-java-format' },
                     javascript = { 'biome', 'prettier', stop_after_first = true },

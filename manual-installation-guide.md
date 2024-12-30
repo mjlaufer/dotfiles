@@ -70,6 +70,12 @@ Install Node.js.
 $ mise use -g node@lts
 ```
 
+Install Go tools.
+
+```sh
+$ go install golang.org/x/tools/cmd/goimports@latest
+```
+
 Install the JDK
 
 ```sh

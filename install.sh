@@ -45,6 +45,10 @@ curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 echo "\nInstalling Node.js..."
 mise use -g node@lts
 
+# Go tools
+echo "\nInstalling Go tools..."
+go install golang.org/x/tools/cmd/goimports@latest
+
 # JDK
 echo "\nInstalling OpenJDK..."
 mise use -g java@22
