@@ -329,6 +329,7 @@ require('lazy').setup({
     },
 
     -- LLM support
+    'github/copilot.vim',
     {
         'olimorris/codecompanion.nvim',
         config = function()
