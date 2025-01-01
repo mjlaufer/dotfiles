@@ -6,7 +6,7 @@ require('toggleterm').setup({
         if term.direction == 'horizontal' then
             return 20
         elseif term.direction == 'vertical' then
-            return 100
+            return 80
         end
     end,
     open_mapping = [[<c-\>]],
@@ -21,20 +21,17 @@ require('toggleterm').setup({
     float_opts = { border = 'single' },
 })
 
+vim.cmd([[cab tt ToggleTerm direction=float]])
+vim.cmd([[cab tts ToggleTerm direction=horizontal]])
+vim.cmd([[cab ttv ToggleTerm direction=vertical]])
+
 -- Set up lazygit.
 local Terminal = require('toggleterm.terminal').Terminal
 local lazygit = Terminal:new({ cmd = 'lazygit', direction = 'float', hidden = true })
 
-function _G.toggle_lazygit()
+map('n', '<leader>gl', function()
     lazygit:toggle()
-end
-
-util.useWhichKey({ { '<leader>t', group = 'Terminal' } })
-
-map('n', '<Leader>tl', ':ToggleTerm direction=vertical<CR>', 'Right split')
-map('n', '<Leader>tj', ':ToggleTerm direction=horizontal<CR>', 'Bottom split')
-map('n', '<Leader>tu', ':ToggleTerm direction=float<CR>', 'Float')
-map('n', '<Leader>tg', toggle_lazygit, 'lazygit')
+end, 'lazygit')
 
 function _G.set_terminal_keymaps()
     local opts = { buffer = 0, noremap = true, silent = true }

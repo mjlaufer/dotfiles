@@ -18,7 +18,6 @@ require('codecompanion').setup({
     },
 })
 
--- Expand CodeCompanion[...] commands.
 vim.cmd([[cab cc CodeCompanion]])
 vim.cmd([[cab cca CodeCompanionActions]])
 vim.cmd([[cab ccc CodeCompanionChat]])
