@@ -102,7 +102,7 @@ dap.configurations.go = {
     {
         -- For debugging all tests in a package.
         type = 'delve',
-        name = 'Debug Package Test',
+        name = 'Debug Package Tests',
         request = 'launch',
         mode = 'test',
         program = './${relativeFileDirname}',

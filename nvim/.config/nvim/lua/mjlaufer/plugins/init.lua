@@ -256,17 +256,82 @@ require('lazy').setup({
         end,
     },
 
-    -- Debug
+    -- Debug + Test
+    'nvim-neotest/nvim-nio', -- Dependency for neotest and nvim-dap-ui
     {
         'rcarriga/nvim-dap-ui',
         dependencies = {
-            'nvim-neotest/nvim-nio',
             'mfussenegger/nvim-dap',
             { 'theHamsta/nvim-dap-virtual-text', opts = {} },
         },
         config = function()
             require('mjlaufer.plugins.dap')
         end,
+    },
+    {
+        'nvim-neotest/neotest',
+        dependencies = {
+            'antoinemadec/FixCursorHold.nvim',
+            'fredrikaverpil/neotest-golang',
+        },
+        config = function()
+            require('neotest').setup({
+                adapters = {
+                    require('neotest-golang'),
+                },
+            })
+        end,
+        keys = {
+            {
+                'tf',
+                function()
+                    require('neotest').run.run(vim.fn.expand('%'))
+                end,
+                desc = 'Run test file',
+            },
+            {
+                'to',
+                function()
+                    require('neotest').output.open({ enter = true, auto_close = true })
+                end,
+                desc = 'Open test output',
+            },
+            {
+                'tO',
+                function()
+                    require('neotest').output_panel.toggle()
+                end,
+                desc = 'Open test output panel',
+            },
+            {
+                'tn',
+                function()
+                    require('neotest').run.run()
+                end,
+                desc = 'Run nearest test',
+            },
+            {
+                'ts',
+                function()
+                    require('neotest').run.run({ suite = true })
+                end,
+                desc = 'Run test suite',
+            },
+            {
+                'tS',
+                function()
+                    require('neotest').summary.toggle()
+                end,
+                desc = 'Toggle test summary',
+            },
+            {
+                'tt',
+                function()
+                    require('neotest').run.stop()
+                end,
+                desc = 'Terminate test',
+            },
+        },
     },
 
     -- Language-specific tools (non-LSP)
