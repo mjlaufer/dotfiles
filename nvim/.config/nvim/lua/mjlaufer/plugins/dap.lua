@@ -14,6 +14,37 @@ vim.fn.sign_define(
     { text = '▶', texthl = 'DapStoppedText', linehl = 'DapStoppedLine', numhl = '' }
 )
 
+-- Install debuggers with mason.nvim.
+
+local debuggers = {
+    'codelldb',
+    'delve',
+    'java-debug-adapter',
+    'java-test',
+    'js-debug-adapter',
+}
+
+local mason_registry = require('mason-registry')
+
+local function ensure_installed()
+    for _, debugger in ipairs(debuggers) do
+        local package = mason_registry.get_package(debugger)
+        if not package:is_installed() then
+            vim.notify('Installing ' .. debugger .. '...', vim.log.levels.INFO)
+            package:install():once(
+                'closed',
+                vim.schedule_wrap(function()
+                    vim.notify('Successfully installed: ' .. debugger, vim.log.levels.INFO)
+                end)
+            )
+        end
+    end
+end
+
+mason_registry.refresh(vim.schedule_wrap(ensure_installed))
+
+-- DAP CONFIGURATIONS
+
 local dap = require('dap')
 
 -- C
@@ -193,14 +224,6 @@ map('n', '<leader>dwf', function()
     local widgets = require('dap.ui.widgets')
     widgets.sidebar(widgets.frames).open()
 end, 'Show frames')
-
--- Virtual text
-require('nvim-dap-virtual-text').setup()
-
-util.useWhichKey({ { '<leader>dt', group = 'DAP Virtual Text' } })
-
-map('n', '<leader>dtr', ':DapVirtualTextForceRefresh<CR>', 'Force refresh')
-map('n', '<leader>dtt', ':DapVirtualTextToggle<CR>', 'Toggle')
 
 -- DAP UI
 local dapui = require('dapui')

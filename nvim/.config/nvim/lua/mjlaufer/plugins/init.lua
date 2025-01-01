@@ -62,9 +62,7 @@ require('lazy').setup({
                 'j-hui/fidget.nvim', -- UI for LSP installation progress
                 opts = {},
             },
-            'yioneko/nvim-vtsls',
             'b0o/schemastore.nvim',
-            -- TODO: Add mrcjkb/rustaceanvim.
         },
         config = function()
             require('mjlaufer.plugins.lsp')
@@ -259,13 +257,12 @@ require('lazy').setup({
     },
 
     -- Debug
-    'nvim-neotest/nvim-nio',
     {
-        'mfussenegger/nvim-dap',
+        'rcarriga/nvim-dap-ui',
         dependencies = {
-            'nvim-telescope/telescope-dap.nvim',
-            'theHamsta/nvim-dap-virtual-text',
-            'rcarriga/nvim-dap-ui',
+            'nvim-neotest/nvim-nio',
+            'mfussenegger/nvim-dap',
+            { 'theHamsta/nvim-dap-virtual-text', opts = {} },
         },
         config = function()
             require('mjlaufer.plugins.dap')

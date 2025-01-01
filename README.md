@@ -37,14 +37,7 @@ Alternatively, you can follow the [manual installation guide](manual-installatio
 
 Run `:Lazy restore` to install/update all plugins to the state in the lockfile. (See [lazy.nvim](https://lazy.folke.io/).)
 
-### DAP servers
-
-Use `:MasonInstall [SERVER_NAME]` (see [Mason](https://github.com/williamboman/mason.nvim)) to install [DAP](https://microsoft.github.io/debug-adapter-protocol/) servers:
-
--   C/Rust: `codelldb`
--   Go: `delve`
--   Java: `java-debug-adapter` and `java-test`
--   JavaScript/TypeScript: `js-debug-adapter`
+### Debugging
 
 To debug in Chrome, make sure to first run Chrome with remote debugging enabled:
 
