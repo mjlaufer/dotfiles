@@ -3,15 +3,16 @@
 let mapleader=" "
 
 " Plugins  --------------------------------
-set surround
-set commentary
-set which-key
-set NERDTree
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'preservim/nerdtree'
+Plug 'justinmk/vim-sneak'
 set functiontextobj
-:nmap s <Action>(flash.search)
+set which-key
 
 " Options ---------------------------------
 set noerrorbells
+set timeoutlen=3000
 set scrolloff=8 " Scroll when cursoer is 8 lines from top or bottom.
 set nu " Show current line number.
 set relativenumber
