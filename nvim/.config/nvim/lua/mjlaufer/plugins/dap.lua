@@ -95,16 +95,16 @@ dap.configurations.go = {
         -- For debugging specific tests.
         type = 'delve',
         name = 'Debug Test',
-        request = 'launch',
         mode = 'test',
+        request = 'launch',
         program = '${file}',
     },
     {
         -- For debugging all tests in a package.
         type = 'delve',
         name = 'Debug Package Tests',
-        request = 'launch',
         mode = 'test',
+        request = 'launch',
         program = './${relativeFileDirname}',
     },
     {
@@ -114,14 +114,6 @@ dap.configurations.go = {
         mode = 'local',
         request = 'attach',
         processId = require('dap.utils').pick_process,
-    },
-    {
-        -- For debugging remote processes (e.g., microservices/containers on different machines).
-        type = 'delve',
-        name = 'Debug Remote',
-        request = 'attach',
-        mode = 'remote',
-        port = 38697,
     },
 }
 

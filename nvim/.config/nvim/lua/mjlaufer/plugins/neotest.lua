@@ -5,12 +5,23 @@ local neotest = require('neotest')
 
 neotest.setup({
     adapters = {
-        require('neotest-golang'),
+        require('neotest-golang')({
+            dap_mode = 'manual',
+            dap_manual_config = {
+                name = 'Debug Go tests',
+                type = 'delve',
+                mode = 'test',
+                request = 'launch',
+            },
+        }),
     },
 })
 
 util.useWhichKey({ { '<leader>t', group = 'Test' } })
 
+map('n', '<leader>td', function()
+    neotest.run.run({ suite = false, strategy = 'dap' })
+end, 'Run test file')
 map('n', '<leader>tf', function()
     neotest.run.run(vim.fn.expand('%'))
 end, 'Run test file')
