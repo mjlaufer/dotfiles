@@ -1,6 +1,8 @@
 local util = require('mjlaufer.util')
 local map = util.map
 
+vim.notify = require('notify')
+
 vim.fn.sign_define(
     'DapBreakpoint',
     { text = '●', texthl = 'DapBreakpointText', linehl = '', numhl = '' }
@@ -30,11 +32,15 @@ local function ensure_installed()
     for _, debugger in ipairs(debuggers) do
         local package = mason_registry.get_package(debugger)
         if not package:is_installed() then
-            vim.notify('Installing ' .. debugger .. '...', vim.log.levels.INFO)
+            vim.notify('Installing ' .. debugger .. '...', vim.log.levels.INFO, { title = 'Mason' })
             package:install():once(
                 'closed',
                 vim.schedule_wrap(function()
-                    vim.notify('Successfully installed: ' .. debugger, vim.log.levels.INFO)
+                    vim.notify(
+                        'Successfully installed: ' .. debugger,
+                        vim.log.levels.INFO,
+                        { title = 'Mason' }
+                    )
                 end)
             )
         end

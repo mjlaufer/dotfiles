@@ -14,6 +14,8 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
     'nvim-lua/plenary.nvim', -- Lua function library that a lot of plugins depend on.
+    { 'stevearc/dressing.nvim', opts = {} }, -- Override vim.ui.select and vim.ui.input.
+    'rcarriga/nvim-notify', -- Fancy notification UI.
 
     -- Colors
     {
