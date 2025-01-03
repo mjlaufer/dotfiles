@@ -84,9 +84,6 @@ require('lazy').setup({
             {
                 'L3MON4D3/LuaSnip', -- snippet engine
                 run = 'make install_jsregexp',
-                dependencies = {
-                    'rafamadriz/friendly-snippets', -- contains a variety of premade snippets
-                },
             },
         },
         config = function()

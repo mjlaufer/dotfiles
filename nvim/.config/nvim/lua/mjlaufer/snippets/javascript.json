@@ -1,0 +1,59 @@
+{
+  "console-log": {
+    "prefix": "log",
+    "body": ["console.log($1);", "$0"],
+    "description": "Log to the console"
+  },
+  "console-warn": {
+    "prefix": "warn",
+    "body": ["console.warn($1);", "$0"],
+    "description": "Log warning to the console"
+  },
+  "console-error": {
+    "prefix": "error",
+    "body": ["console.error($1);", "$0"],
+    "description": "Log error to the console"
+  },
+  "for": {
+    "prefix": "fori",
+    "body": [
+      "for (let ${1:index} = 0; ${1:index} < ${2:array}.length; ${1:index}++) {",
+      "\tconst ${3:element} = ${2:array}[${1:index}];",
+      "\t$0",
+      "}"
+    ],
+    "description": "For loop"
+  },
+  "for-in": {
+    "prefix": "forin",
+    "body": [
+      "for (const ${2:key} in ${1:object}) {",
+      "\tif (Object.hasOwn(${1:object}, ${2:key})) {",
+      "\t\tconst ${3:element} = ${1:object}[${2:key}];",
+      "\t\t$0",
+      "\t}",
+      "}"
+    ],
+    "description": "Iterate (for..in)"
+  },
+  "for-of": {
+    "prefix": "forof",
+    "body": ["for (const ${2:iterator} of ${1:object}) {", "\t$0", "}"],
+    "description": "Iterate (for..of)"
+  },
+  "import-default": {
+    "prefix": "importdefault",
+    "body": ["import $0 from \"${1:module}\";"],
+    "description": "Import default from module."
+  },
+  "import-items": {
+    "prefix": "importitems",
+    "body": ["import { $0 } from \"${1:module}\";"],
+    "description": "Import items from module."
+  },
+  "import-ns": {
+    "prefix": "importns",
+    "body": ["import * as $0 from \"${1:module}\";"],
+    "description": "Import * from module."
+  }
+}

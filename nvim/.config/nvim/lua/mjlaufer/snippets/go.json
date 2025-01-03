@@ -1,0 +1,27 @@
+{
+  "benchmark": {
+    "prefix": "bench",
+    "body": "func Benchmark$1(b *testing.B) {\n\tfor i := 0; i < b.N; i++ {\n\t\t$0\n\t}\n}",
+    "description": "Benchmark function"
+  },
+  "constant-block": {
+    "prefix": "consts",
+    "body": "const (\n\t${1:name} = ${2:value}\n)",
+    "description": "Constant block"
+  },
+  "imports-block": {
+    "prefix": "imports",
+    "body": "import (\n\t\"${1:package}\"\n)",
+    "description": "Import block"
+  },
+  "test-function": {
+    "prefix": "test",
+    "body": "func Test$1(t *testing.T) {\n\t$0\n}",
+    "description": "Test function"
+  },
+  "variables-declaration": {
+    "prefix": "vars",
+    "body": "var (\n\t${1:name} = ${2:value}\n)",
+    "description": "Declare variables"
+  }
+}
