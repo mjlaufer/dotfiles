@@ -230,63 +230,8 @@ require('lazy').setup({
             'fredrikaverpil/neotest-golang',
         },
         config = function()
-            require('neotest').setup({
-                adapters = {
-                    require('neotest-golang'),
-                },
-            })
+            require('mjlaufer.plugins.neotest')
         end,
-        keys = {
-            {
-                'tf',
-                function()
-                    require('neotest').run.run(vim.fn.expand('%'))
-                end,
-                desc = 'Run test file',
-            },
-            {
-                'to',
-                function()
-                    require('neotest').output.open({ enter = true, auto_close = true })
-                end,
-                desc = 'Open test output',
-            },
-            {
-                'tO',
-                function()
-                    require('neotest').output_panel.toggle()
-                end,
-                desc = 'Open test output panel',
-            },
-            {
-                'tn',
-                function()
-                    require('neotest').run.run()
-                end,
-                desc = 'Run nearest test',
-            },
-            {
-                'ts',
-                function()
-                    require('neotest').run.run({ suite = true })
-                end,
-                desc = 'Run test suite',
-            },
-            {
-                'tS',
-                function()
-                    require('neotest').summary.toggle()
-                end,
-                desc = 'Toggle test summary',
-            },
-            {
-                'tt',
-                function()
-                    require('neotest').run.stop()
-                end,
-                desc = 'Terminate test',
-            },
-        },
     },
 
     -- Language-specific tools (non-LSP)
