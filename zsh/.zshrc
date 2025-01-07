@@ -42,3 +42,4 @@ source ~/dotfiles/zsh/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-synt
 
 # Set up mise for runtime management.
 eval "$(/usr/local/bin/mise activate zsh)"
+# eval "$(/opt/homebrew/bin/mise activate zsh)"

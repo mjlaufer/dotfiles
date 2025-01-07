@@ -16,7 +16,7 @@ if [ -d ~/.oh-my-zsh ]; then
 else
     echo "\nInstalling Oh My Zsh..."
     curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh | zsh -s -- --unattended
-    cp .zshrc .zshrc.oh-my-zsh-default
+    mv .zshrc .zshrc.oh-my-zsh-default
 fi
 
 cd ~/dotfiles

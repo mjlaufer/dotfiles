@@ -14,7 +14,7 @@ Install [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh). It will automatically r
 
 ```sh
 $ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-$ cp .zshrc .zshrc.oh-my-zsh-default
+$ mv .zshrc .zshrc.oh-my-zsh-default
 ```
 
 ### Git submodules (Zsh and tmux plugins)
