@@ -1,5 +1,4 @@
 # Fonts
-tap "homebrew/cask-fonts"
 cask "font-fira-code"
 cask "font-fira-code-nerd-font"
 cask "font-ibm-plex-mono"
