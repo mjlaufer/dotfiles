@@ -1,10 +1,8 @@
 # Fonts
 cask "font-fira-code"
-cask "font-fira-code-nerd-font"
 cask "font-ibm-plex-mono"
-cask "font-blex-mono-nerd-font"
 cask "font-jetbrains-mono"
-cask "font-jetbrains-mono-nerd-font"
+cask "font-symbols-only-nerd-font"
 
 # Utils
 brew "bat"
