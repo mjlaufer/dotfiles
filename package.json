@@ -14,6 +14,6 @@
   },
   "homepage": "https://github.com/mjlaufer/dotfiles#readme",
   "devDependencies": {
-    "prettier": "^2.5.1"
+    "prettier": "^3.4.2"
   }
 }

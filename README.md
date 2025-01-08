@@ -18,7 +18,7 @@ $ git clone https://github.com/mjlaufer/dotfiles.git ~/dotfiles
 
 ## Installation
 
-Run the install script.
+Run the install script, and follow the instructions in the output.
 
 ```sh
 $ ~/dotfiles/install.sh
@@ -28,8 +28,8 @@ Alternatively, you can follow the [manual installation guide](manual-installatio
 
 ## tmux setup
 
--   Install plugins: `<prefix> I`
--   Update plugins: `<prefix> U`
+- Install plugins: `<prefix> I`
+- Update plugins: `<prefix> U`
 
 ## Neovim setup
 
@@ -53,11 +53,11 @@ $ java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -jar [
 
 ## IntelliJ
 
--   Add theme: Install and build [Flashy](https://github.com/mjlaufer/flashy-intellij). Then select **Install Plugin from Disk**.
--   Sync settings: Select **File | Manage IDE Settings | Settings Sync** from the main menu. Click **Enable Settings Sync...**. Ensure all settings checkboxes are checked, and click **Get Settings from Account**.
+- Add theme: Install and build [Flashy](https://github.com/mjlaufer/flashy-intellij). Then select **Install Plugin from Disk**.
+- Sync settings: Select **File | Manage IDE Settings | Settings Sync** from the main menu. Click **Enable Settings Sync...**. Ensure all settings checkboxes are checked, and click **Get Settings from Account**.
 
 ## VS Code
 
--   Add theme: Install [Flashy](https://github.com/mjlaufer/flashy-vscode), and follow the steps in the README.
--   Sync settings: Sign in to VS Code. In the **Activity Bar** (left sidebar), click on the **Accounts** icon (bottom-left corner). Then select **Turn on Settings Sync** from the menu. When prompted, sign in with your GitHub account.
--   Install the `code` command: Open the Command Palette (⇧ + ⌘ + p) and find the **Shell Command: Install 'code' command in PATH** command. After executing the command, restart the terminal for the new `$PATH` value to take effect. You can now simply type `code .` in any folder to open VS Code and start editing files in that folder.
+- Add theme: Install [Flashy](https://github.com/mjlaufer/flashy-vscode), and follow the steps in the README.
+- Sync settings: Sign in to VS Code. In the **Activity Bar** (left sidebar), click on the **Accounts** icon (bottom-left corner). Then select **Turn on Settings Sync** from the menu. When prompted, sign in with your GitHub account.
+- Install the `code` command: Open the Command Palette (⇧ + ⌘ + p) and find the **Shell Command: Install 'code' command in PATH** command. After executing the command, restart the terminal for the new `$PATH` value to take effect. You can now simply type `code .` in any folder to open VS Code and start editing files in that folder.
