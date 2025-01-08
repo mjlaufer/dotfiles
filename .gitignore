@@ -1,7 +1,23 @@
-.DS_Store
+# .local
+bin/.local/
+!bin/.local/bin/
+
+# Karabiner
+karabiner/.config/karabiner/automatic_backups/
+
+# Kitty
 kitty.conf.bak
+
+# Lazygit
+lazygit/Library/Application Support/lazygit/state.yml
+
+# Node.js
 node_modules/
-packer_compiled.lua
+
+# tmux
 tmux/.tmux/resurrect/
 tmux/.tmux/plugins/
 !tmux/.tmux/plugins/tpm/
+
+# Misc.
+.DS_Store
