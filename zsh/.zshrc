@@ -10,6 +10,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 export CLANGBIN="/usr/local/opt/llvm/bin"
+# export CLANGBIN="/opt/homebrew/llvm/bin"
 export GOPATH=$HOME/go
 export PATH=$HOME/.local/bin:$CLANGBIN:$GOPATH/bin:$PATH
 
