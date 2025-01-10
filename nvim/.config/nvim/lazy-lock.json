@@ -22,6 +22,7 @@
   "markdown-preview.nvim": { "branch": "master", "commit": "a923f5fc5ba36a3b17e289dc35dc17f66d0548ee" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "c6c686781f9841d855bf1b926e10aa5e19430a38" },
   "mason.nvim": { "branch": "main", "commit": "e2f7f9044ec30067bc11800a9e266664b88cda22" },
+  "neoscroll.nvim": { "branch": "master", "commit": "f957373912e88579e26fdaea4735450ff2ef5c9c" },
   "neotest": { "branch": "master", "commit": "0dccb5ebcf00de245e2060fa17822a9464f5c41a" },
   "neotest-golang": { "branch": "main", "commit": "ee3f462da0d94690383c3e06c2ba27bd3bee7820" },
   "nvim-autopairs": { "branch": "master", "commit": "b464658e9b880f463b9f7e6ccddd93fb0013f559" },

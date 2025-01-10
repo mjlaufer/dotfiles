@@ -14,10 +14,10 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
     'nvim-lua/plenary.nvim', -- Lua function library that a lot of plugins depend on.
+
+    -- UI
     { 'stevearc/dressing.nvim', opts = {} }, -- Override vim.ui.select and vim.ui.input.
     'rcarriga/nvim-notify', -- Fancy notification UI.
-
-    -- Colors
     {
         'mjlaufer/flashy.nvim',
         config = function()
@@ -53,6 +53,7 @@ require('lazy').setup({
         'kyazdani42/nvim-web-devicons', -- Icons used by lualine and nvim-tree
         opts = { override = {}, default = true },
     },
+    { 'karb94/neoscroll.nvim', opts = { duration_multiplier = 0.5 } },
 
     -- LSP
     {

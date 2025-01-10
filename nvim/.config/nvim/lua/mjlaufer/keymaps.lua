@@ -16,18 +16,6 @@ map('n', '<esc>', ':nohlsearch<CR>', 'Remove search highlights')
 -- Location list diagnostics
 map('n', '<leader>ld', vim.diagnostic.setloclist, 'Show diagnostics')
 
--- Keep cursor line centered during page/search/list movement.
-map('n', '<C-f>', '<C-f>zz')
-map('n', '<C-b>', '<C-b>zz')
-map('n', '<C-d>', '<C-d>zz')
-map('n', '<C-u>', '<C-u>zz')
-map('n', 'n', 'nzzzv')
-map('n', 'N', 'Nzzzv')
-map('n', '<leader>cn', ':cnext<CR>zz', 'Go to next item')
-map('n', '<leader>cp', ':cprev<CR>zz', 'Go to prev item')
-map('n', '<leader>ln', ':lnext<CR>zz', 'Go to next item')
-map('n', '<leader>lp', ':lprev<CR>zz', 'Go to prev item')
-
 -- Improve split navigation (See `:help wincmd`).
 map('n', '<C-h>', '<C-w>h')
 map('n', '<C-j>', '<C-w>j')
