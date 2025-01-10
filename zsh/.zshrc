@@ -42,3 +42,6 @@ source ~/dotfiles/zsh/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-synt
 
 # Set up mise for runtime management.
 eval "$($(brew --prefix)/bin/mise activate zsh)"
+
+# Set up direnv for env management.
+eval "$(direnv hook zsh)"
