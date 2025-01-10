@@ -9,8 +9,7 @@ plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-export CLANGBIN="/usr/local/opt/llvm/bin"
-# export CLANGBIN="/opt/homebrew/llvm/bin"
+export CLANGBIN="$(brew --prefix)/opt/llvm/bin"
 export GOPATH=$HOME/go
 export PATH=$HOME/.local/bin:$CLANGBIN:$GOPATH/bin:$PATH
 
@@ -42,5 +41,4 @@ bindkey -s ^s "tmux-sessionizer\n"
 source ~/dotfiles/zsh/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Set up mise for runtime management.
-eval "$(/usr/local/bin/mise activate zsh)"
-# eval "$(/opt/homebrew/bin/mise activate zsh)"
+eval "$($(brew --prefix)/bin/mise activate zsh)"

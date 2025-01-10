@@ -4,7 +4,7 @@
 
 This repository is intended for use with macOS and assumes your default shell is zsh.
 
-> Note: For Apple silicon Macs, you will need to replace "/usr/local" with "/opt/homebrew" in `zsh/.zshrc` and `kitty/.config/kitty/kitty.conf` files.
+> Note: For Apple silicon Macs, you will need to replace "/usr/local" with "/opt/homebrew" in kitty/.config/kitty/kitty.conf`.
 
 1. Install the Xcode command line developer tools.
 
