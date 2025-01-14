@@ -80,14 +80,24 @@ dap.configurations.c = {
 
 -- Go
 
-dap.adapters.delve = {
-    type = 'server',
-    port = '${port}',
-    executable = {
-        command = 'dlv',
-        args = { 'dap', '-l', '127.0.0.1:${port}' },
-    },
-}
+dap.adapters.delve = function(callback, config)
+    if config.mode == 'remote' and config.request == 'attach' then
+        callback({
+            type = 'server',
+            host = config.host or '127.0.0.1',
+            port = config.port or '38697',
+        })
+    else
+        callback({
+            type = 'server',
+            port = '${port}',
+            executable = {
+                command = 'dlv',
+                args = { 'dap', '-l', '127.0.0.1:${port}', '--log', '--log-output=dap' },
+            },
+        })
+    end
+end
 
 dap.configurations.go = {
     {
@@ -121,6 +131,16 @@ dap.configurations.go = {
         request = 'attach',
         processId = require('dap.utils').pick_process,
     },
+    {
+        -- For debugging remote processes (e.g., microservices/containers on different machines).
+        type = 'delve',
+        name = 'Attach to Remote',
+        mode = 'remote',
+        request = 'attach',
+        host = '127.0.0.1', -- The host of the remote machine running delve
+        port = '38697', -- The port where delve is listening on the remote machine
+        showLog = true,
+    },
 }
 
 -- Java
@@ -128,8 +148,8 @@ dap.configurations.go = {
 dap.configurations.java = {
     {
         type = 'java',
+        name = 'Attach to Remote',
         request = 'attach',
-        name = 'Debug (Attach) - Remote',
         hostName = '127.0.0.1',
         port = 5005,
     },
@@ -157,8 +177,8 @@ dap.adapters['pwa-node'] = js_debug_adapter_config
 local chrome_config = {
     {
         type = 'pwa-chrome',
-        request = 'attach',
         name = 'Attach to Chrome',
+        request = 'attach',
         program = '${file}',
         cwd = '${workspaceFolder}',
         port = 9222,
@@ -174,15 +194,16 @@ _G.start_node_debugger = function()
     local node_config = {
         {
             type = 'pwa-node',
+            name = 'Debug',
             request = 'launch',
-            name = 'Launch',
             program = '${file}',
             cwd = '${workspaceFolder}',
         },
         {
+            -- For debugging Node.js process started with the `--inspect` flag.
             type = 'pwa-node',
+            name = 'Attach',
             request = 'attach',
-            name = 'Attach to process', -- Used when starting node with the `--inspect` flag
             processId = require('dap.utils').pick_process,
             cwd = '${workspaceFolder}',
         },
