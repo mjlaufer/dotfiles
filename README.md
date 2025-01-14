@@ -35,23 +35,7 @@ Alternatively, you can follow the [manual installation guide](manual-installatio
 
 ## Neovim setup
 
-### Plugins
-
 Run `:Lazy restore` to install/update all plugins to the state in the lockfile. (See [lazy.nvim](https://lazy.folke.io/).)
-
-### Debugging
-
-To debug in Chrome, make sure to first run Chrome with remote debugging enabled:
-
-```sh
-$ chrome-debug
-```
-
-To enable remote debugging in Java, run your app with the Java Debug Wire Protocol (JDWP):
-
-```sh
-$ java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -jar [path/to/JAR]
-```
 
 ## IntelliJ
 

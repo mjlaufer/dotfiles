@@ -200,7 +200,6 @@ _G.start_node_debugger = function()
             cwd = '${workspaceFolder}',
         },
         {
-            -- For debugging Node.js process started with the `--inspect` flag.
             type = 'pwa-node',
             name = 'Attach',
             request = 'attach',
