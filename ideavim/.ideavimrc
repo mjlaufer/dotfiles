@@ -74,9 +74,7 @@ set ideajoin " Use vim's `J` in IntelliJ
 :nmap <leader>fa <Action>(GotoAction)
 
 " Terminal
-:nmap <leader>tj <Action>(ActivateTerminalToolWindow)
-:nmap <leader>tl <Action>(ActivateTerminalToolWindow)
-:nmap <leader>tu <Action>(ActivateTerminalToolWindow)
+:nmap <C-\> <Action>(ActivateTerminalToolWindow)
 
 " Git
 :nmap <leader>go <Action>(Vcs.Show.Local.Changes)
