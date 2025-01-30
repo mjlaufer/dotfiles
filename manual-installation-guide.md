@@ -2,7 +2,7 @@
 
 ### Homebrew
 
-Install [Homebrew](https://brew.sh/). Then install the command line utilities, fonts, and GUI macOS apps listed in `.Brewfile`.
+Install the command line utilities, fonts, and GUI macOS apps listed in `.Brewfile`.
 
 ```sh
 $ brew bundle --file=~/dotfiles/.Brewfile

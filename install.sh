@@ -1,13 +1,8 @@
 #!/usr/bin/env zsh
 
-echo '\nSetting up dev environment...\n'
+echo "\nSetting up dev environment...\n"
 
 # Homebrew
-if ! command -v brew &>/dev/null; then
-    echo "\nInstalling Homebrew..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
-
 brew bundle --file=~/dotfiles/.Brewfile
 
 # Oh My Zsh

@@ -4,15 +4,19 @@
 
 This repository is intended for use with macOS and assumes your default shell is zsh.
 
-> Note: For Apple silicon Macs, you will need to replace "/usr/local" with "/opt/homebrew" in kitty/.config/kitty/kitty.conf`.
-
 1. Install the Xcode command line developer tools.
 
 ```sh
 $ xcode-select --install
 ```
 
-2. Clone this repository into your `$HOME` directory.
+2. Install [Homebrew](https://brew.sh/), and follow the instructions to add `brew` to your `PATH`.
+
+```sh
+$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+3. Clone this repository into your `$HOME` directory.
 
 ```sh
 $ git clone https://github.com/mjlaufer/dotfiles.git ~/dotfiles

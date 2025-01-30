@@ -57,7 +57,6 @@ brew "ranger"
 brew "trash"
 
 # Apps
-tap "homebrew/cask-versions"
 cask "brave-browser"
 cask "google-chrome"
 cask "firefox"
