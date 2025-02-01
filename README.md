@@ -43,7 +43,7 @@ Run `:Lazy restore` to install/update all plugins to the state in the lockfile. 
 
 ## IntelliJ
 
-- Add theme: Install and build [Flashy](https://github.com/mjlaufer/flashy-intellij). Then select **Install Plugin from Disk**.
+- Add theme: Install [Flashy](https://github.com/mjlaufer/flashy-intellij), and follow the steps in the README.
 - Sync settings: Select **File | Manage IDE Settings | Settings Sync** from the main menu. Click **Enable Settings Sync...**. Ensure all settings checkboxes are checked, and click **Get Settings from Account**.
 
 ## VS Code
