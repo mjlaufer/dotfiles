@@ -1,6 +1,7 @@
 # .local
 bin/.local/
 !bin/.local/bin/
+!bin/.local/bin/**
 
 # Karabiner
 karabiner/.config/karabiner/automatic_backups/
