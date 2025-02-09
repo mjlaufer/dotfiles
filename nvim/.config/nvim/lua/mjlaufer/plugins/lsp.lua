@@ -29,41 +29,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
         map('n', '<leader>at', vim.lsp.buf.type_definition, 'Go to type definition', opts)
         map('n', '<leader>al', vim.lsp.codelens.run, 'Run codelens action', opts)
 
-        local client = vim.lsp.get_client_by_id(event.data.client_id)
-
-        -- Highlight references to the word under the cursor. See `:help CursorHold`.
-        if
-            client
-            and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight)
-        then
-            local highlight_augroup =
-                vim.api.nvim_create_augroup('mjlaufer-lsp-highlight', { clear = false })
-
-            vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
-                buffer = event.buf,
-                group = highlight_augroup,
-                callback = vim.lsp.buf.document_highlight,
-            })
-
-            vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
-                buffer = event.buf,
-                group = highlight_augroup,
-                callback = vim.lsp.buf.clear_references,
-            })
-
-            vim.api.nvim_create_autocmd('LspDetach', {
-                group = vim.api.nvim_create_augroup('mjlaufer-lsp-detach', { clear = true }),
-                callback = function(event2)
-                    vim.lsp.buf.clear_references()
-                    vim.api.nvim_clear_autocmds({
-                        group = 'mjlaufer-lsp-highlight',
-                        buffer = event2.buf,
-                    })
-                end,
-            })
-        end
-
         -- Enable inlay hints to be toggled.
+        local client = vim.lsp.get_client_by_id(event.data.client_id)
         if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
             vim.lsp.inlay_hint.enable(false, { bufnr = event.buf })
 

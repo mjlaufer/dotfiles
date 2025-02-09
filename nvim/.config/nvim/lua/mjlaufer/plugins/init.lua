@@ -72,6 +72,7 @@ require('lazy').setup({
         end,
     },
     'mfussenegger/nvim-jdtls',
+    'RRethy/vim-illuminate',
 
     -- Completion
     {
