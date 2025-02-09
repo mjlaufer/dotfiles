@@ -1,5 +1,5 @@
 # .local
-bin/.local/
+bin/.local/*
 !bin/.local/bin/
 !bin/.local/bin/**
 
