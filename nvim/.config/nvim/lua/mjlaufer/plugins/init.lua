@@ -15,9 +15,21 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
     'nvim-lua/plenary.nvim', -- Lua function library that a lot of plugins depend on.
 
+    {
+        'folke/snacks.nvim',
+        priority = 1000,
+        lazy = false,
+        ---@type snacks.Config
+        opts = {
+            bigfile = { enabled = true },
+            dashboard = { enabled = true },
+            indent = { enabled = true },
+            input = { enabled = true },
+            notifier = { enabled = true },
+        },
+    },
+
     -- UI
-    { 'stevearc/dressing.nvim', opts = {} }, -- Override vim.ui.select and vim.ui.input.
-    'rcarriga/nvim-notify', -- Fancy notification UI.
     {
         'mjlaufer/flashy.nvim',
         config = function()
@@ -151,6 +163,7 @@ require('lazy').setup({
     'tpope/vim-eunuch', -- Vim sugar for Unix shell commands (e.g., `:Chmod`).
     'tpope/vim-characterize', -- Enhances `ga`, which displays a character's representation in decimal, octal, and hex.
     'tpope/vim-sleuth', -- Adjusts `shiftwidth` and `expandtab` automatically
+    { 'echasnovski/mini.ai', version = '*' },
     {
         'stevearc/conform.nvim',
         config = function()

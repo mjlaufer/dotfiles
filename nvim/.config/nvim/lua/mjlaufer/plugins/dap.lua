@@ -1,8 +1,6 @@
 local util = require('mjlaufer.util')
 local map = util.map
 
-vim.notify = require('notify')
-
 vim.fn.sign_define(
     'DapBreakpoint',
     { text = '●', texthl = 'DapBreakpointText', linehl = '', numhl = '' }
