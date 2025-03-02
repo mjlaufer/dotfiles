@@ -1,14 +1,22 @@
+" https://plugins.jetbrains.com/bundles/7-ideavim-bundle
+
+" Useful JetBrains maps:
+" <esc>       Return to editor
+" <S-esc>     Hide the tool window
+
 " Set <space> as the leader key (See `:help mapleader`).
 " NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used).
 let mapleader=" "
 
 " Plugins  --------------------------------
+" https://github.com/JetBrains/ideavim/wiki/IdeaVim-Plugins
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'preservim/nerdtree'
 Plug 'justinmk/vim-sneak'
-set functiontextobj
-set which-key
+set functiontextobj " https://plugins.jetbrains.com/plugin/25897-vim-functiontextobj
+set mini-ai
+set which-key " https://plugins.jetbrains.com/plugin/15976-which-key
 
 " Options ---------------------------------
 set noerrorbells
@@ -25,78 +33,96 @@ set ideajoin " Use vim's `J` in IntelliJ
 " Maps ------------------------------------
 
 " Change options
-:nmap <esc> :nohlsearch<CR>
+nmap <esc> :nohlsearch<CR>
 
-" Better window navigation
-:nmap <C-h> <C-w>h
-:nmap <C-j> <C-w>j
-:nmap <C-k> <C-w>k
-:nmap <C-l> <C-w>l
+" Tab management
+nmap <leader>bd <Action>(CloseContent)
+nmap <leader>bD <Action>(CloseContent)
+nmap <leader>bo <Action>(CloseAllEditorsButActive)
+nmap <leader>br <Action>(RenameFile)
+
+" Better split navigation
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
 
 " NERDTree
-:nmap <leader>ee :NERDTreeToggle<CR>
-:nmap <leader>ef :NERDTreeFind<CR>
+nmap <leader>ee :NERDTreeToggle<CR>
+nmap <leader>ef :NERDTreeFind<CR>
 
 " vim-unimpaired maps
-:nmap ]<space> o<Esc>k
-:nmap [<space> O<Esc>j
-:nmap [b <Action>(PreviousTab)
-:nmap ]b <Action>(NextTab)
-:nmap [q <Action>(PreviousOccurence)
-:nmap ]q <Action>(NextOccurence)
-:nmap [m <Action>(MethodUp)
-:nmap ]m <Action>(MethodDown)
-:nmap [c <Action>(VcsShowPrevChangeMarker)
-:nmap ]c <Action>(VcsShowNextChangeMarker)
-
-" [Visual] Move selected lines up/down
-:vmap K <Action>(MoveLineUp)
-:vmap J <Action>(MoveLineDown)
-
-" [Visual] Stay in indent mode
-:vmap < <gv
-:vmap > >gv
-
-" Search
-:nmap <leader>/ <Action>(Find)
-
-" Language Server
-:nmap <C-w>d <Action>(ShowErrorDescription)
-:nmap [d <Action>(GotoPreviousError)
-:nmap ]d <Action>(GotoNextError)
-:nmap gr <Action>(ShowUsages)
-:nmap <leader>aa <Action>(ShowIntentionActions)
-:nmap <leader>ar <Action>(RenameElement)
+nmap ]<space> o<Esc>k
+nmap [<space> O<Esc>j
+nmap [b <Action>(PreviousTab)
+nmap ]b <Action>(NextTab)
+nmap [q <Action>(PreviousOccurence)
+nmap ]q <Action>(NextOccurence)
+nmap [m <Action>(MethodUp)
+nmap ]m <Action>(MethodDown)
+nmap [c <Action>(VcsShowPrevChangeMarker)
+nmap ]c <Action>(VcsShowNextChangeMarker)
 
 " Find
-:nmap <leader>ff <Action>(GotoFile)
-:nmap <leader>fs <Action>(FindInPath)
-:nmap <leader>fa <Action>(GotoAction)
+nmap <leader>fa <Action>(GotoAction)
+nmap <leader>fb <Action>(RecentFiles)
+nmap <leader>ff <Action>(GotoFile)
+nmap <leader>fs <Action>(FindInPath)
 
-" Terminal
-:nmap <C-\> <Action>(ActivateTerminalToolWindow)
+" Terminal Tool Window
+nmap <C-\> <Action>(ActivateTerminalToolWindow)
+
+" Problems Tool Window
+nmap <leader>ld <Action>(ActivateProblemsViewToolWindow)
 
 " Git
-:nmap <leader>go <Action>(Vcs.Show.Local.Changes)
+nmap <leader>G <Action>(ActivateCommitToolWindow)
+nmap <leader>gb <Action>(Annotate)
+nmap <leader>gl <Action>(Vcs.Show.Log)
+nmap <leader>go <Action>(Vcs.Show.Local.Changes)
 
 " Compile/Run
-:nmap <leader>cc <Action>(CompileDirty)
-:nmap <leader>ra <Action>(RunAnything)
-:nmap <leader>rc <Action>(RunClass)
-:nmap <leader>rq <Action>(Stop)
-:nmap <leader>rr <Action>(Run)
+nmap <leader>cc <Action>(CompileDirty)
+nmap <leader>ra <Action>(RunAnything)
+nmap <leader>rc <Action>(RunClass)
+nmap <leader>rq <Action>(Stop)
+nmap <leader>rr <Action>(Run)
 
 " Refactor
-:nmap <leader>rf <Action>(ReformatCode)
-:nmap <leader>ri <Action>(OptimizeImports)
-:nmap <leader>rl <Action>(Refactorings.QuickListPopupAction)
-:nmap <leader>rs <Action>(SurroundWith)
+nmap <leader>rf <Action>(ReformatCode)
+nmap <leader>ri <Action>(OptimizeImports)
+nmap <leader>rl <Action>(Refactorings.QuickListPopupAction)
+nmap <leader>rs <Action>(SurroundWith)
 
 " Debug
-:nmap <leader>db <Action>(ToggleLineBreakpoint)
-:nmap <leader>dc <Action>(Resume)
-:nmap <leader>dj <Action>(StepOver)
-:nmap <leader>dk <Action>(StepOut)
-:nmap <leader>dl <Action>(StepInto)
-:nmap <leader>dq <Action>(Stop)
-:nmap <leader>ds <Action>(Debug)
+nmap <leader>db <Action>(ToggleLineBreakpoint)
+nmap <leader>dc <Action>(Resume)
+nmap <leader>dj <Action>(StepOver)
+nmap <leader>dk <Action>(StepOut)
+nmap <leader>dl <Action>(StepInto)
+nmap <leader>dq <Action>(Stop)
+nmap <leader>ds <Action>(Debug)
+
+" [Visual] Move selected lines up/down
+vmap K <Action>(MoveLineUp)
+vmap J <Action>(MoveLineDown)
+
+" [Visual] Stay in indent mode
+vmap < <gv
+vmap > >gv
+
+" Search
+nmap <leader>/ <Action>(Find)
+
+" Language Server
+nmap <C-w>d <Action>(ShowErrorDescription)
+nmap [d <Action>(GotoPreviousError)
+nmap ]d <Action>(GotoNextError)
+nmap gI <Action>(GotoImplementation)
+nmap gr <Action>(ShowUsages)
+nmap <leader>aa <Action>(ShowIntentionActions)
+nmap <leader>ar <Action>(RenameElement)
+
+" Format
+nmap <leader>cf <Action>(Format)
+
