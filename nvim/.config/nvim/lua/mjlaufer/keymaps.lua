@@ -70,22 +70,5 @@ map('n', '<c-s>', ':silent !tmux neww tmux-sessionizer<cr>')
 -- Run current spec file with plenary.test_harness.
 map('n', '<leader>ps', '<Plug>PlenaryTestFile', 'Run current spec file')
 
--- Open IDEs.
-map('n', '<leader>oc', function()
-    vim.cmd('!clion .')
-end, 'Open in CLion')
-map('n', '<leader>og', function()
-    vim.cmd('!goland1 .')
-end, 'Open in GoLand')
-map('n', '<leader>oi', function()
-    vim.cmd('!idea1 .')
-end, 'Open in IntelliJ IDEA')
-map('n', '<leader>or', function()
-    vim.cmd('!rustrover .')
-end, 'Open in RustRover')
-map('n', '<leader>ow', function()
-    vim.cmd('!webstorm1 .')
-end, 'Open in WebStorm')
-
 -- Reload config.
 map('n', '<leader><CR>', RELOAD_CONFIG)

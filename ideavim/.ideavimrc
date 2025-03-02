@@ -126,3 +126,6 @@ nmap <leader>ar <Action>(RenameElement)
 " Format
 nmap <leader>cf <Action>(Format)
 
+" Open in Cursor
+nmap <leader>ocp <Action>(OpenProjectInCursor)
+nmap <leader>ocf <Action>(OpenFileInCursor)
