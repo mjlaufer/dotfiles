@@ -12,9 +12,18 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup({
-    'nvim-lua/plenary.nvim', -- Lua function library that a lot of plugins depend on.
+local core_editor_plugins = {
+    'tpope/vim-surround', -- Provides maps for working with parens, brackets, tags, etc.
+    'tpope/vim-unimpaired', -- Provides maps for complementary pairs (e.g., `]q` for `:cnext` and `[q` for `:cprevious`).
+    'tpope/vim-repeat', -- Applies `.` to vim-surround and vim-unimpaired.
+    'tpope/vim-eunuch', -- Vim sugar for Unix shell commands (e.g., `:Chmod`).
+    'tpope/vim-characterize', -- Enhances `ga`, which displays a character's representation in decimal, octal, and hex.
+    'tpope/vim-sleuth', -- Adjusts `shiftwidth` and `expandtab` automatically
+    { 'echasnovski/mini.ai', version = '*' },
+}
 
+require('lazy').setup(IS_VSCODE and core_editor_plugins or vim.list_extend(core_editor_plugins, {
+    'nvim-lua/plenary.nvim', -- Lua function library that a lot of plugins depend on.
     {
         'folke/snacks.nvim',
         priority = 1000,
@@ -157,13 +166,6 @@ require('lazy').setup({
     },
 
     -- Editor
-    'tpope/vim-surround', -- Provides maps for working with parens, brackets, tags, etc.
-    'tpope/vim-unimpaired', -- Provides maps for complementary pairs (e.g., `]q` for `:cnext` and `[q` for `:cprevious`).
-    'tpope/vim-repeat', -- Applies `.` to vim-surround and vim-unimpaired.
-    'tpope/vim-eunuch', -- Vim sugar for Unix shell commands (e.g., `:Chmod`).
-    'tpope/vim-characterize', -- Enhances `ga`, which displays a character's representation in decimal, octal, and hex.
-    'tpope/vim-sleuth', -- Adjusts `shiftwidth` and `expandtab` automatically
-    { 'echasnovski/mini.ai', version = '*' },
     {
         'stevearc/conform.nvim',
         config = function()
@@ -276,4 +278,4 @@ require('lazy').setup({
             require('mjlaufer.plugins.codecompanion')
         end,
     },
-}, { pin = true, dev = { path = '~/personal' } })
+}), { pin = true, dev = { path = '~/personal' } })

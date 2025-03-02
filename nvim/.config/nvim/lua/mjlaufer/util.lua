@@ -1,4 +1,4 @@
-local wk = require('which-key')
+local wk = not IS_VSCODE and require('which-key') or nil
 
 local M = {}
 

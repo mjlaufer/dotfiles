@@ -21,3 +21,5 @@ RELOAD_CONFIG = function()
 
     dofile(vim.env.MYVIMRC)
 end
+
+IS_VSCODE = vim.g.vscode ~= nil
