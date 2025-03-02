@@ -2,6 +2,21 @@ local vscode = require('vscode')
 
 vim.notify = vscode.notify
 
+-- Useful VS Code shortcuts:
+-- Cmd + ,           Open settings
+-- Cmd + K + S       View keyboard shortcuts
+-- Cmd + Shift + D   Toggle focus between debugger and editor
+-- Cmd + Shift + E   Toggle focus between explorer and editor
+-- Cmd + Shift + F   Toggle focus between search and editor
+-- Cmd + Shift + X   Toggle focus between extension and editor
+-- Cmd + 0           Focus on sidebar
+-- Cmd + B           Toggle sidebar
+-- Cmd + Opt + B     Toggle secondary sidebar
+-- Cmd + J           Toggle bottom panel
+-- Ctrl + `          Toggle terminal
+-- Ctrl + Esc        Focus on editor from terminal
+-- Ctrl + Shift + G  Toggle focus between source control and editor
+
 -- Set vim-sneak colors to Flashy theme.
 vim.cmd([[
     hi Sneak guifg=#1b1b1b guibg=#f998c7
