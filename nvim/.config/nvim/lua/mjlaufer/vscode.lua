@@ -1,3 +1,13 @@
+local vscode = require('vscode')
+
+vim.notify = vscode.notify
+
+-- Set vim-sneak colors to Flashy theme.
+vim.cmd([[
+    hi Sneak guifg=#1b1b1b guibg=#f998c7
+    hi SneakScope guibg=#353535
+]])
+
 local function vscode_notify(cmd)
     return function()
         vim.fn.VSCodeNotify(cmd)

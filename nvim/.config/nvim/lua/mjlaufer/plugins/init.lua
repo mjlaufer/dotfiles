@@ -19,7 +19,12 @@ local core_editor_plugins = {
     'tpope/vim-eunuch', -- Vim sugar for Unix shell commands (e.g., `:Chmod`).
     'tpope/vim-characterize', -- Enhances `ga`, which displays a character's representation in decimal, octal, and hex.
     'tpope/vim-sleuth', -- Adjusts `shiftwidth` and `expandtab` automatically
-    { 'echasnovski/mini.ai', version = '*' },
+    {
+        'justinmk/vim-sneak',
+        config = function()
+            require('mjlaufer.plugins.sneak')
+        end,
+    },
 }
 
 require('lazy').setup(IS_VSCODE and core_editor_plugins or vim.list_extend(core_editor_plugins, {
@@ -166,6 +171,7 @@ require('lazy').setup(IS_VSCODE and core_editor_plugins or vim.list_extend(core_
     },
 
     -- Editor
+    { 'echasnovski/mini.ai', version = '*' },
     {
         'stevearc/conform.nvim',
         config = function()
@@ -195,12 +201,6 @@ require('lazy').setup(IS_VSCODE and core_editor_plugins or vim.list_extend(core_
     {
         'windwp/nvim-ts-autotag',
         opts = {},
-    },
-    {
-        'justinmk/vim-sneak',
-        config = function()
-            require('mjlaufer.plugins.sneak')
-        end,
     },
     {
         'iamcco/markdown-preview.nvim',
