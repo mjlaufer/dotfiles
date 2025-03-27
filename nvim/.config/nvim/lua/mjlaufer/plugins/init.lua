@@ -46,12 +46,12 @@ require('lazy').setup(IS_VSCODE and core_editor_plugins or vim.list_extend(core_
 
     -- UI
     {
-        'mjlaufer/flashy.nvim',
+        'mjlaufer/raraku.nvim',
         config = function()
             vim.cmd([[
                 set termguicolors " Enable True Color support.
-                set background=dark
-                colorscheme flashy
+                set background=light
+                colorscheme raraku
                 let g:markdown_fenced_languages = [
                     \ 'sh', 'bash=sh',
                     \ 'c',

@@ -15,14 +15,14 @@
 [delta]
     navigate = true
     side-by-side = true
-    syntax-theme = flashy
-    line-numbers-minus-style = "#f87171"
-    line-numbers-plus-style = "#74c792"
-    line-numbers-zero-style = "#818181"
-    minus-style = "syntax #422323"
-    plus-style = "syntax #2c3730"
-    minus-emph-style = "syntax #693232"
-    plus-emph-style = "syntax #354c3c"
+    syntax-theme = raraku
+    line-numbers-minus-style = "#ca0005"
+    line-numbers-plus-style = "#147925"
+    line-numbers-zero-style = "#e4d3a6"
+    minus-style = "syntax #ffbfbf"
+    minus-emph-style = "syntax #ffafaf"
+    plus-style = "syntax #c1eac4"
+    plus-emph-style = "syntax #a6e3ab"
 
 [merge]
     conflictstyle = diff3
