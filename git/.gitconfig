@@ -16,13 +16,13 @@
     navigate = true
     side-by-side = true
     syntax-theme = raraku
-    line-numbers-minus-style = "#ca0005"
-    line-numbers-plus-style = "#147925"
-    line-numbers-zero-style = "#e4d3a6"
-    minus-style = "syntax #ffbfbf"
-    minus-emph-style = "syntax #ffafaf"
-    plus-style = "syntax #c1eac4"
-    plus-emph-style = "syntax #a6e3ab"
+    line-numbers-minus-style = "#cd191c"
+    line-numbers-plus-style = "#007a05"
+    line-numbers-zero-style = "#e4d9bd"
+    minus-style = "syntax #ffcacb"
+    minus-emph-style = "syntax #ffb7b7"
+    plus-style = "syntax #c8ecc8"
+    plus-emph-style = "syntax #aee1ae"
 
 [merge]
     conflictstyle = diff3

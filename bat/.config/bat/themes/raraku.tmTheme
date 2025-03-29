@@ -10,7 +10,7 @@
 			<key>settings</key>
 			<dict>
 				<key>background</key>
-				<string>#f3ead5</string>
+				<string>#f4eddc</string>
 				<key>caret</key>
 				<string>#353535</string>
 				<key>foreground</key>
@@ -18,9 +18,9 @@
 				<key>invisibles</key>
 				<string>#727272</string>
 				<key>lineHighlight</key>
-				<string>#eddfb8</string>
+				<string>#eee5ce</string>
 				<key>selection</key>
-				<string>#e4d3a6</string>
+				<string>#dadaff</string>
 			</dict>
 		</dict>
 		<dict>
@@ -31,7 +31,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#856300</string>
+				<string>#be4000</string>
 			</dict>
 		</dict>
 		<dict>
@@ -42,7 +42,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#147925</string>
+				<string>#007a05</string>
 			</dict>
 		</dict>
 		<dict>
@@ -52,11 +52,11 @@
 			<string>variable, source.json</string>
 			<key>settings</key>
 			<dict>
-				<key>fontStyle</key>
+				<key>foreground</key>
 				<string>#353535</string>
 			</dict>
 		</dict>
-        <dict>
+		<dict>
 			<key>name</key>
 			<string>Punctuation, braces</string>
 			<key>scope</key>
@@ -67,7 +67,7 @@
 				<string>#555555</string>
 			</dict>
 		</dict>
-        <dict>
+		<dict>
 			<key>name</key>
 			<string>Regex, escape characters</string>
 			<key>scope</key>
@@ -75,7 +75,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#ca0005</string>
+				<string>#cd191c</string>
 			</dict>
 		</dict>
 		<dict>
@@ -86,40 +86,9 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#864eb5</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Number</string>
-			<key>scope</key>
-			<string>constant.numeric, keyword.other.unit</string>
-			<key>settings</key>
-			<dict>
-				<key>foreground</key>
-				<string>#b44300</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Boolean</string>
-			<key>scope</key>
-			<string>constant.language.boolean</string>
-			<key>settings</key>
-			<dict>
-				<key>foreground</key>
-				<string>#b44300</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Operator</string>
-			<key>scope</key>
-			<string>keyword.operator, storage.type.function.arrow</string>
-			<key>settings</key>
-			<dict>
-				<key>foreground</key>
-				<string>#b32d6a</string>
+				<string>#353535</string>
+				<key>fontStyle</key>
+				<string>bold</string>
 			</dict>
 		</dict>
 		<dict>
@@ -130,7 +99,42 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#864eb5</string>
+				<string>#353535</string>
+				<key>fontStyle</key>
+				<string>bold</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Number</string>
+			<key>scope</key>
+			<string>constant.numeric, keyword.other.unit</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#9638b2</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Boolean</string>
+			<key>scope</key>
+			<string>constant.language.boolean</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#9638b2</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Operator</string>
+			<key>scope</key>
+			<string>keyword.operator, storage.type.function.arrow</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#b3307c</string>
 			</dict>
 		</dict>
 		<dict>
@@ -141,10 +145,10 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#864eb5</string>
+				<string>#353535</string>
 			</dict>
 		</dict>
-        <dict>
+		<dict>
 			<key>name</key>
 			<string>Function name</string>
 			<key>scope</key>
@@ -152,10 +156,10 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#1667c3</string>
+				<string>#4c4bc5</string>
 			</dict>
 		</dict>
-        <dict>
+		<dict>
 			<key>name</key>
 			<string>Function call</string>
 			<key>scope</key>
@@ -163,7 +167,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#1667c3</string>
+				<string>#4c4bc5</string>
 			</dict>
 		</dict>
 		<dict>
@@ -174,7 +178,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#007289</string>
+				<string>#007396</string>
 			</dict>
 		</dict>
 		<dict>
@@ -185,7 +189,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#007289</string>
+				<string>#007396</string>
 			</dict>
 		</dict>
 		<dict>
@@ -196,7 +200,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#1667c3</string>
+				<string>#4c4bc5</string>
 			</dict>
 		</dict>
 		<dict>
@@ -207,7 +211,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#007289</string>
+				<string>#007396</string>
 			</dict>
 		</dict>
 		<dict>
@@ -251,9 +255,9 @@
 			<key>settings</key>
 			<dict>
 				<key>background</key>
-				<string>#e4d3a6</string>
+				<string>#e4d9bd</string>
 				<key>foreground</key>
-				<string>#ca0005</string>
+				<string>#cd191c</string>
 			</dict>
 		</dict>
 		<dict>
@@ -264,12 +268,12 @@
 			<key>settings</key>
 			<dict>
 				<key>background</key>
-				<string>#e4d3a6</string>
+				<string>#e4d9bd</string>
 				<key>foreground</key>
-				<string>#ca0005</string>
+				<string>#cd191c</string>
 			</dict>
 		</dict>
-        <dict>
+		<dict>
 			<key>name</key>
 			<string>C/C++ Preprocessor Line</string>
 			<key>scope</key>
@@ -277,7 +281,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#b32d6a</string>
+				<string>#b3307c</string>
 			</dict>
 		</dict>
 		<dict>
@@ -288,11 +292,11 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#b32d6a</string>
+				<string>#b3307c</string>
 			</dict>
 		</dict>
 	</array>
-    <key>uuid</key>
+	<key>uuid</key>
 	<string>5c52181d-b1cf-4b29-8afc-f65e8ea7b64c</string>
 	<key>colorSpaceName</key>
 	<string>sRGB</string>
