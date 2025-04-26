@@ -43,11 +43,11 @@ Run `:Lazy restore` to install/update all plugins to the state in the lockfile. 
 
 ## IntelliJ
 
-- Add theme: Install [Flashy](https://github.com/mjlaufer/flashy-intellij), and follow the steps in the README.
+- Add theme: Install [Inklight](https://github.com/mjlaufer/inklight-intellij), and follow the steps in the README.
 - Sync settings: Select **File | Manage IDE Settings | Settings Sync** from the main menu. Click **Enable Settings Sync...**. Ensure all settings checkboxes are checked, and click **Get Settings from Account**.
 
 ## VS Code
 
-- Add theme: Install [Flashy](https://github.com/mjlaufer/flashy-vscode), and follow the steps in the README.
+- Add theme: Install [Inklight](https://github.com/mjlaufer/inklight-vscode), and follow the steps in the README.
 - Sync settings: Sign in to VS Code. In the **Activity Bar** (left sidebar), click on the **Accounts** icon (bottom-left corner). Then select **Turn on Settings Sync** from the menu. When prompted, sign in with your GitHub account.
 - Install the `code` command: Open the Command Palette (⇧ + ⌘ + p) and find the **Shell Command: Install 'code' command in PATH** command. After executing the command, restart the terminal for the new `$PATH` value to take effect. You can now simply type `code .` in any folder to open VS Code and start editing files in that folder.
