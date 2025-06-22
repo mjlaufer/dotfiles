@@ -57,6 +57,7 @@ brew "ranger"
 brew "trash"
 
 # Apps
+cask "wezterm"
 cask "brave-browser"
 cask "google-chrome"
 cask "firefox"
@@ -64,5 +65,3 @@ cask "firefox@developer-edition"
 cask "docker"
 cask "karabiner-elements"
 cask "visual-studio-code"
-cask "db-browser-for-sqlite"
-cask "pgadmin4"

@@ -1,0 +1,61 @@
+[colors]
+foreground = "#353535"
+background = "#eeeeee"
+cursor_bg = "#353535"
+cursor_fg = "#eeeeee"
+cursor_border = "#353535"
+selection_fg = "#353535"
+selection_bg = "#cfe5ff"
+
+ansi = [
+  "#eeeeee", # black
+  "#b30000", # red
+  "#437800", # green
+  "#c75a00", # yellow
+  "#005fae", # blue
+  "#bf007d", # magenta
+  "#007787", # cyan
+  "#353535", # white
+]
+
+brights = [
+  "#6d6d6d", # bright black
+  "#cd0000", # bright red
+  "#4d8700", # bright green
+  "#d76200", # bright yellow
+  "#0070ca", # bright blue
+  "#d6008d", # bright magenta
+  "#008698", # bright cyan
+  "#eeeeee", # bright white
+]
+
+[colors.tab_bar]
+background = "#e5e5e5"
+inactive_tab_edge = "#e5e5e5"
+
+[colors.tab_bar.active_tab]
+bg_color = "#eeeeee"
+fg_color = "#353535"
+intensity = "Bold"
+
+[colors.tab_bar.inactive_tab]
+bg_color = "#e5e5e5"
+fg_color = "#555555"
+intensity = "Normal"
+
+[colors.tab_bar.inactive_tab_hover]
+bg_color = "#eeeeee"
+fg_color = "#353535"
+
+[colors.tab_bar.new_tab]
+bg_color = "#e5e5e5"
+fg_color = "#555555"
+
+[colors.tab_bar.new_tab_hover]
+bg_color = "#eeeeee"
+fg_color = "#353535"
+
+[metadata]
+aliases = []
+author = "mjlaufer"
+name = "inklight"
