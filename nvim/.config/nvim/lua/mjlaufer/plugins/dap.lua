@@ -97,6 +97,57 @@ dap.adapters.delve = function(callback, config)
     end
 end
 
+-- Load VS Code launch configurations.
+local function load_vscode_launch_configs()
+    local launch_json_path = vim.fn.findfile('.vscode/launch.json', vim.fn.getcwd() .. ';')
+    if launch_json_path ~= '' then
+        local file = io.open(launch_json_path, 'r')
+        if file then
+            local content = file:read('*all')
+            file:close()
+
+            local success, launch_config = pcall(vim.json.decode, content)
+            if success and launch_config.configurations then
+                -- Convert VS Code configs to nvim-dap format.
+                local converted_configs = {}
+                for _, config in ipairs(launch_config.configurations) do
+                    if config.type == 'go' then
+                        local dap_config = {
+                            type = 'delve',
+                            name = config.name,
+                            request = config.request,
+                            mode = config.mode,
+                            program = config.program,
+                            cwd = config.cwd,
+                            args = config.args,
+                            env = config.env,
+                            host = config.host,
+                            port = config.port,
+                            processId = config.processId,
+                            showLog = config.showLog or true,
+                        }
+
+                        -- Handle substitutePath for remote debugging.
+                        if config.substitutePath then
+                            dap_config.substitutePath = config.substitutePath
+                        end
+
+                        table.insert(converted_configs, dap_config)
+                    end
+                end
+
+                -- Merge with existing configs.
+                if #converted_configs > 0 then
+                    dap.configurations.go =
+                        vim.list_extend(dap.configurations.go, converted_configs)
+                end
+            end
+        end
+    end
+end
+
+load_vscode_launch_configs()
+
 dap.configurations.go = {
     {
         -- For debugging command-line tools or long-running applications (e.g., web servers).
