@@ -1,7 +1,11 @@
 local util = require('mjlaufer.util')
 local map = util.map
 
-require('nvim-tree').setup({ view = { width = 36 } })
+require('nvim-tree').setup({
+    view = { width = 36 },
+    renderer = { group_empty = true, highlight_git = true },
+    filters = { dotfiles = false, git_ignored = false },
+})
 
 util.useWhichKey({ { '<leader>e', group = 'Explorer' } })
 

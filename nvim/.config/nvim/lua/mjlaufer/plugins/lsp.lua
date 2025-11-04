@@ -2,14 +2,29 @@ local util = require('mjlaufer.util')
 local map = util.map
 
 -- Diagnostics
-vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics,
-    { underline = true, virtual_text = { spacing = 2 } }
-)
-vim.fn.sign_define('DiagnosticSignError', { text = '', texthl = 'DiagnosticSignError' })
-vim.fn.sign_define('DiagnosticSignWarn', { text = '', texthl = 'DiagnosticSignWarn' })
-vim.fn.sign_define('DiagnosticSignInfo', { text = '', texthl = 'DiagnosticSignInfo' })
-vim.fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'DiagnosticSignHint' })
+vim.diagnostic.config({
+    underline = true,
+    virtual_text = {
+        spacing = 2,
+        prefix = '',
+    },
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = '',
+            [vim.diagnostic.severity.WARN] = '',
+            [vim.diagnostic.severity.INFO] = '',
+            [vim.diagnostic.severity.HINT] = '',
+        },
+    },
+    update_in_insert = false, -- Only update diagnostics when switching to normal mode.
+    severity_sort = true, -- Show errors before warnings.
+    float = {
+        border = 'rounded',
+        source = 'if_many', -- Show source if multiple LSPs provide diagnostics.
+        header = '',
+        prefix = '',
+    },
+})
 
 -- Configure the current buffer when an LSP attaches to it.
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -31,7 +46,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
         -- Enable inlay hints to be toggled.
         local client = vim.lsp.get_client_by_id(event.data.client_id)
-        if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
+        if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
             vim.lsp.inlay_hint.enable(false, { bufnr = event.buf })
 
             local toggle_inlay_hints = function()
@@ -124,24 +139,7 @@ local servers = {
         },
     },
     rust_analyzer = {},
-    lua_ls = {
-        settings = {
-            Lua = {
-                runtime = {
-                    -- Use Neovim's Lua compiler.
-                    version = 'LuaJIT',
-                },
-                diagnostics = {
-                    -- Recognize `vim` and plenary.test_harness globals.
-                    globals = { 'vim', 'describe', 'it', 'before_each' },
-                },
-                workspace = {
-                    -- Make the server aware of Neovim runtime files.
-                    library = vim.api.nvim_get_runtime_file('', true),
-                },
-            },
-        },
-    },
+    lua_ls = {},
     vtsls = {
         settings = {
             vtsls = {
@@ -173,23 +171,18 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities =
     vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
--- Install and set up language servers.
-require('mason').setup()
-require('mason-lspconfig').setup({
-    ensure_installed = vim.tbl_keys(servers),
-    automatic_installation = true,
-    handlers = {
-        function(server_name)
-            -- For jdtls, use nvim-jdtls instead of nvim-lspconfig.
-            if server_name == 'jdtls' then
-                return
-            end
+-- Configure language servers.
+for server_name, server_config in pairs(servers) do
+    -- Skip jdtls because the nvim-jdtls plugin manages language server configuration.
+    if server_name == 'jdtls' then
+        goto continue
+    end
 
-            local server_opts = servers[server_name] or {}
-            -- Apply server configuration overrides.
-            server_opts.capabilities =
-                vim.tbl_deep_extend('force', {}, capabilities, server_opts.capabilities or {})
-            require('lspconfig')[server_name].setup(server_opts)
-        end,
-    },
-})
+    local config = vim.tbl_deep_extend('force', {}, server_config)
+    config.capabilities = vim.tbl_deep_extend('force', {}, capabilities, config.capabilities or {})
+
+    vim.lsp.config(server_name, config)
+    vim.lsp.enable(server_name)
+
+    ::continue::
+end

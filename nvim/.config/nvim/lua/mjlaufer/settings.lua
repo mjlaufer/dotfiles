@@ -41,8 +41,8 @@ local options = {
 
     -- Folds
     foldmethod = 'expr',
-    foldexpr = 'nvim_treesitter#foldexpr()',
-    foldlevel = 99,
+    foldexpr = 'v:lua.vim.treesitter.foldexpr()',
+    foldlevelstart = 99, -- Start with all folds open.
 
     -- Backup/undo
     swapfile = false,

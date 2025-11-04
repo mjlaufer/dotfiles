@@ -31,6 +31,15 @@ local core_editor_plugins = {
 require('lazy').setup(IS_VSCODE and core_editor_plugins or vim.list_extend(core_editor_plugins, {
     'nvim-lua/plenary.nvim', -- Lua function library that a lot of plugins depend on.
     {
+        'folke/lazydev.nvim',
+        ft = 'lua',
+        opts = {
+            library = {
+                { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+            },
+        },
+    },
+    {
         'folke/snacks.nvim',
         priority = 1000,
         lazy = false,
@@ -77,7 +86,7 @@ require('lazy').setup(IS_VSCODE and core_editor_plugins or vim.list_extend(core_
     'nvim-treesitter/nvim-treesitter-context',
     'nvim-treesitter/nvim-treesitter-textobjects',
     {
-        'kyazdani42/nvim-web-devicons', -- Icons used by lualine and nvim-tree
+        'nvim-tree/nvim-web-devicons', -- Icons used by lualine and nvim-tree
         opts = { override = {}, default = true },
     },
     { 'karb94/neoscroll.nvim', opts = { duration_multiplier = 0.5 } },
@@ -86,8 +95,10 @@ require('lazy').setup(IS_VSCODE and core_editor_plugins or vim.list_extend(core_
     {
         'neovim/nvim-lspconfig',
         dependencies = {
-            'williamboman/mason.nvim',
-            'williamboman/mason-lspconfig.nvim',
+            {
+                'williamboman/mason.nvim',
+                opts = {},
+            },
             {
                 'j-hui/fidget.nvim', -- UI for LSP installation progress
                 opts = {},
@@ -110,11 +121,13 @@ require('lazy').setup(IS_VSCODE and core_editor_plugins or vim.list_extend(core_
             'hrsh7th/cmp-buffer',
             'hrsh7th/cmp-path',
             'hrsh7th/cmp-nvim-lua',
+            'hrsh7th/cmp-cmdline',
             'onsails/lspkind-nvim',
             'saadparwaiz1/cmp_luasnip',
             {
                 'L3MON4D3/LuaSnip', -- snippet engine
-                run = 'make install_jsregexp',
+                version = 'v2.*',
+                build = 'make install_jsregexp',
             },
         },
         config = function()
@@ -141,7 +154,7 @@ require('lazy').setup(IS_VSCODE and core_editor_plugins or vim.list_extend(core_
         end,
     },
     {
-        'kyazdani42/nvim-tree.lua',
+        'nvim-tree/nvim-tree.lua',
         config = function()
             require('mjlaufer.plugins.nvim_tree')
         end,
@@ -268,14 +281,5 @@ require('lazy').setup(IS_VSCODE and core_editor_plugins or vim.list_extend(core_
                 iferr = 'iferr',
             },
         },
-    },
-
-    -- LLM support
-    'github/copilot.vim',
-    {
-        'olimorris/codecompanion.nvim',
-        config = function()
-            require('mjlaufer.plugins.codecompanion')
-        end,
     },
 }), { pin = true, dev = { path = '~/personal' } })
