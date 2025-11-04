@@ -86,7 +86,7 @@ require('lazy').setup(IS_VSCODE and core_editor_plugins or vim.list_extend(core_
     'nvim-treesitter/nvim-treesitter-context',
     'nvim-treesitter/nvim-treesitter-textobjects',
     {
-        'nvim-tree/nvim-web-devicons', -- Icons used by lualine and nvim-tree
+        'nvim-tree/nvim-web-devicons', -- Icons used by nvim-tree, oil, and lualine
         opts = { override = {}, default = true },
     },
     { 'karb94/neoscroll.nvim', opts = { duration_multiplier = 0.5 } },

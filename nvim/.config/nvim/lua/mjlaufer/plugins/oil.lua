@@ -4,7 +4,6 @@ local map = util.map
 require('oil').setup({
     default_file_explorer = false,
     delete_to_trash = true,
-    trash_command = 'trash',
     view_options = {
         show_hidden = true,
     },
