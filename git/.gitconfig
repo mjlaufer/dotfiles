@@ -16,13 +16,13 @@
     navigate = true
     side-by-side = true
     syntax-theme = inklight
-    line-numbers-minus-style = "#b30000"
-    line-numbers-plus-style = "#437800"
-    line-numbers-zero-style = "#6d6d6d"
-    minus-style = "syntax #ffd8d7"
-    minus-emph-style = "syntax #ffc7c7"
-    plus-style = "syntax #d4ebc6"
-    plus-emph-style = "syntax #c0e5a6"
+    line-numbers-minus-style = "#b61e00"
+    line-numbers-plus-style = "#007f4e"
+    line-numbers-zero-style = "#6e6e6e"
+    minus-style = "syntax #ffe0da"
+    minus-emph-style = "syntax #ffcdc2"
+    plus-style = "syntax #d3f1de"
+    plus-emph-style = "syntax #bae7cc"
 
 [merge]
     conflictstyle = diff3

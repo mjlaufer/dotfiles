@@ -10,61 +10,17 @@
 			<key>settings</key>
 			<dict>
 				<key>background</key>
-				<string>#eeeeee</string>
+				<string>#f2f2f2</string>
 				<key>caret</key>
-				<string>#353535</string>
+				<string>#1b1b1b</string>
 				<key>foreground</key>
-				<string>#353535</string>
+				<string>#1b1b1b</string>
 				<key>invisibles</key>
-				<string>#6d6d6d</string>
+				<string>#6e6e6e</string>
 				<key>lineHighlight</key>
-				<string>#eeeeee</string>
+				<string>#e5e5e5</string>
 				<key>selection</key>
-				<string>#cfe5ff</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Variable, Object Key</string>
-			<key>scope</key>
-			<string>variable, meta.object-literal.key, source.json, meta.structure.dictionary.json</string>
-			<key>settings</key>
-			<dict>
-				<key>foreground</key>
-				<string>#353535</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Keyword, Storage</string>
-			<key>scope</key>
-			<string>keyword, storage.type, storage.modifier, constant.language</string>
-			<key>settings</key>
-			<dict>
-				<key>foreground</key>
-				<string>#8b00ac</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Language-specific variables</string>
-			<key>scope</key>
-			<string>variable.language</string>
-			<key>settings</key>
-			<dict>
-				<key>foreground</key>
-				<string>#8b00ac</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Punctuation, Braces, Misc.</string>
-			<key>scope</key>
-			<string>punctuation, meta.brace</string>
-			<key>settings</key>
-			<dict>
-				<key>foreground</key>
-				<string>#555555</string>
+				<string>#d3eef4</string>
 			</dict>
 		</dict>
 		<dict>
@@ -75,106 +31,176 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#b30000</string>
+				<string>#007f4e</string>
 			</dict>
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>String</string>
+			<string>Variable, Object Key</string>
+			<key>scope</key>
+			<string>variable, meta.object-literal.key, source.json meta.structure.dictionary.json support.type.property-name.json</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#1b1b1b</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Keyword, Storage</string>
+			<key>scope</key>
+			<string>keyword, storage.type, storage.modifier, constant.language</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#007787</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Language-specific variables</string>
+			<key>scope</key>
+			<string>variable.language</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#007787</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Strings</string>
 			<key>scope</key>
 			<string>string</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#437800</string>
+				<string>#ac4c76</string>
 			</dict>
 		</dict>
 		<dict>
 			<key>name</key>
 			<string>Numbers and Language Constants</string>
 			<key>scope</key>
-			<string>constant.numeric, constant.language.boolean, constant.language.null, keyword.other.unit</string>
+			<string>constant.numeric, constant.language.boolean, constant.language.null, constant.language.undefined, constant.language.json</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#c75a00</string>
+				<string>#bb0055</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Punctuation, Braces, Misc.</string>
+			<key>scope</key>
+			<string>punctuation, meta.brace, constant.other.color, keyword.other.template, keyword.other.substitution</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#555555</string>
 			</dict>
 		</dict>
 		<dict>
 			<key>name</key>
 			<string>Operators</string>
 			<key>scope</key>
-			<string>keyword.operator, storage.type.function.arrow</string>
+			<string>keyword.operator</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#bf007d</string>
+				<string>#555555</string>
+				<key>fontStyle</key>
+				<string>normal</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Logical Operators, Go Channel Operator</string>
+			<key>scope</key>
+			<string>keyword.operator.logical, keyword.operator.channel.go</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#007787</string>
+				<key>fontStyle</key>
+				<string>normal</string>
 			</dict>
 		</dict>
 		<dict>
 			<key>name</key>
 			<string>Functions</string>
 			<key>scope</key>
-			<string>entity.name.function, meta.block-level, meta.function-call, variable.function, support.function, keyword.other.special-method</string>
+			<string>entity.name.function, meta.block-level, meta.function, meta.function-call, variable.function, support.function, keyword.other.special-method</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#005fae</string>
+				<string>#005db1</string>
 			</dict>
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Regex, escape characters</string>
+			<string>Template Literals</string>
 			<key>scope</key>
-			<string>string.regexp, constant.character, support.constant</string>
+			<string>punctuation.definition.template-expression</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#c75a00</string>
+				<string>#007787</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Regex, Escape Characters</string>
+			<key>scope</key>
+			<string>string.regexp, constant.character, constant.character.escape, support.constant</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#bb0055</string>
 			</dict>
 		</dict>
 		<dict>
 			<key>name</key>
 			<string>Classes</string>
 			<key>scope</key>
-			<string>entity.name.class, entity.name.type.class, entity.other.inherited-class, support.class.builtin</string>
+			<string>entity.name.class, entity.name.type.class, entity.other.inherited-class, new.expr entity.name.type, support.class.builtin</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#007787</string>
+				<string>#5353c5</string>
 			</dict>
 		</dict>
 		<dict>
 			<key>name</key>
 			<string>Types</string>
 			<key>scope</key>
-			<string>entity.name.type, support.type</string>
+			<string>entity.name.type, support.type, storage.type.numeric.go, storage.type.string.go, storage.type.java, storage.type.primitive.java</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#007787</string>
+				<string>#5353c5</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Annotations</string>
+			<key>scope</key>
+			<string>storage.type.annotation</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#6e75ba</string>
 			</dict>
 		</dict>
 		<dict>
 			<key>name</key>
 			<string>HTML/JSX Tags</string>
 			<key>scope</key>
-			<string>entity.name.tag</string>
+			<string>entity.name.tag, meta.tag.sgml</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#007787</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>JSX Component Tags</string>
-			<key>scope</key>
-			<string>support.class.component</string>
-			<key>settings</key>
-			<dict>
-				<key>foreground</key>
-				<string>#005fae</string>
+				<string>#5353c5</string>
 			</dict>
 		</dict>
 		<dict>
@@ -185,18 +211,106 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#353535</string>
+				<string>#6e75ba</string>
 			</dict>
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Other Variables</string>
+			<string>JSX Component Tags</string>
 			<key>scope</key>
-			<string>support.other.variable</string>
+			<string>support.class.component</string>
 			<key>settings</key>
 			<dict>
-				<key>fontStyle</key>
-				<string>#353535</string>
+				<key>foreground</key>
+				<string>#005db1</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>JSX Children</string>
+			<key>scope</key>
+			<string>meta.jsx.children</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#555555</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>CSS Attributes</string>
+			<key>scope</key>
+			<string>entity.other.attribute-name.class.css, entity.other.attribute-name.id.css</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#5353c5</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>CSS pseudo-elements and pseudo-classes</string>
+			<key>scope</key>
+			<string>entity.other.attribute-name.pseudo-element.css, entity.other.attribute-name.pseudo-class.css</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#6e75ba</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>CSS Property Names</string>
+			<key>scope</key>
+			<string>support.type.property-name.css, support.type.vendored.property-name.css, meta.property-name.css</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#1b1b1b</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>CSS Property Values</string>
+			<key>scope</key>
+			<string>support.constant.property-value.css, meta.property-value.css</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#ac4c76</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>CSS Units</string>
+			<key>scope</key>
+			<string>keyword.other.unit</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#ac4c76</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Other Variables, String Links</string>
+			<key>scope</key>
+			<string>support.other.variable, string.other.link</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#1b1b1b</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Symbols</string>
+			<key>scope</key>
+			<string>constant.other.symbol, constant.other.key</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#1b1b1b</string>
 			</dict>
 		</dict>
 		<dict>
@@ -209,18 +323,7 @@
 				<key>background</key>
 				<string>#d7d7d7</string>
 				<key>foreground</key>
-				<string>#b30000</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>C/C++ Preprocessors</string>
-			<key>scope</key>
-			<string>meta.preprocessor.c keyword</string>
-			<key>settings</key>
-			<dict>
-				<key>foreground</key>
-				<string>#bf007d</string>
+				<string>#d02300</string>
 			</dict>
 		</dict>
 	</array>

@@ -22,8 +22,8 @@ config.colors = {
         background = '#e5e5e5',
         inactive_tab_edge = '#e5e5e5',
         active_tab = {
-            bg_color = '#eeeeee',
-            fg_color = '#353535',
+            bg_color = '#f2f2f2',
+            fg_color = '#1b1b1b',
             intensity = 'Normal',
         },
         inactive_tab = {
@@ -32,16 +32,16 @@ config.colors = {
             intensity = 'Normal',
         },
         inactive_tab_hover = {
-            bg_color = '#eeeeee',
-            fg_color = '#353535',
+            bg_color = '#f2f2f2',
+            fg_color = '#1b1b1b',
         },
         new_tab = {
             bg_color = '#e5e5e5',
             fg_color = '#555555',
         },
         new_tab_hover = {
-            bg_color = '#eeeeee',
-            fg_color = '#353535',
+            bg_color = '#f2f2f2',
+            fg_color = '#1b1b1b',
         },
     },
 }

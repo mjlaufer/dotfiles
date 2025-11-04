@@ -1,32 +1,32 @@
 [colors]
-foreground = "#353535"
-background = "#eeeeee"
-cursor_bg = "#353535"
-cursor_fg = "#eeeeee"
-cursor_border = "#353535"
-selection_fg = "#353535"
-selection_bg = "#cfe5ff"
+foreground = "#1b1b1b"
+background = "#f2f2f2"
+cursor_bg = "#1b1b1b"
+cursor_fg = "#f2f2f2"
+cursor_border = "#1b1b1b"
+selection_fg = "#1b1b1b"
+selection_bg = "#d3eef4"
 
 ansi = [
-  "#eeeeee", # black
-  "#b30000", # red
-  "#437800", # green
-  "#c75a00", # yellow
-  "#005fae", # blue
-  "#bf007d", # magenta
+  "#f2f2f2", # black
+  "#b61e00", # red
+  "#007f4e", # green
+  "#b65f00", # yellow
+  "#005db1", # blue
+  "#bb0055", # magenta
   "#007787", # cyan
-  "#353535", # white
+  "#1b1b1b", # white
 ]
 
 brights = [
-  "#6d6d6d", # bright black
-  "#cd0000", # bright red
-  "#4d8700", # bright green
-  "#d76200", # bright yellow
-  "#0070ca", # bright blue
-  "#d6008d", # bright magenta
+  "#6e6e6e", # bright black
+  "#d02300", # bright red
+  "#008e58", # bright green
+  "#c96900", # bright yellow
+  "#006ed0", # bright blue
+  "#cf1f63", # bright magenta
   "#008698", # bright cyan
-  "#eeeeee", # bright white
+  "#f2f2f2", # bright white
 ]
 
 [colors.tab_bar]
@@ -34,8 +34,8 @@ background = "#e5e5e5"
 inactive_tab_edge = "#e5e5e5"
 
 [colors.tab_bar.active_tab]
-bg_color = "#eeeeee"
-fg_color = "#353535"
+bg_color = "#f2f2f2"
+fg_color = "#1b1b1b"
 intensity = "Bold"
 
 [colors.tab_bar.inactive_tab]
@@ -44,16 +44,16 @@ fg_color = "#555555"
 intensity = "Normal"
 
 [colors.tab_bar.inactive_tab_hover]
-bg_color = "#eeeeee"
-fg_color = "#353535"
+bg_color = "#f2f2f2"
+fg_color = "#1b1b1b"
 
 [colors.tab_bar.new_tab]
 bg_color = "#e5e5e5"
 fg_color = "#555555"
 
 [colors.tab_bar.new_tab_hover]
-bg_color = "#eeeeee"
-fg_color = "#353535"
+bg_color = "#f2f2f2"
+fg_color = "#1b1b1b"
 
 [metadata]
 aliases = []
