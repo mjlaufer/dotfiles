@@ -76,93 +76,141 @@ local vtslsLangSettings = {
 
 -- Add any server configuration overrides to the following tables.
 local servers = {
-    biome = {},
-    clangd = {},
-    cssls = {},
-    elmls = {},
-    eslint = {},
-    golangci_lint_ls = {},
+    biome = {
+        config = {},
+    },
+    clangd = {
+        config = {},
+    },
+    cssls = {
+        mason_name = 'css-lsp',
+        config = {},
+    },
+    elmls = {
+        mason_name = 'elm-language-server',
+        config = {},
+    },
+    eslint = {
+        mason_name = 'eslint-lsp',
+        config = {},
+    },
+    golangci_lint_ls = {
+        mason_name = 'golangci-lint-langserver',
+        config = {},
+    },
     gopls = {
-        settings = {
-            gopls = {
-                codelenses = {
-                    gc_details = false,
-                    generate = true,
-                    regenerate_cgo = true,
-                    run_govulncheck = true,
-                    test = true,
-                    tidy = true,
-                    upgrade_dependency = true,
-                    vendor = true,
+        config = {
+            settings = {
+                gopls = {
+                    codelenses = {
+                        gc_details = false,
+                        generate = true,
+                        regenerate_cgo = true,
+                        run_govulncheck = true,
+                        test = true,
+                        tidy = true,
+                        upgrade_dependency = true,
+                        vendor = true,
+                    },
+                    hints = {
+                        assignVariableTypes = true,
+                        compositeLiteralFields = true,
+                        compositeLiteralTypes = true,
+                        constantValues = true,
+                        functionTypeParameters = true,
+                        parameterNames = true,
+                        rangeVariableTypes = true,
+                    },
+                    analyses = {
+                        nilness = true,
+                        unusedparams = true,
+                        unusedwrite = true,
+                        useany = true,
+                    },
+                    completeUnimported = true,
+                    usePlaceholders = true,
+                    staticcheck = true,
+                    directoryFilters = { '-.git', '-.idea', '-.vscode', '-.node_modules' },
+                    gofumpt = true,
                 },
-                hints = {
-                    assignVariableTypes = true,
-                    compositeLiteralFields = true,
-                    compositeLiteralTypes = true,
-                    constantValues = true,
-                    functionTypeParameters = true,
-                    parameterNames = true,
-                    rangeVariableTypes = true,
-                },
-                analyses = {
-                    nilness = true,
-                    unusedparams = true,
-                    unusedwrite = true,
-                    useany = true,
-                },
-                completeUnimported = true,
-                usePlaceholders = true,
-                staticcheck = true,
-                directoryFilters = { '-.git', '-.idea', '-.vscode', '-.node_modules' },
-                gofumpt = true,
             },
         },
     },
     gradle_ls = {
-        cmd = { vim.fn.stdpath('data') .. '/mason/bin/gradle-language-server' },
-        filetypes = { 'groovy', 'kotlin' },
-        root_dir = require('lspconfig.util').root_pattern(
-            'settings.gradle',
-            'settings.gradle.kts',
-            'build.gradle',
-            'build.gradle.kts'
-        ),
+        mason_name = 'gradle-language-server',
+        config = {
+            cmd = { vim.fn.stdpath('data') .. '/mason/bin/gradle-language-server' },
+            filetypes = { 'groovy', 'kotlin' },
+            root_dir = require('lspconfig.util').root_pattern(
+                'settings.gradle',
+                'settings.gradle.kts',
+                'build.gradle',
+                'build.gradle.kts'
+            ),
+        },
     },
-    html = {},
-    jdtls = {},
+    html = {
+        mason_name = 'html-lsp',
+        config = {},
+    },
+    jdtls = {
+        config = {},
+    },
     jsonls = {
-        settings = {
-            json = {
-                schemas = require('schemastore').json.schemas(),
-                validate = { enable = true },
+        mason_name = 'json-lsp',
+        config = {
+            settings = {
+                json = {
+                    schemas = require('schemastore').json.schemas(),
+                    validate = { enable = true },
+                },
             },
         },
     },
-    rust_analyzer = {},
-    lua_ls = {},
+    lua_ls = {
+        mason_name = 'lua-language-server',
+        config = {},
+    },
+    rust_analyzer = {
+        mason_name = 'rust-analyzer',
+        config = {},
+    },
     vtsls = {
-        settings = {
-            vtsls = {
-                -- Automatically use workspace version of TypeScript lib on startup.
-                autoUseWorkspaceTsdk = true,
+        config = {
+            settings = {
+                vtsls = {
+                    -- Automatically use workspace version of TypeScript lib on startup.
+                    autoUseWorkspaceTsdk = true,
+                },
+                javascript = vtslsLangSettings,
+                typescript = vtslsLangSettings,
             },
-            javascript = vtslsLangSettings,
-            typescript = vtslsLangSettings,
         },
     },
     yamlls = {
-        settings = {
-            yaml = {
-                -- Disable built-in Schema Store support to use schemastore plugin.
-                schemaStore = {
-                    enable = false,
-                    url = '',
+        mason_name = 'yaml-language-server',
+        config = {
+            settings = {
+                yaml = {
+                    -- Disable built-in Schema Store support to use schemastore plugin.
+                    schemaStore = {
+                        enable = false,
+                        url = '',
+                    },
+                    schemas = require('schemastore').yaml.schemas(),
                 },
-                schemas = require('schemastore').yaml.schemas(),
             },
         },
     },
 }
+
+local mason_packages = {}
+for server_name, server in pairs(servers) do
+    local mason_name = server.mason_name or server_name
+    table.insert(mason_packages, mason_name)
+end
+
+util.install_mason_packages(mason_packages)
 
 -- By default, Neovim doesn't fully support the completion capabilities in the LSP specification.
 -- The nvim-cmp plugin adds full support for LSP completion capabilities, so our LSP config must
@@ -172,13 +220,13 @@ capabilities =
     vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
 -- Configure language servers.
-for server_name, server_config in pairs(servers) do
+for server_name, server in pairs(servers) do
     -- Skip jdtls because the nvim-jdtls plugin manages language server configuration.
     if server_name == 'jdtls' then
         goto continue
     end
 
-    local config = vim.tbl_deep_extend('force', {}, server_config)
+    local config = vim.tbl_deep_extend('force', {}, server.config)
     config.capabilities = vim.tbl_deep_extend('force', {}, capabilities, config.capabilities or {})
 
     vim.lsp.config(server_name, config)

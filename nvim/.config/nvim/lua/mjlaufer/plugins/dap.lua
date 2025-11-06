@@ -14,38 +14,13 @@ vim.fn.sign_define(
     { text = '▶', texthl = 'DapStoppedText', linehl = 'DapStoppedLine', numhl = '' }
 )
 
--- Install debuggers with mason.nvim.
-
-local debuggers = {
+util.install_mason_packages({
     'codelldb',
     'delve',
     'java-debug-adapter',
     'java-test',
     'js-debug-adapter',
-}
-
-local mason_registry = require('mason-registry')
-
-local function ensure_installed()
-    for _, debugger in ipairs(debuggers) do
-        local package = mason_registry.get_package(debugger)
-        if not package:is_installed() then
-            vim.notify('Installing ' .. debugger .. '...', vim.log.levels.INFO, { title = 'Mason' })
-            package:install():once(
-                'closed',
-                vim.schedule_wrap(function()
-                    vim.notify(
-                        'Successfully installed: ' .. debugger,
-                        vim.log.levels.INFO,
-                        { title = 'Mason' }
-                    )
-                end)
-            )
-        end
-    end
-end
-
-mason_registry.refresh(vim.schedule_wrap(ensure_installed))
+})
 
 -- DAP CONFIGURATIONS
 
