@@ -20,8 +20,13 @@ local core_editor_plugins = {
     'tpope/vim-characterize', -- Enhances `ga`, which displays a character's representation in decimal, octal, and hex.
     'tpope/vim-sleuth', -- Adjusts `shiftwidth` and `expandtab` automatically
     { 'echasnovski/mini.ai', version = '*', opts = {} },
+    'justinmk/vim-gtfo',
     {
         'justinmk/vim-sneak',
+        init = function()
+            vim.g['sneak#prompt'] = ''
+            vim.g['sneak#label'] = 1
+        end,
         config = function()
             require('mjlaufer.plugins.sneak')
         end,

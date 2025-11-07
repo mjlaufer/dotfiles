@@ -17,10 +17,12 @@ vim.notify = vscode.notify
 -- Ctrl + Esc        Focus on editor from terminal
 -- Ctrl + Shift + G  Toggle focus between source control and editor
 
--- Set vim-sneak colors to Flashy theme.
+-- Set vim-sneak colors to Inklight theme.
 vim.cmd([[
-    hi Sneak guifg=#1b1b1b guibg=#f998c7
-    hi SneakScope guibg=#353535
+    hi Sneak guibg=#ffe2ce
+    hi SneakCurrent guibg=#fecfaf
+    hi SneakScope guibg=#d3eef4
+    hi SneakLabel guifg=#1b1b1b guibg=#ffe2ce gui=bold cterm=bold
 ]])
 
 local function vscode_notify(cmd)
