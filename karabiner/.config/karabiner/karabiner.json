@@ -2,21 +2,21 @@
   "profiles": [
     {
       "complex_modifications": {
-        "parameters": { "basic.to_if_alone_timeout_milliseconds": 250 },
+        "parameters": {
+          "basic.to_if_alone_timeout_milliseconds": 250
+        },
         "rules": [
           {
-            "description": "Post Esc if Caps is tapped, Control if held.",
+            "description": "Tap = Esc, Hold = Control (caps_lock, escape, left_control).",
             "manipulators": [
               {
-                "conditions": [
-                  {
-                    "identifiers": [{ "vendor_id": 1452 }, { "vendor_id": 10730 }],
-                    "type": "device_if"
-                  }
-                ],
                 "from": {
-                  "key_code": "left_control",
-                  "modifiers": { "optional": ["any"] }
+                  "key_code": "caps_lock",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
                 },
                 "to": [
                   {
@@ -24,18 +24,21 @@
                     "lazy": true
                   }
                 ],
-                "to_if_alone": [{ "key_code": "escape" }],
+                "to_if_alone": [
+                  {
+                    "key_code": "escape"
+                  }
+                ],
                 "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Post Control if Esc is held.",
-            "manipulators": [
+              },
               {
                 "from": {
                   "key_code": "escape",
-                  "modifiers": { "optional": ["any"] }
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
                 },
                 "to": [
                   {
@@ -43,41 +46,39 @@
                     "lazy": true
                   }
                 ],
-                "to_if_alone": [{ "key_code": "escape" }],
+                "to_if_alone": [
+                  {
+                    "key_code": "escape"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "left_control",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_control",
+                    "lazy": true
+                  }
+                ],
+                "to_if_alone": [
+                  {
+                    "key_code": "escape"
+                  }
+                ],
                 "type": "basic"
               }
             ]
           }
         ]
       },
-      "devices": [
-        {
-          "identifiers": {
-            "is_keyboard": true,
-            "product_id": 258,
-            "vendor_id": 10730
-          },
-          "simple_modifications": [
-            {
-              "from": { "key_code": "caps_lock" },
-              "to": [{ "key_code": "escape" }]
-            }
-          ]
-        },
-        {
-          "identifiers": {
-            "is_keyboard": true,
-            "product_id": 632,
-            "vendor_id": 1452
-          },
-          "simple_modifications": [
-            {
-              "from": { "key_code": "caps_lock" },
-              "to": [{ "key_code": "escape" }]
-            }
-          ]
-        }
-      ],
       "name": "Default profile",
       "selected": true,
       "virtual_hid_keyboard": {

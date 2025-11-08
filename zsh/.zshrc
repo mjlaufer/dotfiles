@@ -9,9 +9,13 @@ plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+export PGBIN="$(brew --prefix)/opt/postgresql@18/bin"
 export CLANGBIN="$(brew --prefix)/opt/llvm/bin"
 export GOPATH=$HOME/go
-export PATH=$HOME/.local/bin:$CLANGBIN:$GOPATH/bin:$PATH
+export GOPRIVATE="hadrian.buf.dev/gen/go,github.com/Hadrian-MTV/*"
+export KREWPATH="${KREW_ROOT:-$HOME/.krew}"
+export DOCKERPATH=$HOME/.docker
+export PATH=/usr/local/go/bin:$HOME/.local/bin:$PGBIN:$CLANGBIN:$GOBIN:$GOPATH/bin:$KREWPATH/bin:$DOCKERPATH/bin:$PATH
 
 # `kitten ssh` configures the remote environment to mirror the local kitty setup.
 alias kssh="kitty +kitten ssh"
@@ -47,3 +51,10 @@ eval "$($(brew --prefix)/bin/mise activate zsh)"
 
 # Set up direnv for env management.
 eval "$(direnv hook zsh)"
+
+# bun completions
+[ -s "/Users/matt.laufer/.bun/_bun" ] && source "/Users/matt.laufer/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

@@ -19,10 +19,10 @@ vim.fn.sign_define(
 )
 
 util.install_mason_packages({
-    'codelldb',
+    -- 'codelldb',
     'delve',
-    'java-debug-adapter',
-    'java-test',
+    -- 'java-debug-adapter',
+    -- 'java-test',
     'js-debug-adapter',
 })
 
@@ -32,28 +32,28 @@ local dap = require('dap')
 
 -- C
 
-dap.adapters.codelldb = {
-    type = 'server',
-    host = '127.0.0.1',
-    port = 13000,
-    executable = {
-        command = vim.fn.stdpath('data') .. '/mason/packages/codelldb/extension/adapter/codelldb',
-        args = { '--port', 13000 },
-    },
-}
+-- dap.adapters.codelldb = {
+--     type = 'server',
+--     host = '127.0.0.1',
+--     port = 13000,
+--     executable = {
+--         command = vim.fn.stdpath('data') .. '/mason/packages/codelldb/extension/adapter/codelldb',
+--         args = { '--port', 13000 },
+--     },
+-- }
 
-dap.configurations.c = {
-    {
-        name = 'Debug using codelldb',
-        type = 'codelldb',
-        request = 'launch',
-        program = function()
-            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-        end,
-        cwd = '${workspaceFolder}',
-        stopOnEntry = false,
-    },
-}
+-- dap.configurations.c = {
+--     {
+--         name = 'Debug using codelldb',
+--         type = 'codelldb',
+--         request = 'launch',
+--         program = function()
+--             return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+--         end,
+--         cwd = '${workspaceFolder}',
+--         stopOnEntry = false,
+--     },
+-- }
 
 -- Go
 
@@ -98,20 +98,26 @@ dap.configurations.go = {
         host = '127.0.0.1',
         port = '2345',
         showLog = true,
+        substitutePath = {
+            {
+                from = '${workspaceFolder}',
+                to = '/app',
+            },
+        },
     },
 }
 
 -- Java
 
-dap.configurations.java = {
-    {
-        type = 'java',
-        name = 'Attach to Remote',
-        request = 'attach',
-        hostName = '127.0.0.1',
-        port = 5005,
-    },
-}
+-- dap.configurations.java = {
+--     {
+--         type = 'java',
+--         name = 'Attach to Remote',
+--         request = 'attach',
+--         hostName = '127.0.0.1',
+--         port = 5005,
+--     },
+-- }
 
 -- JavaScript and TypeScript
 

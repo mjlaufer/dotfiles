@@ -101,19 +101,19 @@ require('lazydev').setup({
 
 -- Mason packages to install.
 local ensure_installed = {
-    'biome',
-    'clangd',
+    -- 'biome',
+    -- 'clangd',
     'css-lsp',
-    'elm-language-server',
+    -- 'elm-language-server',
     'eslint-lsp',
     'golangci-lint-langserver',
     'gopls',
-    'gradle-language-server',
+    -- 'gradle-language-server',
     'html-lsp',
-    'jdtls',
+    -- 'jdtls',
     'json-lsp',
-    'lua-language-server',
-    'rust-analyzer',
+    -- 'lua-language-server',
+    -- 'rust-analyzer',
     'vtsls',
     'yaml-language-server',
 }

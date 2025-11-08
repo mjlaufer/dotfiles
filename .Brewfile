@@ -22,25 +22,25 @@ brew "mise"
 brew "stow"
 
 # C/C++
-brew "llvm"
-brew "clang-format"
-brew "cmake"
+# brew "llvm"
+# brew "clang-format"
+# brew "cmake"
 
 # Elm
-brew "elm"
+# brew "elm"
 
 # Go
-brew "go"
-brew "golangci-lint"
-brew "delve"
+# brew "go"
+# brew "golangci-lint"
+# brew "delve"
 
 # Java
-brew "google-java-format"
-brew "gradle"
-brew "maven"
+# brew "google-java-format"
+# brew "gradle"
+# brew "maven"
 
 # Lua
-brew "stylua"
+# brew "stylua"
 
 # Node.js
 brew "pnpm"
@@ -70,12 +70,12 @@ brew "borders"
 
 # Apps
 cask "ghostty"
-cask "wezterm"
+# cask "wezterm"
 cask "nikitabobko/tap/aerospace"
-cask "brave-browser"
-cask "google-chrome"
-cask "firefox"
-cask "firefox@developer-edition"
-cask "docker-desktop"
+# cask "brave-browser"
+# cask "google-chrome"
+# cask "firefox"
+# cask "firefox@developer-edition"
+# cask "docker-desktop"
 cask "karabiner-elements"
 cask "visual-studio-code"
