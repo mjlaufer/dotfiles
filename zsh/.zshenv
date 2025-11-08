@@ -8,5 +8,3 @@ export FZF_DEFAULT_OPTS=" \
   --border=rounded \
   --prompt='❯ ' \
   --pointer='▶'"
-
-. "$HOME/.cargo/env"
