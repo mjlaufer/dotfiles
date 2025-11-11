@@ -233,15 +233,6 @@ require('lazy').setup(IS_VSCODE and core_editor_plugins or vim.list_extend(core_
         opts = {},
     },
     {
-        'iamcco/markdown-preview.nvim',
-        cmd = { 'MarkdownPreview', 'MarkdownPreviewStop', 'MarkdownPreviewToggle' },
-        build = 'cd app && yarn install && git restore .',
-        init = function()
-            vim.g.mkdp_filetypes = { 'markdown' }
-        end,
-        ft = 'markdown',
-    },
-    {
         'catgoose/nvim-colorizer.lua',
         opts = { filetypes = { '*', css = { rgb_fn = true, hsl_fn = true } } },
     },
@@ -298,6 +289,19 @@ require('lazy').setup(IS_VSCODE and core_editor_plugins or vim.list_extend(core_
     },
 
     -- Language-specific tools (non-LSP)
+    {
+        'OXY2DEV/markview.nvim',
+        lazy = false,
+    },
+    {
+        'iamcco/markdown-preview.nvim',
+        cmd = { 'MarkdownPreview', 'MarkdownPreviewStop', 'MarkdownPreviewToggle' },
+        build = 'cd app && yarn install && git restore .',
+        init = function()
+            vim.g.mkdp_filetypes = { 'markdown' }
+        end,
+        ft = 'markdown',
+    },
     {
         'olexsmir/gopher.nvim',
         ft = 'go',
