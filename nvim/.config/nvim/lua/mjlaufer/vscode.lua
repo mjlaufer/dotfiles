@@ -17,6 +17,8 @@ vim.notify = vscode.notify
 -- Ctrl + Esc        Focus on editor from terminal
 -- Ctrl + Shift + G  Toggle focus between source control and editor
 
+vim.opt.shadafile = 'NONE'
+
 -- Set vim-sneak colors to Inklight theme.
 vim.cmd([[
     hi Sneak guibg=#ffe2ce
@@ -49,9 +51,10 @@ vim.keymap.set(
 vim.keymap.set(
     'n',
     '<leader>ef',
-    vscode_notify('workbench.view.explorer'),
-    { desc = 'Toggle explorer' }
+    vscode_notify('workbench.files.action.showActiveFileInExplorer'),
+    { desc = 'Show active file' }
 )
+vim.keymap.set('n', '-', vscode_notify('workbench.view.explorer'), { desc = 'Focus explorer' })
 
 -- Finder
 vim.keymap.set(
@@ -132,16 +135,18 @@ vim.keymap.set(
 )
 vim.keymap.set(
     'n',
-    ']c',
+    ']g',
     vscode_notify('workbench.action.editor.nextChange'),
     { desc = 'Next change' }
 )
 vim.keymap.set(
     'n',
-    '[c',
+    '[g',
     vscode_notify('workbench.action.editor.previousChange'),
     { desc = 'Previous change' }
 )
+vim.keymap.set('n', 'gp', vscode_notify('git.openChange'), { desc = 'Preview file changes' })
+vim.keymap.set('n', 'gs', vscode_notify('git.stage'), { desc = 'Stage file changes' })
 
 -- Debug/Test
 vim.keymap.set(
