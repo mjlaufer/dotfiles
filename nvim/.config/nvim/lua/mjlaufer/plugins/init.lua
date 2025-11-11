@@ -13,12 +13,32 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local core_editor_plugins = {
-    'tpope/vim-surround', -- Provides maps for working with parens, brackets, tags, etc.
-    'tpope/vim-unimpaired', -- Provides maps for complementary pairs (e.g., `]q` for `:cnext` and `[q` for `:cprevious`).
-    'tpope/vim-repeat', -- Applies `.` to vim-surround and vim-unimpaired.
-    'tpope/vim-eunuch', -- Vim sugar for Unix shell commands (e.g., `:Chmod`).
+    { 'nvim-mini/mini.ai', version = '*', opts = {} },
+    { 'nvim-mini/mini.bracketed', version = '*', opts = {} },
+    {
+        'nvim-mini/mini.surround',
+        version = '*',
+        config = function()
+            require('mini.surround').setup({
+                mappings = {
+                    add = 'ys', -- Add surrounding: ys{motion}{char}
+                    delete = 'ds', -- Delete surrounding: ds{char}
+                    replace = 'cs', -- Change surrounding: cs{old}{new}
+                    find = '',
+                    find_left = '',
+                    highlight = '',
+                    update_n_lines = '',
+                },
+            })
+
+            -- `yS` => surround to end-of-line
+            vim.keymap.set('n', 'yS', 'ys$', { remap = true, silent = true })
+            -- `yss` => surround the whole current line.
+            vim.keymap.set('n', 'yss', '^ys$', { remap = true, silent = true })
+        end,
+    },
     'tpope/vim-characterize', -- Enhances `ga`, which displays a character's representation in decimal, octal, and hex.
-    { 'echasnovski/mini.ai', version = '*', opts = {} },
+    'tpope/vim-eunuch', -- Vim sugar for Unix shell commands (e.g., `:Chmod`).
     'justinmk/vim-gtfo',
     {
         'justinmk/vim-sneak',
