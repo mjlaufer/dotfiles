@@ -74,6 +74,7 @@ require('lazy').setup(IS_VSCODE and core_editor_plugins or vim.list_extend(core_
             indent = { enabled = true },
             input = { enabled = true },
             notifier = { enabled = true },
+            scroll = { enabled = true },
         },
     },
 
@@ -113,7 +114,6 @@ require('lazy').setup(IS_VSCODE and core_editor_plugins or vim.list_extend(core_
         'nvim-tree/nvim-web-devicons', -- Icons used by nvim-tree, oil, and lualine
         opts = { override = {}, default = true },
     },
-    { 'karb94/neoscroll.nvim', opts = { duration_multiplier = 0.5 } },
 
     -- LSP
     {
