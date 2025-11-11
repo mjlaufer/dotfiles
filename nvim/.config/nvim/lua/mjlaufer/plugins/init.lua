@@ -247,7 +247,6 @@ require('lazy').setup(IS_VSCODE and core_editor_plugins or vim.list_extend(core_
     },
 
     -- Git
-    'tpope/vim-fugitive',
     {
         'lewis6991/gitsigns.nvim',
         config = function()
@@ -259,6 +258,20 @@ require('lazy').setup(IS_VSCODE and core_editor_plugins or vim.list_extend(core_
         config = function()
             require('mjlaufer.plugins.diffview')
         end,
+    },
+    {
+        'linrongbin16/gitlinker.nvim',
+        cmd = 'GitLink',
+        opts = {},
+        keys = {
+            { '<leader>gy', '<cmd>GitLink<CR>', mode = { 'n', 'v' }, desc = 'Yank git link' },
+            {
+                '<leader>gY',
+                '<cmd>GitLink! blame<CR>',
+                mode = { 'n', 'v' },
+                desc = 'Open git link',
+            },
+        },
     },
 
     -- Debug + Test
