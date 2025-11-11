@@ -2,7 +2,7 @@
 gui:
   theme:
     activeBorderColor:
-      - yellow
+      - cyan
       - bold
     selectedLineBgColor:
       - default
@@ -11,7 +11,7 @@ gui:
     markedBaseCommitBgColor:
       - black
   border: single
-  nerdFontsVersion: '3'
+  nerdFontsVersion: "3"
 git:
   pagers:
     - colorArg: always
@@ -22,7 +22,7 @@ git:
     - master
 keybinding:
   universal:
-    quit: '<c-q>'
-    return: 'q'
+    quit: "<c-q>"
+    return: "q"
 os:
   editPreset: nvim
