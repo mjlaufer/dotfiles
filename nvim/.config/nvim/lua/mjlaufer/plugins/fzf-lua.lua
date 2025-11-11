@@ -7,10 +7,13 @@ fzf.setup({ fzf_colors = true, grep = { hidden = true } })
 
 util.useWhichKey({ '<leader>f', group = 'Fzf' })
 
+map('n', '<leader>f<', fzf.resume, 'Resume last fzf command')
+
 -- Files
-map('n', '<leader>fb', fzf.buffers, 'Find open buffers')
-map('n', '<leader>ff', fzf.files, 'Find files')
-map('n', '<leader>fg', fzf.git_files, 'Find git files')
+map('n', '<leader>fb', fzf.buffers, 'Open buffers')
+map('n', '<leader>ff', fzf.files, 'All files')
+map('n', '<leader>fg', fzf.git_files, 'Git files')
+map('n', '<leader>fo', fzf.oldfiles, 'Recently opened files')
 
 -- Search
 map('n', '<leader>fs', fzf.live_grep, 'Live grep')
