@@ -29,5 +29,5 @@ require('lualine').setup({
         lualine_y = {},
         lualine_z = {},
     },
-    extensions = { 'lazy', 'fugitive', 'nvim-tree', 'toggleterm' },
+    extensions = { 'lazy', 'nvim-tree' },
 })

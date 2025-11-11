@@ -18,7 +18,6 @@ local core_editor_plugins = {
     'tpope/vim-repeat', -- Applies `.` to vim-surround and vim-unimpaired.
     'tpope/vim-eunuch', -- Vim sugar for Unix shell commands (e.g., `:Chmod`).
     'tpope/vim-characterize', -- Enhances `ga`, which displays a character's representation in decimal, octal, and hex.
-    'tpope/vim-sleuth', -- Adjusts `shiftwidth` and `expandtab` automatically
     { 'echasnovski/mini.ai', version = '*', opts = {} },
     'justinmk/vim-gtfo',
     {
@@ -152,10 +151,9 @@ require('lazy').setup(IS_VSCODE and core_editor_plugins or vim.list_extend(core_
         end,
     },
     {
-        'nvim-telescope/telescope.nvim',
-        branch = '0.1.x',
+        'ibhagwan/fzf-lua',
         config = function()
-            require('mjlaufer.plugins.telescope')
+            require('mjlaufer.plugins.fzf-lua')
         end,
     },
     {
@@ -174,12 +172,6 @@ require('lazy').setup(IS_VSCODE and core_editor_plugins or vim.list_extend(core_
         'nvim-lualine/lualine.nvim',
         config = function()
             require('mjlaufer.plugins.lualine')
-        end,
-    },
-    {
-        'akinsho/toggleterm.nvim',
-        config = function()
-            require('mjlaufer.plugins.toggleterm')
         end,
     },
     {
