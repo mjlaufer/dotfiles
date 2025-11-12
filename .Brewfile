@@ -57,11 +57,12 @@ brew "ranger"
 brew "trash"
 
 # Apps
+cask "ghostty"
 cask "wezterm"
 cask "brave-browser"
 cask "google-chrome"
 cask "firefox"
 cask "firefox@developer-edition"
-cask "docker"
+cask "docker-desktop"
 cask "karabiner-elements"
 cask "visual-studio-code"
