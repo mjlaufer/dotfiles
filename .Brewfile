@@ -1,7 +1,7 @@
 # Fonts
-cask "font-fira-code"
 cask "font-ibm-plex-mono"
 cask "font-jetbrains-mono"
+cask "font-lilex"
 cask "font-symbols-only-nerd-font"
 
 # Utils
@@ -11,6 +11,7 @@ brew "direnv"
 brew "fzf"
 brew "git"
 brew "git-delta"
+brew "gh"
 brew "gnu-sed"
 brew "htop"
 brew "jq"
@@ -45,8 +46,8 @@ brew "pnpm"
 brew "yarn"
 
 # tmux
-brew "reattach-to-user-namespace"
 brew "tmux"
+brew "reattach-to-user-namespace"
 
 # Neovim
 brew "neovim"
@@ -56,9 +57,17 @@ brew "ripgrep"
 brew "ranger"
 brew "trash"
 
+# Sketchybar
+tap "FelixKratz/formulae"
+brew "sketchybar"
+cask "sf-symbols"
+cask "font-sketchybar-app-font"
+brew "switchaudio-osx"
+
 # Apps
 cask "ghostty"
 cask "wezterm"
+cask "nikitabobko/tap/aerospace"
 cask "brave-browser"
 cask "google-chrome"
 cask "firefox"

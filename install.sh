@@ -29,6 +29,9 @@ for source in ~/dotfiles/*; do
     fi
 done
 
+# Start sketchybar
+brew services start sketchybar
+
 # Update bat binary cache
 bat cache --build
 

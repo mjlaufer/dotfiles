@@ -1,8 +1,8 @@
 theme = inklight
-font-family = JetBrains Mono
+font-family = Lilex
 font-size = 16
 font-thicken = true
-font-thicken-strength = 10
+font-thicken-strength = 80
 adjust-cell-height = 2
 cursor-style = block
 shell-integration-features = no-cursor

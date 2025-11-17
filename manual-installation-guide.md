@@ -54,6 +54,12 @@ To install the [bat](https://github.com/sharkdp/bat/#adding-new-themes) theme us
 $ bat cache --build
 ```
 
+### Start sketchybar
+
+```sh
+$ brew services start sketchybar
+```
+
 ### Kitty terminal
 
 Install [Kitty](https://sw.kovidgoyal.net/kitty).
