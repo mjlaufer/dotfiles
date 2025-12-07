@@ -12,16 +12,19 @@ SYMBOL_FONT="SF Pro"
 # General bar appearance
 # For all options see https://felixkratz.github.io/SketchyBar/config/bar.
 bar=(
-    height=40
+    height=26
     color=$BAR_COLOR
-    border_width=2
+    border_width=1
     border_color=$BAR_BORDER_COLOR
-	shadow=off
-	position=top
-	sticky=on
-	padding_right=10
-	padding_left=10
-	topmost=window
+    shadow=on
+    position=top
+    sticky=on
+    padding_right=10
+    padding_left=10
+    topmost=window
+    margin=4
+    y_offset=4
+    corner_radius=10
 )
 
 sketchybar --bar "${bar[@]}"
@@ -30,25 +33,26 @@ sketchybar --bar "${bar[@]}"
 # For a full list of all available item properties see https://felixkratz.github.io/SketchyBar/config/items.
 defaults=(
 	updates=when_shown
-	icon.font="$SYMBOL_FONT:Semibold:15.0"
+	background.height=22
+    background.border_width=1
+	background.corner_radius=8
+	icon.font="$SYMBOL_FONT:Semibold:13.0"
 	icon.color=$ICON_COLOR
 	icon.padding_left=4
 	icon.padding_right=4
-	label.font="$FONT:Medium:15.0"
+	label.font="$FONT:Medium:13.0"
 	label.color=$LABEL_COLOR
 	label.padding_left=4
 	label.padding_right=4
+    padding_left=5
 	padding_right=5
-	padding_left=5
-	background.height=26
-	background.corner_radius=9
-	background.border_width=2
-	popup.background.border_width=2
-	popup.background.corner_radius=9
+	popup.background.border_width=1
+	popup.background.corner_radius=12
 	popup.background.border_color=$POPUP_BORDER_COLOR
 	popup.background.color=$POPUP_BACKGROUND_COLOR
-	popup.blur_radius=20
+	popup.blur_radius=0
 	popup.background.shadow.drawing=on
+    popup.y_offset=2
 	scroll_texts=on
 )
 
@@ -58,9 +62,8 @@ sketchybar --default "${defaults[@]}"
 #                                Left side
 ################################################################################
 
-# Show the Apple logo.
-# On click, show preferences, activity, and lock screen.
-source "$ITEM_DIR/apple.sh"
+# Show aerospace workspaces
+source "$ITEM_DIR/aerospace.sh"
 
 # Show the name and icon of the app currently focused.
 source "$ITEM_DIR/front_app.sh"
@@ -77,6 +80,8 @@ source "$ITEM_DIR/spotify.sh"
 ################################################################################
 
 source "$ITEM_DIR/calendar.sh"
+
+source "$ITEM_DIR/wifi.sh"
 
 source "$ITEM_DIR/battery.sh"
 

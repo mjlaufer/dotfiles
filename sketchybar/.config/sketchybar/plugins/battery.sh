@@ -12,7 +12,7 @@ if [ "$PERCENTAGE" = "" ]; then
 fi
 
 DRAWING=on
-COLOR=$BLACK
+COLOR=$FG1
 case ${PERCENTAGE} in
   9[0-9]|100) ICON=$BATTERY_100
   ;;
@@ -20,9 +20,9 @@ case ${PERCENTAGE} in
   ;;
   [3-5][0-9]) ICON=$BATTERY_50
   ;;
-  [1-2][0-9]) ICON=$BATTERY_25; COLOR=$ORANGE
+  [1-2][0-9]) ICON=$BATTERY_25; COLOR=$YELLOW1
   ;;
-  *) ICON=$BATTERY_0; COLOR=$RED
+  *) ICON=$BATTERY_0; COLOR=$RED1
 esac
 
 if [[ "$CHARGING" != "" ]]; then

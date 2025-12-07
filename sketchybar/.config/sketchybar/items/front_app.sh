@@ -1,9 +1,11 @@
 #!/bin/bash
 
 front_app=(
-	label.font="$FONT:Bold:14.0"
+	label.font="$FONT:Medium:13.0"
 	icon.background.drawing=on
+	icon.background.image.scale=0.75
 	display=active
+    padding_left=16
 	script="$PLUGIN_DIR/front_app.sh"
 )
 
