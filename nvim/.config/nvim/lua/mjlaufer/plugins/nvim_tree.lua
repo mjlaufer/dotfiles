@@ -1,5 +1,4 @@
-local util = require('mjlaufer.util')
-local map = util.map
+local map = vim.keymap.set
 
 require('nvim-tree').setup({
     view = { width = 36 },
@@ -7,8 +6,6 @@ require('nvim-tree').setup({
     filters = { dotfiles = false, git_ignored = false },
 })
 
-util.useWhichKey({ { '<leader>e', group = 'Explorer' } })
-
-map('n', '<leader>ee', ':NvimTreeToggle<CR>', 'Toggle')
-map('n', '<leader>ef', ':NvimTreeFindFile<CR>', 'Find file')
-map('n', '<leader>ec', ':NvimTreeCollapse<CR>', 'Collapse')
+map('n', '<leader>ee', ':NvimTreeToggle<CR>', { silent = true, desc = 'Toggle' })
+map('n', '<leader>ef', ':NvimTreeFindFile<CR>', { silent = true, desc = 'Find file' })
+map('n', '<leader>ec', ':NvimTreeCollapse<CR>', { silent = true, desc = 'Collapse' })

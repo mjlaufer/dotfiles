@@ -1,3 +1,1 @@
-local util = require('mjlaufer.util')
-
-util.map('n', '<leader>u', ':UndotreeToggle<CR>', 'Undotree')
+vim.keymap.set('n', '<leader>u', ':UndotreeToggle<CR>', { silent = true, desc = 'Undotree' })

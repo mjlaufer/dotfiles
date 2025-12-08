@@ -1,29 +1,25 @@
-local util = require('mjlaufer.util')
-local map = util.map
-
+local map = vim.keymap.set
 local fzf = require('fzf-lua')
 
 fzf.setup({ fzf_colors = true, grep = { hidden = true } })
 
-util.useWhichKey({ '<leader>f', group = 'Fzf' })
-
-map('n', '<leader>f<', fzf.resume, 'Resume last fzf command')
+map('n', '<leader>f<', fzf.resume, { desc = 'Resume last fzf command' })
 
 -- Files
-map('n', '<leader>fb', fzf.buffers, 'Open buffers')
-map('n', '<leader>ff', fzf.files, 'All files')
-map('n', '<leader>fg', fzf.git_files, 'Git files')
-map('n', '<leader>fo', fzf.oldfiles, 'Recently opened files')
+map('n', '<leader>fb', fzf.buffers, { desc = 'Open buffers' })
+map('n', '<leader>ff', fzf.files, { desc = 'All files' })
+map('n', '<leader>fg', fzf.git_files, { desc = 'Git files' })
+map('n', '<leader>fo', fzf.oldfiles, { desc = 'Recently opened files' })
 
 -- Search
-map('n', '<leader>fs', fzf.live_grep, 'Live grep')
-map('n', '<leader>fw', fzf.grep_cword, 'Grep word under cursor')
-map('n', '<leader>fW', fzf.grep_cWORD, 'Grep WORD under cursor')
+map('n', '<leader>fs', fzf.live_grep, { desc = 'Live grep' })
+map('n', '<leader>fw', fzf.grep_cword, { desc = 'Grep word under cursor' })
+map('n', '<leader>fW', fzf.grep_cWORD, { desc = 'Grep WORD under cursor' })
 
 -- Diagnostics
-map('n', '<leader>fd', fzf.diagnostics_workspace, 'Workspace diagnostics')
+map('n', '<leader>fd', fzf.diagnostics_workspace, { desc = 'Workspace diagnostics' })
 
 -- Vim
-map('n', '<leader>fh', fzf.help_tags, 'Help tags')
-map('n', '<leader>fl', fzf.loclist, 'Location list')
-map('n', '<leader>fq', fzf.quickfix, 'Quickfix')
+map('n', '<leader>fh', fzf.help_tags, { desc = 'Help tags' })
+map('n', '<leader>fl', fzf.loclist, { desc = 'Location list' })
+map('n', '<leader>fq', fzf.quickfix, { desc = 'Quickfix' })

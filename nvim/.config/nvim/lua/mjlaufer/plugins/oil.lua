@@ -1,5 +1,4 @@
-local util = require('mjlaufer.util')
-local map = util.map
+local map = vim.keymap.set
 
 require('oil').setup({
     default_file_explorer = false,
@@ -14,7 +13,5 @@ function _G.open_oil()
     require('oil').open()
 end
 
-util.useWhichKey({ { '<leader>e', group = 'Explorer' } })
-
-map('n', '<leader>eo', open_oil, 'Oil')
-map('n', '-', open_oil, 'Oil')
+map('n', '<leader>eo', open_oil, { desc = 'Oil' })
+map('n', '-', open_oil, { desc = 'Oil' })

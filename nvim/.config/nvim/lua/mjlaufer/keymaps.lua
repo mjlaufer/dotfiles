@@ -1,20 +1,13 @@
-local map = require('mjlaufer.util').map
-local useWhichKey = require('mjlaufer.util').useWhichKey
-
-useWhichKey({
-    { '<leader>l', group = 'Location List' },
-    { '<leader>o', group = 'Open in IDE' },
-    { '<leader>p', group = 'Plenary' },
-})
+local map = vim.keymap.set
 
 -- Set <space> to no-op since we use it for our leader.
 map('', '<Space>', '<Nop>')
 
 -- Remove search highlights.
-map('n', '<esc>', ':nohlsearch<CR>', 'Remove search highlights')
+map('n', '<esc>', ':nohlsearch<CR>', { silent = true, desc = 'Remove search highlights' })
 
 -- Location list diagnostics
-map('n', '<leader>ld', vim.diagnostic.setloclist, 'Show diagnostics')
+map('n', '<leader>ld', vim.diagnostic.setloclist, { desc = 'Show diagnostics' })
 
 -- Improve split navigation (See `:help wincmd`).
 map('n', '<C-h>', '<C-w>h')
@@ -23,8 +16,8 @@ map('n', '<C-k>', '<C-w>k')
 map('n', '<C-l>', '<C-w>l')
 
 -- Better movement for wrapped lines
-map('n', 'k', 'v:count == 0 ? "gk" : "k"', { expr = true, silent = true })
-map('n', 'j', 'v:count == 0 ? "gj" : "j"', { expr = true, silent = true })
+map('n', 'k', 'v:count == 0 ? "gk" : "k"', { expr = true })
+map('n', 'j', 'v:count == 0 ? "gj" : "j"', { expr = true })
 
 -- Move selected lines up/down.
 map('x', 'J', ":m '>+1<CR>gv=gv")
@@ -38,7 +31,7 @@ map('x', '>', '>gv')
 map('x', '<leader>p', '"_dP')
 
 -- Search in current selection.
-map('x', '/', '<esc>/\\%V', { noremap = true })
+map('x', '/', '<esc>/\\%V')
 
 -- Search for current selection.
 map('x', '*', ':lua VSetSearch("/")<CR>/<C-r>=@/<CR><CR>')
@@ -58,17 +51,19 @@ function _G.VSetSearch(search_cmd)
 end
 
 -- Substitute word under cursor.
-map('n', '<leader>r', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { noremap = true })
+map(
+    'n',
+    '<leader>r',
+    [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+    { desc = 'Replace word under cursor' }
+)
 
 -- Always use the same flags when repeating a substitution command.
 map('n', '&', ':&&<CR>')
 map('x', '&', ':&&<CR>')
 
 -- tmux-sessionizer
-map('n', '<c-s>', ':silent !tmux neww tmux-sessionizer<cr>')
-
--- Run current spec file with plenary.test_harness.
-map('n', '<leader>ps', '<Plug>PlenaryTestFile', 'Run current spec file')
+map('n', '<c-s>', ':silent !tmux neww tmux-sessionizer<CR>', { silent = true })
 
 -- EMBEDDED TERMINAL EMULATOR
 -- `<leader>gl` opens Lazygit in a floating terminal buffer.
@@ -192,4 +187,4 @@ vim.keymap.set({ 'n', 't' }, '<leader>T', function()
     end
 
     print('Terminal layout: ' .. term_layout)
-end)
+end, { desc = 'Toggle terminal layout' })

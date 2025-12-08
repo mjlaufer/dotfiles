@@ -1,7 +1,4 @@
-local util = require('mjlaufer.util')
-local map = util.map
+local map = vim.keymap.set
 
-util.useWhichKey({ { '<leader>g', group = 'Git' } })
-
-map('n', '<leader>go', ':DiffviewOpen<CR>', 'Open diff')
-map('n', '<leader>gc', ':DiffviewClose<CR>', 'Close diff')
+map('n', '<leader>go', ':DiffviewOpen<CR>', { silent = true, desc = 'Open diff' })
+map('n', '<leader>gc', ':DiffviewClose<CR>', { silent = true, desc = 'Close diff' })

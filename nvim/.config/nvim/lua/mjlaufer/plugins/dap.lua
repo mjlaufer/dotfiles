@@ -1,5 +1,5 @@
 local util = require('mjlaufer.util')
-local map = util.map
+local map = vim.keymap.set
 
 vim.fn.sign_define(
     'DapBreakpoint',
@@ -236,36 +236,31 @@ _G.start_node_debugger = function()
     require('dap').continue()
 end
 
-util.useWhichKey({
-    { '<leader>d', group = 'Debug' },
-    { '<leader>dw', group = 'DAP Widgets' },
-})
-
-map('n', '<leader>db', dap.toggle_breakpoint, 'Toggle breakpoint')
-map('n', '<leader>dc', dap.continue, 'Start/continue')
-map('n', '<leader>dj', dap.step_over, 'Step over')
-map('n', '<leader>dk', dap.step_out, 'Step out')
-map('n', '<leader>dl', dap.step_into, 'Step into')
+map('n', '<leader>db', dap.toggle_breakpoint, { desc = 'Toggle breakpoint' })
+map('n', '<leader>dc', dap.continue, { desc = 'Start/continue' })
+map('n', '<leader>dj', dap.step_over, { desc = 'Step over' })
+map('n', '<leader>dk', dap.step_out, { desc = 'Step out' })
+map('n', '<leader>dl', dap.step_into, { desc = 'Step into' })
 map('n', '<leader>dm', function()
     require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))
-end, 'Set breakpoint log message')
+end, { desc = 'Set breakpoint log message' })
 map('n', '<leader>dn', function()
     require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))
-end, 'Set breakpoint condition')
-map('n', '<leader>dq', dap.close, 'Quit')
-map('n', '<leader>dr', dap.repl.open, 'Open REPL')
-map('n', '<leader>ds', start_node_debugger, 'Start Node debugger')
+end, { desc = 'Set breakpoint condition' })
+map('n', '<leader>dq', dap.close, { desc = 'Quit' })
+map('n', '<leader>dr', dap.repl.open, { desc = 'Open REPL' })
+map('n', '<leader>ds', start_node_debugger, { desc = 'Start Node debugger' })
 
 -- DAP Widgets
-map('n', '<leader>dwu', require('dap.ui.widgets').hover, 'Show expression under cursor')
+map('n', '<leader>dwu', require('dap.ui.widgets').hover, { desc = 'Show expression under cursor' })
 map('n', '<leader>dws', function()
     local widgets = require('dap.ui.widgets')
     widgets.sidebar(widgets.scopes).open()
-end, 'Show scopes')
+end, { desc = 'Show scopes' })
 map('n', '<leader>dwf', function()
     local widgets = require('dap.ui.widgets')
     widgets.sidebar(widgets.frames).open()
-end, 'Show frames')
+end, { desc = 'Show frames' })
 
 -- DAP UI
 local dapui = require('dapui')
@@ -284,12 +279,10 @@ dap.listeners.before.event_exited.dapui_config = function()
     dapui.close()
 end
 
-util.useWhichKey({ { '<leader>du', group = 'DAP UI' } })
-
-map('n', '<leader>dui', dapui.toggle, 'Toggle UI')
+map('n', '<leader>dui', dapui.toggle, { desc = 'Toggle UI' })
 map('n', '<leader>dus', function()
     dapui.toggle('sidebar')
-end, 'Toggle sidebar')
+end, { desc = 'Toggle sidebar' })
 map('n', '<leader>dut', function()
     dapui.toggle('tray')
-end, 'Toggle tray')
+end, { desc = 'Toggle tray' })

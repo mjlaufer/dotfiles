@@ -1,5 +1,5 @@
 local util = require('mjlaufer.util')
-local map = util.map
+local map = vim.keymap.set
 
 local jdtls = require('jdtls')
 
@@ -86,16 +86,14 @@ local config = {
         jdtls.setup_dap({ hotcodereplace = 'auto' })
         jdtls.setup.add_commands()
 
-        util.useWhichKey({ { '<leader>r', group = 'jdtls refactor' } })
-        local opts = { noremap = true, silent = true, buffer = bufnr }
-        map('n', '<leader>ro', jdtls.organize_imports, 'Organize imports', opts)
-        map('n', '<leader>rv', jdtls.extract_variable, 'Extract variable', opts)
-        map('n', '<leader>rc', jdtls.extract_constant, 'Extract constant', opts)
-        map('x', 'rv', [[<esc><cmd>lua require('jdtls').extract_variable(true)<CR>]], opts)
-        map('x', 'rc', [[<esc><cmd>lua require('jdtls').extract_constant(true)<CR>]], opts)
-        map('x', 'rm', [[<esc><cmd>lua require('jdtls').extract_method(true)<CR>]], opts)
-        map('n', '<leader>sc', jdtls.test_class, 'Test class', opts)
-        map('n', '<leader>sm', jdtls.test_nearest_method, 'Test nearest method', opts)
+        map('n', '<leader>ro', jdtls.organize_imports, { buffer = bufnr, desc = 'Organize imports' })
+        map('n', '<leader>rv', jdtls.extract_variable, { buffer = bufnr, desc = 'Extract variable' })
+        map('n', '<leader>rc', jdtls.extract_constant, { buffer = bufnr, desc = 'Extract constant' })
+        map('x', 'rv', [[<esc><cmd>lua require('jdtls').extract_variable(true)<CR>]], { buffer = bufnr })
+        map('x', 'rc', [[<esc><cmd>lua require('jdtls').extract_constant(true)<CR>]], { buffer = bufnr })
+        map('x', 'rm', [[<esc><cmd>lua require('jdtls').extract_method(true)<CR>]], { buffer = bufnr })
+        map('n', '<leader>sc', jdtls.test_class, { buffer = bufnr, desc = 'Test class' })
+        map('n', '<leader>sm', jdtls.test_nearest_method, { buffer = bufnr, desc = 'Test nearest method' })
     end,
     capabilities = capabilities,
     init_options = { bundles = bundles, extendedClientCapabilities = extendedClientCapabilities },

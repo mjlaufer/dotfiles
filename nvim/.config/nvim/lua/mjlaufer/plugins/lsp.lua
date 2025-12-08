@@ -1,5 +1,5 @@
 local util = require('mjlaufer.util')
-local map = util.map
+local map = vim.keymap.set
 
 -- Diagnostics
 vim.diagnostic.config({
@@ -30,33 +30,32 @@ vim.diagnostic.config({
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('mjlaufer-lsp-attach', { clear = true }),
     callback = function(event)
-        util.useWhichKey({ { '<leader>a', group = 'LSP' } })
-        local opts = { buffer = event.buf, noremap = true, silent = true }
+        local buf = event.buf
 
-        map('n', 'gd', vim.lsp.buf.definition, 'Go to definition', opts)
-        map('n', 'gD', vim.lsp.buf.declaration, 'Go to declaration', opts)
-        map('n', 'gI', vim.lsp.buf.implementation, 'Go to implementations', opts)
-        map('n', 'gr', vim.lsp.buf.references, 'Go to references', opts)
-        map('n', '<leader>aa', vim.lsp.buf.code_action, 'Code actions', opts)
-        map('x', '<leader>aa', vim.lsp.buf.code_action, 'Code actions', opts)
-        map('n', '<leader>ac', vim.lsp.buf.incoming_calls, 'List call sites', opts)
-        map('n', '<leader>ar', vim.lsp.buf.rename, 'Rename references', opts)
-        map('n', '<leader>at', vim.lsp.buf.type_definition, 'Go to type definition', opts)
-        map('n', '<leader>al', vim.lsp.codelens.run, 'Run codelens action', opts)
+        map('n', 'gd', vim.lsp.buf.definition, { buffer = buf, desc = 'Go to definition' })
+        map('n', 'gD', vim.lsp.buf.declaration, { buffer = buf, desc = 'Go to declaration' })
+        map('n', 'gI', vim.lsp.buf.implementation, { buffer = buf, desc = 'Go to implementations' })
+        map('n', 'gr', vim.lsp.buf.references, { buffer = buf, desc = 'Go to references' })
+        map('n', '<leader>aa', vim.lsp.buf.code_action, { buffer = buf, desc = 'Code actions' })
+        map('x', '<leader>aa', vim.lsp.buf.code_action, { buffer = buf, desc = 'Code actions' })
+        map('n', '<leader>ac', vim.lsp.buf.incoming_calls, { buffer = buf, desc = 'List call sites' })
+        map('n', '<leader>ar', vim.lsp.buf.rename, { buffer = buf, desc = 'Rename references' })
+        map('n', '<leader>at', vim.lsp.buf.type_definition, { buffer = buf, desc = 'Go to type definition' })
+        map('n', '<leader>al', vim.lsp.codelens.run, { buffer = buf, desc = 'Run codelens action' })
 
         -- Enable inlay hints to be toggled.
         local client = vim.lsp.get_client_by_id(event.data.client_id)
         if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
-            vim.lsp.inlay_hint.enable(false, { bufnr = event.buf })
+            vim.lsp.inlay_hint.enable(false, { bufnr = buf })
 
             local toggle_inlay_hints = function()
                 vim.lsp.inlay_hint.enable(
-                    not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }),
-                    { bufnr = event.buf }
+                    not vim.lsp.inlay_hint.is_enabled({ bufnr = buf }),
+                    { bufnr = buf }
                 )
             end
 
-            map('n', '<leader>ah', toggle_inlay_hints, 'Toggle inlay hints', opts)
+            map('n', '<leader>ah', toggle_inlay_hints, { buffer = buf, desc = 'Toggle inlay hints' })
         end
     end,
 })

@@ -162,16 +162,6 @@ require('lazy').setup(IS_VSCODE and core_editor_plugins or vim.list_extend(core_
 
     -- Workspace
     {
-        'folke/which-key.nvim',
-        config = function()
-            require('which-key').setup({
-                filter = function(mapping)
-                    return mapping.desc and mapping.desc ~= ''
-                end,
-            })
-        end,
-    },
-    {
         'nvim-mini/mini.bufremove',
         version = '*',
         opts = {},
@@ -184,6 +174,81 @@ require('lazy').setup(IS_VSCODE and core_editor_plugins or vim.list_extend(core_
                 desc = 'Delete current buffer',
             },
         },
+    },
+    {
+        'nvim-mini/mini.clue',
+        version = '*',
+        opts = function()
+            local miniclue = require('mini.clue')
+            return {
+                triggers = {
+                    -- Leader triggers
+                    { mode = 'n', keys = '<Leader>' },
+                    { mode = 'x', keys = '<Leader>' },
+
+                    -- Built-in completion
+                    { mode = 'i', keys = '<C-x>' },
+
+                    -- `g` key
+                    { mode = 'n', keys = 'g' },
+                    { mode = 'x', keys = 'g' },
+
+                    -- Prev/Next
+                    { mode = 'n', keys = '[' },
+                    { mode = 'n', keys = ']' },
+
+                    -- Marks
+                    { mode = 'n', keys = "'" },
+                    { mode = 'n', keys = '`' },
+                    { mode = 'x', keys = "'" },
+                    { mode = 'x', keys = '`' },
+
+                    -- Registers
+                    { mode = 'n', keys = '"' },
+                    { mode = 'x', keys = '"' },
+                    { mode = 'i', keys = '<C-r>' },
+                    { mode = 'c', keys = '<C-r>' },
+
+                    -- Window commands
+                    { mode = 'n', keys = '<C-w>' },
+
+                    -- `z` key
+                    { mode = 'n', keys = 'z' },
+                    { mode = 'x', keys = 'z' },
+                },
+                clues = {
+                    -- Leader/movement groups.
+                    { mode = 'n', keys = '[', desc = '+prev' },
+                    { mode = 'n', keys = ']', desc = '+next' },
+                    { mode = 'n', keys = '<leader>a', desc = '+LSP' },
+                    { mode = 'n', keys = '<leader>b', desc = '+Buffers' },
+                    { mode = 'n', keys = '<leader>c', desc = '+Code' },
+                    { mode = 'n', keys = '<leader>d', desc = '+Debug' },
+                    { mode = 'n', keys = '<leader>e', desc = '+Explorer' },
+                    { mode = 'n', keys = '<leader>f', desc = '+Find' },
+                    { mode = 'n', keys = '<leader>g', desc = '+Git' },
+                    { mode = 'n', keys = '<leader>l', desc = '+Location list' },
+                    { mode = 'n', keys = '<leader>r', desc = 'Replace' },
+                    { mode = 'n', keys = '<leader>T', desc = 'Toggle terminal layout' },
+                    { mode = 'n', keys = '<leader>t', desc = '+Test' },
+                    { mode = 'n', keys = '<leader>u', desc = 'Undotree' },
+
+                    -- Builtins.
+                    miniclue.gen_clues.builtin_completion(),
+                    miniclue.gen_clues.g(),
+                    miniclue.gen_clues.marks(),
+                    miniclue.gen_clues.registers(),
+                    miniclue.gen_clues.windows(),
+                    miniclue.gen_clues.z(),
+                },
+                window = {
+                    delay = 500,
+                    config = {
+                        width = 'auto',
+                    },
+                },
+            }
+        end,
     },
     {
         'ibhagwan/fzf-lua',
