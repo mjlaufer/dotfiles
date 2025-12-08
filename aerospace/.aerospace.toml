@@ -58,7 +58,11 @@ automatically-unhide-macos-hidden-apps = false
     inner.vertical =   8
     outer.left =       8
     outer.bottom =     8
-    outer.top =        40 # Make room for sketchybar
+    outer.top = [
+        { monitor."built-in" = 10 }, # Smaller size for Retina display
+        { monitor.".*" = 40 },       # External monitors
+        40,                          # Fallback
+    ]
     outer.right =      8
 
 # 'main' binding mode declaration
