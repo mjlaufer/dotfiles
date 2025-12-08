@@ -15,6 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 local core_editor_plugins = {
     { 'nvim-mini/mini.ai', version = '*', opts = {} },
     { 'nvim-mini/mini.bracketed', version = '*', opts = {} },
+    { 'nvim-mini/mini.splitjoin', version = '*', opts = {} },
     {
         'nvim-mini/mini.surround',
         version = '*',
@@ -169,6 +170,20 @@ require('lazy').setup(IS_VSCODE and core_editor_plugins or vim.list_extend(core_
                 end,
             })
         end,
+    },
+    {
+        'nvim-mini/mini.bufremove',
+        version = '*',
+        opts = {},
+        keys = {
+            {
+                '<leader>bd',
+                function()
+                    require('mini.bufremove').delete(0, false)
+                end,
+                desc = 'Delete current buffer',
+            },
+        },
     },
     {
         'ibhagwan/fzf-lua',
