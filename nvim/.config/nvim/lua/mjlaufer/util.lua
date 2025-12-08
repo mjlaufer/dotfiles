@@ -43,11 +43,19 @@ M.install_mason_packages = function(mason_package_names)
                     package:install():once(
                         'closed',
                         vim.schedule_wrap(function()
-                            vim.notify(
-                                'Successfully installed: ' .. name,
-                                vim.log.levels.INFO,
-                                { title = 'Mason' }
-                            )
+                            if package:is_installed() then
+                                vim.notify(
+                                    'Successfully installed: ' .. name,
+                                    vim.log.levels.INFO,
+                                    { title = 'Mason' }
+                                )
+                            else
+                                vim.notify(
+                                    'Failed to install: ' .. name,
+                                    vim.log.levels.ERROR,
+                                    { title = 'Mason' }
+                                )
+                            end
                         end)
                     )
                 end
