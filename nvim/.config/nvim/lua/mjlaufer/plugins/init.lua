@@ -215,6 +215,21 @@ require('lazy').setup(IS_VSCODE and core_editor_plugins or vim.list_extend(core_
             require('mjlaufer.plugins.undotree')
         end,
     },
+    {
+        'MagicDuck/grug-far.nvim',
+        cmd = 'GrugFar',
+        keys = {
+            {
+                '<leader>cg',
+                function()
+                    require('grug-far').open({ transient = true })
+                end,
+                desc = 'GrugFar',
+                mode = { 'n', 'v' },
+            },
+        },
+        opts = {},
+    },
 
     -- Editor
     {
