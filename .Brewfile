@@ -57,12 +57,13 @@ brew "ripgrep"
 brew "ranger"
 brew "trash"
 
-# Sketchybar
+# SketchyBar and JankyBorders
 tap "FelixKratz/formulae"
 brew "sketchybar"
 cask "sf-symbols"
 cask "font-sketchybar-app-font"
 brew "switchaudio-osx"
+brew "borders"
 
 # Apps
 cask "ghostty"
