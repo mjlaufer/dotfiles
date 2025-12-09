@@ -48,7 +48,15 @@ local core_editor_plugins = {
             vim.g['sneak#label'] = 1
         end,
         config = function()
-            require('mjlaufer.plugins.sneak')
+            local map = vim.keymap.set
+            map('n', 'f', '<Plug>Sneak_f')
+            map('n', 'F', '<Plug>Sneak_F')
+            map('x', 'f', '<Plug>Sneak_f')
+            map('x', 'F', '<Plug>Sneak_F')
+            map('n', 't', '<Plug>Sneak_t')
+            map('n', 'T', '<Plug>Sneak_T')
+            map('x', 't', '<Plug>Sneak_t')
+            map('x', 'T', '<Plug>Sneak_T')
         end,
     },
 }
@@ -258,9 +266,19 @@ require('lazy').setup(IS_VSCODE and core_editor_plugins or vim.list_extend(core_
     },
     {
         'nvim-tree/nvim-tree.lua',
+        lazy = false,
         config = function()
-            require('mjlaufer.plugins.nvim_tree')
+            require('nvim-tree').setup({
+                view = { width = 36 },
+                renderer = { group_empty = true, highlight_git = true },
+                filters = { dotfiles = false, git_ignored = false },
+            })
         end,
+        keys = {
+            { '<leader>ee', ':NvimTreeToggle<CR>', silent = true, desc = 'Toggle' },
+            { '<leader>ef', ':NvimTreeFindFile<CR>', silent = true, desc = 'Find file' },
+            { '<leader>ec', ':NvimTreeCollapse<CR>', silent = true, desc = 'Collapse' },
+        },
     },
     {
         'stevearc/oil.nvim',
@@ -276,9 +294,9 @@ require('lazy').setup(IS_VSCODE and core_editor_plugins or vim.list_extend(core_
     },
     {
         'mbbill/undotree',
-        config = function()
-            require('mjlaufer.plugins.undotree')
-        end,
+        keys = {
+            { '<leader>u', ':UndotreeToggle<CR>', silent = true, desc = 'Undotree' },
+        },
     },
     {
         'MagicDuck/grug-far.nvim',
@@ -335,15 +353,33 @@ require('lazy').setup(IS_VSCODE and core_editor_plugins or vim.list_extend(core_
     -- Git
     {
         'lewis6991/gitsigns.nvim',
-        config = function()
-            require('mjlaufer.plugins.gitsigns')
-        end,
+        event = 'BufReadPost', -- Load on buffer open to show gutter markers.
+        opts = {
+            current_line_blame = true,
+            current_line_blame_opts = { delay = 500 },
+            current_line_blame_formatter = '    <author>, <author_time:%m/%d/%y> - <summary>',
+            gh = true,
+        },
+        keys = {
+            {
+                '<leader>gb',
+                ':Gitsigns toggle_current_line_blame<CR>',
+                silent = true,
+                desc = 'Toggle line blame',
+            },
+            { '[g', ':Gitsigns prev_hunk<CR>', silent = true, desc = 'Previous hunk' },
+            { ']g', ':Gitsigns next_hunk<CR>', silent = true, desc = 'Next hunk' },
+            { '<leader>gp', ':Gitsigns preview_hunk<CR>', silent = true, desc = 'Preview hunk' },
+            { '<leader>gr', ':Gitsigns reset_hunk<CR>', silent = true, desc = 'Reset hunk' },
+            { '<leader>gs', ':Gitsigns stage_hunk<CR>', silent = true, desc = 'Stage hunk' },
+        },
     },
     {
         'sindrets/diffview.nvim',
-        config = function()
-            require('mjlaufer.plugins.diffview')
-        end,
+        keys = {
+            { '<leader>go', ':DiffviewOpen<CR>', silent = true, desc = 'Open diff' },
+            { '<leader>gc', ':DiffviewClose<CR>', silent = true, desc = 'Close diff' },
+        },
     },
     {
         'linrongbin16/gitlinker.nvim',
