@@ -260,9 +260,26 @@ require('lazy').setup(IS_VSCODE and core_editor_plugins or vim.list_extend(core_
     },
     {
         'ibhagwan/fzf-lua',
-        config = function()
-            require('mjlaufer.plugins.fzf-lua')
-        end,
+        cmd = 'FzfLua',
+        opts = { fzf_colors = true, grep = { hidden = true } },
+        keys = {
+            { '<leader>f<', '<cmd>FzfLua resume<CR>', desc = 'Resume last fzf command' },
+            { '<leader>fb', '<cmd>FzfLua buffers<CR>', desc = 'Open buffers' },
+            { '<leader>ff', '<cmd>FzfLua files<CR>', desc = 'All files' },
+            { '<leader>fg', '<cmd>FzfLua git_files<CR>', desc = 'Git files' },
+            { '<leader>fo', '<cmd>FzfLua oldfiles<CR>', desc = 'Recently opened files' },
+            { '<leader>fs', '<cmd>FzfLua live_grep<CR>', desc = 'Live grep' },
+            { '<leader>fw', '<cmd>FzfLua grep_cword<CR>', desc = 'Grep word under cursor' },
+            { '<leader>fW', '<cmd>FzfLua grep_cWORD<CR>', desc = 'Grep WORD under cursor' },
+            {
+                '<leader>fd',
+                '<cmd>FzfLua diagnostics_workspace<CR>',
+                desc = 'Workspace diagnostics',
+            },
+            { '<leader>fh', '<cmd>FzfLua help_tags<CR>', desc = 'Help tags' },
+            { '<leader>fl', '<cmd>FzfLua loclist<CR>', desc = 'Location list' },
+            { '<leader>fq', '<cmd>FzfLua quickfix<CR>', desc = 'Quickfix' },
+        },
     },
     {
         'nvim-tree/nvim-tree.lua',
@@ -282,9 +299,31 @@ require('lazy').setup(IS_VSCODE and core_editor_plugins or vim.list_extend(core_
     },
     {
         'stevearc/oil.nvim',
-        config = function()
-            require('mjlaufer.plugins.oil')
-        end,
+        opts = {
+            default_file_explorer = false,
+            delete_to_trash = true,
+            view_options = {
+                show_hidden = true,
+            },
+        },
+        keys = {
+            {
+                '-',
+                function()
+                    require('nvim-tree.api').tree.close()
+                    require('oil').open()
+                end,
+                desc = 'Oil',
+            },
+            {
+                '<leader>eo',
+                function()
+                    require('nvim-tree.api').tree.close()
+                    require('oil').open()
+                end,
+                desc = 'Oil',
+            },
+        },
     },
     {
         'nvim-lualine/lualine.nvim',
