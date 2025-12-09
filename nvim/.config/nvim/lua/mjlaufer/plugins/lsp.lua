@@ -38,9 +38,19 @@ vim.api.nvim_create_autocmd('LspAttach', {
         map('n', 'gr', vim.lsp.buf.references, { buffer = buf, desc = 'Go to references' })
         map('n', '<leader>aa', vim.lsp.buf.code_action, { buffer = buf, desc = 'Code actions' })
         map('x', '<leader>aa', vim.lsp.buf.code_action, { buffer = buf, desc = 'Code actions' })
-        map('n', '<leader>ac', vim.lsp.buf.incoming_calls, { buffer = buf, desc = 'List call sites' })
+        map(
+            'n',
+            '<leader>ac',
+            vim.lsp.buf.incoming_calls,
+            { buffer = buf, desc = 'List call sites' }
+        )
         map('n', '<leader>ar', vim.lsp.buf.rename, { buffer = buf, desc = 'Rename references' })
-        map('n', '<leader>at', vim.lsp.buf.type_definition, { buffer = buf, desc = 'Go to type definition' })
+        map(
+            'n',
+            '<leader>at',
+            vim.lsp.buf.type_definition,
+            { buffer = buf, desc = 'Go to type definition' }
+        )
         map('n', '<leader>al', vim.lsp.codelens.run, { buffer = buf, desc = 'Run codelens action' })
 
         -- Enable inlay hints to be toggled.
@@ -55,12 +65,38 @@ vim.api.nvim_create_autocmd('LspAttach', {
                 )
             end
 
-            map('n', '<leader>ah', toggle_inlay_hints, { buffer = buf, desc = 'Toggle inlay hints' })
+            map(
+                'n',
+                '<leader>ah',
+                toggle_inlay_hints,
+                { buffer = buf, desc = 'Toggle inlay hints' }
+            )
         end
     end,
 })
 
 -- LANGUAGE SERVERS
+
+-- Mason packages to install (use Mason package names).
+local ensure_installed = {
+    'biome',
+    'clangd',
+    'css-lsp',
+    'elm-language-server',
+    'eslint-lsp',
+    'golangci-lint-langserver',
+    'gopls',
+    'gradle-language-server',
+    'html-lsp',
+    'jdtls',
+    'json-lsp',
+    'lua-language-server',
+    'rust-analyzer',
+    'vtsls',
+    'yaml-language-server',
+}
+
+util.install_mason_packages(ensure_installed)
 
 local vtslsLangSettings = {
     inlayHints = {
@@ -73,143 +109,104 @@ local vtslsLangSettings = {
     },
 }
 
--- Add any server configuration overrides to the following tables.
-local servers = {
+-- Server configurations (keyed by nvim-lspconfig package name).
+local server_configs = {
     biome = {
-        config = {},
-    },
-    clangd = {
-        config = {},
-    },
-    cssls = {
-        mason_name = 'css-lsp',
-        config = {},
-    },
-    elmls = {
-        mason_name = 'elm-language-server',
-        config = {},
-    },
-    eslint = {
-        mason_name = 'eslint-lsp',
-        config = {},
-    },
-    golangci_lint_ls = {
-        mason_name = 'golangci-lint-langserver',
-        config = {},
+        filetypes = {
+            'astro',
+            'css',
+            'graphql',
+            'html',
+            'javascript',
+            'javascriptreact',
+            'json',
+            'jsonc',
+            'mjs',
+            'mts',
+            'svelte',
+            'typescript',
+            'typescript.tsx',
+            'typescriptreact',
+            'vue',
+        },
     },
     gopls = {
-        config = {
-            settings = {
-                gopls = {
-                    codelenses = {
-                        gc_details = false,
-                        generate = true,
-                        regenerate_cgo = true,
-                        run_govulncheck = true,
-                        test = true,
-                        tidy = true,
-                        upgrade_dependency = true,
-                        vendor = true,
-                    },
-                    hints = {
-                        assignVariableTypes = true,
-                        compositeLiteralFields = true,
-                        compositeLiteralTypes = true,
-                        constantValues = true,
-                        functionTypeParameters = true,
-                        parameterNames = true,
-                        rangeVariableTypes = true,
-                    },
-                    analyses = {
-                        nilness = true,
-                        unusedparams = true,
-                        unusedwrite = true,
-                        useany = true,
-                    },
-                    completeUnimported = true,
-                    usePlaceholders = true,
-                    staticcheck = true,
-                    directoryFilters = { '-.git', '-.idea', '-.vscode', '-.node_modules' },
-                    gofumpt = true,
+        settings = {
+            gopls = {
+                codelenses = {
+                    gc_details = false,
+                    generate = true,
+                    regenerate_cgo = true,
+                    run_govulncheck = true,
+                    test = true,
+                    tidy = true,
+                    upgrade_dependency = true,
+                    vendor = true,
                 },
+                hints = {
+                    assignVariableTypes = true,
+                    compositeLiteralFields = true,
+                    compositeLiteralTypes = true,
+                    constantValues = true,
+                    functionTypeParameters = true,
+                    parameterNames = true,
+                    rangeVariableTypes = true,
+                },
+                analyses = {
+                    nilness = true,
+                    unusedparams = true,
+                    unusedwrite = true,
+                    useany = true,
+                },
+                completeUnimported = true,
+                usePlaceholders = true,
+                staticcheck = true,
+                directoryFilters = { '-.git', '-.idea', '-.vscode', '-.node_modules' },
+                gofumpt = true,
             },
         },
     },
     gradle_ls = {
-        mason_name = 'gradle-language-server',
-        config = {
-            cmd = { vim.fn.stdpath('data') .. '/mason/bin/gradle-language-server' },
-            filetypes = { 'groovy', 'kotlin' },
-            root_dir = require('lspconfig.util').root_pattern(
-                'settings.gradle',
-                'settings.gradle.kts',
-                'build.gradle',
-                'build.gradle.kts'
-            ),
+        cmd = { vim.fn.stdpath('data') .. '/mason/bin/gradle-language-server' },
+        filetypes = { 'groovy', 'kotlin' },
+        root_markers = {
+            'settings.gradle',
+            'settings.gradle.kts',
+            'build.gradle',
+            'build.gradle.kts',
         },
-    },
-    html = {
-        mason_name = 'html-lsp',
-        config = {},
-    },
-    jdtls = {
-        config = {},
     },
     jsonls = {
-        mason_name = 'json-lsp',
-        config = {
-            settings = {
-                json = {
-                    schemas = require('schemastore').json.schemas(),
-                    validate = { enable = true },
-                },
+        settings = {
+            json = {
+                schemas = require('schemastore').json.schemas(),
+                validate = { enable = true },
             },
         },
     },
-    lua_ls = {
-        mason_name = 'lua-language-server',
-        config = {},
-    },
-    rust_analyzer = {
-        mason_name = 'rust-analyzer',
-        config = {},
-    },
     vtsls = {
-        config = {
-            settings = {
-                vtsls = {
-                    -- Automatically use workspace version of TypeScript lib on startup.
-                    autoUseWorkspaceTsdk = true,
-                },
-                javascript = vtslsLangSettings,
-                typescript = vtslsLangSettings,
+        settings = {
+            vtsls = {
+                -- Automatically use workspace version of TypeScript lib on startup.
+                autoUseWorkspaceTsdk = true,
             },
+            javascript = vtslsLangSettings,
+            typescript = vtslsLangSettings,
         },
     },
     yamlls = {
-        mason_name = 'yaml-language-server',
-        config = {
-            settings = {
-                yaml = {
-                    -- Disable built-in Schema Store support to use schemastore plugin.
-                    schemaStore = {
-                        enable = false,
-                        url = '',
-                    },
-                    schemas = require('schemastore').yaml.schemas(),
+        settings = {
+            yaml = {
+                -- Disable built-in Schema Store support to use schemastore plugin.
+                schemaStore = {
+                    enable = false,
+                    url = '',
                 },
+                schemas = require('schemastore').yaml.schemas(),
             },
         },
     },
 }
-
-local mason_packages = {}
-for server_name, server in pairs(servers) do
-    local mason_name = server.mason_name or server_name
-    table.insert(mason_packages, mason_name)
-end
-
-util.install_mason_packages(mason_packages)
 
 -- By default, Neovim doesn't fully support the completion capabilities in the LSP specification.
 -- The nvim-cmp plugin adds full support for LSP completion capabilities, so our LSP config must
@@ -218,18 +215,23 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities =
     vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
--- Configure language servers.
-for server_name, server in pairs(servers) do
-    -- Skip jdtls because the nvim-jdtls plugin manages language server configuration.
-    if server_name == 'jdtls' then
-        goto continue
+-- Configure and enable language servers based on installed Mason packages.
+local mason_registry = require('mason-registry')
+for _, pkg in ipairs(mason_registry.get_installed_packages()) do
+    local lsp_name = pkg.spec.neovim and pkg.spec.neovim.lspconfig
+    if lsp_name then
+        -- Skip jdtls because the nvim-jdtls plugin manages language server configuration.
+        if lsp_name == 'jdtls' then
+            goto continue
+        end
+
+        local config = server_configs[lsp_name] or {}
+        config.capabilities =
+            vim.tbl_deep_extend('force', {}, capabilities, config.capabilities or {})
+
+        vim.lsp.config(lsp_name, config)
+        vim.lsp.enable(lsp_name)
+
+        ::continue::
     end
-
-    local config = vim.tbl_deep_extend('force', {}, server.config)
-    config.capabilities = vim.tbl_deep_extend('force', {}, capabilities, config.capabilities or {})
-
-    vim.lsp.config(server_name, config)
-    vim.lsp.enable(server_name)
-
-    ::continue::
 end
