@@ -261,7 +261,13 @@ require('lazy').setup(IS_VSCODE and core_editor_plugins or vim.list_extend(core_
     {
         'ibhagwan/fzf-lua',
         cmd = 'FzfLua',
-        opts = { fzf_colors = true, grep = { hidden = true } },
+        opts = {
+            fzf_colors = true,
+            grep = {
+                hidden = true,
+                rg_opts = '--column --line-number --no-heading --color=always --smart-case --max-columns=4096 --glob "!.git/" -e',
+            },
+        },
         keys = {
             { '<leader>f<', '<cmd>FzfLua resume<CR>', desc = 'Resume last fzf command' },
             { '<leader>fb', '<cmd>FzfLua buffers<CR>', desc = 'Open buffers' },
