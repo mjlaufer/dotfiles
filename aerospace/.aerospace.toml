@@ -59,7 +59,7 @@ automatically-unhide-macos-hidden-apps = false
     outer.left =       8
     outer.bottom =     8
     outer.top = [
-        { monitor."built-in" = 10 }, # Smaller size for Retina display
+        { monitor."built-in" = 8 }, # Smaller size for Retina display
         { monitor.".*" = 40 },       # External monitors
         40,                          # Fallback
     ]

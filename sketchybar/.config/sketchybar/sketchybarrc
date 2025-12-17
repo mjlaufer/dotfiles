@@ -22,7 +22,7 @@ bar=(
     padding_right=10
     padding_left=10
     topmost=window
-    margin=4
+    margin=8
     y_offset=4
     corner_radius=10
 )
