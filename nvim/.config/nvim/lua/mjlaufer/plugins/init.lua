@@ -265,7 +265,8 @@ require('lazy').setup(IS_VSCODE and core_editor_plugins or vim.list_extend(core_
             fzf_colors = true,
             grep = {
                 hidden = true,
-                rg_opts = '--column --line-number --no-heading --color=always --smart-case --max-columns=4096 --glob "!.git/" -e',
+                RIPGREP_CONFIG_PATH = vim.env.RIPGREP_CONFIG_PATH,
+                rg_opts = '--column --line-number --no-heading --color=always --max-columns=4096 --glob "!.git/" -e',
             },
         },
         keys = {

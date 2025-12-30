@@ -1,0 +1,17 @@
+# Search options
+--column
+--line-number
+--smart-case
+
+# Inklight blue
+--colors=path:fg:0,93,177
+
+# Inklight magenta (secondary)
+--colors=line:fg:207,31,99
+
+# Inklight indigo (secondary)
+--colors=column:fg:110,117,186
+
+# Inklight green + bold
+--colors=match:fg:0,127,78
+--colors=match:style:bold
