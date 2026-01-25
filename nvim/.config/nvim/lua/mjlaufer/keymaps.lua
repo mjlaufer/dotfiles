@@ -63,7 +63,7 @@ map('n', '&', ':&&<CR>')
 map('x', '&', ':&&<CR>')
 
 -- tmux-sessionizer
-map('n', '<c-s>', ':silent !tmux neww tmux-sessionizer<CR>', { silent = true })
+map('n', '<C-s>', ':silent !tmux neww tmux-sessionizer<CR>', { silent = true })
 
 -- EMBEDDED TERMINAL EMULATOR
 -- `<leader>gl` opens Lazygit in a floating terminal buffer.
