@@ -14,20 +14,20 @@ palette = 1=#b61e00
 palette = 9=#d02300
 
 # Green
-palette = 2=#007f4e
-palette = 10=#008e58
+palette = 2=#387200
+palette = 10=#438500
 
 # Yellow
 palette = 3=#b65f00
 palette = 11=#c96900
 
 # Blue
-palette = 4=#0063b7
-palette = 12=#006fcc
+palette = 4=#004dbb
+palette = 12=#476fb1
 
 # Magenta
-palette = 5=#bb0055
-palette = 13=#cf1f63
+palette = 5=#9b1b60
+palette = 13=#ac4b78
 
 # Cyan
 palette = 6=#007787

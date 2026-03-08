@@ -3,7 +3,8 @@
 
 # You can use it to add commands that run after AeroSpace startup.
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = ['exec-and-forget sketchybar', 'exec-and-forget borders active_color=0xffc35c88 width=6.0']
+# Set border color to Inklight magenta.fg3.
+after-startup-command = ['exec-and-forget sketchybar', 'exec-and-forget borders active_color=0xffc26c91 width=6.0']
 
 # Notify sketchybar when workspace changes
 exec-on-workspace-change = ['/bin/bash', '-c', 'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE']

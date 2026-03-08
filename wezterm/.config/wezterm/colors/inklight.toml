@@ -10,10 +10,10 @@ selection_bg = "#d3eef4"
 ansi = [
   "#f2f2f2", # black
   "#b61e00", # red
-  "#007f4e", # green
+  "#387200", # green
   "#b65f00", # yellow
-  "#0063b7", # blue
-  "#bb0055", # magenta
+  "#004dbb", # blue
+  "#9b1b60", # magenta
   "#007787", # cyan
   "#1b1b1b", # white
 ]
@@ -21,10 +21,10 @@ ansi = [
 brights = [
   "#6e6e6e", # bright black
   "#d02300", # bright red
-  "#008e58", # bright green
+  "#438500", # bright green
   "#c96900", # bright yellow
-  "#006fcc", # bright blue
-  "#cf1f63", # bright magenta
+  "#476fb1", # bright blue
+  "#ac4b78", # bright magenta
   "#008698", # bright cyan
   "#f2f2f2", # bright white
 ]

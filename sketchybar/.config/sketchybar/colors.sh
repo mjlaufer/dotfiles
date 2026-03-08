@@ -14,18 +14,17 @@ export RED1=0xffb61e00
 export RED2=0xffd02300
 export YELLOW1=0xffb65f00
 export YELLOW2=0xffc96900
-export GREEN1=0xff007f4e
-export GREEN2=0xff008e58
+export GREEN1=0xff387200
+export GREEN2=0xff438500
 export CYAN1=0xff007787
 export CYAN2=0xff008698
-export BLUE1=0xff0063b7
-export BLUE2=0xff006fcc
-export INDIGO1=0xff5353c5
-export INDIGO2=0xff6e75ba
-export MAGENTA1=0xffbb0055
-export MAGENTA2=0xffcf1f63
-export MAGENTA_SOFT1=0xffac4c76
-export MAGENTA_SOFT2=0xffc35c88
+export BLUE1=0xff004dbb
+export BLUE2=0xff476fb1
+export PURPLE1=0xff7e22c9
+export PURPLE2=0xff9254d4
+export MAGENTA1=0xff9b1b60
+export MAGENTA2=0xffac4b78
+export MAGENTA3=0xffc26c91
 
 # General bar colors
 export BAR_COLOR=$BG2

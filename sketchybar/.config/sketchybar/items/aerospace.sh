@@ -35,6 +35,6 @@ sketchybar --set space.$FOCUSED \
     icon.padding_left=8 \
     icon.padding_right=8 \
     background.drawing=on \
-    background.border_color=$MAGENTA_SOFT2 \
+    background.border_color=$MAGENTA3 \
     background.border_width=2
 

@@ -17,12 +17,12 @@
     side-by-side = true
     syntax-theme = inklight
     line-numbers-minus-style = "#b61e00"
-    line-numbers-plus-style = "#007f4e"
+    line-numbers-plus-style = "#387200"
     line-numbers-zero-style = "#6e6e6e"
     minus-style = "syntax #ffe0da"
     minus-emph-style = "syntax #ffcdc2"
-    plus-style = "syntax #d3f1de"
-    plus-emph-style = "syntax #bae7cc"
+    plus-style = "syntax #dcefd3"
+    plus-emph-style = "syntax #c8e4ba"
 
 [merge]
     conflictstyle = diff3
