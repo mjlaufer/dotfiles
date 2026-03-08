@@ -268,6 +268,9 @@ require('lazy').setup(IS_VSCODE and core_editor_plugins or vim.list_extend(core_
                 RIPGREP_CONFIG_PATH = vim.env.RIPGREP_CONFIG_PATH,
                 rg_opts = '--column --line-number --no-heading --color=always --max-columns=4096 --glob "!.git/" -e',
             },
+            keymap = {
+                fzf = { ['ctrl-q'] = 'select-all+accept' },
+            },
         },
         keys = {
             { '<leader>f<', '<cmd>FzfLua resume<CR>', desc = 'Resume last fzf command' },
