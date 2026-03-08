@@ -22,15 +22,15 @@ palette = 3=#b65f00
 palette = 11=#c96900
 
 # Blue
-palette = 4=#004dbb
-palette = 12=#476fb1
+palette = 4=#0049b1
+palette = 12=#436aaa
 
 # Magenta
 palette = 5=#9b1b60
 palette = 13=#ac4b78
 
 # Cyan
-palette = 6=#007787
+palette = 6=#007585
 palette = 14=#008698
 
 # White
