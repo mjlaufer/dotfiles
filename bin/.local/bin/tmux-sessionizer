@@ -1,27 +1,39 @@
 #!/usr/bin/env bash
 
-# See https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/bin/tmux-sessionizer
-
+# Use the argument if provided; otherwise, use fzf to select from ~/dotfiles,
+# all directories one level under ~/workspaces, and git repos two levels under.
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/ ~/personal ~/work -mindepth 1 -maxdepth 1 -type d | fzf)
+    selected=$({
+        echo ~/dotfiles
+        find ~/workspaces -mindepth 1 -maxdepth 1 -type d
+        find ~/workspaces -mindepth 2 -maxdepth 2 -type d -exec test -d '{}/.git' \; -print
+    } | fzf)
 fi
 
 if [[ -z $selected ]]; then
     exit 0
 fi
 
-selected_name=$(basename "$selected" | tr . _)
+# Build session name from path relative to ~/workspaces (or just basename for ~/dotfiles).
+# e.g., ~/workspaces/hello-world -> "hello-world"
+#       ~/workspaces/themes/inklight-intellij -> "themes_inklight-intellij"
+if [[ $selected == "$HOME/workspaces/"* ]]; then
+    session_name=$(echo "$selected" | sed "s|$HOME/workspaces/||" | tr '/' '_' | tr . _)
+else
+    session_name=$(basename "$selected" | tr . _)
+fi
+
 tmux_running=$(pgrep tmux)
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-    tmux new-session -s $selected_name -c $selected
+    tmux new-session -s "$session_name" -c "$selected"
     exit 0
 fi
 
-if ! tmux has-session -t $selected_name 2> /dev/null; then
-    tmux new-session -ds $selected_name -c $selected
+if ! tmux has-session -t "=$session_name" 2> /dev/null; then
+    tmux new-session -ds "$session_name" -c "$selected"
 fi
 
-tmux switch-client -t $selected_name
+tmux switch-client -t "=$session_name"

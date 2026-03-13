@@ -1,5 +1,13 @@
 # Manual Installation Guide
 
+### Workspaces directory
+
+Create the `~/workspaces` directory used by `tmux-sessionizer`.
+
+```sh
+$ mkdir -p ~/workspaces
+```
+
 ### Homebrew
 
 Install the command line utilities, fonts, and GUI macOS apps listed in `.Brewfile`.

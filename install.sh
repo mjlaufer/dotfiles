@@ -2,6 +2,9 @@
 
 echo "\nSetting up dev environment...\n"
 
+# Create workspaces directory
+mkdir -p ~/workspaces
+
 # Homebrew
 brew bundle --file=~/dotfiles/.Brewfile
 
