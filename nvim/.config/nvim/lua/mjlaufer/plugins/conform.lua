@@ -5,6 +5,7 @@ require('conform').setup({
                 -- Resolve Biome from `node_modules`.
                 return vim.fn.findfile('node_modules/.bin/biome', vim.fn.expand('%:p:h') .. ';')
             end,
+            args = { 'format', '--stdin-file-path', '$FILENAME' },
             stdin = true,
         },
     },
