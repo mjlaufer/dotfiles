@@ -54,11 +54,11 @@ dap.configurations.c = {
 -- Go
 
 dap.adapters.delve = function(callback, config)
-    if config.mode == 'remote' and config.request == 'attach' then
+    if config.request == 'attach' and config.mode == 'remote' then
         callback({
             type = 'server',
             host = config.host or '127.0.0.1',
-            port = config.port or '38697',
+            port = config.port or '2345',
         })
     else
         callback({
@@ -72,97 +72,27 @@ dap.adapters.delve = function(callback, config)
     end
 end
 
--- Load VS Code launch configurations.
-local function load_vscode_launch_configs()
-    local launch_json_path = vim.fn.findfile('.vscode/launch.json', vim.fn.getcwd() .. ';')
-    if launch_json_path ~= '' then
-        local file = io.open(launch_json_path, 'r')
-        if file then
-            local content = file:read('*all')
-            file:close()
-
-            local success, launch_config = pcall(vim.json.decode, content)
-            if success and launch_config.configurations then
-                -- Convert VS Code configs to nvim-dap format.
-                local converted_configs = {}
-                for _, config in ipairs(launch_config.configurations) do
-                    if config.type == 'go' then
-                        local dap_config = {
-                            type = 'delve',
-                            name = config.name,
-                            request = config.request,
-                            mode = config.mode,
-                            program = config.program,
-                            cwd = config.cwd,
-                            args = config.args,
-                            env = config.env,
-                            host = config.host,
-                            port = config.port,
-                            processId = config.processId,
-                            showLog = config.showLog or true,
-                        }
-
-                        -- Handle substitutePath for remote debugging.
-                        if config.substitutePath then
-                            dap_config.substitutePath = config.substitutePath
-                        end
-
-                        table.insert(converted_configs, dap_config)
-                    end
-                end
-
-                -- Merge with existing configs.
-                if #converted_configs > 0 then
-                    dap.configurations.go =
-                        vim.list_extend(dap.configurations.go, converted_configs)
-                end
-            end
-        end
-    end
-end
-
-load_vscode_launch_configs()
-
 dap.configurations.go = {
     {
-        -- For debugging command-line tools or long-running applications (e.g., web servers).
         type = 'delve',
         name = 'Debug',
         request = 'launch',
         program = '${file}',
     },
     {
-        -- For debugging specific tests.
         type = 'delve',
-        name = 'Debug Test',
-        mode = 'test',
+        name = 'Debug Tests',
         request = 'launch',
-        program = '${file}',
-    },
-    {
-        -- For debugging all tests in a package.
-        type = 'delve',
-        name = 'Debug Package Tests',
         mode = 'test',
-        request = 'launch',
         program = './${relativeFileDirname}',
     },
     {
-        -- For attaching to a running process (e.g., a running web server).
         type = 'delve',
         name = 'Attach',
-        mode = 'local',
         request = 'attach',
-        processId = require('dap.utils').pick_process,
-    },
-    {
-        -- For debugging remote processes (e.g., microservices/containers on different machines).
-        type = 'delve',
-        name = 'Attach to Remote',
         mode = 'remote',
-        request = 'attach',
-        host = '127.0.0.1', -- The host of the remote machine running delve
-        port = '38697', -- The port where delve is listening on the remote machine
+        host = '127.0.0.1', -- The host of the remote machine running Delve
+        port = '2345', -- The port where Delve is listening on the remote machine
         showLog = true,
     },
 }
@@ -195,7 +125,9 @@ local js_debug_adapter_config = {
     },
 }
 
+dap.adapters.chrome = js_debug_adapter_config
 dap.adapters['pwa-chrome'] = js_debug_adapter_config
+dap.adapters.node = js_debug_adapter_config
 dap.adapters['pwa-node'] = js_debug_adapter_config
 
 local chrome_config = {
@@ -204,35 +136,92 @@ local chrome_config = {
         name = 'Attach to Chrome',
         request = 'attach',
         program = '${file}',
-        cwd = '${workspaceFolder}',
         port = 9222,
+        cwd = '${workspaceFolder}',
     },
 }
 
-dap.configurations.javascript = chrome_config
-dap.configurations.typescript = chrome_config
-dap.configurations.javascriptreact = chrome_config
-dap.configurations.typescriptreact = chrome_config
+local node_config = {
+    {
+        type = 'pwa-node',
+        name = 'Attach',
+        request = 'attach',
+        port = 9229, -- Default port for Node.js debug mode
+        cwd = '${workspaceFolder}',
+    },
+}
 
-_G.start_node_debugger = function()
-    local node_config = {
-        {
-            type = 'pwa-node',
-            name = 'Debug',
-            request = 'launch',
-            program = '${file}',
-            cwd = '${workspaceFolder}',
+dap.configurations.javascript = vim.deepcopy(chrome_config)
+dap.configurations.typescript = vim.deepcopy(chrome_config)
+dap.configurations.javascriptreact = vim.deepcopy(chrome_config)
+dap.configurations.typescriptreact = vim.deepcopy(chrome_config)
+
+-- Load VS Code launch configurations.
+local function load_vscode_launch_configs()
+    local launch_json_path = vim.fn.findfile('.vscode/launch.json', vim.fn.getcwd() .. ';')
+    if launch_json_path == '' then
+        return
+    end
+
+    local file = io.open(launch_json_path, 'r')
+    if not file then
+        return
+    end
+
+    local content = file:read('*all')
+    file:close()
+
+    local success, launch_config = pcall(vim.json.decode, content)
+    if not success or not launch_config.configurations then
+        return
+    end
+
+    -- Map VS Code debug types to nvim-dap adapter types and filetypes.
+    local type_map = {
+        lldb = { adapter = 'codelldb', filetypes = { 'c' } },
+        codelldb = { adapter = 'codelldb', filetypes = { 'c' } },
+        cppdbg = { adapter = 'codelldb', filetypes = { 'c' } },
+        go = { adapter = 'delve', filetypes = { 'go' } },
+        java = { adapter = 'java', filetypes = { 'java' } },
+        chrome = {
+            adapter = 'pwa-chrome',
+            filetypes = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' },
         },
-        {
-            type = 'pwa-node',
-            name = 'Attach',
-            request = 'attach',
-            processId = require('dap.utils').pick_process,
-            cwd = '${workspaceFolder}',
+        ['pwa-chrome'] = {
+            adapter = 'pwa-chrome',
+            filetypes = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' },
+        },
+        node = {
+            adapter = 'pwa-node',
+            filetypes = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' },
+        },
+        ['pwa-node'] = {
+            adapter = 'pwa-node',
+            filetypes = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' },
         },
     }
-    dap.configurations.javascript = node_config
-    dap.configurations.typescript = node_config
+
+    for _, config in ipairs(launch_config.configurations) do
+        local mapping = type_map[config.type]
+        if mapping then
+            local dap_config = vim.deepcopy(config)
+            dap_config.type = mapping.adapter
+            dap_config.name = '[launch.json] ' .. (dap_config.name or 'Unnamed')
+
+            for _, ft in ipairs(mapping.filetypes) do
+                dap.configurations[ft] = dap.configurations[ft] or {}
+                table.insert(dap.configurations[ft], dap_config)
+            end
+        end
+    end
+end
+
+load_vscode_launch_configs()
+
+_G.start_node_debugger = function()
+    dap.configurations.javascript = vim.deepcopy(node_config)
+    dap.configurations.typescript = vim.deepcopy(node_config)
+    load_vscode_launch_configs()
     require('dap').continue()
 end
 
@@ -247,7 +236,7 @@ end, { desc = 'Set breakpoint log message' })
 map('n', '<leader>dn', function()
     require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))
 end, { desc = 'Set breakpoint condition' })
-map('n', '<leader>dq', dap.close, { desc = 'Quit' })
+map('n', '<leader>dq', dap.terminate, { desc = 'Quit' })
 map('n', '<leader>dr', dap.repl.open, { desc = 'Open REPL' })
 map('n', '<leader>ds', start_node_debugger, { desc = 'Start Node debugger' })
 

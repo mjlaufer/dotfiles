@@ -161,7 +161,7 @@ vim.keymap.set(
     vscode_notify('workbench.action.debug.continue'),
     { desc = 'Continue' }
 )
-vim.keymap.set('n', '<leader>ds', vscode_notify('workbench.action.debug.run'), { desc = 'Start' })
+vim.keymap.set('n', '<leader>ds', vscode_notify('workbench.action.debug.start'), { desc = 'Start' })
 vim.keymap.set(
     'n',
     '<leader>tf',
