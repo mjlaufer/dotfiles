@@ -1,3 +1,7 @@
+if IS_VSCODE then
+    return
+end
+
 local util = require('mjlaufer.util')
 local map = vim.keymap.set
 
@@ -91,8 +95,8 @@ dap.configurations.go = {
         name = 'Attach',
         request = 'attach',
         mode = 'remote',
-        host = '127.0.0.1', -- The host of the remote machine running Delve
-        port = '2345', -- The port where Delve is listening on the remote machine
+        host = '127.0.0.1',
+        port = '2345',
         showLog = true,
     },
 }
@@ -146,7 +150,7 @@ local node_config = {
         type = 'pwa-node',
         name = 'Attach',
         request = 'attach',
-        port = 9229, -- Default port for Node.js debug mode
+        port = 9229,
         cwd = '${workspaceFolder}',
     },
 }
@@ -176,7 +180,6 @@ local function load_vscode_launch_configs()
         return
     end
 
-    -- Map VS Code debug types to nvim-dap adapter types and filetypes.
     local type_map = {
         lldb = { adapter = 'codelldb', filetypes = { 'c' } },
         codelldb = { adapter = 'codelldb', filetypes = { 'c' } },
@@ -252,6 +255,8 @@ map('n', '<leader>dwf', function()
 end, { desc = 'Show frames' })
 
 -- DAP UI
+require('nvim-dap-virtual-text').setup()
+
 local dapui = require('dapui')
 dapui.setup()
 

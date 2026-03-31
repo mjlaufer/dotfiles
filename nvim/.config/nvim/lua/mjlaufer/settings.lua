@@ -10,6 +10,7 @@ vim.g.have_nerd_font = true
 -- OPTIONS
 
 local options = {
+    termguicolors = true,
     showmode = false, -- Do not show a message for mode; Lualine handles this.
     errorbells = false,
     timeoutlen = 300, -- Mapped sequence wait time.

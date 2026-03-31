@@ -1,3 +1,7 @@
+if IS_VSCODE then
+    return
+end
+
 require('luasnip.loaders.from_vscode').lazy_load({
     paths = { vim.fn.expand('~/dotfiles/nvim/.config/nvim/lua/mjlaufer/snippets') },
 })
@@ -6,7 +10,6 @@ local cmp = require('cmp')
 local luasnip = require('luasnip')
 
 cmp.setup({
-    -- Enable luasnip to handle snippet expansion for nvim-cmp.
     snippet = {
         expand = function(args)
             luasnip.lsp_expand(args.body)
@@ -14,7 +17,6 @@ cmp.setup({
     },
     completion = { completeopt = 'menu,menuone,noinsert' },
     window = {
-        -- For documentation, use dark background with border.
         documentation = cmp.config.window.bordered({
             winhighlight = 'Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None',
         }),
@@ -26,7 +28,7 @@ cmp.setup({
         ['<C-d>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.abort(),
-        ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Confirm explicitly selected item.
+        ['<CR>'] = cmp.mapping.confirm({ select = false }),
         ['<Tab>'] = cmp.mapping(function(fallback)
             if luasnip.expand_or_jumpable() then
                 luasnip.expand_or_jump()
@@ -63,12 +65,10 @@ cmp.setup({
             maxwidth = 50,
         }),
     },
-    -- Search completion
     cmp.setup.cmdline(
         '/',
         { mapping = cmp.mapping.preset.cmdline(), sources = { { name = 'buffer' } } }
     ),
-    -- Command completion
     cmp.setup.cmdline(':', {
         mapping = cmp.mapping.preset.cmdline(),
         sources = cmp.config.sources({ { name = 'path' } }, { { name = 'cmdline' } }),

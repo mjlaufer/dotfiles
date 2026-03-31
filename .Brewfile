@@ -32,6 +32,7 @@ brew "elm"
 # Go
 brew "go"
 brew "golangci-lint"
+brew "delve"
 
 # Java
 brew "google-java-format"
@@ -52,6 +53,8 @@ brew "reattach-to-user-namespace"
 # Neovim
 brew "neovim"
 brew "ripgrep"
+brew "tree-sitter"
+brew "tree-sitter-cli"
 
 # Ranger
 brew "ranger"

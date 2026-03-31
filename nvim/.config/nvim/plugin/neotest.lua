@@ -1,3 +1,7 @@
+if IS_VSCODE then
+    return
+end
+
 local map = vim.keymap.set
 local neotest = require('neotest')
 

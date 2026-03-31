@@ -1,8 +1,12 @@
+if IS_VSCODE then
+    return
+end
+
 require('lualine').setup({
     options = {
         theme = 'inklight',
         component_separators = { left = '│', right = '│' },
-        section_separators = { left = '▏', right = '▏' }, -- Left One Eighth Block - U+258F
+        section_separators = { left = '▏', right = '▏' },
         always_divide_middle = false,
         globalstatus = true,
     },
@@ -14,7 +18,7 @@ require('lualine').setup({
             {
                 'diagnostics',
                 sources = { 'nvim_diagnostic' },
-                symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
+                symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
             },
             'filetype',
         },
@@ -29,5 +33,5 @@ require('lualine').setup({
         lualine_y = {},
         lualine_z = {},
     },
-    extensions = { 'lazy', 'nvim-tree' },
+    extensions = { 'nvim-tree' },
 })

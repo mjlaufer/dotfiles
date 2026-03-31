@@ -1,3 +1,7 @@
+if IS_VSCODE then
+    return
+end
+
 local util = require('mjlaufer.util')
 local map = vim.keymap.set
 
@@ -16,11 +20,11 @@ vim.diagnostic.config({
             [vim.diagnostic.severity.HINT] = '',
         },
     },
-    update_in_insert = false, -- Only update diagnostics when switching to normal mode.
-    severity_sort = true, -- Show errors before warnings.
+    update_in_insert = false,
+    severity_sort = true,
     float = {
         border = 'rounded',
-        source = 'if_many', -- Show source if multiple LSPs provide diagnostics.
+        source = 'if_many',
         header = '',
         prefix = '',
     },
@@ -53,7 +57,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
         )
         map('n', '<leader>al', vim.lsp.codelens.run, { buffer = buf, desc = 'Run codelens action' })
 
-        -- Enable inlay hints to be toggled.
         local client = vim.lsp.get_client_by_id(event.data.client_id)
         if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
             vim.lsp.inlay_hint.enable(false, { bufnr = buf })
@@ -75,9 +78,18 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
--- LANGUAGE SERVERS
+-- Mason
+require('mason').setup()
+require('fidget').setup()
 
--- Mason packages to install (use Mason package names).
+-- Lazydev
+require('lazydev').setup({
+    library = {
+        { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+    },
+})
+
+-- Mason packages to install.
 local ensure_installed = {
     'biome',
     'clangd',
@@ -109,7 +121,6 @@ local vtslsLangSettings = {
     },
 }
 
--- Server configurations (keyed by nvim-lspconfig package name).
 local server_configs = {
     biome = {
         filetypes = {
@@ -187,7 +198,6 @@ local server_configs = {
     vtsls = {
         settings = {
             vtsls = {
-                -- Automatically use workspace version of TypeScript lib on startup.
                 autoUseWorkspaceTsdk = true,
             },
             javascript = vtslsLangSettings,
@@ -197,7 +207,6 @@ local server_configs = {
     yamlls = {
         settings = {
             yaml = {
-                -- Disable built-in Schema Store support to use schemastore plugin.
                 schemaStore = {
                     enable = false,
                     url = '',
@@ -208,19 +217,14 @@ local server_configs = {
     },
 }
 
--- By default, Neovim doesn't fully support the completion capabilities in the LSP specification.
--- The nvim-cmp plugin adds full support for LSP completion capabilities, so our LSP config must
--- create new capabilities with nvim-cmp, and broadcast them to the servers.
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities =
     vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
--- Configure and enable language servers based on installed Mason packages.
 local mason_registry = require('mason-registry')
 for _, pkg in ipairs(mason_registry.get_installed_packages()) do
     local lsp_name = pkg.spec.neovim and pkg.spec.neovim.lspconfig
     if lsp_name then
-        -- Skip jdtls because the nvim-jdtls plugin manages language server configuration.
         if lsp_name == 'jdtls' then
             goto continue
         end

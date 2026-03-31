@@ -1,8 +1,11 @@
+if IS_VSCODE then
+    return
+end
+
 require('conform').setup({
     formatters = {
         biome = {
             command = function()
-                -- Resolve Biome from `node_modules`.
                 return vim.fn.findfile('node_modules/.bin/biome', vim.fn.expand('%:p:h') .. ';')
             end,
             args = { 'format', '--stdin-file-path', '$FILENAME' },
