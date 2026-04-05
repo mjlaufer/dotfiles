@@ -85,24 +85,24 @@ vim.keymap.set(
 )
 vim.keymap.set(
     'n',
-    'gI',
+    'gri',
     vscode_notify('editor.action.goToImplementation'),
     { desc = 'Go to implementation' }
 )
 vim.keymap.set(
     'n',
-    'gr',
+    'grr',
     vscode_notify('editor.action.goToReferences'),
     { desc = 'Go to references' }
 )
 vim.keymap.set('n', 'K', vscode_notify('editor.action.showHover'), { desc = 'Show hover' })
 vim.keymap.set(
-    'n',
-    '<leader>aa',
+    { 'n', 'x' },
+    'gra',
     vscode_notify('editor.action.quickFix'),
     { desc = 'Code actions' }
 )
-vim.keymap.set('n', '<leader>ar', vscode_notify('editor.action.rename'), { desc = 'Rename symbol' })
+vim.keymap.set('n', 'grn', vscode_notify('editor.action.rename'), { desc = 'Rename symbol' })
 vim.keymap.set(
     'n',
     '<leader>cf',

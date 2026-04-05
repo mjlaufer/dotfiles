@@ -36,26 +36,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(event)
         local buf = event.buf
 
+        -- By default `gd` does a text-based local declaration search, so this map is ergonomic in the LSP context.
         map('n', 'gd', vim.lsp.buf.definition, { buffer = buf, desc = 'Go to definition' })
-        map('n', 'gD', vim.lsp.buf.declaration, { buffer = buf, desc = 'Go to declaration' })
-        map('n', 'gI', vim.lsp.buf.implementation, { buffer = buf, desc = 'Go to implementations' })
-        map('n', 'gr', vim.lsp.buf.references, { buffer = buf, desc = 'Go to references' })
-        map('n', '<leader>aa', vim.lsp.buf.code_action, { buffer = buf, desc = 'Code actions' })
-        map('x', '<leader>aa', vim.lsp.buf.code_action, { buffer = buf, desc = 'Code actions' })
-        map(
-            'n',
-            '<leader>ac',
-            vim.lsp.buf.incoming_calls,
-            { buffer = buf, desc = 'List call sites' }
-        )
-        map('n', '<leader>ar', vim.lsp.buf.rename, { buffer = buf, desc = 'Rename references' })
-        map(
-            'n',
-            '<leader>at',
-            vim.lsp.buf.type_definition,
-            { buffer = buf, desc = 'Go to type definition' }
-        )
-        map('n', '<leader>al', vim.lsp.codelens.run, { buffer = buf, desc = 'Run codelens action' })
+
+        map('n', 'grc', vim.lsp.buf.incoming_calls, { buffer = buf, desc = 'List call sites' })
 
         local client = vim.lsp.get_client_by_id(event.data.client_id)
         if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
@@ -68,12 +52,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
                 )
             end
 
-            map(
-                'n',
-                '<leader>ah',
-                toggle_inlay_hints,
-                { buffer = buf, desc = 'Toggle inlay hints' }
-            )
+            map('n', 'grh', toggle_inlay_hints, { buffer = buf, desc = 'Toggle inlay hints' })
         end
     end,
 })
