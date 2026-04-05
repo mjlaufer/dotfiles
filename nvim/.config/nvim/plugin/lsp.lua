@@ -110,132 +110,27 @@ local ensure_installed = {
 
 util.install_mason_packages(ensure_installed)
 
-local vtslsLangSettings = {
-    inlayHints = {
-        parameterNames = { enabled = 'literals' },
-        parameterTypes = { enabled = true },
-        variableTypes = { enabled = true },
-        propertyDeclarationTypes = { enabled = true },
-        functionLikeReturnTypes = { enabled = true },
-        enumMemberValues = { enabled = true },
-    },
-}
-
-local server_configs = {
-    biome = {
-        filetypes = {
-            'astro',
-            'css',
-            'graphql',
-            'html',
-            'javascript',
-            'javascriptreact',
-            'json',
-            'jsonc',
-            'mjs',
-            'mts',
-            'svelte',
-            'typescript',
-            'typescript.tsx',
-            'typescriptreact',
-            'vue',
-        },
-    },
-    gopls = {
-        settings = {
-            gopls = {
-                codelenses = {
-                    gc_details = false,
-                    generate = true,
-                    regenerate_cgo = true,
-                    run_govulncheck = true,
-                    test = true,
-                    tidy = true,
-                    upgrade_dependency = true,
-                    vendor = true,
-                },
-                hints = {
-                    assignVariableTypes = true,
-                    compositeLiteralFields = true,
-                    compositeLiteralTypes = true,
-                    constantValues = true,
-                    functionTypeParameters = true,
-                    parameterNames = true,
-                    rangeVariableTypes = true,
-                },
-                analyses = {
-                    nilness = true,
-                    unusedparams = true,
-                    unusedwrite = true,
-                    useany = true,
-                },
-                completeUnimported = true,
-                usePlaceholders = true,
-                staticcheck = true,
-                directoryFilters = { '-.git', '-.idea', '-.vscode', '-.node_modules' },
-                gofumpt = true,
-            },
-        },
-    },
-    gradle_ls = {
-        cmd = { vim.fn.stdpath('data') .. '/mason/bin/gradle-language-server' },
-        filetypes = { 'groovy', 'kotlin' },
-        root_markers = {
-            'settings.gradle',
-            'settings.gradle.kts',
-            'build.gradle',
-            'build.gradle.kts',
-        },
-    },
-    jsonls = {
-        settings = {
-            json = {
-                schemas = require('schemastore').json.schemas(),
-                validate = { enable = true },
-            },
-        },
-    },
-    vtsls = {
-        settings = {
-            vtsls = {
-                autoUseWorkspaceTsdk = true,
-            },
-            javascript = vtslsLangSettings,
-            typescript = vtslsLangSettings,
-        },
-    },
-    yamlls = {
-        settings = {
-            yaml = {
-                schemaStore = {
-                    enable = false,
-                    url = '',
-                },
-                schemas = require('schemastore').yaml.schemas(),
-            },
-        },
-    },
-}
-
+-- Shared capabilities for all servers (cmp integration).
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities =
     vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+vim.lsp.config('*', { capabilities = capabilities })
 
-local mason_registry = require('mason-registry')
-for _, pkg in ipairs(mason_registry.get_installed_packages()) do
-    local lsp_name = pkg.spec.neovim and pkg.spec.neovim.lspconfig
-    if lsp_name then
-        if lsp_name == 'jdtls' then
-            goto continue
-        end
-
-        local config = server_configs[lsp_name] or {}
-        config.capabilities =
-            vim.tbl_deep_extend('force', {}, capabilities, config.capabilities or {})
-
-        vim.lsp.config(lsp_name, config)
-        vim.lsp.enable(lsp_name)
-
-        ::continue::
-    end
-end
+-- Enable servers. Per-server overrides live in lsp/*.lua files.
+-- jdtls is excluded because nvim-jdtls manages it via ftplugin/java.lua.
+vim.lsp.enable({
+    'biome',
+    'clangd',
+    'cssls',
+    'elmls',
+    'eslint',
+    'golangci_lint_ls',
+    'gopls',
+    'gradle_ls',
+    'html',
+    'jsonls',
+    'lua_ls',
+    'rust_analyzer',
+    'vtsls',
+    'yamlls',
+})
