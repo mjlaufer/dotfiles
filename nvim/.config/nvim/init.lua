@@ -43,8 +43,7 @@ vim.pack.add({
 
 if not IS_VSCODE then
     vim.pack.add({
-        -- Dependency
-        -- TODO: Audit plugins to see if any still depend on this.
+        -- Dependency (used by Neotest)
         'https://github.com/nvim-lua/plenary.nvim',
 
         -- UI

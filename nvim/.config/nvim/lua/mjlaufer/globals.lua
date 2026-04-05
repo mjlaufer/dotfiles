@@ -3,13 +3,4 @@ P = function(v)
     return v
 end
 
-RELOAD = function(...)
-    return require('plenary.reload').reload_module(...)
-end
-
-R = function(name)
-    RELOAD(name)
-    return require(name)
-end
-
 IS_VSCODE = vim.g.vscode ~= nil
