@@ -82,7 +82,7 @@ if not IS_VSCODE then
         'https://github.com/nvim-tree/nvim-tree.lua',
         'https://github.com/stevearc/oil.nvim',
         'https://github.com/nvim-lualine/lualine.nvim',
-        'https://github.com/mbbill/undotree',
+
         'https://github.com/MagicDuck/grug-far.nvim',
 
         -- Editor
