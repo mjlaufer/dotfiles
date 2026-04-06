@@ -57,6 +57,17 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
+-- Enable native LSP completion on attach.
+vim.api.nvim_create_autocmd('LspAttach', {
+    group = vim.api.nvim_create_augroup('mjlaufer-lsp-completion', { clear = true }),
+    callback = function(event)
+        local client = vim.lsp.get_client_by_id(event.data.client_id)
+        if client and client:supports_method('textDocument/completion') then
+            vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
+        end
+    end,
+})
+
 -- Mason
 require('mason').setup()
 require('fidget').setup()
@@ -88,12 +99,6 @@ local ensure_installed = {
 }
 
 util.install_mason_packages(ensure_installed)
-
--- Shared capabilities for all servers (cmp integration).
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities =
-    vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
-vim.lsp.config('*', { capabilities = capabilities })
 
 -- Enable servers. Per-server overrides live in lsp/*.lua files.
 -- jdtls is excluded because nvim-jdtls manages it via ftplugin/java.lua.

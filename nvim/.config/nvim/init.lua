@@ -19,8 +19,6 @@ vim.api.nvim_create_autocmd('PackChanged', {
                 vim.cmd.packadd('nvim-treesitter')
             end
             vim.cmd('TSUpdate')
-        elseif name == 'LuaSnip' then
-            vim.system({ 'make', 'install_jsregexp' }, { cwd = ev.data.path })
         elseif name == 'markdown-preview.nvim' then
             vim.system({ 'sh', '-c', 'cd app && yarn install && git restore .' }, {
                 cwd = ev.data.path,
@@ -62,18 +60,6 @@ if not IS_VSCODE then
         'https://github.com/folke/lazydev.nvim',
         'https://github.com/RRethy/vim-illuminate',
         'https://github.com/mfussenegger/nvim-jdtls',
-
-        -- Completion
-        'https://github.com/hrsh7th/nvim-cmp',
-        'https://github.com/hrsh7th/cmp-nvim-lsp',
-        'https://github.com/hrsh7th/cmp-nvim-lsp-signature-help',
-        'https://github.com/hrsh7th/cmp-buffer',
-        'https://github.com/hrsh7th/cmp-path',
-        'https://github.com/hrsh7th/cmp-nvim-lua',
-        'https://github.com/hrsh7th/cmp-cmdline',
-        'https://github.com/onsails/lspkind-nvim',
-        'https://github.com/saadparwaiz1/cmp_luasnip',
-        { src = 'https://github.com/L3MON4D3/LuaSnip', version = vim.version.range('2.x') },
 
         -- Workspace
         { src = 'https://github.com/echasnovski/mini.bufremove', version = vim.version.range('*') },

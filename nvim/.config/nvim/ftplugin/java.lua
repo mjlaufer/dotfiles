@@ -27,10 +27,7 @@ local bundles = {}
 vim.list_extend(bundles, java_debug_bundles)
 vim.list_extend(bundles, java_test_bundles)
 
--- See 'mjlaufer.plugins.lsp`.
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities =
-    vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
 local extendedClientCapabilities = jdtls.extendedClientCapabilities
 extendedClientCapabilities.resolveAdditionalTextEditsSupport = true

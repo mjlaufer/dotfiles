@@ -40,6 +40,11 @@ local options = {
     smartcase = true, -- Override ignorecase if search pattern contains uppercase.
     inccommand = 'split', -- Preview substitutions as you type.
 
+    -- Completion
+    autocomplete = true,
+    completeopt = 'menuone,noselect,noinsert,fuzzy,popup',
+    pumborder = 'rounded',
+
     -- Folds
     foldmethod = 'expr',
     foldexpr = 'v:lua.vim.treesitter.foldexpr()',
