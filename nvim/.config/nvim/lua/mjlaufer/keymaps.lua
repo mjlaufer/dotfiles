@@ -37,8 +37,9 @@ map('n', '*', function()
 end, { desc = 'Highlight word under cursor' })
 map('n', '#', function()
     vim.fn.setreg('/', '\\<' .. vim.fn.expand('<cword>') .. '\\>')
+    vim.v.searchforward = 0
     vim.o.hlsearch = true
-end, { desc = 'Highlight word under cursor' })
+end, { desc = 'Highlight word under cursor (reverse)' })
 
 -- Search for current selection (without jumping).
 map('x', '*', function()
