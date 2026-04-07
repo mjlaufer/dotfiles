@@ -17,6 +17,8 @@ local options = {
     updatetime = 100,
     mouse = 'a',
     scrolloff = 8, -- Scroll when cursor is 8 lines from top or bottom.
+    winborder = 'rounded',
+    pumborder = 'rounded',
 
     -- Indents
     tabstop = 4,
@@ -43,7 +45,6 @@ local options = {
     -- Completion
     autocomplete = true,
     completeopt = 'menuone,noselect,noinsert,fuzzy,popup',
-    pumborder = 'rounded',
 
     -- Folds
     foldmethod = 'expr',
@@ -69,11 +70,27 @@ end)
 
 -- AUTOCOMMANDS
 
--- Highlight when yanking (copying) text. See `:help vim.highlight.on_yank()`.
+-- Highlight when yanking and shift registers 1-9 for yank history ("1p, "2p, etc.).
 vim.api.nvim_create_autocmd('TextYankPost', {
-    desc = 'Highlight when yanking (copying) text',
+    desc = 'Highlight yank and maintain yank history in numbered registers',
     group = vim.api.nvim_create_augroup('YankHighlight', { clear = true }),
     callback = function()
         vim.highlight.on_yank()
+        if vim.v.event.operator == 'y' then
+            for i = 9, 1, -1 do
+                vim.fn.setreg(tostring(i), vim.fn.getreg(tostring(i - 1)))
+            end
+        end
+    end,
+})
+
+-- Auto-save on focus loss or buffer hide.
+vim.api.nvim_create_autocmd({ 'BufHidden', 'FocusLost', 'WinLeave', 'CursorHold' }, {
+    desc = 'Auto-save modified buffers',
+    group = vim.api.nvim_create_augroup('AutoSave', { clear = true }),
+    callback = function()
+        if vim.bo.modified and vim.bo.buftype == '' and vim.fn.expand('%') ~= '' then
+            vim.cmd('silent lockmarks update ++p')
+        end
     end,
 })

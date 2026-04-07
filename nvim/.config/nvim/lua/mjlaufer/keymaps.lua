@@ -30,12 +30,25 @@ map('x', '>', '>gv')
 -- Put yanked/deleted content over selection; keep content in unnamed register.
 map('x', '<leader>p', '"_dP')
 
--- Search in current selection.
-map('x', '/', '<esc>/\\%V')
+-- Highlight word under cursor (without jumping).
+map('n', '*', function()
+    vim.fn.setreg('/', '\\<' .. vim.fn.expand('<cword>') .. '\\>')
+    vim.o.hlsearch = true
+end, { desc = 'Highlight word under cursor' })
+map('n', '#', function()
+    vim.fn.setreg('/', '\\<' .. vim.fn.expand('<cword>') .. '\\>')
+    vim.o.hlsearch = true
+end, { desc = 'Highlight word under cursor' })
 
--- Search for current selection.
-map('x', '*', ':lua VSetSearch("/")<CR>/<C-r>=@/<CR><CR>')
-map('x', '#', ':lua VSetSearch("?")<CR>?<C-r>=@/<CR><CR>')
+-- Search for current selection (without jumping).
+map('x', '*', function()
+    _G.VSetSearch('/')
+    vim.o.hlsearch = true
+end, { desc = 'Highlight selection' })
+map('x', '#', function()
+    _G.VSetSearch('?')
+    vim.o.hlsearch = true
+end, { desc = 'Highlight selection' })
 
 function _G.VSetSearch(search_cmd)
     vim.cmd([[
@@ -49,6 +62,9 @@ function _G.VSetSearch(search_cmd)
     end
     vim.cmd([[ let @s = temp ]])
 end
+
+-- Search in current selection.
+map('x', '/', '<esc>/\\%V')
 
 -- Substitute word under cursor.
 map(
