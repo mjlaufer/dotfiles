@@ -37,7 +37,7 @@
       "src": "https://github.com/MagicDuck/grug-far.nvim"
     },
     "inklight.nvim": {
-      "rev": "052167c26fa70875e104bcd7a20710b348ba1c2a",
+      "rev": "8bd155b99c94ad58e61a3517b0f9b71c0a42ee27",
       "src": "https://github.com/mjlaufer/inklight.nvim"
     },
     "lazydev.nvim": {
