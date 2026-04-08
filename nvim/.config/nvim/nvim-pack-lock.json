@@ -186,10 +186,6 @@
       "rev": "21a5e0292dabccba7363a6e508029d078a74504b",
       "src": "https://github.com/justinmk/vim-gtfo"
     },
-    "vim-illuminate": {
-      "rev": "0d1e93684da00ab7c057410fecfc24f434698898",
-      "src": "https://github.com/RRethy/vim-illuminate"
-    },
     "vim-sneak": {
       "rev": "feea86adcfbf8e6b5e71fdd5f4f5736fd8819fdb",
       "src": "https://github.com/justinmk/vim-sneak"

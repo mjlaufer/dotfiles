@@ -58,7 +58,6 @@ if not IS_VSCODE then
         'https://github.com/j-hui/fidget.nvim',
         'https://github.com/b0o/schemastore.nvim',
         'https://github.com/folke/lazydev.nvim',
-        'https://github.com/RRethy/vim-illuminate',
         'https://github.com/mfussenegger/nvim-jdtls',
 
         -- Workspace

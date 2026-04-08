@@ -38,10 +38,30 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
         -- By default `gd` does a text-based local declaration search, so this map is ergonomic in the LSP context.
         map('n', 'gd', vim.lsp.buf.definition, { buffer = buf, desc = 'Go to definition' })
-
         map('n', 'grc', vim.lsp.buf.incoming_calls, { buffer = buf, desc = 'List call sites' })
 
         local client = vim.lsp.get_client_by_id(event.data.client_id)
+
+        -- Highlight references of the word under cursor.
+        if
+            client
+            and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight)
+        then
+            local highlight_group =
+                vim.api.nvim_create_augroup('mjlaufer-lsp-highlight', { clear = false })
+            vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+                buffer = buf,
+                group = highlight_group,
+                callback = vim.lsp.buf.document_highlight,
+            })
+            vim.api.nvim_create_autocmd('CursorMoved', {
+                buffer = buf,
+                group = highlight_group,
+                callback = vim.lsp.buf.clear_references,
+            })
+        end
+
+        -- Inlay hints
         if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
             vim.lsp.inlay_hint.enable(false, { bufnr = buf })
 
