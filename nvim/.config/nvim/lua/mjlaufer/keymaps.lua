@@ -30,26 +30,9 @@ map('x', '>', '>gv')
 -- Put yanked/deleted content over selection; keep content in unnamed register.
 map('x', '<leader>p', '"_dP')
 
--- Highlight word under cursor (without jumping).
-map('n', '*', function()
-    vim.fn.setreg('/', '\\<' .. vim.fn.expand('<cword>') .. '\\>')
-    vim.o.hlsearch = true
-end, { desc = 'Highlight word under cursor' })
-map('n', '#', function()
-    vim.fn.setreg('/', '\\<' .. vim.fn.expand('<cword>') .. '\\>')
-    vim.v.searchforward = 0
-    vim.o.hlsearch = true
-end, { desc = 'Highlight word under cursor (reverse)' })
-
--- Search for current selection (without jumping).
-map('x', '*', function()
-    _G.VSetSearch('/')
-    vim.o.hlsearch = true
-end, { desc = 'Highlight selection' })
-map('x', '#', function()
-    _G.VSetSearch('?')
-    vim.o.hlsearch = true
-end, { desc = 'Highlight selection' })
+-- Search for current selection.
+map('x', '*', ':lua VSetSearch("/")<CR>/<C-r>=@/<CR><CR>')
+map('x', '#', ':lua VSetSearch("?")<CR>?<C-r>=@/<CR><CR>')
 
 function _G.VSetSearch(search_cmd)
     vim.cmd([[
