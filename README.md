@@ -37,10 +37,6 @@ Alternatively, you can follow the [manual installation guide](manual-installatio
 - Install plugins: `<prefix> I`
 - Update plugins: `<prefix> U`
 
-## Neovim setup
-
-Run `:Lazy restore` to install/update all plugins to the state in the lockfile. (See [lazy.nvim](https://lazy.folke.io/).)
-
 ## IntelliJ
 
 - Add theme: Install [Inklight](https://github.com/mjlaufer/inklight-intellij), and follow the steps in the README.
