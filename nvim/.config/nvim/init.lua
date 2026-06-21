@@ -69,6 +69,7 @@ if not IS_VSCODE then
         'https://github.com/nvim-lualine/lualine.nvim',
 
         'https://github.com/MagicDuck/grug-far.nvim',
+        'https://github.com/stevearc/quicker.nvim',
 
         -- Editor
         'https://github.com/stevearc/conform.nvim',
