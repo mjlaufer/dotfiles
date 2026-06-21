@@ -67,7 +67,6 @@ if not IS_VSCODE then
         'https://github.com/nvim-tree/nvim-tree.lua',
         'https://github.com/stevearc/oil.nvim',
         'https://github.com/nvim-lualine/lualine.nvim',
-
         'https://github.com/MagicDuck/grug-far.nvim',
         'https://github.com/stevearc/quicker.nvim',
 
@@ -77,6 +76,7 @@ if not IS_VSCODE then
         'https://github.com/windwp/nvim-autopairs',
         'https://github.com/windwp/nvim-ts-autotag',
         'https://github.com/catgoose/nvim-colorizer.lua',
+        'https://github.com/Cannon07/code-preview.nvim',
 
         -- Git
         'https://github.com/lewis6991/gitsigns.nvim',
