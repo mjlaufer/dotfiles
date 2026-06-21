@@ -29,10 +29,10 @@ vim.api.nvim_create_autocmd('PackChanged', {
 
 -- Core plugins (always loaded, including VS Code).
 vim.pack.add({
-    { src = 'https://github.com/echasnovski/mini.ai', version = vim.version.range('*') },
-    { src = 'https://github.com/echasnovski/mini.bracketed', version = vim.version.range('*') },
-    { src = 'https://github.com/echasnovski/mini.splitjoin', version = vim.version.range('*') },
-    { src = 'https://github.com/echasnovski/mini.surround', version = vim.version.range('*') },
+    { src = 'https://github.com/nvim-mini/mini.ai', version = vim.version.range('*') },
+    { src = 'https://github.com/nvim-mini/mini.bracketed', version = vim.version.range('*') },
+    { src = 'https://github.com/nvim-mini/mini.splitjoin', version = vim.version.range('*') },
+    { src = 'https://github.com/nvim-mini/mini.surround', version = vim.version.range('*') },
     'https://github.com/tpope/vim-characterize',
     'https://github.com/tpope/vim-eunuch',
     'https://github.com/justinmk/vim-gtfo',
@@ -46,7 +46,9 @@ if not IS_VSCODE then
 
         -- UI
         'https://github.com/mjlaufer/inklight.nvim',
-        'https://github.com/folke/snacks.nvim',
+        { src = 'https://github.com/nvim-mini/mini.input', version = vim.version.range('*') },
+        { src = 'https://github.com/nvim-mini/mini.notify', version = vim.version.range('*') },
+        'https://github.com/karb94/neoscroll.nvim',
         'https://github.com/nvim-treesitter/nvim-treesitter',
         'https://github.com/nvim-treesitter/nvim-treesitter-context',
         'https://github.com/nvim-treesitter/nvim-treesitter-textobjects',
@@ -61,8 +63,8 @@ if not IS_VSCODE then
         'https://github.com/mfussenegger/nvim-jdtls',
 
         -- Workspace
-        { src = 'https://github.com/echasnovski/mini.bufremove', version = vim.version.range('*') },
-        { src = 'https://github.com/echasnovski/mini.clue', version = vim.version.range('*') },
+        { src = 'https://github.com/nvim-mini/mini.bufremove', version = vim.version.range('*') },
+        { src = 'https://github.com/nvim-mini/mini.clue', version = vim.version.range('*') },
         'https://github.com/ibhagwan/fzf-lua',
         'https://github.com/nvim-tree/nvim-tree.lua',
         'https://github.com/stevearc/oil.nvim',
@@ -71,6 +73,7 @@ if not IS_VSCODE then
         'https://github.com/stevearc/quicker.nvim',
 
         -- Editor
+        'https://github.com/saghen/blink.indent',
         'https://github.com/stevearc/conform.nvim',
         'https://github.com/folke/ts-comments.nvim',
         'https://github.com/windwp/nvim-autopairs',

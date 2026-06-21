@@ -23,6 +23,12 @@ end
 
 require('mini.bufremove').setup()
 
+-- mini.input overrides vim.ui.input automatically; mini.notify needs the
+-- explicit vim.notify assignment.
+require('mini.input').setup()
+require('mini.notify').setup()
+vim.notify = require('mini.notify').make_notify()
+
 vim.keymap.set('n', '<leader>bd', function()
     require('mini.bufremove').delete(0, false)
 end, { desc = 'Delete current buffer' })
@@ -52,7 +58,6 @@ miniclue.setup({
     clues = {
         { mode = 'n', keys = '[', desc = '+prev' },
         { mode = 'n', keys = ']', desc = '+next' },
-        { mode = 'n', keys = '<leader>a', desc = '+LSP' },
         { mode = 'n', keys = '<leader>b', desc = '+Buffers' },
         { mode = 'n', keys = '<leader>c', desc = '+Code' },
         { mode = 'n', keys = '<leader>d', desc = '+Debug' },
