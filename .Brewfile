@@ -8,6 +8,7 @@ cask "font-symbols-only-nerd-font"
 brew "bat"
 brew "buf"
 brew "direnv"
+brew "fd"
 brew "fzf"
 brew "git"
 brew "git-delta"
@@ -19,6 +20,7 @@ brew "just"
 brew "lazygit"
 brew "less"
 brew "mise"
+brew "ripgrep"
 brew "stow"
 
 # C/C++
@@ -51,13 +53,8 @@ brew "tmux"
 
 # Neovim
 brew "neovim"
-brew "ripgrep"
 brew "tree-sitter"
 brew "tree-sitter-cli"
-
-# Ranger
-brew "ranger"
-brew "trash"
 
 # SketchyBar and JankyBorders
 tap "FelixKratz/formulae"
@@ -66,6 +63,14 @@ cask "sf-symbols"
 cask "font-sketchybar-app-font"
 brew "switchaudio-osx"
 brew "borders"
+
+# Yazi
+brew "yazi"
+brew "ffmpeg-full"
+brew "imagemagick-full"
+brew "poppler"
+brew "resvg"
+brew "sevenzip"
 
 # Apps
 cask "ghostty"

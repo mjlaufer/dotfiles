@@ -8,6 +8,10 @@ mkdir -p ~/workspaces
 # Homebrew
 brew bundle --file=~/dotfiles/.Brewfile
 
+# Force-link the -full media tools so their binaries are runnable (they aren't linked by default).
+# Yazi uses ffmpeg/imagemagick for video and image previews.
+brew link ffmpeg-full imagemagick-full -f --overwrite
+
 # Oh My Zsh
 if [ -d ~/.oh-my-zsh ]; then
 	echo "\nOh My Zsh is already installed."

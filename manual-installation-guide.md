@@ -16,6 +16,12 @@ Install the command line utilities, fonts, and GUI macOS apps listed in `.Brewfi
 $ brew bundle --file=~/dotfiles/.Brewfile
 ```
 
+The `ffmpeg-full` and `imagemagick-full` formulae aren't linked automatically, so their binaries won't be on your `PATH` until you force-link them (Yazi relies on `ffmpeg`/`imagemagick` for video and image previews):
+
+```sh
+$ brew link ffmpeg-full imagemagick-full -f --overwrite
+```
+
 ### Oh My Zsh
 
 Install [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh). It will automatically rename the current `.zshrc` file (if one exists) to `.zshrc.pre-oh-my-zsh`. Rename (or delete) the `.zshrc` created by Oh My Zsh so you can `stow` this repo's `zsh/` contents without conflicts.

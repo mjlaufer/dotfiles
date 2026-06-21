@@ -1,0 +1,102 @@
+# Preview-pane syntax highlighting is provided by the bundled tmtheme.xml.
+# The [icon] section is intentionally omitted so Yazi's preset icons are used.
+
+[mgr]
+cwd = { fg = "#007585" }
+
+# Find
+find_keyword  = { fg = "#b65f00", bold = true, italic = true, underline = true }
+find_position = { fg = "#9b1b60", bg = "reset", bold = true, italic = true }
+
+# Marker
+marker_copied   = { fg = "#387200", bg = "#387200" }
+marker_cut      = { fg = "#b61e00", bg = "#b61e00" }
+marker_marked   = { fg = "#007585", bg = "#007585" }
+marker_selected = { fg = "#b65f00", bg = "#b65f00" }
+
+# Count
+count_copied   = { fg = "#f2f2f2", bg = "#387200" }
+count_cut      = { fg = "#f2f2f2", bg = "#b61e00" }
+count_selected = { fg = "#f2f2f2", bg = "#b65f00" }
+
+# Border
+border_symbol = "│"
+border_style  = { fg = "#6e6e6e" }
+
+[tabs]
+active   = { fg = "#f2f2f2", bg = "#0049b1", bold = true }
+inactive = { fg = "#0049b1", bg = "#d7d7d7" }
+
+[mode]
+normal_main = { fg = "#f2f2f2", bg = "#0049b1", bold = true }
+normal_alt  = { fg = "#0049b1", bg = "#d7d7d7" }
+select_main = { fg = "#f2f2f2", bg = "#007585", bold = true }
+select_alt  = { fg = "#007585", bg = "#d7d7d7" }
+unset_main  = { fg = "#f2f2f2", bg = "#9b1b60", bold = true }
+unset_alt   = { fg = "#9b1b60", bg = "#d7d7d7" }
+
+[status]
+perm_sep   = { fg = "#6e6e6e" }
+perm_type  = { fg = "#0049b1" }
+perm_read  = { fg = "#b65f00" }
+perm_write = { fg = "#b61e00" }
+perm_exec  = { fg = "#387200" }
+
+progress_label  = { fg = "#1b1b1b", bold = true }
+progress_normal = { fg = "#387200", bg = "#d7d7d7" }
+progress_error  = { fg = "#b65f00", bg = "#b61e00" }
+
+[pick]
+border   = { fg = "#0049b1" }
+active   = { fg = "#9b1b60", bold = true }
+inactive = {}
+
+[input]
+border   = { fg = "#0049b1" }
+title    = {}
+value    = {}
+selected = { reversed = true }
+
+[cmp]
+border = { fg = "#0049b1" }
+
+[tasks]
+border  = { fg = "#0049b1" }
+title   = {}
+hovered = { fg = "#9b1b60", bold = true }
+
+[which]
+mask            = { bg = "#d7d7d7" }
+cand            = { fg = "#007585" }
+rest            = { fg = "#6e6e6e" }
+desc            = { fg = "#9b1b60" }
+separator       = "  "
+separator_style = { fg = "#6e6e6e" }
+
+[help]
+on      = { fg = "#007585" }
+run     = { fg = "#9b1b60" }
+hovered = { reversed = true, bold = true }
+footer  = { fg = "#d7d7d7", bg = "#1b1b1b" }
+
+[spot]
+border   = { fg = "#0049b1" }
+title    = { fg = "#0049b1" }
+tbl_col  = { fg = "#007585" }
+tbl_cell = { fg = "#9b1b60", bg = "#d7d7d7" }
+
+[notify]
+title_info  = { fg = "#387200" }
+title_warn  = { fg = "#b65f00" }
+title_error = { fg = "#b61e00" }
+
+[filetype]
+rules = [
+    { mime = "image/*", fg = "#007585" },
+    { mime = "{audio,video}/*", fg = "#b65f00" },
+    { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#9b1b60" },
+    { mime = "application/{pdf,doc,rtf}", fg = "#387200" },
+    { mime = "vfs/{absent,stale}", fg = "#6e6e6e" },
+    { url = "*", fg = "#1b1b1b" },
+    { url = "*/", fg = "#0049b1" },
+]
