@@ -48,7 +48,6 @@ brew "yarn"
 
 # tmux
 brew "tmux"
-brew "reattach-to-user-namespace"
 
 # Neovim
 brew "neovim"
