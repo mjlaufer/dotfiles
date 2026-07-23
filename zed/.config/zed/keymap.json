@@ -1,0 +1,101 @@
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-\\": "terminal_panel::ToggleFocus",
+    },
+  },
+  {
+    "context": "vim_mode == normal && !menu",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-l": "workspace::ActivatePaneRight",
+
+      "space b d": "pane::CloseActiveItem",
+
+      "space c f": "editor::Format",
+      "space c g": [
+        "pane::DeploySearch",
+        {
+          "replace_enabled": true,
+        },
+      ],
+
+      "space d b": "editor::ToggleBreakpoint",
+      "space d c": "debugger::Continue",
+      "space d j": "debugger::StepOver",
+      "space d k": "debugger::StepOut",
+      "space d l": "debugger::StepInto",
+      "space d q": "debugger::Stop",
+      "space d r": "debugger::FocusConsole",
+      "space d s": "debugger::Start",
+      "space d u i": "debug_panel::ToggleFocus",
+      "space d w f": "debugger::FocusFrames",
+      "space d w s": "debugger::FocusVariables",
+
+      "space e e": "project_panel::Toggle",
+      "space e f": "pane::RevealInProjectPanel",
+      "space e o": "project_panel::ToggleFocus",
+      "-": "project_panel::ToggleFocus",
+
+      "space f b": "tab_switcher::ToggleAll",
+      "space f d": "diagnostics::Deploy",
+      "space f f": "file_finder::Toggle",
+      "space f g": "file_finder::Toggle",
+      "space f h": "command_palette::Toggle",
+      "space f o": "tab_switcher::ToggleAll",
+      "space f s": "pane::DeploySearch",
+
+      "[ g": "editor::GoToPreviousHunk",
+      "] g": "editor::GoToHunk",
+      "space g b": "editor::ToggleGitBlameInline",
+      "space g c": "pane::CloseActiveItem",
+      "space g l": [
+        "task::Spawn",
+        {
+          "task_name": "start lazygit",
+          "reveal_target": "center",
+        },
+      ],
+      "space g o": "git::Diff",
+      "space g p": "editor::ToggleSelectedDiffHunks",
+      "space g r": "git::Restore",
+      "space g s": "git::ToggleStaged",
+      "space g shift-y": "editor::OpenPermalinkToLine",
+      "space g y": "editor::CopyPermalinkToLine",
+
+      "space l d": "diagnostics::Deploy",
+
+      "g r h": "editor::ToggleInlayHints",
+
+      "space t n": "editor::SpawnNearestTask",
+      "space t r": "task::Rerun",
+      "space t s": "task::Spawn",
+    },
+  },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      "<": ["workspace::SendKeystrokes", "< g v"],
+      ">": ["workspace::SendKeystrokes", "> g v"],
+      "shift-j": "editor::MoveLineDown",
+      "shift-k": "editor::MoveLineUp",
+      "shift-s": "vim::PushAddSurrounds",
+      "space p": [
+        "vim::Paste",
+        {
+          "preserve_clipboard": true,
+        },
+      ],
+    },
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "space e c": "project_panel::CollapseAllEntries",
+      "space e e": "project_panel::Toggle",
+    },
+  },
+]

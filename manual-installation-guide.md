@@ -62,6 +62,16 @@ If there are no warnings, you may use `stow` to symlink your dotfiles.
 $ stow PACKAGE_NAME
 ```
 
+For Zed, keep `~/.config/zed` as a real directory so generated runtime data does not get written to the dotfiles repository. Run this before launching Zed on a new machine. Zed reads the linked files from its normal configuration directory, so it will use them on its first launch:
+
+```sh
+$ mkdir -p ~/.config/zed
+$ stow -n --no-folding zed
+$ stow --no-folding zed
+```
+
+If Zed has already been launched and created `settings.json`, `keymap.json`, or `tasks.json`, move or delete those files before stowing the `zed` package.
+
 To install the [bat](https://github.com/sharkdp/bat/#adding-new-themes) theme used by [lazygit](https://github.com/jesseduffield/lazygit)/[delta](https://github.com/dandavison/delta), update the bat binary cache:
 
 ```sh
