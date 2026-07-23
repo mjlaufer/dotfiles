@@ -29,10 +29,17 @@ git submodule update --init --recursive
 # GNU Stow to symlink dotfiles
 for source in ~/dotfiles/*; do
     if [ -d "$source" ]; then
-        base="$(basename $source)"
+        base="$(basename "$source")"
         echo "Stowing $base..."
-        stow -D $base
-        stow $base
+        stow -D "$base"
+
+        # Keep Zed's generated runtime data outside the dotfiles repository.
+        if [ "$base" = "zed" ]; then
+            mkdir -p ~/.config/zed
+            stow --no-folding "$base"
+        else
+            stow "$base"
+        fi
     fi
 done
 
